@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">Weather Chat App</string>
 
-    <string name="action_next">Next</string>
-    <string name="action_settings">Settings</string>
-
     <string name="title_home">Home</string>
-    <string name="title_chats">Chats</string>
+    <string name="title_weather">Weather</string>
+    <string name="title_chat">Chat</string>
 </resources>
