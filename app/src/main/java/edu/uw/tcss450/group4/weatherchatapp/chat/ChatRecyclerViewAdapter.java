@@ -26,19 +26,15 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
     public ChatViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         return new ChatViewHolder(LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.fragment_chat_list, parent, false));
+                .inflate(R.layout.fragment_chat, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull)
 
-    }
-
-    @Override
-    public int getItemCount() {
+    public int getChatCount() {
         return mChats.size();
     }
-
 
     /**
      * Objects from this class represent an individual row View from the List
