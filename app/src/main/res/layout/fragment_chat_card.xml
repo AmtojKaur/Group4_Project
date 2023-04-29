@@ -5,30 +5,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_root"
     android:layout_width="match_parent"
-    android:layout_height="75dp">
+    android:layout_height="75dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp">
 
-    <ImageView
-        android:id="@+id/img_thumbnail"
-        android:layout_marginLeft="25dp"
-        android:layout_centerVertical="true"
-        android:scaleType="centerInside"
-        android:layout_width="50dp"
-        android:layout_height="50dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_inner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_title"
+        app:layout_constraintTop_toTopOf="@+id/text_title">
 
-    <TextView
-        android:id="@+id/message_sender"
-        android:layout_marginLeft="25dp"
-        android:layout_toRightOf="@+id/img_thumbnail"
-        android:layout_alignTop="@+id/img_thumbnail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/img_thumbnail"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/message_body"
-        android:layout_below="@+id/message_sender"
-        android:layout_alignLeft="@+id/message_sender"
-        />
-
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:outlineAmbientShadowColor="@color/black"
+            android:layout_alignTop="@+id/img_thumbnail"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/img_thumbnail"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_thumbnail"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
