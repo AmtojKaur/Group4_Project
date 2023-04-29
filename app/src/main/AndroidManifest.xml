@@ -12,6 +12,11 @@
         android:theme="@style/Theme.WeatherChatApp"
         tools:targetApi="31">
         <activity
+            android:name=".AuthActivity"
+            android:exported="false"
+            android:label="@string/title_activity_auth"
+            android:theme="@style/Theme.WeatherChatApp.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
