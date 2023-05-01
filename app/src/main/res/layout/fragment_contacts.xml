@@ -13,6 +13,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_contact_profile_image_black_24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
             <TextView
                 android:id="@+id/item_number"
                 android:layout_width="wrap_content"
@@ -20,7 +29,7 @@
                 android:layout_marginStart="16dp"
                 android:textAppearance="?attr/textAppearanceListItem"
                 app:layout_constraintBaseline_toBaselineOf="@+id/content"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/profile_image"/>
 
             <TextView
                 android:id="@+id/content"
@@ -29,19 +38,19 @@
                 android:layout_marginStart="16dp"
                 android:textAppearance="?attr/textAppearanceListItem"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/profile_image"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/ic_contact_chat_black_24dp" />
+                app:layout_constraintVertical_bias="0.6"
+                app:srcCompat="@drawable/ic_chat_black_24dp" />
 
             <ImageButton
                 android:id="@+id/imageButton"
@@ -51,7 +60,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_contact_delete_black_24dp" />
+                app:srcCompat="@drawable/ic_contact_delete_black_24dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/contacts_divider" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

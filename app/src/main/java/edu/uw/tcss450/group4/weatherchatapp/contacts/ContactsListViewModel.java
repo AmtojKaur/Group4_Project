@@ -24,5 +24,4 @@ public class ContactsListViewModel extends AndroidViewModel {
                                            @NonNull Observer<? super List<Contacts>> observer) {
             mContactList.observe(owner, observer);
         }
-
 }

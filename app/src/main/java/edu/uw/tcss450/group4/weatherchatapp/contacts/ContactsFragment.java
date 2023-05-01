@@ -19,11 +19,6 @@ import edu.uw.tcss450.group4.weatherchatapp.R;
 public class ContactsFragment extends Fragment {
 
     /**
-     * Number of columns in the contacts list
-     */
-    private int mColumnCount = 3;
-
-    /**
      * Empty constructor
      */
     public ContactsFragment() {
@@ -44,5 +39,4 @@ public class ContactsFragment extends Fragment {
         }
         return view;
     }
-
 }
