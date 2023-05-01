@@ -8,6 +8,8 @@
     <string name="title_chat">Chat</string>
     <string name="title_weather">Weather</string>
 
+    <string name="title_individual_chat">Weather</string>
+
     <string name="action_edit_profile">Edit Profile</string>
     <string name="action_log_out">Log Out</string>
 

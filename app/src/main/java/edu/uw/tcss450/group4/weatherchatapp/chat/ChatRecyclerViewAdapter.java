@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -61,12 +62,24 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
         }
 
         void setChatPreview(final ChatPreview chatPreview) {
+
+            setChat(chatPreview);
+
             mChat = chatPreview;
 
             // shows dummy data
             binding.name.setText(chatPreview.getContact());
             binding.time.setText(chatPreview.getTimeOfMsg());
             binding.message.setText(chatPreview.getPreviewMsg());
+        }
+
+        void setChat(final ChatPreview chat) {
+            binding.buttonIndividualChat.setOnClickListener(view -> {
+                Navigation.findNavController(mView).navigate(
+                        ChatListFragmentDirections
+                                .actionNavigationChatToNavigationIndividualChat(chat)
+                );
+            });
         }
     }
 }
