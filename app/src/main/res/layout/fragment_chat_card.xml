@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/img_profile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/ic_profile_black_24dp"
             android:contentDescription="TODO"
             android:scaleType="centerCrop"
@@ -40,7 +40,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/black"
-            android:textSize="13sp"
+            android:textSize="18sp"
             app:layout_constraintBaseline_toTopOf="@id/view_supporter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/img_profile" />
@@ -54,7 +54,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/black"
-            android:textSize="11sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/img_profile"
             app:layout_constraintTop_toBottomOf="@id/view_supporter" />
