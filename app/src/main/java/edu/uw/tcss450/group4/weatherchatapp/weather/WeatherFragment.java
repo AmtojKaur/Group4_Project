@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.Weather;
+package edu.uw.tcss450.group4.weatherchatapp.weather;
 
 import android.os.Bundle;
 
