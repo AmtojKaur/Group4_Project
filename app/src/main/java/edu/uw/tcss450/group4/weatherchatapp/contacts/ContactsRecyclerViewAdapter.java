@@ -28,16 +28,6 @@ public class ContactsRecyclerViewAdapter extends RecyclerView.Adapter<ContactsRe
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
-        // out of bounds bug fix -- DELETE THIS LATER
-        if (position <= 0) {
-            position = 0;
-        } else if (position > 4) {
-            position = 4;
-        } else {
-            position-- ;
-        }
-        // end of bug fix
-
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(holder.mItem.getmUsername());
 
@@ -45,8 +35,7 @@ public class ContactsRecyclerViewAdapter extends RecyclerView.Adapter<ContactsRe
 
     @Override
     public int getItemCount() {
-        // BUG -- DELETE THIS WHEN FIXED
-        return 5;//mValues.size();
+        return mValues.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
