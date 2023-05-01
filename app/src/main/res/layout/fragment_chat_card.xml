@@ -7,7 +7,11 @@
     android:layout_width="match_parent"
     android:layout_height="75dp"
     android:layout_margin="5dp"
-    app:cardCornerRadius="5dp">
+    app:cardCornerRadius="5dp"
+
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/black"
+    app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_inner"
@@ -31,7 +35,11 @@
             android:id="@+id/message"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:outlineAmbientShadowColor="@color/black"
+
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/black"
+            app:cardElevation="0dp"
+
             android:layout_alignTop="@+id/img_thumbnail"
             android:layout_marginEnd="10dp"
             android:layout_toEndOf="@+id/img_thumbnail"
