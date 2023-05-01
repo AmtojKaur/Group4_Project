@@ -22,6 +22,11 @@
         android:name="edu.uw.tcss450.group4.weatherchatapp.Weather.WeatherFragment"
         android:label="@string/title_weather"
         tools:layout="@layout/fragment_weather" />
+    <fragment
+        android:id="@+id/navigation_contacts"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.contacts.ContactsFragment"
+        android:label="@string/title_contacts"
+        tools:layout="@layout/fragment_contacts_list" />
 
 
 </navigation>
