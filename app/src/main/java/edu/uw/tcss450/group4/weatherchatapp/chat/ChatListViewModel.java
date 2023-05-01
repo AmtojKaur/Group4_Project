@@ -21,7 +21,7 @@ public class ChatListViewModel extends AndroidViewModel {
         mChatList.setValue(new ArrayList<>());
     }
 
-    public void addBlogListObserver(@NonNull LifecycleOwner owner,
+    public void addChatListObserver(@NonNull LifecycleOwner owner,
                                     @NonNull Observer<? super List<ChatPreview>> observer) {
         mChatList.observe(owner, observer);
     }

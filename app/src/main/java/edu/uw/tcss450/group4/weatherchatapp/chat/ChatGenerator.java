@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * This class is used to create Dummy Chats. Use it for development.
- * In future, get actual Chat data.
+ * This class is used to create Dummy Chats. Used for development.
  */
 
 public class ChatGenerator {
@@ -16,7 +15,7 @@ public class ChatGenerator {
         CHATS = new ChatPreview[COUNT];
         for (int i = 0; i < CHATS.length; i++) {
             CHATS[i] = new ChatPreview
-                    .Builder("Jane", "Hey there", "4:05 pm")
+                    .Builder("Jane", "Hey there, this is John.", "12:00 am")
                     .build();
         }
     }

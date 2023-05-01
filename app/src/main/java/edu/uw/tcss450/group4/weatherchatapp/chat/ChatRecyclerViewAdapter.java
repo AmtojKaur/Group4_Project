@@ -1,6 +1,5 @@
 package edu.uw.tcss450.group4.weatherchatapp.chat;
 
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,13 +7,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatListBinding;
 
 public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerViewAdapter.ChatViewHolder> {
     private final List<ChatPreview> mChats;
@@ -23,9 +19,9 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
         this.mChats = chatViews;
     }
 
-    @NotNull
+    @NonNull
     @Override
-    public ChatViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
+    public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ChatViewHolder(LayoutInflater
                 .from(parent.getContext())
                 .inflate(R.layout.fragment_chat_card, parent, false));
@@ -57,21 +53,20 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
             binding = FragmentChatCardBinding.bind(view);
         }
 
+        /**
+         * To be used when real-time data is implemented.
+         */
         private void displayPreview() {
 
         }
 
         void setChatPreview(final ChatPreview chatPreview) {
             mChat = chatPreview;
+
+            // shows dummy data
             binding.name.setText(chatPreview.getContact());
-
+            binding.time.setText(chatPreview.getTimeOfMsg());
             binding.message.setText(chatPreview.getPreviewMsg());
-
-            final String preview = Html.fromHtml(
-                    chatPreview.getPreviewMsg(),
-                    Html.FROM_HTML_MODE_COMPACT)
-                    .toString();
-            displayPreview();
         }
     }
 }

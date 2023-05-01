@@ -10,4 +10,7 @@
 
     <string name="action_edit_profile">Edit Profile</string>
     <string name="action_log_out">Log Out</string>
+
+    <string name="action_new_chat">New Chat</string>
+
 </resources>
