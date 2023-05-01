@@ -2,50 +2,62 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_root"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
-    android:layout_margin="5dp"
-    app:cardCornerRadius="5dp"
-
-    app:strokeWidth="1dp"
-    app:strokeColor="@color/black"
-    app:cardElevation="0dp">
+    android:layout_height="wrap_content"
+    android:padding="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_inner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@+id/text_title"
-        app:layout_constraintTop_toTopOf="@+id/text_title">
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/img_thumbnail"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.04"
+            android:id="@+id/img_profile"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_profile_black_24dp"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_supporter"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="@id/img_profile"
+            app:layout_constraintStart_toEndOf="@id/img_profile"
+            app:layout_constraintTop_toTopOf="@id/img_profile" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintBaseline_toTopOf="@id/view_supporter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_profile" />
 
         <TextView
             android:id="@+id/message"
             android:layout_width="0dp"
-            android:layout_height="50dp"
-
-            app:strokeWidth="1dp"
-            app:strokeColor="@color/black"
-            app:cardElevation="0dp"
-
-            android:layout_alignTop="@+id/img_thumbnail"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/img_thumbnail"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_thumbnail"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@id/img_profile"
+            app:layout_constraintTop_toBottomOf="@id/view_supporter" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

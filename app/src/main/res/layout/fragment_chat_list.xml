@@ -6,9 +6,10 @@
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_root"
-        android:name="edu.uw.tcss450.uiandnavigationlab.ui.blog.BlogFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.chat.ChatFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
@@ -17,8 +18,10 @@
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context="edu.uw.tcss450.uiandnavigationlab.ui.blog.BlogListFragment"
+        app:layout_constraintVertical_bias="0.0"
+        tools:context="edu.uw.tcss450.group4.weatherchatapp.chat.ChatFragment"
         tools:listitem="@layout/fragment_chat_card" />
 </androidx.constraintlayout.widget.ConstraintLayout>
