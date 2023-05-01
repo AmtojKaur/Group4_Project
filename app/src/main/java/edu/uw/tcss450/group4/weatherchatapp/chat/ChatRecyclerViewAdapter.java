@@ -13,6 +13,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatListBinding;
 
 public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerViewAdapter.ChatViewHolder> {
     private final List<ChatPreview> mChats;
@@ -26,12 +28,12 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
     public ChatViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         return new ChatViewHolder(LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.fragment_chat_list, parent, false));
+                .inflate(R.layout.fragment_chat_card, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
-
+        holder.setChatPreview(mChats.get(position));
     }
 
     @Override
@@ -46,11 +48,13 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
      */
     public class ChatViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
+        public FragmentChatCardBinding binding;
         private ChatPreview mChat;
 
         public ChatViewHolder(View view) {
             super(view);
             mView = view;
+            binding = FragmentChatCardBinding.bind(view);
         }
 
         private void displayPreview() {
@@ -59,12 +63,15 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
 
         void setChatPreview(final ChatPreview chatPreview) {
             mChat = chatPreview;
+            binding.name.setText(chatPreview.getContact());
+
+            binding.message.setText(chatPreview.getPreviewMsg());
+
             final String preview = Html.fromHtml(
                     chatPreview.getPreviewMsg(),
                     Html.FROM_HTML_MODE_COMPACT)
                     .toString();
             displayPreview();
         }
-
     }
 }

@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.chat.ChatFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home"/>
 
     <fragment
         android:id="@+id/navigation_chat"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.chat.ChatFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.chat.ChatListFragment"
         android:label="@string/title_chat"
         tools:layout="@layout/fragment_chat_list" />
 
