@@ -5,7 +5,7 @@
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.EmailVerificationFragment" >
+    tools:context=".ui.register.EmailVerificationFragment" >
 
     <EditText
         android:id="@+id/edit_email_verification"

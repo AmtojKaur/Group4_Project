@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#72FDFEFF"
-    tools:context=".ui.SignInFragment">
+    tools:context=".ui.signin.SignInFragment">
 
     <EditText
         android:id="@+id/edit_email"

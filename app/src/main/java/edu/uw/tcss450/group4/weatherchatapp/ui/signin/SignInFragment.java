@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.ui;
+package edu.uw.tcss450.group4.weatherchatapp.ui.signin;
 
 import android.os.Bundle;
 
@@ -12,17 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentRegisterBinding;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RegisterFragment extends Fragment {
+public class SignInFragment extends Fragment {
 
-    private RegisterViewModel mViewModel;
+    private SignInViewModel mViewModel;
 
-    public static RegisterFragment newInstance() {
-        return new RegisterFragment();
+    public static SignInFragment newInstance() {
+        return new SignInFragment();
     }
 
     @Override
@@ -34,8 +33,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(SignInViewModel.class);
         // TODO: Use the ViewModel
     }
-
 }

@@ -6,7 +6,7 @@
     app:startDestination="@id/signInFragment">
     <fragment
         android:id="@+id/signInFragment"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.SignInFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.signin.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.RegisterFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/emailVerification"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.EmailVerificationFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.register.EmailVerificationFragment"
         android:label="fragment_email_verification"
         tools:layout="@layout/fragment_email_verification" >
         <action
