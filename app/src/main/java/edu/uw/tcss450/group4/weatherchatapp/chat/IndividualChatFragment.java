@@ -17,6 +17,8 @@ import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
 
 public class IndividualChatFragment extends Fragment {
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
