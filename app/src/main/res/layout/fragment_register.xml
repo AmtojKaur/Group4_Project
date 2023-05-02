@@ -27,8 +27,10 @@
 
     <EditText
         android:id="@+id/edit_last"
-        android:layout_width="396dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:ems="10"
@@ -55,8 +57,10 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/edit_last"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
@@ -101,16 +105,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="250dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_password_again"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints,VisualLintTextFieldSize"
-        tools:layout_editor_absoluteY="448dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_register"
