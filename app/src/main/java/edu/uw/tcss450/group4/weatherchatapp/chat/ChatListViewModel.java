@@ -13,10 +13,11 @@ import androidx.lifecycle.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.uw.tcss450.group4.weatherchatapp.R;
+
 public class ChatListViewModel extends AndroidViewModel {
 
     private MutableLiveData<List<ChatPreview>> mChatList;
-    private ChatListFragment mChatListFragment;
 
     public ChatListViewModel(@NonNull Application application) {
         super(application);
@@ -28,18 +29,6 @@ public class ChatListViewModel extends AndroidViewModel {
                                     @NonNull Observer<? super List<ChatPreview>> observer) {
         mChatList.observe(owner, observer);
     }
-
-//    public void newChat() {
-//        Log.d("Add chat", "NEW CHAT");
-//        mChatList.getValue().add(new ChatPreview
-//                .Builder("Jane", "Hey there, this is John.", "12:00 am")
-//                .build());
-//    }
-//
-//    public void deleteChat() {
-//        mChatList.getValue().remove(mChatList.getValue().size() - 1);
-//    }
-
 
     // TODO: implement ViewModel
 

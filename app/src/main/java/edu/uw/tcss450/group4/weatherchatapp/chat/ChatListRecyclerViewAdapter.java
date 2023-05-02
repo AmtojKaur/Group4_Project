@@ -1,9 +1,9 @@
 package edu.uw.tcss450.group4.weatherchatapp.chat;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
@@ -16,6 +16,8 @@ import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
 
 public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRecyclerViewAdapter.ChatListViewHolder> {
     private List<ChatPreview> mChats;
+
+    public static boolean add;
 
     public ChatListRecyclerViewAdapter(List<ChatPreview> chatViews) {
         this.mChats = chatViews;
@@ -32,8 +34,12 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
     @Override
     public void onBindViewHolder(@NonNull ChatListViewHolder holder, int position) {
         holder.setChatPreview(mChats.get(position));
-        //holder.checkDeleteChat(position);
-        holder.checkAddChat();
+        holder.checkDeleteChat(position);
+        if (add) {
+            Log.d("Entered if add", "check add chat");
+            holder.checkAddChat();
+        }
+        //add = false;
     }
 
     @Override
@@ -41,7 +47,10 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
         return mChats.size();
     }
 
-
+    public static void setAdd(boolean yes) {
+        Log.d("Entered enable chat", "add yes");
+        add = yes;
+    }
 
     /**
      * Objects from this class represent an individual row View from the List
@@ -53,18 +62,10 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
         public FragmentChatCardBinding binding;
         private ChatPreview mChat;
 
-
         public ChatListViewHolder(View view) {
             super(view);
             mView = view;
             binding = FragmentChatCardBinding.bind(view);
-        }
-
-        /**
-         * To be used when real-time data is implemented.
-         */
-        private void displayPreview() {
-
         }
 
         void setChatPreview(final ChatPreview chatPreview) {
@@ -89,19 +90,25 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
 
         void checkDeleteChat(final int position) {
             binding.buttonDelete.setOnClickListener(view -> {
+                Log.d("Pressed profile button", "Deleted chat");
                 mChats.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, mChats.size());
             });
         }
 
-        void checkAddChat() {
-            binding.buttonDelete.setOnClickListener(view -> {
-                mChats.add(ChatGenerator.addChat());
-                notifyItemInserted(mChats.size() - 1);
-                notifyItemRangeChanged(mChats.size() - 1, mChats.size());
-            });
+         void checkAddChat() {
+             Log.d("Entered check add chat", "adding chat");
+             mChats.add(ChatGenerator.addChat());
+            notifyItemInserted(mChats.size() - 1);
+            notifyItemRangeChanged(mChats.size() - 1, mChats.size());
         }
 
+        /**
+         * To be used when real-time data is implemented.
+         */
+        private void displayPreview() {
+
+        }
     }
 }

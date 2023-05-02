@@ -40,7 +40,6 @@ public class ChatListFragment extends Fragment {
         mModel = new ViewModelProvider(getActivity()).get(ChatListViewModel.class);
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -59,8 +58,13 @@ public class ChatListFragment extends Fragment {
                 binding.listRoot.setAdapter(
                         new ChatListRecyclerViewAdapter(ChatGenerator.getChatList())
                 );
-
             }
         });
+
+//        binding.floatingActionButton.setOnClickListener(viewChat -> {
+//            Log.d("Pressed FAB", "Add chat");
+//            ChatListRecyclerViewAdapter.setAdd(true);
+//        });
+
     }
 }
