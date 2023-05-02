@@ -8,6 +8,7 @@
     <string name="title_home">Home</string>
     <string name="title_chat">Chat</string>
     <string name="title_weather">Weather</string>
+    <string name="title_contacts">Contacts</string>
 
     <string name="title_individual_chat">Individual Chat</string>
 
@@ -15,7 +16,5 @@
     <string name="action_log_out">Log Out</string>
 
     <string name="prompt_type_a_message">Type a message</string>
-
-
 
 </resources>
