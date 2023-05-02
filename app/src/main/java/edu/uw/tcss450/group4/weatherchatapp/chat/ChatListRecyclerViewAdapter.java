@@ -32,7 +32,8 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
     @Override
     public void onBindViewHolder(@NonNull ChatListViewHolder holder, int position) {
         holder.setChatPreview(mChats.get(position));
-        holder.checkDeleteChat(position);
+        //holder.checkDeleteChat(position);
+        holder.checkAddChat();
     }
 
     @Override
@@ -94,10 +95,10 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
             });
         }
 
-        void checkAddChat(final ChatPreview chat) {
+        void checkAddChat() {
             binding.buttonDelete.setOnClickListener(view -> {
-                mChats.remove(mChats.size() - 1);
-                notifyItemRemoved(mChats.size() - 1);
+                mChats.add(ChatGenerator.addChat());
+                notifyItemInserted(mChats.size() - 1);
                 notifyItemRangeChanged(mChats.size() - 1, mChats.size());
             });
         }

@@ -34,6 +34,12 @@ public class ChatGenerator {
         return CHATS;
     }
 
+    public static ChatPreview addChat() {
+        return new ChatPreview
+                .Builder(dummyNames[1], dummyMessage[1], dummyTime[1])
+                .build();
+    }
+
 //    public static ChatPreview[] getCHATS() {
 //        return Arrays.copyOf(CHATS, CHATS.length);
 //    }
