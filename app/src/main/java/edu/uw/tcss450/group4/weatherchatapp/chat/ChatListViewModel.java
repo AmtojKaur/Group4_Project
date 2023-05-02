@@ -1,8 +1,10 @@
 package edu.uw.tcss450.group4.weatherchatapp.chat;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
@@ -14,6 +16,7 @@ import java.util.List;
 public class ChatListViewModel extends AndroidViewModel {
 
     private MutableLiveData<List<ChatPreview>> mChatList;
+    private ChatListFragment mChatListFragment;
 
     public ChatListViewModel(@NonNull Application application) {
         super(application);
@@ -25,6 +28,18 @@ public class ChatListViewModel extends AndroidViewModel {
                                     @NonNull Observer<? super List<ChatPreview>> observer) {
         mChatList.observe(owner, observer);
     }
+
+//    public void newChat() {
+//        Log.d("Add chat", "NEW CHAT");
+//        mChatList.getValue().add(new ChatPreview
+//                .Builder("Jane", "Hey there, this is John.", "12:00 am")
+//                .build());
+//    }
+//
+//    public void deleteChat() {
+//        mChatList.getValue().remove(mChatList.getValue().size() - 1);
+//    }
+
 
     // TODO: implement ViewModel
 

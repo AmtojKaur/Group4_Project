@@ -1,5 +1,6 @@
 package edu.uw.tcss450.group4.weatherchatapp.chat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,24 +9,30 @@ import java.util.List;
  */
 
 public class ChatGenerator {
-    private static final ChatPreview[] CHATS;
-    public static final int COUNT = 5;
+    private static final ArrayList<ChatPreview> CHATS;
+    public static int COUNT = 5;
 
     static {
-        CHATS = new ChatPreview[COUNT];
-        for (int i = 0; i < CHATS.length; i++) {
-            CHATS[i] = new ChatPreview
+        CHATS = new ArrayList<>();
+        for (int i = 0; i < COUNT; i++) {
+            CHATS.add(new ChatPreview
                     .Builder("Jane", "Hey there, this is John.", "12:00 am")
-                    .build();
+                    .build());
         }
+
     }
 
     public static List<ChatPreview> getChatList() {
-        return Arrays.asList(CHATS);
+        //return Arrays.asList(CHATS);
+        return CHATS;
     }
 
-    public static ChatPreview[] getCHATS() {
-        return Arrays.copyOf(CHATS, CHATS.length);
+//    public static ChatPreview[] getCHATS() {
+//        return Arrays.copyOf(CHATS, CHATS.length);
+//    }
+
+    public void setCount(int num) {
+        COUNT = num;
     }
 
     /**
