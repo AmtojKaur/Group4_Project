@@ -8,18 +8,23 @@ public class Contacts implements Serializable {
     private final String mLastName;
     private final String mUsername;
     private final int mContactId;
+    private boolean mIsActive;
 
     public static class ContactsBuilder {
         private final String mFirstName;
         private final String mLastName;
         private final String mUsername;
         private final int mContactId;
+        private final boolean mIsActive;
 
-        public ContactsBuilder(String theFirstname, String theLastName, String theUsername, int theContactId) {
+
+        public ContactsBuilder(String theFirstname, String theLastName, String theUsername,
+                               int theContactId, boolean theIsActive) {
             this.mFirstName = theFirstname;
             this.mLastName = theLastName;
             this.mUsername = theUsername;
             this.mContactId = theContactId;
+            this.mIsActive = theIsActive;
         }
 
         public Contacts build() {
@@ -32,6 +37,7 @@ public class Contacts implements Serializable {
         this.mLastName = builder.mLastName;
         this.mUsername = builder.mUsername;
         this.mContactId = builder.mContactId;
+        this.mIsActive = builder.mIsActive;
     }
 
 
@@ -49,5 +55,12 @@ public class Contacts implements Serializable {
 
         public int getmContactId() {
             return mContactId;
+        }
+        public boolean getmIsActive() {
+            return mIsActive;
+        }
+
+        public void setAccountActivity(boolean active) {
+            mIsActive = active;
         }
 }
