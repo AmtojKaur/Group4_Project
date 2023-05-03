@@ -1,9 +1,11 @@
-package edu.uw.tcss450.group4.weatherchatapp.chat;
+package edu.uw.tcss450.group4.weatherchatapp.chat.list;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.chat.individual.IndividualChat;
 
 /**
  * This class is used to create Dummy Chats. Used for development.

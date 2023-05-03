@@ -1,10 +1,8 @@
-package edu.uw.tcss450.group4.weatherchatapp.chat;
+package edu.uw.tcss450.group4.weatherchatapp.chat.list;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
@@ -13,7 +11,7 @@ import androidx.lifecycle.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview;
 
 public class ChatListViewModel extends AndroidViewModel {
 
