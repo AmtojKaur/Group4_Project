@@ -4,5 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeFragment"/>
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/weatherFragmentContainer"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.WeatherFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_weather" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/recentChatsFragmentContainer"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.RecentChatsFragment"
+        android:layout_width="411dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weatherFragmentContainer"
+        tools:layout="@layout/fragment_recent_chats_list" />
+</androidx.constraintlayout.widget.ConstraintLayout>
