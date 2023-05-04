@@ -5,6 +5,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -15,6 +17,9 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import edu.uw.tcss450.group4.weatherchatapp.chat.list.ChatGenerator;
+import edu.uw.tcss450.group4.weatherchatapp.chat.list.ChatListRecyclerViewAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
     private View decorView;
@@ -24,6 +29,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        RecyclerView recyclerView = findViewById(R.id.chat_recycler_view);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        ChatListRecyclerViewAdapter adapter = new ChatListRecyclerViewAdapter(ChatGenerator.getChatList());
+//        recyclerView.setAdapter(adapter);
+//
+//        findViewById(R.id.floating_action_button).setOnClickListener(view -> {
+//            ChatGenerator.getChatList().add(ChatGenerator.addChat());
+//            adapter.notifyItemInserted(ChatGenerator.getChatList().size() - 1);
+//        });
 
         // hide system status bar and navigation bar
 //        decorView = getWindow().getDecorView();

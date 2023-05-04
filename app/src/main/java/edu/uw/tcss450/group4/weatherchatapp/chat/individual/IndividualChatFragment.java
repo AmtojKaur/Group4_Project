@@ -39,7 +39,6 @@ public class IndividualChatFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //IndividualChatFragmentArgs args = IndividualChatFragmentArgs.fromBundle(getArguments());
         IndividualChatFragmentArgs args = IndividualChatFragmentArgs.fromBundle(getArguments());
         FragmentIndividualChatListBinding binding = FragmentIndividualChatListBinding.bind(getView());
 

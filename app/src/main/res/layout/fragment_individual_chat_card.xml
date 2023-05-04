@@ -65,5 +65,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/message_receiver" />
 
+        <Button
+            android:id="@+id/button_add"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toBottomOf="@id/image_sender"
+            app:layout_constraintEnd_toEndOf="@id/image_sender"
+            app:layout_constraintStart_toStartOf="@+id/image_sender"
+            app:layout_constraintTop_toTopOf="@id/image_sender" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

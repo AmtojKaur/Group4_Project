@@ -1,5 +1,6 @@
 package edu.uw.tcss450.group4.weatherchatapp.chat.individual;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -34,14 +36,16 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
     public void onBindViewHolder(@NonNull IndividualChatRecyclerViewAdapter.IndividualChatViewHolder holder,
                                  int position) {
         holder.setChatPreview(mChats.get(position));
-        //holder.checkAddChat();
+        holder.checkAddChat();
+        if (holder.sendButton == null) {
+            Log.d("Check send button", "NULL");
+        }
         if (holder.sendButton != null) {
             Button button = holder.sendButton;
             button.setOnClickListener(view -> {
                 holder.checkAddChat();
             });
         }
-
     }
 
     @Override
@@ -63,7 +67,9 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
             mView = view;
             binding = FragmentIndividualChatCardBinding.bind(view);
 
-            sendButton = (Button) view.findViewById(R.id.button_send);
+
+            //Context parentView = view.getContext();
+            //sendButton = parentView.findViewById(R.id.button_send);
         }
 
         void setChatPreview(final IndividualChat chat) {
@@ -72,11 +78,13 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
 
         void checkAddChat() {
             Log.d("Entered check add chat", "adding chat");
-            //sendButton.setOnClickListener(view -> {
-                mChats.add(IndividualChatGenerator.addChat());
+            binding.buttonAdd.setOnClickListener(view -> {
+                Log.d("Clicked", "click add chat");
+
+                mChats.add(mChats.size() - 1, IndividualChatGenerator.addChat());
                 notifyItemInserted(mChats.size() - 1);
-                notifyItemRangeChanged(mChats.size() - 1, mChats.size());
-            //});
+                //notifyItemRangeChanged(mChats.size() - 1, mChats.size());
+            });
         }
     }
 }

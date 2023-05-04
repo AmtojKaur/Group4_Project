@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
@@ -35,12 +37,8 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
     @Override
     public void onBindViewHolder(@NonNull ChatListViewHolder holder, int position) {
         holder.setChatPreview(mChats.get(position));
-        holder.checkDeleteChat(position);
-        if (add) {
-            Log.d("Entered if add", "check add chat");
-            holder.checkAddChat();
-        }
-        //add = false;
+        //holder.checkDeleteChat(position);
+        holder.checkAddChat();
     }
 
     @Override
@@ -100,9 +98,12 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
 
          void checkAddChat() {
              Log.d("Entered check add chat", "adding chat");
-             mChats.add(ChatGenerator.addChat());
-            notifyItemInserted(mChats.size() - 1);
-            notifyItemRangeChanged(mChats.size() - 1, mChats.size());
+             binding.buttonDelete.setOnClickListener(view -> {
+                 mChats.add(ChatGenerator.addChat());
+                notifyItemInserted(mChats.size() - 1);
+             //notifyItemRangeChanged(mChats.size() - 1, mChats.size());
+             });
+
         }
 
         /**

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatListBinding;
@@ -60,10 +61,10 @@ public class ChatListFragment extends Fragment {
             }
         });
 
-//        binding.floatingActionButton.setOnClickListener(viewChat -> {
+//        FloatingActionButton button = getActivity().findViewById(R.id.floating_action_button);
+//        button.setOnClickListener(view1 -> {
 //            Log.d("Pressed FAB", "Add chat");
 //            ChatListRecyclerViewAdapter.setAdd(true);
 //        });
-
     }
 }
