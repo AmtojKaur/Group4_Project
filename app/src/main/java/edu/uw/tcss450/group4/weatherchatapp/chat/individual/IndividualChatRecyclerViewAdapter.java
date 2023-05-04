@@ -1,14 +1,11 @@
 package edu.uw.tcss450.group4.weatherchatapp.chat.individual;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -16,10 +13,21 @@ import java.util.List;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.*;
 
+/**
+ * Class that handles the Recyclerview of IndividualChat objects.
+ *
+ * @author Chloe Duncan
+ * @version 3 May 2023
+ */
 public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<IndividualChatRecyclerViewAdapter.IndividualChatViewHolder> {
 
-    private List<IndividualChat> mChats;
+    private final List<IndividualChat> mChats;
 
+    /**
+     * Public constructor that sets the private list of IndividualChat objects equal
+     * to the actual, passed in value of real-time IndividualChat objects.
+     * @param chatViews the ArrayList of IndividualChat objects
+     */
     public IndividualChatRecyclerViewAdapter(List<IndividualChat> chatViews) {
         this.mChats = chatViews;
     }
@@ -37,15 +45,6 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
                                  int position) {
         holder.setChatPreview(mChats.get(position));
         holder.checkAddChat();
-        if (holder.sendButton == null) {
-            Log.d("Check send button", "NULL");
-        }
-        if (holder.sendButton != null) {
-            Button button = holder.sendButton;
-            button.setOnClickListener(view -> {
-                holder.checkAddChat();
-            });
-        }
     }
 
     @Override
@@ -53,29 +52,39 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
         return mChats.size();
     }
 
+    /**
+     * Objects from this class represent an individual row View from the list
+     * of rows in the Individual Chat Recycler View.
+     */
     public class IndividualChatViewHolder extends RecyclerView.ViewHolder {
-
         public final View mView;
         public FragmentIndividualChatCardBinding binding;
-
         private IndividualChat mChat;
 
-        private Button sendButton;
-
+        /**
+         * Public constructor used to set the View and binding of an
+         * IndividualChat object.
+         * @param view the View associated with the IndiviualChat object
+         */
         public IndividualChatViewHolder(View view) {
             super(view);
             mView = view;
             binding = FragmentIndividualChatCardBinding.bind(view);
-
-
-            //Context parentView = view.getContext();
-            //sendButton = parentView.findViewById(R.id.button_send);
         }
 
+        /**
+         * Setter method that gets the last sent message and displays it
+         * on the IndividualChat object.
+         * @param chat the IndividualChat the message is associated with
+         */
         void setChatPreview(final IndividualChat chat) {
             mChat = chat;
         }
 
+        /**
+         * Method that checks if the button used to add a chat has been pressed,
+         * and then adds a new chat to the Recylerview if pressed is true.
+         */
         void checkAddChat() {
             Log.d("Entered check add chat", "adding chat");
             binding.buttonAdd.setOnClickListener(view -> {
@@ -83,7 +92,6 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
 
                 mChats.add(mChats.size() - 1, IndividualChatGenerator.addChat());
                 notifyItemInserted(mChats.size() - 1);
-                //notifyItemRangeChanged(mChats.size() - 1, mChats.size());
             });
         }
     }

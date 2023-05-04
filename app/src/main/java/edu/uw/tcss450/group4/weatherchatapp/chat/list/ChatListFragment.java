@@ -14,13 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatListBinding;
 
 /**
- * A simple {@link Fragment} subclass.
+ * A {@link Fragment} subclass
+ *
+ * @author Chloe Duncan
+ * @version 3 May 2023
  */
 public class ChatListFragment extends Fragment {
 
@@ -60,11 +62,5 @@ public class ChatListFragment extends Fragment {
                 );
             }
         });
-
-//        FloatingActionButton button = getActivity().findViewById(R.id.floating_action_button);
-//        button.setOnClickListener(view1 -> {
-//            Log.d("Pressed FAB", "Add chat");
-//            ChatListRecyclerViewAdapter.setAdd(true);
-//        });
     }
 }
