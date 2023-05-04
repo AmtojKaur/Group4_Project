@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.home;
+package edu.uw.tcss450.group4.weatherchatapp;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -8,25 +8,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.uw.tcss450.group4.weatherchatapp.R;
-
 /**
- * HomeWeatherFragment holds the content fragments that will be seen on the home screen.
+ * HomeWeatherFragment holds quick weather information that will be seen on the app home screen.
  *
  * @author Andrew Nguyen
  * @version 3 May 2023
  */
-public class HomeFragment extends Fragment {
+public class HomeWeatherFragment extends Fragment {
 
-    private HomeViewModel mViewModel;
+    private HomeWeatherViewModel mViewModel;
 
-    public static HomeFragment newInstance() {
-        return new HomeFragment();
+    /**
+     * @return a new instance of HomeWeatherFragment.
+     */
+    public static HomeWeatherFragment newInstance() {
+        return new HomeWeatherFragment();
     }
 
     /**
@@ -45,8 +45,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        Log.d("Bottom nav", "HOME");
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_weather_home, container, false);
     }
 
     /**
@@ -54,12 +53,11 @@ public class HomeFragment extends Fragment {
      *
      * @param savedInstanceState If the fragment is being re-created from
      * a previous saved state, this is the state.
-     *
      */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(HomeWeatherViewModel.class);
         // TODO: Use the ViewModel
     }
 
