@@ -8,7 +8,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/weatherFragmentContainer"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.WeatherFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.HomeWeatherFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
