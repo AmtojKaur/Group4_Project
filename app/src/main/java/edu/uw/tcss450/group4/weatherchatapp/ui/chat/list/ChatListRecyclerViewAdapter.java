@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.chat.list;
+package edu.uw.tcss450.group4.weatherchatapp.ui.chat.list;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
 
 /**
@@ -104,7 +104,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
         void setChat(final ChatPreview chat) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
                 Navigation.findNavController(mView).navigate(
-                        ChatListFragmentDirections
+                        edu.uw.tcss450.group4.weatherchatapp.chat.list.ChatListFragmentDirections
                                 .actionNavigationChatToNavigationIndividualChat(chat)
                 );
             });

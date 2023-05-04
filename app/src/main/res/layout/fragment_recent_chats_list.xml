@@ -10,5 +10,5 @@
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     android:orientation="vertical"
-    tools:context=".RecentChatsFragment"
+    tools:context=".ui.home.RecentChatsFragment"
     tools:listitem="@layout/fragment_recent_chats_card" />

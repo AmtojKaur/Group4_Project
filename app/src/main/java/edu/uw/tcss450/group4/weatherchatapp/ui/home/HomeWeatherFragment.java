@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp;
+package edu.uw.tcss450.group4.weatherchatapp.ui.home;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import edu.uw.tcss450.group4.weatherchatapp.R;
 
 /**
  * HomeWeatherFragment holds quick weather information that will be seen on the app home screen.

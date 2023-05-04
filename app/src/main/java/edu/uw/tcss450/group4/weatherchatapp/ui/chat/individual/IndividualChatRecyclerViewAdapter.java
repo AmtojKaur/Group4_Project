@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.chat.individual;
+package edu.uw.tcss450.group4.weatherchatapp.ui.chat.individual;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.*;
 
 /**
  * Class that handles the Recyclerview of IndividualChat objects.

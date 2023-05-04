@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@id/img_profile"
         app:layout_constraintStart_toStartOf="@id/img_profile"
         tools:listitem="@layout/fragment_individual_chat_card"
-        tools:context=".chat.individual.IndividualChatFragment"/>
+        tools:context=".ui.chat.individual.IndividualChatFragment"/>
 
     <FrameLayout
         android:id="@+id/layout_send"

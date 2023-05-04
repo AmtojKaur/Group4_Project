@@ -1,9 +1,9 @@
-package edu.uw.tcss450.group4.weatherchatapp.chat.list;
+package edu.uw.tcss450.group4.weatherchatapp.ui.chat.list;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
 /**
  * This class is used to create Dummy Chat overviews.

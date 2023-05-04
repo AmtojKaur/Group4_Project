@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeWeatherFragment">
+    tools:context=".ui.home.HomeWeatherFragment">
 
     <TextView
         android:id="@+id/weather_current_temperature"

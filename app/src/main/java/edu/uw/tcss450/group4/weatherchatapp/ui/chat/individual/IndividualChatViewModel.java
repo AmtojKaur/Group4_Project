@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.chat.list;
+package edu.uw.tcss450.group4.weatherchatapp.ui.chat.individual;
 
 import android.app.Application;
 
@@ -11,36 +11,33 @@ import androidx.lifecycle.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview;
-
 /**
- * Class that prepares and manages data associated with a ChatPreview object.
+ * Class that prepares and manages data associated with an IndividualChat object.
  *
  * @author Chloe Duncan
  */
-public class ChatListViewModel extends AndroidViewModel {
-
-    private final MutableLiveData<List<ChatPreview>> mChatList;
+public class IndividualChatViewModel extends AndroidViewModel {
+    private final MutableLiveData<List<IndividualChat>> mChatList;
 
     /**
      * Public constructor to declare a new MutableLiveData object and
      * sets its value to an ArrayList.
      * @param application the base class for maintaining global application state
-     *                    for a ChatPreview object
+     *                    for an IndividualChat object
      */
-    public ChatListViewModel(@NonNull Application application) {
+    public IndividualChatViewModel(@NonNull Application application) {
         super(application);
         mChatList = new MutableLiveData<>();
         mChatList.setValue(new ArrayList<>());
     }
 
     /**
-     * Class that checks if the list of ChatPreview objects has changed.
+     * Class that checks if the list of IndividualChat objects has changed.
      * @param owner the events of the Android life cycle
      * @param observer the live data associated with the list of IndividualChat objects
      */
-    public void addChatListObserver(@NonNull LifecycleOwner owner,
-                                    @NonNull Observer<? super List<ChatPreview>> observer) {
+    public void addIndividualChatListObserver(@NonNull LifecycleOwner owner,
+                                              @NonNull Observer<? super List<IndividualChat>> observer) {
         mChatList.observe(owner, observer);
     }
 }

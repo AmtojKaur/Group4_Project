@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp;
+package edu.uw.tcss450.group4.weatherchatapp.ui.home;
 
 import androidx.recyclerview.widget.RecyclerView;
 
