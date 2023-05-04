@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_weather" />
+        tools:layout="@layout/fragment_weather_home" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/recentChatsFragmentContainer"
