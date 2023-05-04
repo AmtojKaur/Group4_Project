@@ -39,7 +39,7 @@
         tools:layout="@layout/fragment_individual_chat_list" >
         <argument
             android:name="chat"
-            app:argType="edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview" />
+            app:argType="edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview" />
     </fragment>
 
 </navigation>

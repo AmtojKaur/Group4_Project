@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatListBinding;
 
 /**
  * Class that handles the Recyclerview of IndividualChat objects.
