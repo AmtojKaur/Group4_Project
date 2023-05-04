@@ -13,30 +13,34 @@ import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview;
 
+/**
+ * Class that prepares and manages data associated with a ChatPreview object.
+ *
+ * @author Chloe Duncan
+ */
 public class ChatListViewModel extends AndroidViewModel {
 
-    private MutableLiveData<List<ChatPreview>> mChatList;
+    private final MutableLiveData<List<ChatPreview>> mChatList;
 
+    /**
+     * Public constructor to declare a new MutableLiveData object and
+     * sets its value to an ArrayList.
+     * @param application the base class for maintaining global application state
+     *                    for a ChatPreview object
+     */
     public ChatListViewModel(@NonNull Application application) {
         super(application);
         mChatList = new MutableLiveData<>();
         mChatList.setValue(new ArrayList<>());
     }
 
+    /**
+     * Class that checks if the list of ChatPreview objects has changed.
+     * @param owner the events of the Android life cycle
+     * @param observer the live data associated with the list of IndividualChat objects
+     */
     public void addChatListObserver(@NonNull LifecycleOwner owner,
                                     @NonNull Observer<? super List<ChatPreview>> observer) {
         mChatList.observe(owner, observer);
     }
-
-    // TODO: implement ViewModel
-
-    // Individual or “Group” chat with an existing Connection(s)
-    // Start a chat
-    // Send and receive messages
-    // Messages must be stored (server side)
-    // “See” when the other person is typing (EC)
-    // Store previous messages locally (EC)
-    // Continue an individual chat with an existing Connection
-    // Open a new chat request from an existing Connection
-    // Send/receive Images (EC)
 }

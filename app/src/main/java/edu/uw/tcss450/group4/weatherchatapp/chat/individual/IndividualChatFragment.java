@@ -17,6 +17,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatListBinding;
 
+/**
+ * A {@link Fragment} subclass
+ *
+ * @author Chloe Duncan
+ * @version 3 May 2023
+ */
 public class IndividualChatFragment extends Fragment {
 
     private IndividualChatViewModel mModel;
