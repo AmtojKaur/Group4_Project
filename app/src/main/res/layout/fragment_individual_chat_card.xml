@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:padding="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_inner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/message_sender"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/background_chat_input"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="hello"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/image_sender"
+            app:layout_constraintTop_toTopOf="@id/layout_inner" />
+
+        <ImageView
+            android:id="@+id/image_sender"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_profile_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/message_sender" />
+
+        <TextView
+            android:id="@+id/message_receiver"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/background_chat_input"
+            android:backgroundTint="@color/colorLightBlue"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="hi there"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_receiver"
+            />
+
+        <ImageView
+            android:id="@+id/image_receiver"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_profile_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/message_receiver" />
+
+        <Button
+            android:id="@+id/button_add"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toBottomOf="@id/image_sender"
+            app:layout_constraintEnd_toEndOf="@id/image_sender"
+            app:layout_constraintStart_toStartOf="@+id/image_sender"
+            app:layout_constraintTop_toTopOf="@id/image_sender" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
