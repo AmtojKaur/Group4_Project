@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.uw.tcss450.group4.weatherchatapp.placeholder.PlaceholderContent;
+import edu.uw.tcss450.group4.weatherchatapp.model.PlaceholderContent;
 
 /**
  * Fragment holding a list of cards.

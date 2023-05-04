@@ -3,11 +3,10 @@ package edu.uw.tcss450.group4.weatherchatapp;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import edu.uw.tcss450.group4.weatherchatapp.placeholder.PlaceholderContent.PlaceholderItem;
+import edu.uw.tcss450.group4.weatherchatapp.model.PlaceholderContent.PlaceholderItem;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentRecentChatsBinding;
 
 import java.util.List;

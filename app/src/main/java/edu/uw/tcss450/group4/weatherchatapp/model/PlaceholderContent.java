@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.placeholder;
+package edu.uw.tcss450.group4.weatherchatapp.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
