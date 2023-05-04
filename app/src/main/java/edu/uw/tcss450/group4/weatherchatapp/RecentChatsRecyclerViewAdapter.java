@@ -15,6 +15,9 @@ import java.util.List;
 /**
  * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
  * TODO: Replace the implementation with code for your data type.
+ *
+ * @author Andrew Nguyen
+ * @version 3 May 2023
  */
 public class RecentChatsRecyclerViewAdapter extends RecyclerView.Adapter<RecentChatsRecyclerViewAdapter.ViewHolder> {
 
@@ -24,6 +27,14 @@ public class RecentChatsRecyclerViewAdapter extends RecyclerView.Adapter<RecentC
         mValues = items;
     }
 
+    /**
+     * Called on ViewHolder creation.
+     *
+     * @param parent   The ViewGroup into which the new View will be added after it is bound to
+     *                 an adapter position.
+     * @param viewType The view type of the new View.
+     * @return a ViewHolder
+     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -31,6 +42,13 @@ public class RecentChatsRecyclerViewAdapter extends RecyclerView.Adapter<RecentC
 
     }
 
+    /**
+     * Called when ViewHolder values are bound.
+     *
+     * @param holder   The ViewHolder which should be updated to represent the contents of the
+     *                 item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
@@ -38,22 +56,35 @@ public class RecentChatsRecyclerViewAdapter extends RecyclerView.Adapter<RecentC
         holder.mContentView.setText(mValues.get(position).content);
     }
 
+    /**
+     * @return the number of items in the RecyclerView.
+     */
     @Override
     public int getItemCount() {
         return mValues.size();
     }
 
+    /**
+     * Inner class to hold Views.
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mIdView;
         public final TextView mContentView;
         public PlaceholderItem mItem;
 
+        /**
+         * Constructs a new ViewHolder.
+         * @param binding data binding for this ViewHolder.
+         */
         public ViewHolder(FragmentRecentChatsBinding binding) {
             super(binding.getRoot());
             mIdView = binding.itemNumber;
             mContentView = binding.content;
         }
 
+        /**
+         * @return String representation of ViewHolder
+         */
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";
