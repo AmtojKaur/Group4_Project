@@ -12,10 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * Class that represents the Home page of the app as a Fragment.
+ *
+ * @author Andrew Nguyen
+ */
 public class HomeFragment extends Fragment {
-
     private HomeViewModel mViewModel;
 
+    /**
+     * Public constructor that declares a new instance of the HomeFragment.
+     * @return new instance of the HomeFragment
+     */
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
@@ -32,5 +40,4 @@ public class HomeFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         // TODO: Use the ViewModel
     }
-
 }

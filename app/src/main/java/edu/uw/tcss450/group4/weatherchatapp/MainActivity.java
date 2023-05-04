@@ -5,8 +5,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,9 +15,12 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import edu.uw.tcss450.group4.weatherchatapp.chat.list.ChatGenerator;
-import edu.uw.tcss450.group4.weatherchatapp.chat.list.ChatListRecyclerViewAdapter;
-
+/**
+ * Class that is the main activity of the app, switching between the
+ * various fragments and views.
+ *
+ * @author Chloe Duncan
+ */
 public class MainActivity extends AppCompatActivity {
 
     private View decorView;
@@ -99,20 +100,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method that navigates user to user settings fragment when button is clicked in settings
+     * tool bar.
+     */
     private void userSettings() {
         // navigate to a settings fragment or other view type
         // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         // navController.navigate(R.id.nav_user_settings);
     }
 
+    /**
+     * Method that navigates user to log out fragment when button is clicked in settings
+     * tool bar.
+     */
     private void logOut() {
         // to be implemented
     }
 
-    /**
-     * Method that enables back navigation from sub fragments.
-     * @return
-     */
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
