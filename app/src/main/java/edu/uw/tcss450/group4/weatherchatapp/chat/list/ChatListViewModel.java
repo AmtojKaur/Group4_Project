@@ -17,9 +17,9 @@ import edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview;
  * Class that prepares and manages data associated with a ChatPreview object.
  *
  * @author Chloe Duncan
+ * @version 3 May 2023
  */
 public class ChatListViewModel extends AndroidViewModel {
-
     private final MutableLiveData<List<ChatPreview>> mChatList;
 
     /**
@@ -37,7 +37,7 @@ public class ChatListViewModel extends AndroidViewModel {
     /**
      * Class that checks if the list of ChatPreview objects has changed.
      * @param owner the events of the Android life cycle
-     * @param observer the live data associated with the list of IndividualChat objects
+     * @param observer the live data associated with the list of ChatPreview objects
      */
     public void addChatListObserver(@NonNull LifecycleOwner owner,
                                     @NonNull Observer<? super List<ChatPreview>> observer) {
