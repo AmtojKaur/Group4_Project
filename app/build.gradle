@@ -6,10 +6,6 @@ android {
     namespace 'edu.uw.tcss450.group4.weatherchatapp'
     compileSdk 33
 
-    buildFeatures {
-        viewBinding true
-    }
-
     defaultConfig {
         applicationId "edu.uw.tcss450.group4.weatherchatapp"
         minSdk 24
@@ -29,6 +25,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 }
 

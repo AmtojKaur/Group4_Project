@@ -24,19 +24,18 @@ import android.view.ViewGroup;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentRegisterBinding;
 import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
 
 /**
  * A simple {@link Fragment} subclass.
+ *
+ * @author Amtoj Kaur
+ * @version 3 May 2023
  */
 public class RegisterFragment extends Fragment {
-
     private FragmentRegisterBinding binding;
-
     private RegisterViewModel mRegisterModel;
-
     private PasswordValidator mNameValidator = checkPwdLength(1);
 
     private PasswordValidator mEmailValidator = checkPwdLength(2)
@@ -51,6 +50,9 @@ public class RegisterFragment extends Fragment {
                     .and(checkPwdDigit())
                     .and(checkPwdLowerCase().or(checkPwdUpperCase()));
 
+    /**
+     * Empty public constructor
+     */
     public RegisterFragment() {
         // Required empty public constructor
     }
@@ -78,10 +80,17 @@ public class RegisterFragment extends Fragment {
                 this::observeResponse);
     }
 
+    /**
+     * Method that calls helper method to validate user's first name.
+     * @param button the button pressed to register
+     */
     private void attemptRegister(final View button) {
         validateFirst();
     }
 
+    /**
+     * Method that validates user's first name.
+     */
     private void validateFirst() {
         mNameValidator.processResult(
                 mNameValidator.apply(binding.editFirst.getText().toString().trim()),
@@ -89,6 +98,9 @@ public class RegisterFragment extends Fragment {
                 result -> binding.editFirst.setError("Please enter a first name."));
     }
 
+    /**
+     * Method that validates user's last name.
+     */
     private void validateLast() {
         mNameValidator.processResult(
                 mNameValidator.apply(binding.editLast.getText().toString().trim()),
@@ -96,6 +108,9 @@ public class RegisterFragment extends Fragment {
                 result -> binding.editLast.setError("Please enter a last name."));
     }
 
+    /**
+     * Method that validates user's email address.
+     */
     private void validateEmail() {
         mEmailValidator.processResult(
                 mEmailValidator.apply(binding.editEmail.getText().toString().trim()),
@@ -103,6 +118,9 @@ public class RegisterFragment extends Fragment {
                 result -> binding.editEmail.setError("Please enter a valid Email address."));
     }
 
+    /**
+     * Method that validates if the user's passwords match.
+     */
     private void validatePasswordsMatch() {
         PasswordValidator matchValidator =
                 checkClientPredicate(
@@ -114,6 +132,9 @@ public class RegisterFragment extends Fragment {
                 result -> binding.editPassword1.setError("Passwords must match."));
     }
 
+    /**
+     * Method that validates user's password.
+     */
     private void validatePassword() {
         mPassWordValidator.processResult(
                 mPassWordValidator.apply(binding.editPassword1.getText().toString()),
@@ -121,6 +142,9 @@ public class RegisterFragment extends Fragment {
                 result -> binding.editPassword1.setError("Please enter a valid Password."));
     }
 
+    /**
+     * Method that sends email and password to register view model.
+     */
     private void verifyAuthWithServer() {
         mRegisterModel.connect( binding.editFirst.getText().toString(),
                 binding.editLast.getText().toString(),
@@ -130,6 +154,10 @@ public class RegisterFragment extends Fragment {
         // result of connect().
     }
 
+    /**
+     * Method that navigates from the register to log in fragment, once register
+     * is successful.
+     */
     private void navigateToLogin() {
         RegisterFragmentDirections.ActionRegisterFragmentToSignInFragment directions =
                 RegisterFragmentDirections.actionRegisterFragmentToSignInFragment();

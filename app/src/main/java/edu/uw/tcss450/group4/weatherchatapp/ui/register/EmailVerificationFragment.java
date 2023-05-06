@@ -12,6 +12,9 @@ import edu.uw.tcss450.group4.weatherchatapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
+ *
+ * @author Amtoj Kaur
+ * @version 3 May 2023
  */
 public class EmailVerificationFragment extends Fragment {
 
