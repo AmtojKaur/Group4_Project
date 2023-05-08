@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp;
+package edu.uw.tcss450.group4.weatherchatapp.ui.home;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import edu.uw.tcss450.group4.weatherchatapp.R;
 
 /**
  * Fragment to hold a recent chat card.
