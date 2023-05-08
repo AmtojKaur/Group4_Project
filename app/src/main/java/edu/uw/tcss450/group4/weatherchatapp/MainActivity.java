@@ -15,6 +15,8 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import edu.uw.tcss450.group4.weatherchatapp.R;
+
 /**
  * Class that is the main activity of the app, switching between the
  * various fragments and views.

@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.chat.list;
+package edu.uw.tcss450.group4.weatherchatapp.ui.chat.list;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
 /**
  * Class that handles the Recyclerview of ChatPreview objects.

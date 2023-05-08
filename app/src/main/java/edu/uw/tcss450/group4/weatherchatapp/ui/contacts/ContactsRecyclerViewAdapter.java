@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.contacts;
+package edu.uw.tcss450.group4.weatherchatapp.ui.contacts;
 
 import android.view.LayoutInflater;
 import android.view.View;

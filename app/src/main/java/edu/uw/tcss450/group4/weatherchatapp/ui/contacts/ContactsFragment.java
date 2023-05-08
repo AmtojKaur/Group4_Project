@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.contacts;
+package edu.uw.tcss450.group4.weatherchatapp.ui.contacts;
 
 import android.os.Bundle;
 
@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentContactsBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentContactsListBinding;
 
 /**

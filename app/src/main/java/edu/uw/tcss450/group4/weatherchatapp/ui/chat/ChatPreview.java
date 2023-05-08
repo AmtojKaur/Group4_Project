@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.chat;
+package edu.uw.tcss450.group4.weatherchatapp.ui.chat;
 
 import java.io.Serializable;
 

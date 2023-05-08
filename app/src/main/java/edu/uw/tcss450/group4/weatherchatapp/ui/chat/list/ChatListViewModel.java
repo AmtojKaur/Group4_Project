@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.chat.list;
+package edu.uw.tcss450.group4.weatherchatapp.ui.chat.list;
 
 import android.app.Application;
 
@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
 /**
  * Class that prepares and manages data associated with a ChatPreview object.
