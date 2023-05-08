@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.chat.list.ChatListFragment"
+        android:label="@string/title_chat"
+        tools:layout="@layout/fragment_chat_list" >
+        <action
+            android:id="@+id/action_navigation_chat_to_navigation_individual_chat"
+            app:destination="@id/individualChatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_weather"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.weather.WeatherFragment"
+        android:label="@string/title_weather"
+        tools:layout="@layout/fragment_weather" />
+    <fragment
+        android:id="@+id/navigation_contacts"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.contacts.ContactsFragment"
+        android:label="@string/title_contacts"
+        tools:layout="@layout/fragment_contacts_list" />
+
+    <fragment
+        android:id="@+id/individualChatFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.chat.individual.IndividualChatFragment"
+        android:label="@string/title_individual_chat"
+        tools:layout="@layout/fragment_individual_chat_list" >
+        <argument
+            android:name="chat"
+            app:argType="edu.uw.tcss450.group4.weatherchatapp.chat.ChatPreview" />
+    </fragment>
+
+</navigation>
