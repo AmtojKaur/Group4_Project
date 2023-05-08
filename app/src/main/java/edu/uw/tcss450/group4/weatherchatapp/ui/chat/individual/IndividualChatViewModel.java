@@ -15,6 +15,7 @@ import java.util.List;
  * Class that prepares and manages data associated with an IndividualChat object.
  *
  * @author Chloe Duncan
+ * @version 3 May 2023
  */
 public class IndividualChatViewModel extends AndroidViewModel {
     private final MutableLiveData<List<IndividualChat>> mChatList;
