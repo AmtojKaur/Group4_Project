@@ -17,4 +17,24 @@
 
     <string name="prompt_type_a_message">Type a message</string>
 
+
+    <!-- Preference Titles -->
+    <string name="profile_header">Profile</string>
+    <string name="themes_header">Themes</string>
+    <string name="about_header">About</string>
+    <string name="sign_out_header">Sign out</string>
+
+    <!-- Profile Preferences -->
+    <string name="username_title">Your username</string>
+    <string name="change_password_title">Change Password</string>
+
+    <!-- Themes Preferences -->
+    <string name="theme_title">Current theme</string>
+
+    <!-- About Preferences -->
+    <string name="about_devs_title">About devs</string>
+
+    <!-- Sign out Preferences -->
+    <string name="sign_out_title">Sign out</string>
+
 </resources>
