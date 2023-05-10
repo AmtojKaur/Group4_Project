@@ -1,0 +1,10 @@
+<resources>
+    <!-- Theme Preference -->
+    <string-array name="theme_entries">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>Tacoma</item>
+        <item>Dracula</item>
+        <item>Huskies</item>
+    </string-array>
+</resources>

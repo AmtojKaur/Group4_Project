@@ -1,0 +1,48 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/profile_header">
+
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/username_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/change_password_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/themes_header">
+        <ListPreference
+            android:defaultValue="Light"
+            android:entries="@array/theme_entries"
+            android:entryValues="@array/theme_entries"
+            android:key="themes"
+            android:title="@string/theme_title"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/about_header">
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/about_devs_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sign_out_header">
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/sign_out_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
