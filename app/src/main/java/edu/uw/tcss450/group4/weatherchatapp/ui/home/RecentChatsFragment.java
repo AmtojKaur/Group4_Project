@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.placeholder.PlaceholderContent;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListRecyclerViewAdapter;
 
 /**
  * Fragment holding a list of cards.
@@ -91,7 +93,7 @@ public class RecentChatsFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new RecentChatsRecyclerViewAdapter(PlaceholderContent.ITEMS));
+            recyclerView.setAdapter(new ChatListRecyclerViewAdapter(ChatGenerator.getChatList()));
         }
         return view;
     }

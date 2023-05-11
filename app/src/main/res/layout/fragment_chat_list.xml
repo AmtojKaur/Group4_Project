@@ -12,8 +12,6 @@
         android:name="edu.uw.tcss450.group4.weatherchatapp.chat.ChatFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         app:layoutManager="LinearLayoutManager"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
