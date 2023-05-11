@@ -86,17 +86,18 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.action_edit_profile:
-                Log.d("EDIT_PROFILE", "Clicked");
-                userSettings();
-                return true;
+//            case R.id.action_edit_profile:
+//                Log.d("EDIT_PROFILE", "Clicked");
+//                userSettings();
+//                return true;
             case R.id.action_settings:
                 Log.d("SETTINGS", "Clicked");
+                userSettings();
                 return true;
-            case R.id.action_log_out:
-                Log.d("LOG_OUT", "Clicked");
-                logOut();
-                return true;
+//            case R.id.action_log_out:
+//                Log.d("LOG_OUT", "Clicked");
+//                logOut();
+//                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
