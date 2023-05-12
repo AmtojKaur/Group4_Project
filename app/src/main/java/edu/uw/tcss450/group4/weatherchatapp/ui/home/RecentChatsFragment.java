@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp;
+package edu.uw.tcss450.group4.weatherchatapp.ui.home;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,10 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.uw.tcss450.group4.weatherchatapp.placeholder.PlaceholderContent;
+import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.model.PlaceholderContent;
 
 /**
- * A fragment representing a list of Items.
+ * Fragment holding a list of cards.
+ *
+ * @author Andrew Nguyen
+ * @version 3 May 2023
  */
 public class RecentChatsFragment extends Fragment {
 
@@ -31,6 +35,11 @@ public class RecentChatsFragment extends Fragment {
     public RecentChatsFragment() {
     }
 
+    /**
+     * Creates a new instance of this RecentChatsFragment.
+     * @param columnCount the number of columns.
+     * @return a new instance of RecentChatsFragment.
+     */
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
     public static RecentChatsFragment newInstance(int columnCount) {
@@ -41,6 +50,11 @@ public class RecentChatsFragment extends Fragment {
         return fragment;
     }
 
+    /**
+     * Called on fragment creation.
+     * @param savedInstanceState If the fragment is being re-created from
+     * a previous saved state, this is the state.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +64,19 @@ public class RecentChatsFragment extends Fragment {
         }
     }
 
+    /**
+     * Called on fragment view creation
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return the View object for this fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

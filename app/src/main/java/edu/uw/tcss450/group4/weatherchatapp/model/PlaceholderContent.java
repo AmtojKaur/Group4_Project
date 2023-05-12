@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.placeholder;
+package edu.uw.tcss450.group4.weatherchatapp.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +10,9 @@ import java.util.Map;
  * Android template wizards.
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
+ *
+ * @author Andrew Nguyen
+ * @version 3 May 2023
  */
 public class PlaceholderContent {
 
@@ -32,15 +35,29 @@ public class PlaceholderContent {
         }
     }
 
+    /**
+     * Adds an item to the placeholder item list.
+     * @param item the item to add.
+     */
     private static void addItem(PlaceholderItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
+    /**
+     * Creates a placeholder item.
+     * @param position item position in list.
+     * @return a placeholder item.
+     */
     private static PlaceholderItem createPlaceholderItem(int position) {
         return new PlaceholderItem(String.valueOf(position), "Item " + position, makeDetails(position));
     }
 
+    /**
+     * Creates mock details.
+     * @param position item position in list
+     * @return mock content.
+     */
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
         builder.append("Details about Item: ").append(position);

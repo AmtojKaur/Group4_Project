@@ -20,15 +20,16 @@ import android.view.ViewGroup;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentSignInBinding;
 import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
 
 /**
  * A simple {@link Fragment} subclass.
+ *
+ * @author Amtoj Kaur
+ * @version 3 May 2023
  */
 public class SignInFragment extends Fragment {
-
     private FragmentSignInBinding binding;
     private SignInViewModel mSignInModel;
 
@@ -39,6 +40,9 @@ public class SignInFragment extends Fragment {
     private PasswordValidator mPassWordValidator = checkPwdLength(1)
             .and(checkExcludeWhiteSpace());
 
+    /**
+     * Empty public constructor
+     */
     public SignInFragment() {
         // Required empty public constructor
     }
@@ -78,10 +82,17 @@ public class SignInFragment extends Fragment {
         binding.editPassword.setText(args.getPassword().equals("default") ? "" : args.getPassword());
     }
 
+    /**
+     * Method that calls helper method to validate user's email.
+     * @param button the button pressed to sign in
+     */
     private void attemptSignIn(final View button) {
         validateEmail();
     }
 
+    /**
+     * Method that validates user's email address.
+     */
     private void validateEmail() {
         mEmailValidator.processResult(
                 mEmailValidator.apply(binding.editEmail.getText().toString().trim()),
@@ -89,6 +100,9 @@ public class SignInFragment extends Fragment {
                 result -> binding.editEmail.setError("Please enter a valid Email address."));
     }
 
+    /**
+     * Method that validates user's password.
+     */
     private void validatePassword() {
         mPassWordValidator.processResult(
                 mPassWordValidator.apply(binding.editPassword.getText().toString()),
@@ -96,6 +110,9 @@ public class SignInFragment extends Fragment {
                 result -> binding.editPassword.setError("Please enter a valid Password."));
     }
 
+    /**
+     * Method that sends email and password to sign in view model.
+     */
     private void verifyAuthWithServer() {
         mSignInModel.connect( binding.editEmail.getText().toString(),
                 binding.editPassword.getText().toString());

@@ -6,6 +6,12 @@ import java.util.function.Function;
 import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
+/**
+ * Interface used to validate user password
+ *
+ * @author Amtoj Kaur
+ * @version 3 May 2023
+ */
 public interface PasswordValidator
         extends Function<String, Optional<PasswordValidator.ValidationResult>> {
 
