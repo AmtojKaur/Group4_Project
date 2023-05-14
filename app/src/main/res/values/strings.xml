@@ -8,6 +8,7 @@
     <string name="hint_password_again">Retype Password</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_register_short">Sign Up</string>
+    <string name="action_forgot">FORGOT PASSWORD</string>
     <string name="display_header_title">Phish Shows Welcomes:</string>
     <string name="image_description_logo">The Phish Logo</string>
     <!--android:inputType="textPersonNickname" -->
@@ -41,5 +42,6 @@
 
     <string name="prompt_type_a_message">Type a message</string>
     <string name="title_activity_tab">TabActivity</string>
+    <string name="action_remember_me">REMEMBER ME</string>
 
 </resources>
