@@ -40,5 +40,6 @@
     <string name="action_log_out">Log Out</string>
 
     <string name="prompt_type_a_message">Type a message</string>
+    <string name="title_activity_tab">TabActivity</string>
 
 </resources>

@@ -26,11 +26,6 @@
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.weather.WeatherFragment"
         android:label="@string/title_weather"
         tools:layout="@layout/fragment_weather" />
-    <fragment
-        android:id="@+id/navigation_contacts"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.contacts.ContactsFragment"
-        android:label="@string/title_contacts"
-        tools:layout="@layout/fragment_contacts_list" />
 
     <fragment
         android:id="@+id/individualChatFragment"
@@ -40,6 +35,24 @@
         <argument
             android:name="chat"
             app:argType="edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_connections"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragment"
+        android:label="ConnectionsFragment"
+        tools:layout="@layout/fragment_connections_list">
+        <action
+            android:id="@+id/action_connectionsFragment_to_statusFragment"
+            app:destination="@id/navigation_status" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_status"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.connections.StatusFragment"
+        android:label="StatusFragment"
+        tools:layout="@layout/fragment_status_list">
+        <action
+            android:id="@+id/action_navigation_status_to_navigation_connections"
+            app:destination="@id/navigation_connections" />
     </fragment>
 
 </navigation>

@@ -5,6 +5,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -14,6 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 
@@ -25,7 +29,6 @@ import edu.uw.tcss450.group4.weatherchatapp.R;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private View decorView;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -33,31 +36,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        RecyclerView recyclerView = findViewById(R.id.chat_recycler_view);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        ChatListRecyclerViewAdapter adapter = new ChatListRecyclerViewAdapter(ChatGenerator.getChatList());
-//        recyclerView.setAdapter(adapter);
-//
-//        findViewById(R.id.floating_action_button).setOnClickListener(view -> {
-//            ChatGenerator.getChatList().add(ChatGenerator.addChat());
-//            adapter.notifyItemInserted(ChatGenerator.getChatList().size() - 1);
-//        });
-
-        // hide system status bar and navigation bar
-//        decorView = getWindow().getDecorView();
-//        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-//            @Override
-//            public void onSystemUiVisibilityChange(int visibility) {
-//                if (visibility == 0) {
-//                    decorView.setSystemUiVisibility(hideSystemBars());
-//                }
-//            }
-//        });
-
         // bottom navigation bar
         BottomNavigationView navView = findViewById(R.id.bottom_nav);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_contacts, R.id.navigation_chat, R.id.navigation_weather)
+                R.id.navigation_home, R.id.navigation_connections, R.id.navigation_chat, R.id.navigation_weather)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
@@ -126,33 +108,5 @@ public class MainActivity extends AppCompatActivity {
 
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
-
-    /**
-     * Helper method that hides the system status bar
-     * and system navigation bar.
-     * If in focus, both bars will be shown visible.
-     * @param hasFocus true if user clicks or swipes on screen.
-     */
-//    @Override
-//    public void onWindowFocusChanged(boolean hasFocus) {
-//        super.onWindowFocusChanged(hasFocus);
-//        if (hasFocus) {
-//            decorView.setSystemUiVisibility(hideSystemBars());
-//        }
-//    }
-
-    /**
-     * Helper method that hides the system status bar
-     * and system navigation bar.
-     * If in focus, both bars will be shown visible.
-     */
-     private int hideSystemBars() {
-        return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
     }
 }
