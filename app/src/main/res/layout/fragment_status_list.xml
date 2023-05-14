@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:background="#00FFFFFF"
-        android:drawableTop="@drawable/ic_newchat_black_24dp"
+        android:drawableTop="@drawable/ic_contact_profile_image_black_24dp"
         android:text="Contacts"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
