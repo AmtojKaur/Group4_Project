@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorBlue"
+    android:background="@color/color_blue4"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -22,7 +22,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="casual"
             android:text="Thursday, 27"
-            android:textColor="@color/colorOffWhite"
+            android:textColor="@color/white"
             android:textSize="20dp" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_marginLeft="20dp"
             android:fontFamily="casual"
             android:text="Seattle"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:text="20°"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/white"
                 android:textSize="45dp"
                 android:textStyle="bold" />
 
@@ -79,14 +79,14 @@
                     android:layout_height="wrap_content"
                     android:text="Now"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12°"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     />
                 <ImageView
                     android:layout_width="40dp"
@@ -104,14 +104,14 @@
                     android:layout_height="wrap_content"
                     android:text="Now"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12°"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     />
                 <ImageView
                     android:layout_width="40dp"
@@ -129,14 +129,14 @@
                     android:layout_height="wrap_content"
                     android:text="Now"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12°"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     />
                 <ImageView
                     android:layout_width="40dp"
@@ -154,14 +154,14 @@
                     android:layout_height="wrap_content"
                     android:text="Now"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12°"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     />
                 <ImageView
                     android:layout_width="40dp"
@@ -179,14 +179,14 @@
                     android:layout_height="wrap_content"
                     android:text="Now"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12°"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     />
                 <ImageView
                     android:layout_width="40dp"
@@ -215,14 +215,14 @@
                     android:layout_height="wrap_content"
                     android:text="Humidity"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="78%"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     />
             </LinearLayout>
             <LinearLayout
@@ -235,14 +235,14 @@
                     android:layout_height="wrap_content"
                     android:text="Wind"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3m/s"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -256,14 +256,14 @@
                     android:layout_height="wrap_content"
                     android:text="Air pressure"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="740.2 mm"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -277,14 +277,14 @@
                     android:layout_height="wrap_content"
                     android:text="UV"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -312,7 +312,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wednesday, 16"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"/>
@@ -329,7 +329,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
                     />
                 <TextView
@@ -338,7 +338,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -354,7 +354,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wednesday, 16"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"/>
@@ -371,7 +371,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
                     />
                 <TextView
@@ -380,7 +380,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -396,7 +396,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wednesday, 16"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"/>
@@ -413,7 +413,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
                     />
                 <TextView
@@ -422,7 +422,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -438,7 +438,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wednesday, 16"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"/>
@@ -455,7 +455,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
                     />
                 <TextView
@@ -464,7 +464,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -480,7 +480,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wednesday, 16"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"/>
@@ -497,7 +497,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
                     />
                 <TextView
@@ -506,7 +506,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -522,7 +522,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wednesday, 16"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"/>
@@ -539,7 +539,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
                     />
                 <TextView
@@ -548,7 +548,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -564,7 +564,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wednesday, 16"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"/>
@@ -581,7 +581,7 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
                     />
                 <TextView
@@ -590,15 +590,10 @@
                     android:text="12°"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorOffWhite"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
-
         </LinearLayout>
-
-
-
     </LinearLayout>
-
 </LinearLayout>

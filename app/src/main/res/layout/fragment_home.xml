@@ -11,6 +11,7 @@
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.home.HomeWeatherFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,11 +20,16 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/recentChatsFragmentContainer"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.home.RecentChatsFragment"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/rounded_rectangle_10dp"
+        android:backgroundTint="@color/color_yellow5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weatherFragmentContainer"
-        tools:layout="@layout/fragment_recent_chats_list" />
+        tools:layout="@layout/fragment_chat_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>
