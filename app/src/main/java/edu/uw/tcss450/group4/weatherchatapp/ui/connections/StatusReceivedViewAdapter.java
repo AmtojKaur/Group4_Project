@@ -72,7 +72,7 @@ public class StatusReceivedViewAdapter extends RecyclerView.Adapter<StatusReceiv
         void setChatPreview(final ChatPreview chatPreview) {
             mChat = chatPreview;
             // shows dummy data
-            binding.name.setText(chatPreview.getContact());
+            binding.textviewName.setText(chatPreview.getContact());
         }
 
         void pressedDecline() {

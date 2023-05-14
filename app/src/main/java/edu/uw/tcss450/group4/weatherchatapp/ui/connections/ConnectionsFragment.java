@@ -8,25 +8,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsListBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentContactsListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListRecyclerViewAdapter;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListViewModel;
-import edu.uw.tcss450.group4.weatherchatapp.ui.contacts.ContactsGenerator;
-import edu.uw.tcss450.group4.weatherchatapp.ui.contacts.ContactsListViewModel;
-import edu.uw.tcss450.group4.weatherchatapp.ui.contacts.ContactsRecyclerViewAdapter;
+
 
 public class ConnectionsFragment extends Fragment {
 

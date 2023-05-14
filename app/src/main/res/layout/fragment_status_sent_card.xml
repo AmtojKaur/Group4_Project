@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="@id/img_profile" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/textview_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -54,7 +54,7 @@
             tools:text="Name" />
 
         <TextView
-            android:id="@+id/txt_status"
+            android:id="@+id/textview_status"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
@@ -78,11 +78,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/rounded_rectangle_24dp"
-            android:backgroundTint="@color/black"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_info_black_24dp"
-            android:tint="#747474"
+            android:background="@drawable/ic_info_black_24dp"
+            android:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

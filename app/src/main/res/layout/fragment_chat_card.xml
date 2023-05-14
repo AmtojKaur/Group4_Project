@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="@id/img_profile" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/textview_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -83,7 +83,7 @@
             tools:text="12:00 am"
             app:layout_constraintBaseline_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@id/img_arrow"
-            app:layout_constraintStart_toEndOf="@id/name"
+            app:layout_constraintStart_toEndOf="@id/textview_name"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView

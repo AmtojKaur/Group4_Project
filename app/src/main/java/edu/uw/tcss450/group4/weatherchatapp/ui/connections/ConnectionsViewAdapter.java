@@ -79,7 +79,7 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<ConnectionsView
             mChat = chatPreview;
 
             // shows dummy data
-            binding.name.setText(chatPreview.getContact());
+            binding.textviewName.setText(chatPreview.getContact());
         }
 
         void pressedInfo() {

@@ -65,7 +65,7 @@ public class StatusSentViewAdapter extends RecyclerView.Adapter<StatusSentViewAd
         void setChatPreview(final ChatPreview chatPreview) {
             mChat = chatPreview;
             // shows dummy data
-            binding.name.setText(chatPreview.getContact());
+            binding.textviewName.setText(chatPreview.getContact());
         }
 
         void pressedInfo() {

@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_contact_add"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="57dp"
         android:background="@drawable/rectangle_outlined"
         android:backgroundTint="@color/color_green5"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,30 +17,63 @@
 
     <Button
         android:id="@+id/button_connections"
-        android:layout_width="115dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
         android:background="#00FFFFFF"
-        android:drawableTop="@drawable/ic_contact_profile_image_black_24dp"
+        android:drawableTop="@drawable/ic_connections_friend"
         android:text="Contacts"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"
         app:layout_constraintEnd_toStartOf="@id/button_status"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@id/button_connections"
+        app:layout_constraintEnd_toStartOf="@id/button_status"
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"/>
 
     <Button
         android:id="@+id/button_status"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/ic_connections_accept_decline_requests_black_24dp"
+        android:text="Incoming"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toStartOf="@id/button_invite"
+        app:layout_constraintStart_toEndOf="@+id/button_connections"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@id/button_status"
+        app:layout_constraintEnd_toStartOf="@id/button_invite"
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"/>
+
+    <Button
+        android:id="@+id/button_invite"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
         android:background="#00FFFFFF"
         android:drawableTop="@drawable/ic_newchat_black_24dp"
         android:text="Invite"
         android:textColor="@color/black"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_connections"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/button_status"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchview_bar"
@@ -117,7 +150,7 @@
         tools:listitem="@layout/fragment_status_sent_card" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_add"
+        android:id="@+id/button_new"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:background="@drawable/rectangle"

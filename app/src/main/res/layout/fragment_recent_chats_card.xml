@@ -51,7 +51,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_marginStart="24dp"
-            android:src="@drawable/ic_person_black_72dp"
+            android:src="@drawable/ic_profile_black_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
