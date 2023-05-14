@@ -5,7 +5,7 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
     <item
-        android:id="@+id/navigation_contacts"
+        android:id="@+id/navigation_connections"
         android:icon="@drawable/ic_group_black_filled_24dp"
         android:title="@string/title_contacts" />
     <item

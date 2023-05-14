@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/weatherFragmentContainer"
@@ -12,24 +13,40 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:background="@drawable/rounded_rectangle_outlined_lightgreen_10dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_notifications"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_weather_home" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_notifications"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Notifications"
+        tools:text="notifications"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:fontFamily="sans-serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weatherFragmentContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/recentChatsFragmentContainer"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/recentChatsFragmentContainer"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.home.RecentChatsFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@drawable/rounded_rectangle_10dp"
-        android:backgroundTint="@color/color_yellow5"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_rectangle_outlined_white_10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weatherFragmentContainer"
-        tools:layout="@layout/fragment_chat_list" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_notifications"
+        tools:layout="@layout/fragment_recent_chats_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>

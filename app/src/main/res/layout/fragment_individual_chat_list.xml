@@ -24,8 +24,9 @@
         android:layout_marginTop="12dp"
         android:padding="5dp"
         android:background="@drawable/rounded_rectangle_24dp"
+        android:backgroundTint="@color/color_green1"
         android:src="@drawable/ic_profile_black_24dp"
-        android:tint="@color/white"
+        android:tint="@color/color_green5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,12 +38,13 @@
         android:layout_marginEnd="16dp"
         android:padding="4dp"
         android:background="@drawable/rounded_rectangle_24dp"
+        android:backgroundTint="@color/color_green1"
         android:src="@drawable/ic_info_black_24dp"
-        android:tint="@color/white"
+        android:tint="@color/color_green5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_info"
         style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="38dp"
@@ -50,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="@id/image_info"
         app:layout_constraintTop_toTopOf="@id/image_info" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -61,11 +63,20 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:fontFamily="sans-serif"
         android:textAlignment="textStart"
         app:layout_constraintBottom_toBottomOf="@id/img_profile"
         app:layout_constraintEnd_toStartOf="@id/image_info"
         app:layout_constraintStart_toEndOf="@id/img_profile"
-        app:layout_constraintTop_toTopOf="@id/img_profile" />
+        app:layout_constraintTop_toTopOf="@id/img_profile"
+        tools:text="Name"/>
+
+    <View
+        android:id="@+id/view_separate"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        app:layout_constraintTop_toBottomOf="@id/img_profile"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 <!--    app:stackFromEnd="true"-->
     <androidx.recyclerview.widget.RecyclerView
@@ -78,8 +89,8 @@
         android:layout_marginBottom="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/input_message"
-        app:layout_constraintTop_toBottomOf="@id/img_profile"
-        app:layout_constraintStart_toStartOf="@id/img_profile"
+        app:layout_constraintTop_toBottomOf="@id/view_separate"
+        app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/fragment_individual_chat_card"
         tools:context=".ui.chat.individual.IndividualChatFragment"/>
 
@@ -89,7 +100,6 @@
         android:layout_height="48dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/rounded_rectangle_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -99,7 +109,9 @@
             android:layout_marginStart="4dp"
             android:padding="8dp"
             android:src="@drawable/ic_send_black_24dp"
-            android:tint="@color/white" />
+            android:tint="@color/color_green1"
+            android:background="@drawable/rounded_rectangle_24dp"
+            android:backgroundTint="@color/color_green5"/>
 
         <Button
             android:id="@+id/button_send"
@@ -117,15 +129,15 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/rounded_rectangle_24dp"
+        android:background="@drawable/rounded_rectangle_outlined_white_24dp"
         android:hint="@string/prompt_type_a_message"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"
         android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/layout_send"
         app:layout_constraintStart_toStartOf="parent" />

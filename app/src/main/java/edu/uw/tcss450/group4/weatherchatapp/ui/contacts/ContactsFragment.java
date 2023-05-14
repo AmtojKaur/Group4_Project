@@ -66,5 +66,7 @@ public class ContactsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity())
                 .get(ContactsListViewModel.class);
+
+
     }
 }

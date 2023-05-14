@@ -1,70 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:padding="8dp">
+    android:layout_height="wrap_content" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_inner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="@color/color_green5"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/message_sender"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="0dp"
-            android:background="@drawable/rounded_rectangle_24dp"
-            android:gravity="center"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="hello"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@id/image_sender"
-            app:layout_constraintTop_toTopOf="@id/layout_inner" />
-
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_sender"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rounded_rectangle_10dp"
+            android:backgroundTint="@color/color_green1"
             android:src="@drawable/ic_profile_black_24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/message_sender" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/message_receiver"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/message_sender"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginBottom="4dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle_24dp"
+            android:backgroundTint="@color/color_green1"
+            android:gravity="center|start"
+            android:maxWidth="300dp"
+            android:minHeight="50dp"
             android:paddingStart="20dp"
+            android:paddingTop="5dp"
             android:paddingEnd="20dp"
-            android:text="hi there"
-            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:text="hello"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/image_receiver"
-            />
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@id/image_sender"
+            app:layout_constraintTop_toTopOf="@id/layout_inner"
+            tools:text="some message that I want to send and it is super wide" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/time_sender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="12:00 AM"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/message_sender"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="12:00 AM" />
+
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_receiver"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="4dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_rectangle_10dp"
+            android:backgroundTint="#747474"
             android:src="@drawable/ic_profile_black_24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/message_receiver" />
+            app:layout_constraintTop_toBottomOf="@id/message_sender" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/message_receiver"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxWidth="300dp"
+            android:minHeight="50dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_rectangle_24dp"
+            android:backgroundTint="#747474"
+            android:gravity="center|start"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="hi there"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/message_sender"
+            app:layout_constraintStart_toEndOf="@id/image_receiver"
+            tools:text="Another message wow this is cool. It is also 300 dp long." />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/time_receiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="12:00 AM"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/message_receiver"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="12:00 AM" />
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_add"
             style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="48dp"
@@ -73,6 +114,8 @@
             app:layout_constraintEnd_toEndOf="@id/image_sender"
             app:layout_constraintStart_toStartOf="@+id/image_sender"
             app:layout_constraintTop_toTopOf="@id/image_sender" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
