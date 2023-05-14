@@ -8,22 +8,39 @@
     android:background="@color/color_green5"
     tools:context=".ui.signin.SignInFragment">
 
+    <ImageView
+        android:id="@+id/signIn_Top"
+        android:layout_width="330dp"
+        android:layout_height="355dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/background_content_top"
+        app:tint="@color/color_green4"/>
+
+    <ImageView
+        android:id="@+id/signIn_Bottom"
+        android:layout_width="330dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="405dp"
+        android:background="@drawable/bottomlayout"
+        app:tint="@color/color_green5"/>
+
     <EditText
         android:id="@+id/edit_email"
-        android:layout_width="325dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="250dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="200dp"
         android:autofillHints=""
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/edit_password"
-        android:layout_width="325dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="300dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="250dp"
         android:hint="@string/hint_password"
         android:importantForAutofill="no"
         android:inputType="textPassword" />
@@ -32,19 +49,20 @@
         android:id="@+id/button_sign_in"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:layout_marginStart="280dp"
-        android:background="#00BCD4"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="265dp"
+        android:background="@drawable/rounded_rectangle_24dp"
         android:text="@string/action_sign_in_short"
         android:textColor="@color/color_green5"/>
 
     <Button
         android:id="@+id/button_to_register"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="350dp"
         android:text="@string/action_register_short"
-        android:textColor="@color/color_green5" />
+        android:textColor="@color/color_green1" />
 
 </FrameLayout>
