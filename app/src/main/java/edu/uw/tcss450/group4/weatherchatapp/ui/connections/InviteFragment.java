@@ -9,33 +9,31 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentInviteListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
+public class InviteFragment extends Fragment {
 
-public class ConnectionsFragment extends Fragment {
-
-    private ConnectionsViewModel mModel;
+    private IncomingViewModel mModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Bottom nav", "Connections");
+        Log.d("Bottom nav", "Status");
 
-        return inflater.inflate(R.layout.fragment_connections_list, container, false);
+        return inflater.inflate(R.layout.fragment_invite_list, container, false);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mModel = new ViewModelProvider(getActivity()).get(ConnectionsViewModel.class);
+        mModel = new ViewModelProvider(getActivity()).get(IncomingViewModel.class);
     }
 
     @Override
@@ -43,31 +41,31 @@ public class ConnectionsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // view binding variable
-        FragmentConnectionsListBinding binding = FragmentConnectionsListBinding.bind(getView());
+        FragmentInviteListBinding binding = FragmentInviteListBinding.bind(getView());
 
-        // chat recycler view
+        // connections recycler view
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
-                binding.listRoot.setAdapter(
-                        new ConnectionsViewAdapter(ChatGenerator.getSortedNameChatList())
+                binding.listSent.setAdapter(
+                        new InviteViewAdapter(ChatGenerator.getChatList())
                 );
             }
         });
 
         binding.buttonConnections.setOnClickListener(button -> {
-            // do nothing
+            Navigation.findNavController(getView()).navigate(
+                    InviteFragmentDirections.actionInviteFragmentToNavigationConnectionsFragment()
+            );
         });
 
         binding.buttonIncoming.setOnClickListener(button -> {
             Navigation.findNavController(getView()).navigate(
-                    ConnectionsFragmentDirections.actionConnectionsFragmentToIncomingRequestsFragment()
+                    InviteFragmentDirections.actionInviteFragmentToNavigationIncomingRequestsFragment()
             );
         });
 
         binding.buttonInvite.setOnClickListener(button -> {
-            Navigation.findNavController(getView()).navigate(
-                    ConnectionsFragmentDirections.actionNavigationConnectionsToInviteFragment()
-            );
+            // do nothing
         });
 
     }

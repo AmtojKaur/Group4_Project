@@ -1,6 +1,7 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.chat.list;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
@@ -35,6 +36,20 @@ public class ChatGenerator {
      */
     public static List<ChatPreview> getChatList() {
         return CHATS;
+    }
+
+    public static List<ChatPreview> getSortedNameChatList() {
+        List<ChatPreview> sortedList = new ArrayList<>();
+        for (int i = 0; i < CHATS.size() - 1; i++) {
+            sortedList.add(CHATS.get(i));
+        }
+        sortedList.sort(new Comparator<ChatPreview>() {
+            @Override
+            public int compare(ChatPreview o1, ChatPreview o2) {
+                return o1.getContact().compareTo(o2.getContact());
+            }
+        });
+        return sortedList;
     }
 
     /**

@@ -11,11 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentStatusReceivedCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentStatusSentCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentInviteCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
-public class StatusSentViewAdapter extends RecyclerView.Adapter<StatusSentViewAdapter.StatusSentViewHolder> {
+public class InviteViewAdapter extends RecyclerView.Adapter<InviteViewAdapter.InviteViewHolder> {
 
     private final List<ChatPreview> mChats;
 
@@ -24,25 +23,22 @@ public class StatusSentViewAdapter extends RecyclerView.Adapter<StatusSentViewAd
      * to the actual, passed in value of real-time ChatPreview objects.
      * @param chatViews the ArrayList of ChatPreview objects
      */
-    public StatusSentViewAdapter(List<ChatPreview> chatViews) {
+    public InviteViewAdapter(List<ChatPreview> chatViews) {
         this.mChats = chatViews;
     }
 
     @NonNull
     @Override
-    public StatusSentViewAdapter.StatusSentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new StatusSentViewAdapter.StatusSentViewHolder(LayoutInflater
+    public InviteViewAdapter.InviteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new InviteViewAdapter.InviteViewHolder(LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.fragment_status_sent_card, parent, false));
+                .inflate(R.layout.fragment_invite_card, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StatusSentViewAdapter.StatusSentViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull InviteViewAdapter.InviteViewHolder holder, int position) {
         holder.setChatPreview(mChats.get(position));
         holder.pressedInfo();
-        //holder.updateNavigationPressed();
-        //code can be switched to view delete functionality instead of add functionality
-        //holder.checkDeleteChat(position);
     }
 
     @Override
@@ -51,15 +47,15 @@ public class StatusSentViewAdapter extends RecyclerView.Adapter<StatusSentViewAd
     }
 
 
-    public class StatusSentViewHolder extends RecyclerView.ViewHolder {
+    public class InviteViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public FragmentStatusSentCardBinding binding;
+        public FragmentInviteCardBinding binding;
         private ChatPreview mChat;
 
-        public StatusSentViewHolder(View view) {
+        public InviteViewHolder(View view) {
             super(view);
             mView = view;
-            binding = FragmentStatusSentCardBinding.bind(view);
+            binding = FragmentInviteCardBinding.bind(view);
         }
 
         void setChatPreview(final ChatPreview chatPreview) {

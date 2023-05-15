@@ -11,12 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsListBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentStatusReceivedCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
-public class StatusReceivedViewAdapter extends RecyclerView.Adapter<StatusReceivedViewAdapter.StatusReceivedViewHolder> {
+public class IncomingViewAdapter extends RecyclerView.Adapter<IncomingViewAdapter.IncomingViewHolder> {
 
     private final List<ChatPreview> mChats;
     public static boolean add;
@@ -26,26 +24,23 @@ public class StatusReceivedViewAdapter extends RecyclerView.Adapter<StatusReceiv
      * to the actual, passed in value of real-time ChatPreview objects.
      * @param chatViews the ArrayList of ChatPreview objects
      */
-    public StatusReceivedViewAdapter(List<ChatPreview> chatViews) {
+    public IncomingViewAdapter(List<ChatPreview> chatViews) {
         this.mChats = chatViews;
     }
 
     @NonNull
     @Override
-    public StatusReceivedViewAdapter.StatusReceivedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new StatusReceivedViewAdapter.StatusReceivedViewHolder(LayoutInflater
+    public IncomingViewAdapter.IncomingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new IncomingViewAdapter.IncomingViewHolder(LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.fragment_status_received_card, parent, false));
+                .inflate(R.layout.fragment_incoming_status_card, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StatusReceivedViewAdapter.StatusReceivedViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull IncomingViewAdapter.IncomingViewHolder holder, int position) {
         holder.setChatPreview(mChats.get(position));
         holder.pressedDecline();
         holder.pressedAccept();
-        //holder.updateNavigationPressed();
-        //code can be switched to view delete functionality instead of add functionality
-        //holder.checkDeleteChat(position);
     }
 
     @Override
@@ -58,15 +53,15 @@ public class StatusReceivedViewAdapter extends RecyclerView.Adapter<StatusReceiv
         add = yes;
     }
 
-    public class StatusReceivedViewHolder extends RecyclerView.ViewHolder {
+    public class IncomingViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public FragmentStatusReceivedCardBinding binding;
+        public FragmentIncomingStatusCardBinding binding;
         private ChatPreview mChat;
 
-        public StatusReceivedViewHolder(View view) {
+        public IncomingViewHolder(View view) {
             super(view);
             mView = view;
-            binding = FragmentStatusReceivedCardBinding.bind(view);
+            binding = FragmentIncomingStatusCardBinding.bind(view);
         }
 
         void setChatPreview(final ChatPreview chatPreview) {
