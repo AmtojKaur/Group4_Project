@@ -35,4 +35,11 @@
     <color name="color_blue4">#054d78</color>
     <color name="color_blue5">#095f91</color>
     <color name="color_blue6">#b6d1ef</color>
+
+<!-- Speckled Eggs -->
+    <color name="color_speckled_eggs_baby_blue">#BFD7ED</color>
+    <color name="color_speckled_eggs_blue_grotto">#60A3D9</color>
+    <color name="color_speckled_eggs_royal_blue">#0074B7</color>
+    <color name="color_speckled_eggs_navy_blue">#003B73</color>
+
 </resources>

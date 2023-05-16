@@ -53,8 +53,8 @@ public class IndividualChatFragment extends Fragment {
         binding.textName.setText(args.getChat().getContact());
 
         // set bottom navigation bar invisible
-        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
-        navBar.setVisibility(View.GONE);
+//        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
+//        navBar.setVisibility(View.GONE);
 
 
         mModel.addIndividualChatListObserver(getViewLifecycleOwner(), chatList -> {

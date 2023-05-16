@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rectangle"
-    android:backgroundTint="@color/color_green4">
+    android:background="@drawable/rectangle">
+
+    <android.widget.SearchView
+        android:id="@+id/searchview_bar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:backgroundTint="@color/white"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search conversations"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_root"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="LinearLayoutManager"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
         android:orientation="vertical"
+        app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchview_bar"
         tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragment"
         tools:listitem="@layout/fragment_chat_card" />
 
@@ -26,10 +35,11 @@
         android:id="@+id/floating_action_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:contentDescription="@string/action_new_chat"
-        app:srcCompat="@drawable/ic_newchat_black_24dp"/>
+        android:backgroundTint="@color/color_blue6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_newchat_black_24dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

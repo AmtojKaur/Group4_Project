@@ -20,7 +20,7 @@
             android:layout_height="55dp"
             android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle_10dp"
-            android:backgroundTint="@color/color_green2"
+            android:backgroundTint="@color/color_blue4"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_profile_black_24dp"
             app:layout_constraintStart_toStartOf="parent"

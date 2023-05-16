@@ -10,7 +10,6 @@
         android:id="@+id/layout_inner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_green5"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -20,7 +19,7 @@
             android:layout_height="55dp"
             android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle_10dp"
-            android:backgroundTint="@color/color_green2"
+            android:backgroundTint="@color/color_blue4"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_profile_black_24dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +81,7 @@
             android:layout_height="40dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/rounded_rectangle_24dp"
-            android:backgroundTint="@color/color_green1"
+            android:backgroundTint="@color/color_blue4"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_contacts_accept_black_24dp"
             android:tint="@color/color_green5"
@@ -108,6 +107,14 @@
             app:layout_constraintEnd_toEndOf="@id/img_profile"
             app:layout_constraintStart_toStartOf="@+id/img_profile"
             app:layout_constraintTop_toTopOf="@id/img_profile" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_profile"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

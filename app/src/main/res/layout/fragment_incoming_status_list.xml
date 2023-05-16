@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:background="@drawable/rectangle_outlined"
-        android:backgroundTint="@color/color_green5"
+        android:backgroundTint="@color/color_blue6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -102,7 +102,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="sans-serif"
-        android:text="Received"
+        android:text="Requests Received"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"

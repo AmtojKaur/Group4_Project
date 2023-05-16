@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:background="@drawable/rectangle_outlined"
-        android:backgroundTint="@color/color_green5"
+        android:backgroundTint="@color/color_blue6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,8 +88,8 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:backgroundTint="@color/white"
-        android:queryHint="Search contacts"
         android:iconifiedByDefault="false"
+        android:queryHint="Search contacts"
         app:layout_constraintStart_toStartOf="@id/toolbar_contact_add"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_contact_add" />
 
@@ -98,6 +98,7 @@
         android:name="edu.uw.tcss450.group4.weatherchatapp.connections.ConnectionsFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="5dp"
         android:orientation="vertical"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
