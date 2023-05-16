@@ -13,6 +13,7 @@ import java.util.List;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 public class IncomingViewAdapter extends RecyclerView.Adapter<IncomingViewAdapter.IncomingViewHolder> {
 
@@ -39,8 +40,8 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<IncomingViewAdapte
     @Override
     public void onBindViewHolder(@NonNull IncomingViewAdapter.IncomingViewHolder holder, int position) {
         holder.setChatPreview(mChats.get(position));
-        holder.pressedDecline();
-        holder.pressedAccept();
+        holder.pressedDecline(position);
+        holder.pressedAccept(position);
     }
 
     @Override
@@ -70,23 +71,24 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<IncomingViewAdapte
             binding.textviewName.setText(chatPreview.getContact());
         }
 
-        void pressedDecline() {
-            Log.d("Button Pressed", "Decline");
-            binding.buttonAccept.setOnClickListener(view -> {
-//                Navigation.findNavController(mView).navigate(
-//                        edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
+        void pressedDecline(int position) {
+            binding.buttonDecline.setOnClickListener(view -> {
+                Log.d("Button Pressed", "Decline");
+                mChats.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, mChats.size());
             });
         }
 
-        void pressedAccept() {
-            Log.d("Button Pressed", "Accept");
-            binding.buttonDecline.setOnClickListener(view -> {
-//                Navigation.findNavController(mView).navigate(
-//                        edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
+        void pressedAccept(int position) {
+            String name = mChats.get(position).getContact();
+            String message = mChats.get(position).getPreviewMsg();
+            String time = mChats.get(position).getTimeOfMsg();
+
+            binding.buttonAccept.setOnClickListener(view -> {
+                Log.d("Button Pressed", "Accept");
+                mChats.add(ChatGenerator.addChat(name, message, time));
+                notifyItemInserted(mChats.size() - 1);
             });
         }
     }

@@ -63,6 +63,12 @@ public class ChatGenerator {
                 .build();
     }
 
+    public static ChatPreview addChat(String name, String message, String time) {
+        return new ChatPreview
+                .Builder(name, message, time)
+                .build();
+    }
+
     /**
      * Empty private constructor.
      */
