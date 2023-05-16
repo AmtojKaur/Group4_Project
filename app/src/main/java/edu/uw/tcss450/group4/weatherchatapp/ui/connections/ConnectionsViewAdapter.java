@@ -149,10 +149,10 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         void checkEnterChat(ChatPreview chat) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
-//                Navigation.findNavController(mView).navigate(
-//                        edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
+                Navigation.findNavController(mView).navigate(
+                        ConnectionsFragmentDirections
+                                .actionNavigationConnectionsToIndividualChatFragment(chat)
+                );
                 closeMenu();
             });
         }
