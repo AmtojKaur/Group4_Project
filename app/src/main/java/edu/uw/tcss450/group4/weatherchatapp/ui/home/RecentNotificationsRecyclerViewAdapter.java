@@ -6,23 +6,16 @@
 //import android.view.ViewGroup;
 //import android.widget.TextView;
 //
-//import edu.uw.tcss450.group4.weatherchatapp.model.PlaceholderContent.PlaceholderItem;
-//import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentRecentChatsBinding;
-//
 //import java.util.List;
 //
-///**
-// * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
-// * TODO: Replace the implementation with code for your data type.
-// *
-// * @author Andrew Nguyen
-// * @version 3 May 2023
-// */
+//import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentRecentChatsListBinding;
+//import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+//
 //public class RecentChatsRecyclerViewAdapter extends RecyclerView.Adapter<RecentChatsRecyclerViewAdapter.ViewHolder> {
 //
-//    private final List<PlaceholderItem> mValues;
+//    private final List<ChatPreview> mValues;
 //
-//    public RecentChatsRecyclerViewAdapter(List<PlaceholderItem> items) {
+//    public RecentChatsRecyclerViewAdapter(List<ChatPreview> items) {
 //        mValues = items;
 //    }
 //
@@ -37,7 +30,7 @@
 //    @Override
 //    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //
-//        return new ViewHolder(FragmentRecentChatsBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+//        return new ViewHolder(FragmentRecentChatsListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
 //
 //    }
 //

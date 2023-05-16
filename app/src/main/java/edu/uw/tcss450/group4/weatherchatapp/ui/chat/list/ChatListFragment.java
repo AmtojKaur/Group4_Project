@@ -46,11 +46,6 @@ public class ChatListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // set bottom navigation bar visible
-        // necessary for navigating back from individual chat fragment
-        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
-        navBar.setVisibility(View.VISIBLE);
-
         // view binding variable
         FragmentChatListBinding binding = FragmentChatListBinding.bind(getView());
 

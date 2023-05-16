@@ -16,13 +16,13 @@ import edu.uw.tcss450.group4.weatherchatapp.R;
  * @author Andrew Nguyen
  * @version 3 May 2023
  */
-public class RecentChatsCard extends Fragment {
+public class RecentNotificationsCard extends Fragment {
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public RecentChatsCard() {
+    public RecentNotificationsCard() {
     }
 
     /**

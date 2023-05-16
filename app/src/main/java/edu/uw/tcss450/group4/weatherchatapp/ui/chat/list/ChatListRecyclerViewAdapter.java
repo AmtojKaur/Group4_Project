@@ -56,7 +56,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ChatListViewHolder) {
             ((ChatListViewHolder)holder).setChatPreview(mChats.get(position));
-            ((ChatListViewHolder)holder).checkAddChat();
+//            ((ChatListViewHolder)holder).checkAddChat();
             //code can be switched to view delete functionality instead of add functionality
             //holder.checkDeleteChat(position);
             ((ChatListViewHolder)holder).binding.buttonIndividualChat.setOnLongClickListener(
@@ -68,7 +68,6 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         }
 
         if (holder instanceof MenuViewHolder) {
-            ((MenuViewHolder)holder).checkAddChat();
             ((MenuViewHolder)holder).checkDeleteChat(position);
             ((MenuViewHolder)holder).checkEnterChat(mChats.get(position));
         }
@@ -88,7 +87,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         }
     }
 
-    public void showMenu(int position) {
+    void showMenu(int position) {
         for (int i = 0; i < mChats.size(); i++){
             mChats.get(i).setShowMenu(false);
         }
@@ -96,8 +95,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         notifyDataSetChanged();
     }
 
-
-    public boolean isMenuShown() {
+    boolean isMenuShown() {
         for (int i = 0; i < mChats.size(); i++){
             if(mChats.get(i).isShowMenu()){
                 return true;
@@ -106,7 +104,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         return false;
     }
 
-    public void closeMenu() {
+    void closeMenu() {
         for (int i = 0; i < mChats.size(); i++){
             mChats.get(i).setShowMenu(false);
         }
@@ -117,12 +115,9 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
      * Objects from this class represent an individual row View from the List
      * of rows in the Chat Recycler View.
      */
-    public class ChatListViewHolder extends RecyclerView.ViewHolder {
+    private static class ChatListViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public FragmentChatCardBinding binding;
-        private ChatPreview mChat;
-
-        ConstraintLayout layoutRoot;
 
         /**
          * Public constructor used to set the View and binding of a
@@ -141,7 +136,6 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
          * @param chatPreview the ChatPreview the data is associated with
          */
         void setChatPreview(final ChatPreview chatPreview) {
-            mChat = chatPreview;
 
             // shows dummy data
             binding.textviewName.setText(chatPreview.getContact());
@@ -167,37 +161,21 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
 
         /**
          * Method that checks if the button used to add a chat has been pressed,
-         * and then deletes a chat to the Recylerview, depending on position,
-         * if pressed is true.
-         * @param position the position of the ChatPreview in the recycler view
-         */
-        void checkDeleteChat(final int position) {
-            binding.buttonDelete.setOnClickListener(view -> {
-                Log.d("Pressed profile button", "Deleted chat");
-                mChats.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position, mChats.size());
-            });
-        }
-
-        /**
-         * Method that checks if the button used to add a chat has been pressed,
          * and then adds a new chat to the Recylerview if pressed is true.
          */
-         void checkAddChat() {
-             Log.d("Entered check add chat", "adding chat");
-             binding.buttonDelete.setOnClickListener(view -> {
-                 mChats.add(ChatGenerator.addChat());
-                notifyItemInserted(mChats.size() - 1);
-             });
-        }
+//        void checkAddChat() {
+//            binding.buttonDelete.setOnClickListener(view -> {
+//                Log.d("Entered check add chat", "adding chat");
+//                mChats.add(ChatGenerator.addChat());
+//                notifyItemInserted(mChats.size() - 1);
+//            });
+//        }
     }
 
     public class MenuViewHolder extends RecyclerView.ViewHolder {
 
         public final View mView;
         public RecyclerMenuBinding binding;
-        private ChatPreview mChat;
 
         public MenuViewHolder(View view) {
             super(view);
@@ -214,24 +192,13 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
             });
         }
 
-        /**
-         * Method that checks if the button used to add a chat has been pressed,
-         * and then adds a new chat to the Recylerview if pressed is true.
-         */
-        void checkAddChat() {
-            binding.buttonDelete.setOnClickListener(view -> {
-                Log.d("Entered check add chat", "adding chat");
-                mChats.add(ChatGenerator.addChat());
-                notifyItemInserted(mChats.size() - 1);
-            });
-        }
-
         void checkEnterChat(ChatPreview chat) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
                 Navigation.findNavController(mView).navigate(
                         ChatListFragmentDirections
                                 .actionNavigationChatToNavigationIndividualChat(chat)
                 );
+                closeMenu();
             });
         }
     }

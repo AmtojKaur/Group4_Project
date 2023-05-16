@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_navigation_connections_to_inviteFragment"
             app:destination="@id/navigation_invite" />
+        <action
+            android:id="@+id/action_navigation_connections_to_individualChatFragment"
+            app:destination="@id/individualChatFragment" />
     </fragment>
 
     <fragment
