@@ -129,7 +129,6 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
     public class ConnectionsMenuViewHolder extends RecyclerView.ViewHolder {
-
         public final View mView;
         public RecyclerMenuBinding binding;
         public ConnectionsMenuViewHolder(View view) {

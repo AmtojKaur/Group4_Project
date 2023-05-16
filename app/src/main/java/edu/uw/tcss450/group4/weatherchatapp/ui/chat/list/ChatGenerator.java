@@ -46,7 +46,7 @@ public class ChatGenerator {
         sortedList.sort(new Comparator<ChatPreview>() {
             @Override
             public int compare(ChatPreview o1, ChatPreview o2) {
-                return o1.getContact().compareTo(o2.getContact());
+                return o1.getSender().compareTo(o2.getSender());
             }
         });
         return sortedList;
