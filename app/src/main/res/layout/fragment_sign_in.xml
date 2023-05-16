@@ -30,8 +30,8 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/app_logo_1" />
+        android:layout_marginTop="35dp"
+        android:src="@drawable/circle_logo_no_background" />
 
     <ImageView
         android:id="@+id/signIn_Bottom"
