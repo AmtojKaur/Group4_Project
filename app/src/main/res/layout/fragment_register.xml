@@ -6,14 +6,24 @@
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_green4"
     tools:context=".ui.register.RegisterFragment">
+
+    <ImageView
+        android:id="@+id/signIn_Top"
+        android:layout_width="375dp"
+        android:layout_height="400dp"
+        android:src="@drawable/background_content_top"
+        app:tint="@color/color_green5"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="100dp" />
 
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:ems="10"
@@ -29,8 +39,8 @@
         android:id="@+id/edit_last"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="0dp"
         android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:ems="10"
@@ -39,7 +49,7 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/edit_nickname"
         app:layout_constraintEnd_toEndOf="@id/edit_first"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="VisualLintTextFieldSize" />
 
@@ -47,8 +57,8 @@
         android:id="@+id/edit_first"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:ems="10"
@@ -67,8 +77,8 @@
         android:id="@+id/edit_nickname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:ems="10"
@@ -85,8 +95,8 @@
         android:id="@+id/edit_password_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:ems="10"
@@ -103,8 +113,8 @@
         android:id="@+id/edit_password_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="250dp"
         android:autofillHints=""
         android:ems="10"
@@ -122,8 +132,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_rectangle_24dp"
         android:text="@string/action_register_short"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password_2" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password_2"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="-5dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
