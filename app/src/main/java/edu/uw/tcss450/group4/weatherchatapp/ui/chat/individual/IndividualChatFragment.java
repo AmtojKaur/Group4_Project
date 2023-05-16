@@ -48,7 +48,7 @@ public class IndividualChatFragment extends Fragment {
         FragmentIndividualChatListBinding binding = FragmentIndividualChatListBinding.bind(getView());
 
         // set text of chat depending on which chat is entered
-        binding.textName.setText(args.getChat().getSender());
+        binding.textName.setText(args.getChat().getContact());
 
         // set bottom navigation bar invisible
 //        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);

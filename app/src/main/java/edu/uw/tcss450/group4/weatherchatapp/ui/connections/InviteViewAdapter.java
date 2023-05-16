@@ -61,7 +61,7 @@ public class InviteViewAdapter extends RecyclerView.Adapter<InviteViewAdapter.In
         void setChatPreview(final ChatPreview chatPreview) {
             mChat = chatPreview;
             // shows dummy data
-            binding.textviewName.setText(chatPreview.getSender());
+            binding.textviewName.setText(chatPreview.getContact());
         }
 
         void pressedInfo() {

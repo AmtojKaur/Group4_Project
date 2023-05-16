@@ -137,7 +137,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         void setChatPreview(final ChatPreview chatPreview) {
 
             // shows dummy data
-            binding.textviewName.setText(chatPreview.getSender());
+            binding.textviewName.setText(chatPreview.getContact());
             binding.time.setText(chatPreview.getTimeOfMsg());
             binding.message.setText(chatPreview.getPreviewMsg());
 
