@@ -22,6 +22,7 @@ public class EmailVerificationFragment extends Fragment {
 
     private FragmentEmailVerificationBinding binding;
     private EmailVerificationViewModel mRegisterModel;
+    private EmailVerificationFragment mArgs;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
