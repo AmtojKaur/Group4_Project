@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_root"
@@ -9,134 +8,94 @@
     android:background="@color/color_green4"
     tools:context=".ui.register.RegisterFragment">
 
-    <ImageView
-        android:id="@+id/signIn_Top"
-        android:layout_width="375dp"
-        android:layout_height="400dp"
-        android:src="@drawable/background_content_top"
-        app:tint="@color/color_green5"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="100dp" />
-
-    <EditText
-        android:id="@+id/edit_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_password_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="VisualLintTextFieldSize" />
-
-    <EditText
-        android:id="@+id/edit_last"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="16dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/hint_last"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_nickname"
-        app:layout_constraintEnd_toEndOf="@id/edit_first"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="VisualLintTextFieldSize" />
-
     <EditText
         android:id="@+id/edit_first"
-        android:layout_width="0dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_first"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_last"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/edit_last"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/hint_last"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/edit_email"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="140dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/edit_nickname"
-        android:layout_width="0dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="200dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_nickname"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/edit_password_1"
-        android:layout_width="0dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="260dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@id/edit_password_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/edit_password_2"
-        android:layout_width="0dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginTop="320dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_password_again"
         android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/button_register"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginStart="155dp"
         android:background="@drawable/rounded_rectangle_24dp"
-        android:text="@string/action_register_short"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password_2"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="-5dp"/>
+        android:text="@string/action_register_short" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
