@@ -33,4 +33,16 @@
     <color name="color_blue7">#8CB7E6</color>
     <color name="color_blue8">#b6d1ef</color>
     <color name="color_blue9">#CFE1F5</color>
+    <!--yellowgreen-->
+    <color name="color_yellowgreen1">#6e6f38</color>
+    <color name="color_yellowgreen2">#95965d</color>
+    <color name="color_yellowgreen3">#b5b682</color>
+    <color name="color_yellowgreen4">#dadab1</color>
+    <color name="color_yellowgreen5">#fefee6</color>
+    <!--teal-->
+    <color name="color_teal1">#03353c</color>
+    <color name="color_teal2">#134e57</color>
+    <color name="color_teal3">#28656e</color>
+    <color name="color_teal4">#478088</color>
+    <color name="color_teal5">#719fa5</color>
 </resources>
