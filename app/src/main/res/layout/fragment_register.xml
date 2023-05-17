@@ -1,137 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_yellow4"
+    android:background="@color/color_blue8"
     tools:context=".ui.register.RegisterFragment">
 
     <ImageView
-        android:id="@+id/logo_background5"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="440dp"
-        android:src="@drawable/circle"
-        app:tint="@color/color_blue7"/>
+        android:id="@+id/signIn_Top"
+        android:layout_width="330dp"
+        android:layout_height="400dp"
+        android:src="@drawable/background_content_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/color_yellow8" />
 
     <ImageView
-        android:id="@+id/logo_background4"
-        android:layout_width="230dp"
-        android:layout_height="230dp"
-        android:layout_marginStart="90dp"
+        android:id="@+id/logo_background"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="450dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/circle"
-        app:tint="@color/color_green4"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/color_yellow8" />
 
-    <ImageView
+
+<!--    <ImageView
         android:id="@+id/logo_background3"
-        android:layout_width="210dp"
-        android:layout_height="210dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="460dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/circle"
-        app:tint="@color/color_yellow4"/>
+        app:tint="@color/color_blue8" />
 
     <ImageView
         android:id="@+id/logo_background2"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="470dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/circle"
-        app:tint="@color/color_blue8"/>
+        app:tint="@color/color_green5" />
 
     <ImageView
         android:id="@+id/logo_background1"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="480dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/circle"
-        app:tint="@color/color_green5"/>
-
-    <ImageView
-        android:id="@+id/logo_background0"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="490dp"
-        android:src="@drawable/circle"
-        app:tint="@color/color_yellow5"/>
+        app:tint="@color/color_yellow8" />
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="480dp"
-        android:src="@drawable/circle_logo_no_background"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circle_logo_no_background" />
 
     <ImageView
         android:id="@+id/background_name1"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/rounded_rectangle_outlined_white"
-        app:tint="@color/color_green5"/>
+        app:tint="@color/color_green7" />
 
     <ImageView
         android:id="@+id/background_name2"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/rounded_rectangle_outlined_white"
-        app:tint="@color/color_blue8"/>
+        app:tint="@color/color_yellow8" />
 
     <ImageView
         android:id="@+id/background_email"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/rounded_rectangle_outlined_white"
-        app:tint="@color/color_green5"/>
+        app:tint="@color/color_green7" />
 
     <ImageView
         android:id="@+id/background_name3"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/rounded_rectangle_outlined_white"
-        app:tint="@color/color_blue8"/>
+        app:tint="@color/color_yellow8" />
 
     <ImageView
         android:id="@+id/background_password1"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="260dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/rounded_rectangle_outlined_white"
-        app:tint="@color/color_green5"/>
+        app:tint="@color/color_green7" />
 
     <ImageView
         android:id="@+id/background_password2"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="320dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/rounded_rectangle_outlined_white"
-        app:tint="@color/color_blue8"/>
+        app:tint="@color/color_yellow8" />
 
 
     <EditText
         android:id="@+id/edit_first"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_first"
@@ -141,10 +115,8 @@
 
     <EditText
         android:id="@+id/edit_last"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="80dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_last"
@@ -154,10 +126,8 @@
 
     <EditText
         android:id="@+id/edit_email"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="140dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_email"
@@ -167,11 +137,8 @@
 
     <EditText
         android:id="@+id/edit_nickname"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="200dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_nickname"
@@ -181,11 +148,8 @@
 
     <EditText
         android:id="@+id/edit_password_1"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="260dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_password"
@@ -195,24 +159,21 @@
 
     <EditText
         android:id="@+id/edit_password_2"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="320dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_password_again"
         android:inputType="textPassword"
         android:minHeight="48dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_register"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
-        android:layout_marginStart="155dp"
         android:background="@drawable/rounded_rectangle_24dp"
-        android:text="@string/action_register_short" />
+        android:backgroundTint="@color/color_blue2"
+        android:text="@string/action_register_short"
+        android:textColor="@color/color_blue9" />-->
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

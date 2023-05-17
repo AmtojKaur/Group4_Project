@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_yellow4"
+    android:background="@color/color_yellow8"
     tools:context=".ui.signin.SignInFragment">
 
     <ImageView
@@ -27,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/color_yellow5" />
+        app:tint="@color/color_yellow8" />
 
     <ImageView
         android:id="@+id/app_logo"
@@ -70,14 +71,15 @@
         app:layout_constraintStart_toStartOf="@id/signIn_Top"
         app:layout_constraintTop_toBottomOf="@id/edit_email" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_sign_in"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_rectangle_24dp"
+        android:backgroundTint="@color/color_blue2"
         android:text="@string/action_sign_in_short"
-        android:textColor="@color/color_green5"
+        android:textColor="@color/color_blue9"
         app:layout_constraintBottom_toBottomOf="@id/signIn_Top"
         app:layout_constraintEnd_toEndOf="@id/signIn_Top"
         app:layout_constraintStart_toEndOf="@id/remember_me" />
@@ -99,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="@string/action_register_short"
-        android:textColor="@color/color_green1"
+        android:textColor="@color/color_blue1"
         app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
         app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
         app:layout_constraintTop_toBottomOf="@id/account_sign_up" />
@@ -110,7 +112,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Don't have an account?"
-        android:textColor="@color/color_green1"
+        android:textColor="@color/color_blue1"
         app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
         app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
         app:layout_constraintTop_toTopOf="@id/signIn_Bottom" />
@@ -120,7 +122,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Don't remember password?"
-        android:textColor="@color/color_green1"
+        android:textColor="@color/color_blue1"
         app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
         app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
         app:layout_constraintTop_toBottomOf="@id/button_to_register" />
@@ -133,7 +135,7 @@
         android:layout_marginBottom="20dp"
         android:minHeight="48dp"
         android:text="@string/action_forgot"
-        android:textColor="@color/color_green1"
+        android:textColor="@color/color_blue1"
         app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
         app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
         app:layout_constraintTop_toBottomOf="@id/forgot_password" />
