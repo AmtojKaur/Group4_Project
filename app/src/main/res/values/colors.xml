@@ -34,5 +34,7 @@
     <color name="color_blue3">#033f63</color>
     <color name="color_blue4">#054d78</color>
     <color name="color_blue5">#095f91</color>
-    <color name="color_blue6">#b6d1ef</color>
+    <color name="color_blue6">#629DDD</color>
+    <color name="color_blue7">#8CB7E6</color>
+    <color name="color_blue8">#b6d1ef</color>
 </resources>

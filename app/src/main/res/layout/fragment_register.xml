@@ -5,8 +5,125 @@
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_green4"
+    android:background="@color/color_yellow4"
     tools:context=".ui.register.RegisterFragment">
+
+    <ImageView
+        android:id="@+id/logo_background5"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="440dp"
+        android:src="@drawable/circle"
+        app:tint="@color/color_blue7"/>
+
+    <ImageView
+        android:id="@+id/logo_background4"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="450dp"
+        android:src="@drawable/circle"
+        app:tint="@color/color_green4"/>
+
+    <ImageView
+        android:id="@+id/logo_background3"
+        android:layout_width="210dp"
+        android:layout_height="210dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="460dp"
+        android:src="@drawable/circle"
+        app:tint="@color/color_yellow4"/>
+
+    <ImageView
+        android:id="@+id/logo_background2"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="470dp"
+        android:src="@drawable/circle"
+        app:tint="@color/color_blue8"/>
+
+    <ImageView
+        android:id="@+id/logo_background1"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="480dp"
+        android:src="@drawable/circle"
+        app:tint="@color/color_green5"/>
+
+    <ImageView
+        android:id="@+id/logo_background0"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="490dp"
+        android:src="@drawable/circle"
+        app:tint="@color/color_yellow5"/>
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="480dp"
+        android:src="@drawable/circle_logo_no_background"/>
+
+    <ImageView
+        android:id="@+id/background_name1"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/rounded_rectangle_outlined_white"
+        app:tint="@color/color_green5"/>
+
+    <ImageView
+        android:id="@+id/background_name2"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/rounded_rectangle_outlined_white"
+        app:tint="@color/color_blue8"/>
+
+    <ImageView
+        android:id="@+id/background_email"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/rounded_rectangle_outlined_white"
+        app:tint="@color/color_green5"/>
+
+    <ImageView
+        android:id="@+id/background_name3"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="200dp"
+        android:src="@drawable/rounded_rectangle_outlined_white"
+        app:tint="@color/color_blue8"/>
+
+    <ImageView
+        android:id="@+id/background_password1"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="260dp"
+        android:src="@drawable/rounded_rectangle_outlined_white"
+        app:tint="@color/color_green5"/>
+
+    <ImageView
+        android:id="@+id/background_password2"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="320dp"
+        android:src="@drawable/rounded_rectangle_outlined_white"
+        app:tint="@color/color_blue8"/>
+
 
     <EditText
         android:id="@+id/edit_first"

@@ -1,122 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_green4"
+    android:background="@color/color_yellow4"
     tools:context=".ui.signin.SignInFragment">
 
     <ImageView
         android:id="@+id/signIn_Top"
         android:layout_width="330dp"
         android:layout_height="355dp"
-        android:layout_marginStart="30dp"
         android:src="@drawable/background_content_top"
-        app:tint="@color/color_green5"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/color_blue8" />
 
     <ImageView
         android:id="@+id/logo_background"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/circle"
-        app:tint="@color/color_yellow5"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/color_yellow5" />
 
     <ImageView
         android:id="@+id/app_logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="35dp"
-        android:src="@drawable/circle_logo_no_background" />
+        android:src="@drawable/circle_logo_no_background"
+        app:layout_constraintEnd_toEndOf="@id/logo_background"
+        app:layout_constraintStart_toStartOf="@id/logo_background"
+        app:layout_constraintTop_toTopOf="@id/logo_background" />
 
     <ImageView
         android:id="@+id/signIn_Bottom"
         android:layout_width="330dp"
         android:layout_height="150dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="550dp"
         android:src="@drawable/bottomlayout"
-        app:tint="@color/color_green5"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/color_blue8" />
 
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="200dp"
         android:autofillHints=""
         android:hint="@string/hint_email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@id/signIn_Top"
+        app:layout_constraintStart_toStartOf="@id/signIn_Top"
+        app:layout_constraintTop_toBottomOf="@id/logo_background" />
 
     <EditText
         android:id="@+id/edit_password"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="250dp"
         android:hint="@string/hint_password"
         android:importantForAutofill="no"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@id/signIn_Top"
+        app:layout_constraintStart_toStartOf="@id/signIn_Top"
+        app:layout_constraintTop_toBottomOf="@id/edit_email" />
 
     <Button
         android:id="@+id/button_sign_in"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginStart="230dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_rectangle_24dp"
         android:text="@string/action_sign_in_short"
-        android:textColor="@color/color_green5"/>
+        android:textColor="@color/color_green5"
+        app:layout_constraintBottom_toBottomOf="@id/signIn_Top"
+        app:layout_constraintEnd_toEndOf="@id/signIn_Top"
+        app:layout_constraintStart_toEndOf="@id/remember_me" />
 
     <CheckBox
         android:id="@+id/remember_me"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginStart="70dp"
-        android:text="@string/action_remember_me" />
+        android:layout_marginBottom="20dp"
+        android:text="@string/action_remember_me"
+        app:layout_constraintBottom_toBottomOf="@id/signIn_Top"
+        app:layout_constraintEnd_toStartOf="@id/button_sign_in"
+        app:layout_constraintStart_toStartOf="@id/signIn_Top" />
 
     <Button
         android:id="@+id/button_to_register"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="650dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/action_register_short"
-        android:textColor="@color/color_green1" />
+        android:textColor="@color/color_green1"
+        app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
+        app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
+        app:layout_constraintTop_toBottomOf="@id/account_sign_up" />
 
     <TextView
         android:id="@+id/account_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="640dp"
+        android:layout_marginTop="20dp"
         android:text="Don't have an account?"
-        android:textColor="@color/color_green1"/>
+        android:textColor="@color/color_green1"
+        app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
+        app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
+        app:layout_constraintTop_toTopOf="@id/signIn_Bottom" />
 
     <TextView
         android:id="@+id/forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="580dp"
         android:text="Don't remember password?"
-        android:textColor="@color/color_green1"/>
+        android:textColor="@color/color_green1"
+        app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
+        app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
+        app:layout_constraintTop_toBottomOf="@id/button_to_register" />
 
     <Button
         android:id="@+id/button_forgot"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="590dp"
+        android:layout_marginBottom="20dp"
         android:minHeight="48dp"
         android:text="@string/action_forgot"
-        android:textColor="@color/color_green1" />
+        android:textColor="@color/color_green1"
+        app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
+        app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
+        app:layout_constraintTop_toBottomOf="@id/forgot_password" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
