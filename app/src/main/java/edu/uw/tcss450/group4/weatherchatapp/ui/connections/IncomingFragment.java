@@ -15,26 +15,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentContactsListBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentStatusListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
-public class StatusFragment extends Fragment {
+public class IncomingFragment extends Fragment {
 
-    private StatusViewModel mModel;
+    private IncomingViewModel mModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d("Bottom nav", "Status");
 
-        return inflater.inflate(R.layout.fragment_status_list, container, false);
+        return inflater.inflate(R.layout.fragment_incoming_status_list, container, false);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mModel = new ViewModelProvider(getActivity()).get(StatusViewModel.class);
+        mModel = new ViewModelProvider(getActivity()).get(IncomingViewModel.class);
     }
 
     @Override
@@ -42,33 +41,31 @@ public class StatusFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // view binding variable
-        FragmentStatusListBinding binding = FragmentStatusListBinding.bind(getView());
+        FragmentIncomingStatusListBinding binding = FragmentIncomingStatusListBinding.bind(getView());
 
-        // chat recycler view
+        // connections recycler view
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
                 binding.listReceived.setAdapter(
-                        new StatusReceivedViewAdapter(ChatGenerator.getChatList())
-                );
-            }
-        });
-
-        mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
-            if (view instanceof ConstraintLayout) {
-                binding.listSent.setAdapter(
-                        new StatusSentViewAdapter(ChatGenerator.getChatList())
+                        new IncomingViewAdapter(ChatGenerator.getChatList())
                 );
             }
         });
 
         binding.buttonConnections.setOnClickListener(button -> {
             Navigation.findNavController(getView()).navigate(
-                    StatusFragmentDirections.actionNavigationStatusToNavigationConnections()
+                    IncomingFragmentDirections.actionNavigationIncomingToNavigationConnectionsFragment()
             );
         });
 
-        binding.buttonStatus.setOnClickListener(button -> {
+        binding.buttonIncoming.setOnClickListener(button -> {
             // do nothing
+        });
+
+        binding.buttonInvite.setOnClickListener(button -> {
+            Navigation.findNavController(getView()).navigate(
+                    IncomingFragmentDirections.actionNavigationIncomingToInviteFragment()
+            );
         });
 
     }

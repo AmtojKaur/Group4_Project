@@ -11,5 +11,5 @@
     android:backgroundTint="@color/color_yellow5"
     app:layoutManager="LinearLayoutManager"
     android:orientation="vertical"
-    tools:context=".ui.home.RecentChatsFragment"
+    tools:context=".ui.home.RecentNotificationsFragment"
     tools:listitem="@layout/fragment_recent_chats_card" />

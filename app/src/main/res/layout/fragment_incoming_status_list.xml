@@ -88,23 +88,45 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:backgroundTint="@color/white"
+        android:queryHint="Search requests"
         android:iconifiedByDefault="false"
-        android:queryHint="Search contacts"
         app:layout_constraintStart_toStartOf="@id/toolbar_contact_add"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_contact_add" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_received"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif"
+        android:text="Requests Received"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/list_received"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchview_bar" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_root"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.connections.ConnectionsFragment"
+        android:id="@+id/list_received"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.connections.StatusFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/color_green5"
         android:orientation="vertical"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchview_bar"
-        tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragment"
-        tools:listitem="@layout/fragment_connections_card" />
+        app:layout_constraintTop_toBottomOf="@id/txt_received"
+        tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.IncomingFragment"
+        tools:listitem="@layout/fragment_incoming_status_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/rounded_rectangle_outlined_white_10dp"
     android:padding="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,24 +81,10 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintBaseline_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/img_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/textview_name"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="12:00 am" />
-
-        <ImageView
-            android:id="@+id/img_arrow"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/ic_rightarrow_black_24dp"
-            android:contentDescription="TODO"
-            android:scaleType="centerCrop"
-            app:layout_constraintBaseline_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/time"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_individual_chat"

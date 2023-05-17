@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rectangle"
-        android:backgroundTint="@color/color_green5"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,7 +20,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/rounded_rectangle_10dp"
-            android:backgroundTint="@color/color_green1"
+            android:backgroundTint="@color/color_blue4"
             android:src="@drawable/ic_profile_black_24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +31,7 @@
             android:layout_height="0dp"
             android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle_24dp"
-            android:backgroundTint="@color/color_green1"
+            android:backgroundTint="@color/color_blue4"
             android:gravity="center|start"
             android:maxWidth="300dp"
             android:minHeight="50dp"

@@ -12,61 +12,96 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListRecyclerViewAdapter;
 
-public class ConnectionsViewAdapter extends RecyclerView.Adapter<ConnectionsViewAdapter.ConnectionsViewHolder> {
+public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<ChatPreview> mChats;
-    public static boolean add;
+    private final List<ChatPreview> mConnections;
+    private final int SHOW_MENU = 1;
+    private final int HIDE_MENU = 2;
 
-    /**
-     * Public constructor that sets the private list of ChatPreview objects equal
-     * to the actual, passed in value of real-time ChatPreview objects.
-     * @param chatViews the ArrayList of ChatPreview objects
-     */
     public ConnectionsViewAdapter(List<ChatPreview> chatViews) {
-        this.mChats = chatViews;
+        this.mConnections = chatViews;
     }
 
     @NonNull
     @Override
-    public ConnectionsViewAdapter.ConnectionsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ConnectionsViewAdapter.ConnectionsViewHolder(LayoutInflater
-                .from(parent.getContext())
-                .inflate(R.layout.fragment_connections_card, parent, false));
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v;
+        if (viewType == SHOW_MENU) {
+            v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.recycler_menu, parent, false);
+            return new ConnectionsMenuViewHolder(v);
+        } else {
+            return new ConnectionsViewHolder(LayoutInflater
+                    .from(parent.getContext())
+                    .inflate(R.layout.fragment_connections_card, parent, false));
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ConnectionsViewAdapter.ConnectionsViewHolder holder, int position) {
-        holder.setChatPreview(mChats.get(position));
-        holder.pressedInfo();
-        holder.pressedChat();
-        holder.pressedDelete();
-        //holder.updateNavigationPressed();
-        //code can be switched to view delete functionality instead of add functionality
-        //holder.checkDeleteChat(position);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ConnectionsViewHolder) {
+            ((ConnectionsViewHolder)holder).setChatPreview(mConnections.get(position));
+            ((ConnectionsViewHolder)holder).pressedInfo();
+            ((ConnectionsViewHolder)holder).binding.buttonMenu.setOnLongClickListener(
+                    v -> {
+                        showMenu(position);
+                        return true;
+                    }
+            );
+        }
+
+        if (holder instanceof ConnectionsMenuViewHolder) {
+            ((ConnectionsMenuViewHolder)holder).checkEnterChat(mConnections.get(position));
+            ((ConnectionsMenuViewHolder)holder).checkDeleteChat(position);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return mChats.size();
+        return mConnections.size();
     }
 
-    public static void setAdd(boolean yes) {
-        Log.d("Entered enable chat", "add yes");
-        add = yes;
+    @Override
+    public int getItemViewType(int position) {
+        if (mConnections.get(position).isShowMenu()) {
+            return SHOW_MENU;
+        } else {
+            return HIDE_MENU;
+        }
     }
 
-    public class ConnectionsViewHolder extends RecyclerView.ViewHolder {
+    void showMenu(int position) {
+        for (int i = 0; i < mConnections.size(); i++){
+            mConnections.get(i).setShowMenu(false);
+        }
+        mConnections.get(position).setShowMenu(true);
+        notifyDataSetChanged();
+    }
+
+
+    boolean isMenuShown() {
+        for (int i = 0; i < mConnections.size(); i++){
+            if(mConnections.get(i).isShowMenu()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void closeMenu() {
+        for (int i = 0; i < mConnections.size(); i++){
+            mConnections.get(i).setShowMenu(false);
+        }
+        notifyDataSetChanged();
+    }
+
+    private static class ConnectionsViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public FragmentConnectionsCardBinding binding;
-        public FragmentConnectionsListBinding listBinding;
         private ChatPreview mChat;
 
         public ConnectionsViewHolder(View view) {
@@ -75,11 +110,11 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<ConnectionsView
             binding = FragmentConnectionsCardBinding.bind(view);
         }
 
-        void setChatPreview(final ChatPreview chatPreview) {
+        public void setChatPreview(final ChatPreview chatPreview) {
             mChat = chatPreview;
 
             // shows dummy data
-            binding.name.setText(chatPreview.getContact());
+            binding.textviewName.setText(chatPreview.getContact());
         }
 
         void pressedInfo() {
@@ -91,26 +126,34 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<ConnectionsView
 //                );
             });
         }
+    }
 
-        void pressedDelete() {
+    public class ConnectionsMenuViewHolder extends RecyclerView.ViewHolder {
+        public final View mView;
+        public RecyclerMenuBinding binding;
+        public ConnectionsMenuViewHolder(View view) {
+            super(view);
+            mView = view;
+            binding = RecyclerMenuBinding.bind(view);
+        }
+
+        void checkDeleteChat(final int position) {
             binding.buttonDelete.setOnClickListener(view -> {
-                Log.d("Button Pressed", "Delete");
-//                Navigation.findNavController(mView).navigate(
-//                        edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
+                Log.d("Pressed profile button", "Deleted chat");
+                mConnections.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, mConnections.size());
             });
         }
 
-        void pressedChat() {
-            Log.d("Button Pressed", "Chat");
-            binding.buttonChat.setOnClickListener(view -> {
-//                Navigation.findNavController(mView).navigate(
-//                        edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
+        void checkEnterChat(ChatPreview chat) {
+            binding.buttonIndividualChat.setOnClickListener(view -> {
+                Navigation.findNavController(mView).navigate(
+                        ConnectionsFragmentDirections
+                                .actionNavigationConnectionsToIndividualChatFragment(chat)
+                );
+                closeMenu();
             });
         }
-
     }
 }

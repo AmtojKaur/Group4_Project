@@ -13,6 +13,7 @@ import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
 /**
@@ -21,9 +22,10 @@ import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
  * @author Chloe Duncan
  * @version 3 May 2023
  */
-public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRecyclerViewAdapter.ChatListViewHolder> {
+public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final List<ChatPreview> mChats;
-    public static boolean add;
+    private final int SHOW_MENU = 1;
+    private final int HIDE_MENU = 2;
 
     /**
      * Public constructor that sets the private list of ChatPreview objects equal
@@ -36,18 +38,38 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
 
     @NonNull
     @Override
-    public ChatListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ChatListViewHolder(LayoutInflater
-                .from(parent.getContext())
-                .inflate(R.layout.fragment_chat_card, parent, false));
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v;
+        if (viewType == SHOW_MENU) {
+            v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.recycler_menu, parent, false);
+            return new MenuViewHolder(v);
+        } else {
+            return new ChatListViewHolder(LayoutInflater
+                    .from(parent.getContext())
+                    .inflate(R.layout.fragment_chat_card, parent, false));
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatListViewHolder holder, int position) {
-        holder.setChatPreview(mChats.get(position));
-        //code can be switched to view delete functionality instead of add functionality
-        //holder.checkDeleteChat(position);
-        holder.checkAddChat();
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ChatListViewHolder) {
+            ((ChatListViewHolder)holder).setChatPreview(mChats.get(position));
+//            ((ChatListViewHolder)holder).checkAddChat();
+            //code can be switched to view delete functionality instead of add functionality
+            //holder.checkDeleteChat(position);
+            ((ChatListViewHolder)holder).binding.buttonIndividualChat.setOnLongClickListener(
+                    v -> {
+                        showMenu(position);
+                        return true;
+                    }
+            );
+        }
+
+        if (holder instanceof MenuViewHolder) {
+            ((MenuViewHolder)holder).checkDeleteChat(position);
+            ((MenuViewHolder)holder).checkEnterChat(mChats.get(position));
+        }
     }
 
     @Override
@@ -55,19 +77,46 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
         return mChats.size();
     }
 
-    public static void setAdd(boolean yes) {
-        Log.d("Entered enable chat", "add yes");
-        add = yes;
+    @Override
+    public int getItemViewType(int position) {
+        if (mChats.get(position).isShowMenu()) {
+            return SHOW_MENU;
+        } else {
+            return HIDE_MENU;
+        }
+    }
+
+    void showMenu(int position) {
+        for (int i = 0; i < mChats.size(); i++){
+            mChats.get(i).setShowMenu(false);
+        }
+        mChats.get(position).setShowMenu(true);
+        notifyDataSetChanged();
+    }
+
+    boolean isMenuShown() {
+        for (int i = 0; i < mChats.size(); i++){
+            if(mChats.get(i).isShowMenu()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void closeMenu() {
+        for (int i = 0; i < mChats.size(); i++){
+            mChats.get(i).setShowMenu(false);
+        }
+        notifyDataSetChanged();
     }
 
     /**
      * Objects from this class represent an individual row View from the List
      * of rows in the Chat Recycler View.
      */
-    public class ChatListViewHolder extends RecyclerView.ViewHolder {
+    private static class ChatListViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public FragmentChatCardBinding binding;
-        private ChatPreview mChat;
 
         /**
          * Public constructor used to set the View and binding of a
@@ -86,14 +135,13 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
          * @param chatPreview the ChatPreview the data is associated with
          */
         void setChatPreview(final ChatPreview chatPreview) {
-            mChat = chatPreview;
 
             // shows dummy data
-            binding.name.setText(chatPreview.getContact());
+            binding.textviewName.setText(chatPreview.getContact());
             binding.time.setText(chatPreview.getTimeOfMsg());
             binding.message.setText(chatPreview.getPreviewMsg());
 
-            setChat(chatPreview);
+            checkEnterChatRoom(chatPreview);
         }
 
         /**
@@ -101,7 +149,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
          * and then navigates to the associated IndividualChat if pressed is true.
          * @param chat the ChatPreview being checked if pressed
          */
-        void setChat(final ChatPreview chat) {
+        void checkEnterChatRoom(final ChatPreview chat) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
                 Navigation.findNavController(mView).navigate(
                         ChatListFragmentDirections
@@ -112,10 +160,28 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
 
         /**
          * Method that checks if the button used to add a chat has been pressed,
-         * and then deletes a chat to the Recylerview, depending on position,
-         * if pressed is true.
-         * @param position the position of the ChatPreview in the recycler view
+         * and then adds a new chat to the Recylerview if pressed is true.
          */
+//        void checkAddChat() {
+//            binding.buttonDelete.setOnClickListener(view -> {
+//                Log.d("Entered check add chat", "adding chat");
+//                mChats.add(ChatGenerator.addChat());
+//                notifyItemInserted(mChats.size() - 1);
+//            });
+//        }
+    }
+
+    public class MenuViewHolder extends RecyclerView.ViewHolder {
+
+        public final View mView;
+        public RecyclerMenuBinding binding;
+
+        public MenuViewHolder(View view) {
+            super(view);
+            mView = view;
+            binding = RecyclerMenuBinding.bind(view);
+        }
+
         void checkDeleteChat(final int position) {
             binding.buttonDelete.setOnClickListener(view -> {
                 Log.d("Pressed profile button", "Deleted chat");
@@ -125,16 +191,14 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<ChatListRe
             });
         }
 
-        /**
-         * Method that checks if the button used to add a chat has been pressed,
-         * and then adds a new chat to the Recylerview if pressed is true.
-         */
-         void checkAddChat() {
-             Log.d("Entered check add chat", "adding chat");
-             binding.buttonDelete.setOnClickListener(view -> {
-                 mChats.add(ChatGenerator.addChat());
-                notifyItemInserted(mChats.size() - 1);
-             });
+        void checkEnterChat(ChatPreview chat) {
+            binding.buttonIndividualChat.setOnClickListener(view -> {
+                Navigation.findNavController(mView).navigate(
+                        ChatListFragmentDirections
+                                .actionNavigationChatToNavigationIndividualChat(chat)
+                );
+                closeMenu();
+            });
         }
     }
 }
