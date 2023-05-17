@@ -8,6 +8,7 @@ import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.check
 import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdSpecialChar;
 import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdUpperCase;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -186,11 +187,16 @@ public class RegisterFragment extends Fragment {
                     Log.e("JSON Parse Error", e.getMessage());
                 }
             } else {
-                navigateToLogin();
+                // Create an alert dialog
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Registration Successful")
+                        .setMessage("Please check your email for the verification link.")
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> navigateToLogin())
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
         } else {
             Log.d("JSON Response", "No Response");
         }
-
     }
 }

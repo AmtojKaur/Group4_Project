@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -139,14 +140,24 @@ public class SignInFragment extends Fragment {
      * @param response the Response from the server
      */
     private void observeResponse(final JSONObject response) {
+        System.out.println("response length: " + response.length());
         if (response.length() > 0) {
+            System.out.println("response: " + response);
             if (response.has("code")) {
-                try { binding.editEmail.setError(
-                        "Error Authenticating: " +
-                                response.getJSONObject("data").getString("message"));
+                try {
+                    String serverMessage = response.getJSONObject("data").getString("message");
+                    if (true) {
+//                    if (serverMessage.equals("Please verify your email before signing in.")) {
+
+                            // Handle the case where the user needs to verify their email.
+                        System.out.println("in true statement");
+                        Toast.makeText(getContext(), serverMessage, Toast.LENGTH_LONG).show();
+                    } else {
+                        binding.editEmail.setError("Error Authenticating: " + serverMessage);
+                    }
                 } catch (JSONException e) {
                     Log.e("JSON Parse Error", e.getMessage());
-                }
+                }vabavav654@appxapi.com
             } else {
                 try {
                     navigateToSuccess(

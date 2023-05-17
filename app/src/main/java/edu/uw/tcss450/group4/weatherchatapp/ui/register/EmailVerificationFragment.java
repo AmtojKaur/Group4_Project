@@ -1,11 +1,6 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.register;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +8,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
+import okhttp3.Request;
+
+import java.io.IOException;
+
 import edu.uw.tcss450.group4.weatherchatapp.R;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,20 +46,45 @@ public class EmailVerificationFragment extends Fragment {
 
         mVerifyButton.setOnClickListener(v -> {
             String email = mEmailEditText.getText().toString().trim();
+            System.out.println("checking email: " + email);
             verifyEmail(email);
+            System.out.println("email verification initiated");
         });
 
         return view;
     }
 
     private void verifyEmail(String email) {
-        // TODO: Implement email verification logic using Heroku
+        OkHttpClient client = new OkHttpClient();
 
-        // TODO: make a POST request to Heroku API
+        RequestBody requestBody = new FormBody.Builder()
+                .add("email", email)
+                .build();
 
-        // TODO: make a Toast message to display the result of the POST request
+        Request request = new Request.Builder()
+                .url("https://amtojk-tcss450-labs.herokuapp.com/auth/verify")
+                .post(requestBody)
+                .build();
 
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                getActivity().runOnUiThread(() -> Toast.makeText(getContext(), "Error during email verification: " + e.getMessage(), Toast.LENGTH_LONG).show());
+            }
 
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                getActivity().runOnUiThread(() -> {
+                    if (response.isSuccessful()) {
+                        System.out.println("email verification successful");
+                        Toast.makeText(getContext(), "Email verification initiated. Please check your email.", Toast.LENGTH_LONG).show();
+                    } else {
+                        System.out.println("email verification faile");
+                        Toast.makeText(getContext(), "Email verification failed. Please try again.", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
     }
-
 }
