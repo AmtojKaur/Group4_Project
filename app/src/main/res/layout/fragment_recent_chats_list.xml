@@ -6,9 +6,10 @@
     android:name="edu.uw.tcss450.group4.weatherchatapp.RecentChatsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/rounded_rectangle_10dp"
+    android:backgroundTint="@color/color_yellow8"
     app:layoutManager="LinearLayoutManager"
     android:orientation="vertical"
-    tools:context=".ui.home.RecentChatsFragment"
+    tools:context=".ui.home.RecentNotificationsFragment"
     tools:listitem="@layout/fragment_recent_chats_card" />
