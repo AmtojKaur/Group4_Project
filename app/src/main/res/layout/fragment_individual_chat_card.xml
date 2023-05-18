@@ -11,7 +11,8 @@
         android:layout_height="match_parent"
         android:background="@drawable/rectangle"
         app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/color_green8">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_sender"
@@ -20,7 +21,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/rounded_rectangle_10dp"
-            android:backgroundTint="@color/color_blue4"
+            android:backgroundTint="@color/color_blue5"
             android:src="@drawable/ic_profile_black_24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +32,7 @@
             android:layout_height="0dp"
             android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle_24dp"
-            android:backgroundTint="@color/color_blue4"
+            android:backgroundTint="@color/color_blue5"
             android:gravity="center|start"
             android:maxWidth="300dp"
             android:minHeight="50dp"
@@ -40,7 +41,7 @@
             android:paddingEnd="20dp"
             android:paddingBottom="5dp"
             android:text="hello"
-            android:textColor="@color/white"
+            android:textColor="@color/color_blue8"
             android:textSize="15sp"
             app:layout_constraintEnd_toStartOf="@id/image_sender"
             app:layout_constraintTop_toTopOf="@id/layout_inner"
@@ -53,7 +54,7 @@
             android:layout_margin="5dp"
             android:gravity="center"
             android:text="12:00 AM"
-            android:textColor="@color/black"
+            android:textColor="@color/color_blue2"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/message_sender"
             app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +99,7 @@
             android:layout_margin="5dp"
             android:gravity="center"
             android:text="12:00 AM"
-            android:textColor="@color/black"
+            android:textColor="@color/color_blue2"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/message_receiver"
             app:layout_constraintEnd_toEndOf="parent"

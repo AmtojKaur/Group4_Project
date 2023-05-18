@@ -5,7 +5,8 @@
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rectangle">
+    android:background="@drawable/rectangle"
+    android:backgroundTint="@color/color_yellow8">
 
     <android.widget.SearchView
         android:id="@+id/searchview_bar"
@@ -23,6 +24,7 @@
         android:layout_height="0dp"
         android:layout_margin="5dp"
         android:orientation="vertical"
+        android:background="@drawable/rounded_rectangle_outlined_blue8_10dp"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
