@@ -61,6 +61,7 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         if (holder instanceof AcceptedIncomingViewHolder) {
             // do nothing
+            ((AcceptedIncomingViewHolder)holder).setChatPreview(mFriendRequests.get(position));
         }
     }
 
@@ -116,6 +117,11 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             super(view);
             mView = view;
             binding = FragmentIncomingStatusCardAcceptedBinding.bind(view);
+        }
+
+        void setChatPreview(final ChatPreview chatPreview) {
+            // shows dummy data
+            binding.textviewName.setText(chatPreview.getContact());
         }
     }
 }

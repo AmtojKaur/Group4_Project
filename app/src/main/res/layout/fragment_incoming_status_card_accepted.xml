@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/color_blue8" >
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_profile"
@@ -19,7 +20,7 @@
             android:layout_height="55dp"
             android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle_10dp"
-            android:backgroundTint="@color/color_blue4"
+            android:backgroundTint="@color/color_blue5"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_profile_black_24dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +45,7 @@
             android:gravity="start|center"
             android:maxWidth="290dp"
             android:maxLines="1"
-            android:textColor="@color/black"
+            android:textColor="@color/color_blue2"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -66,8 +67,8 @@
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
             android:background="@drawable/rounded_rectangle_24dp"
-            android:backgroundTint="@color/color_blue6"
-            android:textColor="@color/black"
+            android:backgroundTint="@color/color_blue5"
+            android:textColor="@color/color_green8"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/img_profile"

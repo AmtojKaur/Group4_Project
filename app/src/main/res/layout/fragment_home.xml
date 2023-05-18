@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/color_yellow8">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/weatherFragmentContainer"
@@ -12,8 +13,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/rounded_rectangle_10dp"
-        android:backgroundTint="@color/color_blue6"
         app:layout_constraintBottom_toTopOf="@+id/txt_notifications"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +28,7 @@
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
         android:text="Notifications"
-        android:textColor="@color/black"
+        android:textColor="@color/color_blue2"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/recentChatsFragmentContainer"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +41,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        android:background="@drawable/rounded_rectangle_outlined_white_10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/rounded_rectangle_outlined_blue8_10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_notifications"

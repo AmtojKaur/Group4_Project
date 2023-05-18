@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/color_yellow8">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_contact_add"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:background="@drawable/rectangle_outlined"
-        android:backgroundTint="@color/color_blue6"
+        android:backgroundTint="@color/color_blue8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +25,7 @@
         android:text="Contacts"
         android:textSize="12sp"
         app:iconPadding="0dp"
-        android:textColor="@color/black"
+        android:textColor="@color/color_blue2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"
         app:layout_constraintEnd_toStartOf="@id/button_incoming"/>
@@ -45,7 +46,7 @@
         android:background="#00FFFFFF"
         android:drawableTop="@drawable/ic_connections_accept_decline_requests_black_24dp"
         android:text="Incoming"
-        android:textColor="@color/black"
+        android:textColor="@color/color_blue2"
         android:textSize="12sp"
         app:iconPadding="0dp"
         app:layout_constraintEnd_toStartOf="@id/button_invite"
@@ -68,7 +69,7 @@
         android:background="#00FFFFFF"
         android:drawableTop="@drawable/ic_newchat_black_24dp"
         android:text="Invite"
-        android:textColor="@color/black"
+        android:textColor="@color/color_blue2"
         android:textSize="12sp"
         app:iconPadding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +104,7 @@
         android:layout_marginBottom="5dp"
         android:fontFamily="sans-serif"
         android:text="Requests Received"
-        android:textColor="@color/black"
+        android:textColor="@color/color_blue2"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/list_received"

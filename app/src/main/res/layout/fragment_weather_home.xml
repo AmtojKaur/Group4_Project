@@ -5,6 +5,8 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/rounded_rectangle_10dp"
+    android:backgroundTint="@color/color_blue8"
     tools:context=".ui.home.HomeWeatherFragment">
 
     <TextView
