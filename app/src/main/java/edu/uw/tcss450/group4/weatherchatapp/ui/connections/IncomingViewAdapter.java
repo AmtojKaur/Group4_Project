@@ -11,47 +11,73 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusCardAcceptedBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
-public class IncomingViewAdapter extends RecyclerView.Adapter<IncomingViewAdapter.IncomingViewHolder> {
+public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<ChatPreview> mChats;
-    public static boolean add;
+    private final List<ChatPreview> mFriendRequests;
+    private final int SHOW_ACCEPTED = 1;
+    private final int HIDE_ACCEPTED = 2;
 
     /**
      * Public constructor that sets the private list of ChatPreview objects equal
      * to the actual, passed in value of real-time ChatPreview objects.
-     * @param chatViews the ArrayList of ChatPreview objects
+     * @param friendRequests the ArrayList of ChatPreview objects
      */
-    public IncomingViewAdapter(List<ChatPreview> chatViews) {
-        this.mChats = chatViews;
+    public IncomingViewAdapter(List<ChatPreview> friendRequests) {
+        this.mFriendRequests = friendRequests;
     }
 
     @NonNull
     @Override
-    public IncomingViewAdapter.IncomingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new IncomingViewAdapter.IncomingViewHolder(LayoutInflater
-                .from(parent.getContext())
-                .inflate(R.layout.fragment_incoming_status_card, parent, false));
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v;
+        if (viewType == SHOW_ACCEPTED) {
+            v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.fragment_incoming_status_card_accepted, parent, false);
+            return new AcceptedIncomingViewHolder(v);
+        } else {
+            return new IncomingViewHolder(LayoutInflater
+                    .from(parent.getContext())
+                    .inflate(R.layout.fragment_incoming_status_card, parent, false));
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull IncomingViewAdapter.IncomingViewHolder holder, int position) {
-        holder.setChatPreview(mChats.get(position));
-        holder.pressedDecline(position);
-        holder.pressedAccept(position);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof IncomingViewHolder) {
+            ((IncomingViewHolder)holder).setChatPreview(mFriendRequests.get(position));
+            ((IncomingViewHolder) holder).pressedDecline(position);
+            ((IncomingViewHolder)holder).binding.buttonAccept.setOnClickListener(
+                    v -> {
+                        showAcceptedText(position);
+                    }
+            );
+        }
+
+        if (holder instanceof AcceptedIncomingViewHolder) {
+            // do nothing
+        }
     }
 
     @Override
     public int getItemCount() {
-        return mChats.size();
+        return mFriendRequests.size();
     }
 
-    public static void setAdd(boolean yes) {
-        Log.d("Entered enable chat", "add yes");
-        add = yes;
+    public int getItemViewType(int position) {
+        if (mFriendRequests.get(position).isAcceptedFriendRequest()) {
+            return SHOW_ACCEPTED;
+        } else {
+            return HIDE_ACCEPTED;
+        }
+    }
+
+    void showAcceptedText(int position) {
+        mFriendRequests.get(position).setAcceptedFriendRequest(true);
+        notifyDataSetChanged();
     }
 
     public class IncomingViewHolder extends RecyclerView.ViewHolder {
@@ -74,22 +100,22 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<IncomingViewAdapte
         void pressedDecline(int position) {
             binding.buttonDecline.setOnClickListener(view -> {
                 Log.d("Button Pressed", "Decline");
-                mChats.remove(position);
+                mFriendRequests.remove(position);
                 notifyItemRemoved(position);
-                notifyItemRangeChanged(position, mChats.size());
+                notifyItemRangeChanged(position, mFriendRequests.size());
             });
         }
+    }
 
-        void pressedAccept(int position) {
-            String name = mChats.get(position).getContact();
-            String message = mChats.get(position).getPreviewMsg();
-            String time = mChats.get(position).getTimeOfMsg();
-
-            binding.buttonAccept.setOnClickListener(view -> {
-                Log.d("Button Pressed", "Accept");
-                mChats.add(ChatGenerator.addChat(name, message, time));
-                notifyItemInserted(mChats.size() - 1);
-            });
+    public class AcceptedIncomingViewHolder extends RecyclerView.ViewHolder {
+        public final View mView;
+        public FragmentIncomingStatusCardAcceptedBinding binding;
+        public AcceptedIncomingViewHolder(View view) {
+            super(view);
+            mView = view;
+            binding = FragmentIncomingStatusCardAcceptedBinding.bind(view);
         }
+
+
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuConnectionsCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
 public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -32,7 +32,7 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         View v;
         if (viewType == SHOW_MENU) {
             v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recycler_menu, parent, false);
+                    .inflate(R.layout.recycler_menu_connections_card, parent, false);
             return new ConnectionsMenuViewHolder(v);
         } else {
             return new ConnectionsViewHolder(LayoutInflater
@@ -130,11 +130,11 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     public class ConnectionsMenuViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public RecyclerMenuBinding binding;
+        public RecyclerMenuConnectionsCardBinding binding;
         public ConnectionsMenuViewHolder(View view) {
             super(view);
             mView = view;
-            binding = RecyclerMenuBinding.bind(view);
+            binding = RecyclerMenuConnectionsCardBinding.bind(view);
         }
 
         void checkDeleteChat(final int position) {

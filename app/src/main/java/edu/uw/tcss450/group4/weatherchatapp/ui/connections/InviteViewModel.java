@@ -13,10 +13,10 @@ import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
-public class InviteModel extends AndroidViewModel {
+public class InviteViewModel extends AndroidViewModel {
     private final MutableLiveData<List<ChatPreview>> mChatList;
 
-    public InviteModel(@NonNull Application application) {
+    public InviteViewModel(@NonNull Application application) {
         super(application);
         mChatList = new MutableLiveData<>();
         mChatList.setValue(new ArrayList<>());

@@ -20,7 +20,7 @@ import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 public class InviteFragment extends Fragment {
 
-    private IncomingViewModel mModel;
+    private InviteViewModel mModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +33,7 @@ public class InviteFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mModel = new ViewModelProvider(getActivity()).get(IncomingViewModel.class);
+        mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
     }
 
     @Override
