@@ -14,6 +14,7 @@ import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusCardAcceptedBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -52,6 +53,7 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ((IncomingViewHolder) holder).pressedDecline(position);
             ((IncomingViewHolder)holder).binding.buttonAccept.setOnClickListener(
                     v -> {
+                        ChatGenerator.addContact(mFriendRequests.get(position).getContact());
                         showAcceptedText(position);
                     }
             );
@@ -115,7 +117,5 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             mView = view;
             binding = FragmentIncomingStatusCardAcceptedBinding.bind(view);
         }
-
-
     }
 }

@@ -37,6 +37,10 @@ public class ChatGenerator {
         }
     }
 
+    //---------//
+    // Getters //
+    //---------//
+
     /**
      * Getter class for accessing the ArrayList of ChatPreview objects.
      * @return ArrayList of ChatPreview objects
@@ -64,11 +68,23 @@ public class ChatGenerator {
         return contactList;
     }
 
+    //-------------//
+    // Add Methods //
+    //-------------//
+
     public static void addInvite(String name) {
         inviteList.add(0,
                 new ChatPreview
                 .Builder(name, dummyMessage[1], dummyTime[1])
                 .build()
+        );
+    }
+
+    public static void addContact(String name) {
+        contactList.add(0,
+                new ChatPreview
+                        .Builder(name, dummyMessage[1], dummyTime[1])
+                        .build()
         );
     }
 

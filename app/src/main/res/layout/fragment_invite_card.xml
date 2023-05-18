@@ -46,9 +46,9 @@
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintBaseline_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/img_profile"
+            app:layout_constraintEnd_toStartOf="@id/textview_status"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Name" />
 
