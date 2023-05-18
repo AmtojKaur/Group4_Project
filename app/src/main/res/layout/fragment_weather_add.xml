@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_goneMarginBottom="@dimen/_80sdp"
+    tools:context=".ui.weather.WeatherFragment">
+
+
+    <ImageButton
+        android:id="@+id/button_weather"
+        style="@android:style/Widget.Material.ImageButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#FFFFFF"
+        android:contentDescription="@string/weather_search_button"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_search_black_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/view_pager_weather"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/layout_weather_location"
+        app:strokeColor="@color/black"
+        app:strokeWidth="8dp" />
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager_weather"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_weather_location" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_weather_location"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:hint="zip code"
+        app:boxStrokeWidth="1dp"
+        app:layout_constraintEnd_toStartOf="@+id/button_weather"
+        app:layout_constraintStart_toStartOf="parent"
+        app:startIconDrawable="@drawable/ic_search_black_24dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_location"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            android:visibility="visible" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.signin;
 
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkExcludeWhiteSpace;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdLength;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdSpecialChar;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkExcludeWhiteSpace;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLength;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdSpecialChar;
 
 import android.os.Bundle;
 
@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentSignInBinding;
-import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator;
 
 /**
  * A simple {@link Fragment} subclass.

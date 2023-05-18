@@ -1,12 +1,12 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.register;
 
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkClientPredicate;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkExcludeWhiteSpace;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdDigit;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdLength;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdLowerCase;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdSpecialChar;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdUpperCase;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkClientPredicate;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkExcludeWhiteSpace;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdDigit;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLength;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLowerCase;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdSpecialChar;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdUpperCase;
 
 import android.os.Bundle;
 
@@ -25,7 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentRegisterBinding;
-import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator;
 
 /**
  * A simple {@link Fragment} subclass.

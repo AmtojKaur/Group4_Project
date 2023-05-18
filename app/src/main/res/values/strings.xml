@@ -37,7 +37,7 @@
 
     <string name="action_edit_profile">Edit Profile</string>
     <string name="action_log_out">Log Out</string>
-
+    <string name="weather_search_button">Search with ZIP Code</string>
     <string name="prompt_type_a_message">Type a message</string>
 
 </resources>
