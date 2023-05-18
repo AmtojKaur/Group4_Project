@@ -61,6 +61,9 @@ dependencies {
     implementation 'me.pushy:sdk:1.0.90'
     implementation 'me.pushy:sdk:1.0.90'
 
+    // For Picasso image grabbing
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
     // For getting location and a map
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation 'com.google.android.gms:play-services-location:21.0.1'

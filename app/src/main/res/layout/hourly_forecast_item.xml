@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+
+    <ImageView
+        android:id="@+id/ivHour"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/bg" />
+
+    <TextView
+        android:id="@+id/tvHour"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+</LinearLayout>
