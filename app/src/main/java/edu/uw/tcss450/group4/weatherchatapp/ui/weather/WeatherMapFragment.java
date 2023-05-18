@@ -48,11 +48,13 @@ import edu.uw.tcss450.group4.weatherchatapp.model.WeatherMapViewModel;
 
 
 /**
- * Class that prepares and manages data associated with a weather object.
- *
+ * Fragment that stores information about the weather
+
  */
- 
-public class WeatherFragment extends Fragment {
+public class WeatherMapFragment extends Fragment {
+
+    public static double lat;
+    public static double lon;
     //keep track of view
     View globalView;
 
@@ -100,12 +102,11 @@ public class WeatherFragment extends Fragment {
     TextView windText;
 
 
-    //api key linked to an account
-    //private final String appid = "";
+    //api key linked
+    //private final String appid = "5d35717e8f7700ac945b1abc468129d0";
 
     //will be used to format temperature data retrieved from json
     DecimalFormat df = new DecimalFormat("#.##");
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -131,11 +132,11 @@ public class WeatherFragment extends Fragment {
         searchbtn.setVisibility(View.GONE);
 
         //testing geting images from internet into an imageview
-        //curIcon = view.findViewById(R.id.curIcon);
-        //String sampleIcon = "02d";
-        //String sampleIconUrl = "" + sampleIcon + ".png";
-        //String sample2 = "";
-        //Picasso.with(getContext()).load(sampleIconUrl).into(curIcon);
+        curIcon = view.findViewById(R.id.curIcon);
+        String sampleIcon = "02d";
+        String sampleIconUrl = "" + sampleIcon + ".png";
+        String sample2 = "";
+        Picasso.with(getContext()).load(sampleIconUrl).into(curIcon);
 
         //setup current weather attributes
         dayAndCityText = view.findViewById(R.id.dayAndCityText);
@@ -216,12 +217,12 @@ public class WeatherFragment extends Fragment {
                 if(location!=null) {
                     String lat = Double.toString(location.getLatitude());
                     String lon = Double.toString(location.getLongitude());
-                    System.out.println("HEEEEYYYOO lat: "+ lat + ", lon: " + lon);
+                    System.out.println("Perfect lat: "+ lat + ", lon: " + lon);
                     String latAndLon = lat+ ":" +lon;
                     connect(latAndLon);
                 } else {
                     System.out.println("Location is NULL");
-                    connect("98405");
+                    connect("98001");
                 }
             }
         });
@@ -232,8 +233,9 @@ public class WeatherFragment extends Fragment {
      */
     private void navigateToSelectLocation() {
         Navigation.findNavController(getView())
-                .navigate(WeatherMapFragmentDirections.actionWeatherMapFragmentToNavigationWeather());
+                .navigate(WeatherFragmentDirections.actionNavigationWeatherToWeatherMapFragment());
     }
+
 
     /**
      * Checks for valid user input and sends input to connect method
@@ -262,7 +264,7 @@ public class WeatherFragment extends Fragment {
      * @param zip
      */
     public void connect(String zip) {
-        String webServiceUrl = "http://localhost:5000/weather"  + "weather/" + zip;
+        String webServiceUrl = getResources().getString(R.string.base_url_service)  + "weather/" + zip;
         Request request = new JsonObjectRequest(
                 Request.Method.GET,
                 webServiceUrl,

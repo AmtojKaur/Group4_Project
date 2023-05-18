@@ -25,7 +25,7 @@ public class IncomingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Bottom nav", "Status");
+        Log.d("Connections nav", "Incoming Friend Requests");
 
         return inflater.inflate(R.layout.fragment_incoming_status_list, container, false);
     }

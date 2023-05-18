@@ -1,4 +1,4 @@
-package edu.uw.tcss450.group4.weatherchatapp.utils;
+package edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils;
 
 import java.util.Optional;
 import java.util.function.Consumer;

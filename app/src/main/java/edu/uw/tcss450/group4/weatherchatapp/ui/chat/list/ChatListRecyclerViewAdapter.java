@@ -13,7 +13,7 @@ import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuChatCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
 /**
@@ -42,7 +42,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         View v;
         if (viewType == SHOW_MENU) {
             v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recycler_menu, parent, false);
+                    .inflate(R.layout.recycler_menu_chat_card, parent, false);
             return new MenuViewHolder(v);
         } else {
             return new ChatListViewHolder(LayoutInflater
@@ -174,12 +174,12 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     public class MenuViewHolder extends RecyclerView.ViewHolder {
 
         public final View mView;
-        public RecyclerMenuBinding binding;
+        public RecyclerMenuChatCardBinding binding;
 
         public MenuViewHolder(View view) {
             super(view);
             mView = view;
-            binding = RecyclerMenuBinding.bind(view);
+            binding = RecyclerMenuChatCardBinding.bind(view);
         }
 
         void checkDeleteChat(final int position) {

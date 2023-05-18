@@ -1,17 +1,18 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.register;
 
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkClientPredicate;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkExcludeWhiteSpace;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdDigit;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdLength;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdLowerCase;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdSpecialChar;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdUpperCase;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkClientPredicate;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkExcludeWhiteSpace;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdDigit;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLength;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLowerCase;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdSpecialChar;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdUpperCase;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -26,7 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentRegisterBinding;
-import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -250,11 +251,15 @@ public class RegisterFragment extends Fragment {
                     Log.e("JSON Parse Error", e.getMessage());
                 }
             } else {
-                navigateToLogin();
+                // Show a popup here
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Registration Successful")
+                        .setMessage("Registration was successful! Please check your email for a verification link.")
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> navigateToLogin())
+                        .show();
             }
         } else {
             Log.d("JSON Response", "No Response");
         }
-
     }
 }

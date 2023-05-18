@@ -17,6 +17,8 @@ public class ChatPreview implements Serializable {
     private final String mTimeOfMsg;
     private boolean showMenu = false;
 
+    private boolean acceptedRequest = false;
+
     /**
      * Helper class for building Credentials.
      *
@@ -77,8 +79,16 @@ public class ChatPreview implements Serializable {
         return showMenu;
     }
 
+    public boolean isAcceptedFriendRequest() {
+        return acceptedRequest;
+    }
+
     public void setShowMenu(boolean set) {
         showMenu = set;
+    }
+
+    public void setAcceptedFriendRequest(boolean set) {
+        acceptedRequest = set;
     }
 
 }
