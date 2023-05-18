@@ -134,8 +134,8 @@ public class WeatherMapFragment extends Fragment {
         //testing geting images from internet into an imageview
         curIcon = view.findViewById(R.id.curIcon);
         String sampleIcon = "02d";
-        String sampleIconUrl = "https://openweathermap.org/img/wn/" + sampleIcon + ".png";
-        String sample2 = "https://media.geeksforgeeks.org/wp-content/cdn-uploads/logo-new-2.svg";
+        String sampleIconUrl = "" + sampleIcon + ".png";
+        String sample2 = "";
         Picasso.with(getContext()).load(sampleIconUrl).into(curIcon);
 
         //setup current weather attributes
@@ -332,7 +332,7 @@ public class WeatherMapFragment extends Fragment {
             //populate the ui with the current weather
             dayAndCityText.setText(city);
             descriptionText.setText(des);
-            String iconUrl = "https://openweathermap.org/img/wn/" + icon + ".png";
+            String iconUrl = "" + icon + ".png";
             Picasso.with(getContext()).load(iconUrl).into(curIcon);
             if(celsius){
                 tempText.setText(df.format(tempc) + " °C");
@@ -373,7 +373,7 @@ public class WeatherMapFragment extends Fragment {
                 TextView textView = view2.findViewById(R.id.tvHour);
                 textView.setTextColor(ContextCompat.getColor(getContext(), R.color.color_blue1));
                 textView.setText(formattedDate + " " + df.format(curTempF) + "°F" + "\n" + curHourWeatherDescription);
-                String hourlyIconUrl = "https://openweathermap.org/img/wn/" + curHourWeatherIcon + ".png";
+                String hourlyIconUrl = "" + curHourWeatherIcon + ".png";
                 ImageView imageView = view2.findViewById(R.id.ivHour);
                 Picasso.with(getContext()).load(hourlyIconUrl).into(imageView);
 
@@ -405,7 +405,7 @@ public class WeatherMapFragment extends Fragment {
                 TextView textView = view3.findViewById(R.id.tvDaily);
                 textView.setTextColor(ContextCompat.getColor(getContext(), R.color.color_blue1));
                 textView.setText(formattedDay + ", " + dayDescription + ", " + df.format(dayTempF) + "°F");
-                String dailyIconUrl = "https://openweathermap.org/img/wn/" + dayIcon + ".png";
+                String dailyIconUrl = "" + dayIcon + ".png";
                 ImageView imageView = view3.findViewById(R.id.ivDaily);
                 Picasso.with(getContext()).load(dailyIconUrl).into(imageView);
                 linearLayout2.addView(view3);
