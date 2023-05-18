@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:background="@drawable/rectangle_outlined"
-        android:backgroundTint="@color/color_speckled_eggs_baby_blue"
+        android:backgroundTint="@color/color_blue6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

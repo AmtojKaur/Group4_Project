@@ -5,29 +5,44 @@
 
     <!--theme colors-->
     <!--yellow-->
-    <color name="color_yellow1">#b18834</color>
-    <color name="color_yellow2">#d7b05f</color>
-    <color name="color_yellow3">#fedc97</color>
-    <color name="color_yellow4">#ffe9bd</color>
-    <color name="color_yellow5">#fff4de</color>
+    <color name="color_yellow1">#885b00</color>
+    <color name="color_yellow2">#b67900</color>
+    <color name="color_yellow3">#b18834</color>
+    <color name="color_yellow4">#d7b05f</color>
+    <color name="color_yellow5">#ffce6c</color>
+    <color name="color_yellow6">#ffda90</color>
+    <color name="color_yellow7">#fedc97</color>
+    <color name="color_yellow8">#ffe9bd</color>
+    <color name="color_yellow9">#fff4df</color>
     <!--green-->
-    <color name="color_green1">#40684e</color>
-    <color name="color_green2">#5c8069</color>
-    <color name="color_green3">#7c9885</color>
-    <color name="color_green4">#a2b4a8</color>
-    <color name="color_green5">#d0d8d3</color>
+    <color name="color_green1">#243b2c</color>
+    <color name="color_green2">#355741</color>
+    <color name="color_green3">#508362</color>
+    <color name="color_green4">#5c8069</color>
+    <color name="color_green5">#7c9885</color>
+    <color name="color_green6">#a2b4a8</color>
+    <color name="color_green7">#d0d8d3</color>
+    <color name="color_green8">#e6eae8</color>
     <!--blue-->
     <color name="color_blue1">#001c2d</color>
     <color name="color_blue2">#012f4b</color>
     <color name="color_blue3">#033f63</color>
     <color name="color_blue4">#054d78</color>
     <color name="color_blue5">#095f91</color>
-    <color name="color_blue6">#b6d1ef</color>
-
-<!-- Speckled Eggs -->
-    <color name="color_speckled_eggs_baby_blue">#BFD7ED</color>
-    <color name="color_speckled_eggs_blue_grotto">#60A3D9</color>
-    <color name="color_speckled_eggs_royal_blue">#0074B7</color>
-    <color name="color_speckled_eggs_navy_blue">#003B73</color>
-
+    <color name="color_blue6">#629DDD</color>
+    <color name="color_blue7">#8CB7E6</color>
+    <color name="color_blue8">#b6d1ef</color>
+    <color name="color_blue9">#CFE1F5</color>
+    <!--yellowgreen-->
+    <color name="color_yellowgreen1">#6e6f38</color>
+    <color name="color_yellowgreen2">#95965d</color>
+    <color name="color_yellowgreen3">#b5b682</color>
+    <color name="color_yellowgreen4">#dadab1</color>
+    <color name="color_yellowgreen5">#fefee6</color>
+    <!--teal-->
+    <color name="color_teal1">#03353c</color>
+    <color name="color_teal2">#134e57</color>
+    <color name="color_teal3">#28656e</color>
+    <color name="color_teal4">#478088</color>
+    <color name="color_teal5">#719fa5</color>
 </resources>
