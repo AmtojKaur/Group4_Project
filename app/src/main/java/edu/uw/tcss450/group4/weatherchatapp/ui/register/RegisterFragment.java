@@ -12,6 +12,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -250,11 +251,15 @@ public class RegisterFragment extends Fragment {
                     Log.e("JSON Parse Error", e.getMessage());
                 }
             } else {
-                navigateToLogin();
+                // Show a popup here
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Registration Successful")
+                        .setMessage("Registration was successful! Please check your email for a verification link.")
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> navigateToLogin())
+                        .show();
             }
         } else {
             Log.d("JSON Response", "No Response");
         }
-
     }
 }
