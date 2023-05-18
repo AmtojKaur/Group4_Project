@@ -39,11 +39,13 @@
 
     <string name="action_edit_profile">Edit Profile</string>
     <string name="action_log_out">Log Out</string>
-
+    <string name="weather_search_button">Search with ZIP Code</string>
     <string name="prompt_type_a_message">Type a message</string>
     <string name="title_activity_tab">TabActivity</string>
     <string name="action_remember_me">REMEMBER ME</string>
 
+    <string name="base_url_service">https://localhost:5000/weather</string>-
+    <!--<string name="base_url_service">https://localhost:5000/</string>-->
 
     <!-- Preference Titles -->
     <string name="profile_header">Profile</string>
