@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_contact_add"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:background="@drawable/rectangle_outlined"
+        android:backgroundTint="@color/color_blue6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_connections"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/ic_connections_friend"
+        android:text="Contacts"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"
+        app:layout_constraintEnd_toStartOf="@id/button_incoming"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@id/button_connections"
+        app:layout_constraintEnd_toStartOf="@id/button_incoming"
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"/>
+
+    <Button
+        android:id="@+id/button_incoming"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/ic_connections_accept_decline_requests_black_24dp"
+        android:text="Incoming"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toStartOf="@id/button_invite"
+        app:layout_constraintStart_toEndOf="@+id/button_connections"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@id/button_incoming"
+        app:layout_constraintEnd_toStartOf="@id/button_invite"
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"/>
+
+    <Button
+        android:id="@+id/button_invite"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/ic_newchat_black_24dp"
+        android:text="Invite"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_incoming"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="@id/searchview_bar"
+        app:layout_constraintEnd_toEndOf="@id/searchview_bar"
+        app:layout_constraintBottom_toTopOf="@id/searchview_bar"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_new_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Add Contact"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/toolbar_contact_add"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_contact_add" />
+
+    <View
+        android:id="@+id/view_invite_new"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_rectangle_outlined_lightgreen_10dp"
+        android:backgroundTint="@color/color_blue4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_new_contact" />
+
+    <android.widget.SearchView
+        android:id="@+id/searchview_bar"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:backgroundTint="@color/white"
+        android:queryHint="Search users"
+        android:iconifiedByDefault="false"
+        app:layout_constraintStart_toStartOf="@id/view_invite_new"
+        app:layout_constraintEnd_toEndOf="@id/view_invite_new"
+        app:layout_constraintTop_toTopOf="@+id/view_invite_new" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_new"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="#00FFFFFF"
+        android:layout_marginEnd="5dp"
+        android:drawableStart="@drawable/ic_newchat_black_24dp"
+        android:text=" New Connection"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/view_invite_new"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view_invite_new" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_sent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Sent"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/view_recycler_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_invite_new" />
+
+    <View
+        android:id="@+id/view_recycler_background"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/rounded_rectangle_outlined_white_10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_sent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_sent"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.connections.InviteFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/color_green5"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="@id/view_recycler_background"
+        app:layout_constraintEnd_toEndOf="@id/view_recycler_background"
+        app:layout_constraintTop_toTopOf="@id/view_recycler_background"
+        app:layout_constraintBottom_toBottomOf="@id/view_recycler_background"
+        tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.InviteFragment"
+        tools:listitem="@layout/fragment_invite_card" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

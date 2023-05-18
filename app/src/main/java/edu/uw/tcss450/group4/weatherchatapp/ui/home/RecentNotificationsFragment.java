@@ -13,7 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.placeholder.PlaceholderContent;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListRecyclerViewAdapter;
 
 /**
  * Fragment holding a list of cards.
@@ -21,7 +22,7 @@ import edu.uw.tcss450.group4.weatherchatapp.placeholder.PlaceholderContent;
  * @author Andrew Nguyen
  * @version 3 May 2023
  */
-public class RecentChatsFragment extends Fragment {
+public class RecentNotificationsFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -32,7 +33,7 @@ public class RecentChatsFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public RecentChatsFragment() {
+    public RecentNotificationsFragment() {
     }
 
     /**
@@ -42,8 +43,8 @@ public class RecentChatsFragment extends Fragment {
      */
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static RecentChatsFragment newInstance(int columnCount) {
-        RecentChatsFragment fragment = new RecentChatsFragment();
+    public static RecentNotificationsFragment newInstance(int columnCount) {
+        RecentNotificationsFragment fragment = new RecentNotificationsFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -91,7 +92,7 @@ public class RecentChatsFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new RecentChatsRecyclerViewAdapter(PlaceholderContent.ITEMS));
+            recyclerView.setAdapter(new ChatListRecyclerViewAdapter(ChatGenerator.getChatList()));
         }
         return view;
     }

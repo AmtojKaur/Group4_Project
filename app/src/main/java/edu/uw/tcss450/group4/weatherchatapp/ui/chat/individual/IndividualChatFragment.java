@@ -12,8 +12,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatListBinding;
 
@@ -53,8 +51,8 @@ public class IndividualChatFragment extends Fragment {
         binding.textName.setText(args.getChat().getContact());
 
         // set bottom navigation bar invisible
-        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
-        navBar.setVisibility(View.GONE);
+//        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
+//        navBar.setVisibility(View.GONE);
 
 
         mModel.addIndividualChatListObserver(getViewLifecycleOwner(), chatList -> {

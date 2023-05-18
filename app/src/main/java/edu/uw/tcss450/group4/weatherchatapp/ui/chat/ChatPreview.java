@@ -15,6 +15,7 @@ public class ChatPreview implements Serializable {
     private final String mContact;
     private final String mPreviewMsg;
     private final String mTimeOfMsg;
+    private boolean showMenu = false;
 
     /**
      * Helper class for building Credentials.
@@ -71,4 +72,13 @@ public class ChatPreview implements Serializable {
     public String getTimeOfMsg() {
         return mTimeOfMsg;
     }
+
+    public boolean isShowMenu() {
+        return showMenu;
+    }
+
+    public void setShowMenu(boolean set) {
+        showMenu = set;
+    }
+
 }

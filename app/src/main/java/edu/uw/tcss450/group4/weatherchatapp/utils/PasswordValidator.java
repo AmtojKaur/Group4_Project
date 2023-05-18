@@ -10,7 +10,7 @@ import java.util.function.Predicate;
  * Interface used to validate user password
  *
  * @author Amtoj Kaur
- * @version 3 May 2023
+ * @version 8 May 2023
  */
 public interface PasswordValidator
         extends Function<String, Optional<PasswordValidator.ValidationResult>> {
@@ -38,11 +38,11 @@ public interface PasswordValidator
      * ValidationResult.PWD_INVALID_LENGTH.
      *
      * @param length the length of the String needed for validation
-     * @return a validator that validates the length of the String as > 6
+     * @return a validator that validates the length of the String as > entered length.
      */
     static PasswordValidator checkPwdLength(int length) {
         return password ->
-                Optional.of(password.length() > length ?
+                Optional.of(password.length() >= length ?
                         ValidationResult.SUCCESS : ValidationResult.PWD_INVALID_LENGTH);
     }
 
@@ -132,7 +132,7 @@ public interface PasswordValidator
      *
      * When a String s is applied to the returning validator, it will evaluate to an Optional
      * containing ValidationResult.SUCCESS when s does NOT contain ANY of the
-     * characters found in exludeChars, otherwise ValidationResult.PWD_INCLUDES_EXCLUDED.
+     * characters found in exclude Chars, otherwise ValidationResult.PWD_INCLUDES_EXCLUDED.
      *
      * @param excludeChars the characters to exclude
      * @return a validator that validates that the String does NOT contain ANY of the characters
