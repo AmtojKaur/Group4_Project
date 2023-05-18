@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +48,7 @@ public class ConnectionsFragment extends Fragment {
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
                 binding.listRoot.setAdapter(
-                        new ConnectionsViewAdapter(ChatGenerator.getSortedNameChatList())
+                        new ConnectionsViewAdapter(ChatGenerator.getSortedContactList())
                 );
             }
         });

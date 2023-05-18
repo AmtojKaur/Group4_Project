@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatListBinding;
@@ -47,6 +48,20 @@ public class IndividualChatFragment extends Fragment {
 
         FragmentIndividualChatListBinding binding = FragmentIndividualChatListBinding.bind(getView());
 
+        binding.swipeContainer.setRefreshing(true);
+
+        final RecyclerView rv = binding.chatRecyclerView;
+        rv.setAdapter(new IndividualChatRecyclerViewAdapter(IndividualChatGenerator.getChatList()));
+
+        binding.swipeContainer.setOnRefreshListener(() -> {
+
+        });
+
+        binding.buttonSend.setOnClickListener(button -> {
+
+        });
+
+
         // set text of chat depending on which chat is entered
         binding.textName.setText(args.getChat().getContact());
 
@@ -55,13 +70,13 @@ public class IndividualChatFragment extends Fragment {
 //        navBar.setVisibility(View.GONE);
 
 
-        mModel.addIndividualChatListObserver(getViewLifecycleOwner(), chatList -> {
-            Log.d("Individual Chat List Observer", "Setting recycler view adapter");
-            if (view instanceof ConstraintLayout) {
-                binding.chatRecyclerView.setAdapter(
-                        new IndividualChatRecyclerViewAdapter(IndividualChatGenerator.getChatList())
-                );
-            }
-        });
+//        mModel.addIndividualChatListObserver(getViewLifecycleOwner(), chatList -> {
+//            Log.d("Individual Chat List Observer", "Setting recycler view adapter");
+//            if (view instanceof ConstraintLayout) {
+//                binding.chatRecyclerView.setAdapter(
+//                        new IndividualChatRecyclerViewAdapter(IndividualChatGenerator.getChatList())
+//                );
+//            }
+//        });
     }
 }

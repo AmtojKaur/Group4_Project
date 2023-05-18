@@ -15,6 +15,9 @@ import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
  */
 public class ChatGenerator {
     private static final ArrayList<ChatPreview> CHATS;
+    private static List<ChatPreview> contactList;
+    private static List<ChatPreview> inviteList;
+
     private static final int COUNT = 7;
     private static final String[] dummyNames = {"Jane", "John", "Amtoj", "AJ", "Andrew", "Zak", "Chloe"};
     private static final String[] dummyMessage = {"Hi", "This is our first chat", "I'm working on Heroku", "Dummy message", "ok", "hello", "sup"};
@@ -22,11 +25,15 @@ public class ChatGenerator {
 
     static {
         CHATS = new ArrayList<>();
+        contactList = new ArrayList<>();
+        inviteList = new ArrayList<>();
 
         for (int i = 0; i < COUNT; i++) {
             CHATS.add(new ChatPreview
                     .Builder(dummyNames[i], dummyMessage[i], dummyTime[i])
                     .build());
+            contactList.add(CHATS.get(i));
+            inviteList.add(CHATS.get(i));
         }
     }
 
@@ -38,18 +45,31 @@ public class ChatGenerator {
         return CHATS;
     }
 
-    public static List<ChatPreview> getSortedNameChatList() {
-        List<ChatPreview> sortedList = new ArrayList<>();
-        for (int i = 0; i < CHATS.size() - 1; i++) {
-            sortedList.add(CHATS.get(i));
-        }
-        sortedList.sort(new Comparator<ChatPreview>() {
+    public static List<ChatPreview> getContactsList() {
+        return contactList;
+    }
+
+    public static List<ChatPreview> getInvitesList() {
+        return inviteList;
+    }
+
+
+    public static List<ChatPreview> getSortedContactList() {
+        contactList.sort(new Comparator<ChatPreview>() {
             @Override
             public int compare(ChatPreview o1, ChatPreview o2) {
                 return o1.getContact().compareTo(o2.getContact());
             }
         });
-        return sortedList;
+        return contactList;
+    }
+
+    public static void addInvite(String name) {
+        inviteList.add(0,
+                new ChatPreview
+                .Builder(name, dummyMessage[1], dummyTime[1])
+                .build()
+        );
     }
 
     /**

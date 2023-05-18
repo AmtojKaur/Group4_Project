@@ -47,9 +47,21 @@ public class InviteFragment extends Fragment {
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
                 binding.listSent.setAdapter(
-                        new InviteViewAdapter(ChatGenerator.getChatList())
+                        new InviteViewAdapter(ChatGenerator.getInvitesList())
                 );
             }
+        });
+
+        binding.buttonNew.setOnClickListener(button -> {
+            ChatGenerator.addInvite("Dummy");
+
+            mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
+                if (view instanceof ConstraintLayout) {
+                    binding.listSent.setAdapter(
+                            new InviteViewAdapter(ChatGenerator.getInvitesList())
+                    );
+                }
+            });
         });
 
         binding.buttonConnections.setOnClickListener(button -> {
