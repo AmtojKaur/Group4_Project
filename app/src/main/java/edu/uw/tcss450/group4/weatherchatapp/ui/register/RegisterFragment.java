@@ -8,11 +8,11 @@ import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.check
 import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdSpecialChar;
 import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdUpperCase;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -187,12 +187,11 @@ public class RegisterFragment extends Fragment {
                     Log.e("JSON Parse Error", e.getMessage());
                 }
             } else {
-                // Create an alert dialog
+                // Show a popup here
                 new AlertDialog.Builder(getContext())
                         .setTitle("Registration Successful")
-                        .setMessage("Please check your email for the verification link.")
+                        .setMessage("Registration was successful! Please check your email for a verification link.")
                         .setPositiveButton(android.R.string.ok, (dialog, which) -> navigateToLogin())
-                        .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
             }
         } else {
