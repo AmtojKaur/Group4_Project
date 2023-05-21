@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,6 +45,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentWeatherBinding;
 import edu.uw.tcss450.group4.weatherchatapp.model.WeatherMapViewModel;
 
 
@@ -191,6 +193,34 @@ public class WeatherFragment extends Fragment {
             //auto populate with weather data for current location, if unavailable populate for Tacoma
             getCurrentLocation(view);
         }
+
+        // Bottom Nav
+        FragmentWeatherBinding binding = FragmentWeatherBinding.bind(getView());
+        binding.buttonNavHome.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Home");
+            Navigation.findNavController(getView()).navigate(
+                    WeatherFragmentDirections.actionNavigationWeatherToNavigationHome()
+            );
+        });
+
+        binding.buttonNavConnections.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Connections");
+            Navigation.findNavController(getView()).navigate(
+                    WeatherFragmentDirections.actionNavigationWeatherToNavigationConnections()
+            );
+        });
+
+        binding.buttonNavChat.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Chat");
+            Navigation.findNavController(getView()).navigate(
+                    WeatherFragmentDirections.actionNavigationWeatherToNavigationChat()
+            );
+        });
+
+        binding.buttonNavWeather.setOnClickListener(button -> {
+            // do nothing
+            Log.d("Button Clicked", "Nav Weather");
+        });
 
     }
 

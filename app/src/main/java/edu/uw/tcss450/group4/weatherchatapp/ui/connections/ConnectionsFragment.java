@@ -26,8 +26,6 @@ public class ConnectionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Bottom nav", "Connections");
-
         return inflater.inflate(R.layout.fragment_connections_list, container, false);
     }
 
