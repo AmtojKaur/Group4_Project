@@ -41,6 +41,7 @@ public class ConnectionsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         // view binding variable
         FragmentConnectionsListBinding binding = FragmentConnectionsListBinding.bind(getView());
 
@@ -53,6 +54,7 @@ public class ConnectionsFragment extends Fragment {
             }
         });
 
+        // Connections Nav
         binding.buttonConnections.setOnClickListener(button -> {
             // do nothing
         });
@@ -69,5 +71,31 @@ public class ConnectionsFragment extends Fragment {
             );
         });
 
+        // Bottom Nav
+        binding.buttonNavHome.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Home");
+            Navigation.findNavController(getView()).navigate(
+                    ConnectionsFragmentDirections.actionNavigationConnectionsToNavigationHome()
+            );
+        });
+
+        binding.buttonNavConnections.setOnClickListener(button -> {
+            // do nothing
+            Log.d("Button Clicked", "Nav Connections");
+        });
+
+        binding.buttonNavChat.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Chat");
+            Navigation.findNavController(getView()).navigate(
+                    ConnectionsFragmentDirections.actionNavigationConnectionsToNavigationChat()
+            );
+        });
+
+        binding.buttonNavWeather.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Weather");
+            Navigation.findNavController(getView()).navigate(
+                    ConnectionsFragmentDirections.actionNavigationConnectionsToNavigationWeather()
+            );
+        });
     }
 }

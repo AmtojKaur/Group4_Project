@@ -5,12 +5,24 @@
     android:id="@+id/main_graph"
     app:startDestination="@id/navigation_home">
 
+    <!-- Nav Home -->
     <fragment
         android:id="@+id/navigation_home"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_weather"
+            app:destination="@id/navigation_weather" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_chat"
+            app:destination="@id/navigation_chat" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_connections"
+            app:destination="@id/navigation_connections" />
+    </fragment>
 
+    <!-- Nav Chat -->
     <fragment
         android:id="@+id/navigation_chat"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragment"
@@ -19,8 +31,18 @@
         <action
             android:id="@+id/action_navigation_chat_to_navigation_individual_chat"
             app:destination="@id/individualChatFragment" />
+        <action
+            android:id="@+id/action_navigation_chat_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_chat_to_navigation_connections"
+            app:destination="@id/navigation_connections" />
+        <action
+            android:id="@+id/action_navigation_chat_to_weatherMapFragment"
+            app:destination="@id/weatherMapFragment" />
     </fragment>
 
+    <!-- Nav Weather -->
     <fragment
         android:id="@+id/navigation_weather"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.weather.WeatherFragment"
@@ -44,6 +66,7 @@
             app:argType="edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview" />
     </fragment>
 
+    <!-- Nav Connections -->
     <fragment
         android:id="@+id/navigation_connections"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragment"
@@ -58,6 +81,15 @@
         <action
             android:id="@+id/action_navigation_connections_to_individualChatFragment"
             app:destination="@id/individualChatFragment" />
+        <action
+            android:id="@+id/action_navigation_connections_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_connections_to_navigation_chat"
+            app:destination="@id/navigation_chat" />
+        <action
+            android:id="@+id/action_navigation_connections_to_navigation_weather"
+            app:destination="@id/navigation_weather" />
     </fragment>
 
     <fragment
@@ -93,6 +125,15 @@
         <action
             android:id="@+id/action_weatherMapFragment_to_navigation_weather"
             app:destination="@id/navigation_weather" />
+        <action
+            android:id="@+id/action_weatherMapFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_weatherMapFragment_to_navigation_connections"
+            app:destination="@id/navigation_connections" />
+        <action
+            android:id="@+id/action_weatherMapFragment_to_navigation_chat"
+            app:destination="@id/navigation_chat" />
     </fragment>
     <fragment
         android:id="@+id/weatherAddFragment"

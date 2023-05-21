@@ -1,5 +1,6 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.home;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentHomeBinding;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragmentDirections;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsViewAdapter;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsViewModel;
 
 /**
  * HomeWeatherFragment holds the content fragments that will be seen on the home screen.
@@ -23,7 +31,7 @@ import edu.uw.tcss450.group4.weatherchatapp.R;
  */
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel mViewModel;
+    private HomeViewModel mModel;
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -56,11 +64,51 @@ public class HomeFragment extends Fragment {
      * a previous saved state, this is the state.
      *
      */
+//    @Override
+//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+//        super.onActivityCreated(savedInstanceState);
+//        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+//        // TODO: Use the ViewModel
+//    }
+
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        // TODO: Use the ViewModel
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mModel = new ViewModelProvider(getActivity()).get(HomeViewModel.class);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // view binding variable
+        FragmentHomeBinding binding = FragmentHomeBinding.bind(getView());
+
+        // Bottom Nav
+        binding.buttonNavHome.setOnClickListener(button -> {
+            // do nothing
+            Log.d("Button Clicked", "Nav Home");
+        });
+
+        binding.buttonNavConnections.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Connections");
+            Navigation.findNavController(getView()).navigate(
+                    HomeFragmentDirections.actionNavigationHomeToNavigationConnections()
+            );
+        });
+
+        binding.buttonNavChat.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Chat");
+            Navigation.findNavController(getView()).navigate(
+                    HomeFragmentDirections.actionNavigationHomeToNavigationChat()
+            );
+        });
+
+        binding.buttonNavWeather.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Weather");
+            Navigation.findNavController(getView()).navigate(
+                    HomeFragmentDirections.actionNavigationHomeToNavigationWeather()
+            );
+        });
+    }
 }
