@@ -112,6 +112,15 @@
         <action
             android:id="@+id/action_navigation_incoming_to_inviteFragment"
             app:destination="@id/navigation_invite" />
+        <action
+            android:id="@+id/action_navigation_incoming_friend_requests_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_incoming_friend_requests_to_navigation_chat"
+            app:destination="@id/navigation_chat" />
+        <action
+            android:id="@+id/action_navigation_incoming_friend_requests_to_navigation_weather"
+            app:destination="@id/navigation_weather" />
     </fragment>
 
     <fragment
@@ -125,6 +134,15 @@
         <action
             android:id="@+id/action_inviteFragment_to_navigation_connectionsFragment"
             app:destination="@id/navigation_connections" />
+        <action
+            android:id="@+id/action_navigation_invite_to_navigation_weather"
+            app:destination="@id/navigation_weather" />
+        <action
+            android:id="@+id/action_navigation_invite_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_invite_to_navigation_chat"
+            app:destination="@id/navigation_chat" />
     </fragment>
     <fragment
         android:id="@+id/weatherMapFragment"

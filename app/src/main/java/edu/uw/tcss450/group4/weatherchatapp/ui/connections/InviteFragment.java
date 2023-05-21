@@ -64,6 +64,7 @@ public class InviteFragment extends Fragment {
             });
         });
 
+        // Connections Nav
         binding.buttonConnections.setOnClickListener(button -> {
             Navigation.findNavController(getView()).navigate(
                     InviteFragmentDirections.actionInviteFragmentToNavigationConnectionsFragment()
@@ -80,5 +81,32 @@ public class InviteFragment extends Fragment {
             // do nothing
         });
 
+
+        // Bottom Nav
+        binding.buttonNavHome.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Home");
+            Navigation.findNavController(getView()).navigate(
+                    InviteFragmentDirections.actionNavigationInviteToNavigationHome()
+            );
+        });
+
+        binding.buttonNavConnections.setOnClickListener(button -> {
+            // do nothing
+            Log.d("Button Clicked", "Nav Connections");
+        });
+
+        binding.buttonNavChat.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Chat");
+            Navigation.findNavController(getView()).navigate(
+                    InviteFragmentDirections.actionNavigationInviteToNavigationChat()
+            );
+        });
+
+        binding.buttonNavWeather.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Weather");
+            Navigation.findNavController(getView()).navigate(
+                    InviteFragmentDirections.actionNavigationInviteToNavigationWeather()
+            );
+        });
     }
 }
