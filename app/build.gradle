@@ -60,6 +60,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     implementation 'me.pushy:sdk:1.0.90'
     implementation 'me.pushy:sdk:1.0.90'
+    implementation 'com.google.code.gson:gson:2.8.7'
 
     // For Picasso image grabbing
     implementation 'com.squareup.picasso:picasso:2.5.2'

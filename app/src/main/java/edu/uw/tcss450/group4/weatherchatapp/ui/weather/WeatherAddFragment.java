@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
  * A simple {@link Fragment} subclass.
  * Use the {@link WeatherAddFragment#newInstance} factory method to
  * create an instance of this fragment.
+ * @author Abdirizak Ali
+ * @version 16 May 2023
  */
 public class WeatherAddFragment extends Fragment {
 

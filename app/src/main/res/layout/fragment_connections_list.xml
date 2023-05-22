@@ -100,11 +100,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
+        android:layout_marginStart="8dp"
         android:orientation="vertical"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchview_bar"
+        app:layout_constraintVertical_bias="0.0"
         tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragment"
         tools:listitem="@layout/fragment_connections_card" />
 

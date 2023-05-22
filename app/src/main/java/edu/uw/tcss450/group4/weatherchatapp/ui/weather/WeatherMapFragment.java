@@ -49,7 +49,8 @@ import edu.uw.tcss450.group4.weatherchatapp.model.WeatherMapViewModel;
 
 /**
  * Fragment that stores information about the weather
-
+ * @author Abdirizak Ali
+ * @version 16May 2023
  */
 public class WeatherMapFragment extends Fragment {
 
@@ -307,7 +308,7 @@ public class WeatherMapFragment extends Fragment {
                     lonDir = lon + "°W";
                 }
                 city = latDir + ", " + lonDir;
-                System.out.println("city not availible getting coord: " + lat + ", " + lon);
+                System.out.println("Error city not found change locations: " + lat + ", " + lon);
             }
 
             //get temp in c
@@ -348,7 +349,7 @@ public class WeatherMapFragment extends Fragment {
             //parse and set hourly details
             JSONArray hourlyArray = jsonResponse.getJSONArray("hourly");
             //set up hourly forecast scroll view
-            LinearLayout linearLayout = globalView.findViewById(R.id.hourlyForecast);
+            LinearLayout linearLayout = globalView.findViewById(R.id.twentyFourHourForecastRecyclerView);
             LayoutInflater inflater = LayoutInflater.from(getContext());
             linearLayout.removeAllViews();
             for(int i = 1; i <= 24; i++) {
@@ -370,11 +371,11 @@ public class WeatherMapFragment extends Fragment {
                 String curHourWeatherIcon = curHourWeatherArrayIndex.getString("icon");
 
                 View view2 = inflater.inflate(R.layout.hourly_forecast_item, linearLayout, false);
-                TextView textView = view2.findViewById(R.id.tvHour);
+                TextView textView = view2.findViewById(R.id.idTVTime);
                 textView.setTextColor(ContextCompat.getColor(getContext(), R.color.color_blue1));
                 textView.setText(formattedDate + " " + df.format(curTempF) + "°F" + "\n" + curHourWeatherDescription);
                 String hourlyIconUrl = "" + curHourWeatherIcon + ".png";
-                ImageView imageView = view2.findViewById(R.id.ivHour);
+                ImageView imageView = view2.findViewById(R.id.idTVTime);
                 Picasso.with(getContext()).load(hourlyIconUrl).into(imageView);
 
                 linearLayout.addView(view2);
@@ -383,7 +384,7 @@ public class WeatherMapFragment extends Fragment {
             //parse and set daily details
             JSONArray dailyArray = jsonResponse.getJSONArray("daily");
             //set up daily forecast scroll view
-            LinearLayout linearLayout2 = globalView.findViewById(R.id.dailyForecast);
+            LinearLayout linearLayout2 = globalView.findViewById(R.id.sevenDayForecastRecyclerView);
             LayoutInflater inflater2 = LayoutInflater.from(getContext());
             linearLayout2.removeAllViews();
             for(int i = 1; i <=5; i++) {
