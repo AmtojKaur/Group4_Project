@@ -12,7 +12,7 @@ public class WeatherRequest {
     public static StringBuilder request(String latitude, String longitude) {
         StringBuilder result = new StringBuilder();
 
-        String urlString = "http://10.0.2.2:5000/weather?lat=" + latitude + "&lon=" + longitude;
+         String urlString = "http://10.0.2.2:5000/weather?lat=" + latitude + "&lon=" + longitude;
 
 
         HttpURLConnection urlConnection = null;
