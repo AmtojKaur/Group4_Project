@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentInviteListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
@@ -108,5 +109,10 @@ public class InviteFragment extends Fragment {
                     InviteFragmentDirections.actionNavigationInviteToNavigationWeather()
             );
         });
+
+        // settings
+        if (((MainActivity)getActivity()).getSettings()) {
+            Log.d("App Bar Interaction" ,"Settings");
+        }
     }
 }

@@ -162,6 +162,7 @@
             android:id="@+id/action_weatherMapFragment_to_navigation_chat"
             app:destination="@id/navigation_chat" />
     </fragment>
+
     <fragment
         android:id="@+id/weatherAddFragment"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.weather.WeatherAddFragment"
@@ -170,5 +171,12 @@
             android:id="@+id/action_weatherAddFragment_to_navigation_weather"
             app:destination="@id/navigation_weather" />
     </fragment>
+
+    <!-- SETTINGS -->
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/settings_fragment"/>
 
 </navigation>

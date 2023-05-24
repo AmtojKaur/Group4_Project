@@ -2,6 +2,7 @@ package edu.uw.tcss450.group4.weatherchatapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -29,21 +30,12 @@ import edu.uw.tcss450.group4.weatherchatapp.R;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration mAppBarConfiguration;
+    public boolean settings = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // bottom navigation bar
-//        BottomNavigationView navView = findViewById(R.id.bottom_nav);
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.navigation_home, R.id.navigation_connections, R.id.navigation_chat, R.id.navigation_weather)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navView, navController);
     }
 
     /**
@@ -64,16 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.menu_button_settings) {
             // do something here
+            settings = true;
+//            Navigation.findNavController(this, R.id.settings_fragment);
         }
         return super.onOptionsItemSelected(item);
     }
 
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+    public boolean getSettings() {
+        return settings;
     }
 }

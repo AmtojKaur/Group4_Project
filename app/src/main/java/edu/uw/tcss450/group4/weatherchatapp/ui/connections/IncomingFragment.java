@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
@@ -95,5 +96,10 @@ public class IncomingFragment extends Fragment {
                     IncomingFragmentDirections.actionNavigationIncomingFriendRequestsToNavigationWeather()
             );
         });
+
+        // settings
+        if (((MainActivity)getActivity()).getSettings()) {
+            Log.d("App Bar Interaction" ,"Settings");
+        }
     }
 }

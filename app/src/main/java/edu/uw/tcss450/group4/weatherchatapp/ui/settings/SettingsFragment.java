@@ -1,34 +1,32 @@
-/*
 package edu.uw.tcss450.group4.weatherchatapp.ui.settings;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceScreen;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 
-*/
-/**
- * SettingsFragment is the fragment where the user sets their preferences.
- *
- * @author Andrew Nguyen
- * @version 9 May 2023
- *//*
 
-public class SettingsFragment extends PreferenceFragmentCompat {
-
-    */
-/**
-     * Called on creation.
-     * @param savedInstanceState If the fragment is being re-created from a previous saved state,
-     *                           this is the state.
-     * @param rootKey            If non-null, this preference fragment should be rooted at the
-     *                           {@link PreferenceScreen} with this key.
-     *//*
+public class SettingsFragment extends Fragment {
 
     @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.root_preferences, rootKey);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.settings_fragment, container, false);
     }
-}*/
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+}
