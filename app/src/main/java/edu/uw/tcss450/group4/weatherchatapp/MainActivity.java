@@ -51,57 +51,23 @@ public class MainActivity extends AppCompatActivity {
      * @param menu
      * @return
      */
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.toolbar, menu);
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-    /**
-     * Method that sets the menu items of the options menu
-     * and handles action when an item is selected.
-     * @param item is menu item in options menu.
-     * @return true if selected item, false otherwise.
-     */
-    @SuppressLint("NonConstantResourceId")
+    // handle button activities
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-//            case R.id.action_edit_profile:
-//                Log.d("EDIT_PROFILE", "Clicked");
-//                userSettings();
-//                return true;
-            case R.id.action_settings:
-                Log.d("SETTINGS", "Clicked");
-                userSettings();
-                return true;
-//            case R.id.action_log_out:
-//                Log.d("LOG_OUT", "Clicked");
-//                logOut();
-//                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+
+        if (id == R.id.menu_button_settings) {
+            // do something here
         }
+        return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Method that navigates user to user settings fragment when button is clicked in settings
-     * tool bar.
-     */
-    private void userSettings() {
-        // navigate to a settings fragment or other view type
-        // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        // navController.navigate(R.id.nav_user_settings);
-    }
-
-    /**
-     * Method that navigates user to log out fragment when button is clicked in settings
-     * tool bar.
-     */
-    private void logOut() {
-        // to be implemented
-    }
 
     @Override
     public boolean onSupportNavigateUp() {
