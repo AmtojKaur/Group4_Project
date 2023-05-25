@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/signIn_Top"
+        android:id="@+id/weather_background"
         android:layout_width="330dp"
         android:layout_height="210dp"
         android:src="@drawable/background_content_top"
@@ -19,23 +19,24 @@
         app:tint="@color/color_blue8" />
 
     <ImageView
-        android:id="@+id/signIn_Bottom"
+        android:id="@+id/notifications_background"
         android:layout_width="330dp"
-        android:layout_height="260dp"
+        android:layout_height="310dp"
         android:src="@drawable/bottomlayout"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tint="@color/color_blue8" />
+
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/weatherFragmentContainer"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.home.HomeWeatherFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/signIn_Top"
-        app:layout_constraintStart_toStartOf="@id/signIn_Top"
-        app:layout_constraintTop_toTopOf="@id/signIn_Top"
+        app:layout_constraintEnd_toEndOf="@id/weather_background"
+        app:layout_constraintStart_toStartOf="@id/weather_background"
+        app:layout_constraintTop_toTopOf="@id/weather_background"
         tools:layout="@layout/fragment_weather_home" />
 
     <ImageView
@@ -44,8 +45,8 @@
         android:layout_height="200dp"
         android:src="@drawable/circle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signIn_Top"
-        app:layout_constraintBottom_toTopOf="@id/signIn_Bottom"
+        app:layout_constraintTop_toBottomOf="@id/weather_background"
+        app:layout_constraintBottom_toTopOf="@id/notifications_background"
         app:layout_constraintStart_toStartOf="parent"
         app:tint="@color/color_yellow8" />
 
@@ -70,10 +71,10 @@
         android:text="Notifications"
         android:textColor="@color/color_blue2"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
-        app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
-        app:layout_constraintTop_toTopOf="@id/signIn_Bottom"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_background"
+        app:layout_constraintEnd_toEndOf="@id/notifications_background"
+        app:layout_constraintStart_toStartOf="@id/notifications_background"
+        app:layout_constraintTop_toTopOf="@id/notifications_background"
         tools:text="notifications" />
 
     <androidx.fragment.app.FragmentContainerView
@@ -81,11 +82,24 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toBottomOf="@id/signIn_Bottom"
-        app:layout_constraintEnd_toEndOf="@id/signIn_Bottom"
-        app:layout_constraintStart_toStartOf="@id/signIn_Bottom"
-        app:layout_constraintTop_toTopOf="@+id/signIn_Bottom"
+        app:layout_constraintBottom_toBottomOf="@id/notifications_background"
+        app:layout_constraintEnd_toEndOf="@id/notifications_background"
+        app:layout_constraintStart_toStartOf="@id/notifications_background"
+        app:layout_constraintTop_toTopOf="@+id/notifications_background"
         tools:layout="@layout/fragment_recent_notifications_list" />
+
+    <ImageView
+        android:id="@+id/bottom_nav_background"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="2dp"
+        android:src="@drawable/rounded_rectangle_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/color_blue6"/>
 
     <!-- Bottom Nav Buttons -->
     <androidx.appcompat.widget.AppCompatButton
@@ -94,19 +108,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="@drawable/rounded_rectangle_24dp"
+        android:backgroundTint="@color/color_blue9"
         android:drawableTop="@drawable/ic_home_black_24dp"
         android:text="Home"
         android:textColor="@color/color_blue2"
         android:textSize="12sp"
         app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background"
+        app:layout_constraintStart_toStartOf="@+id/bottom_nav_background" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_nav_connections"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_rectangle_24dp"
+        android:backgroundTint="@color/color_blue9"
         android:drawableTop="@drawable/ic_group_black_filled_24dp"
         android:text="Connections"
         android:paddingStart="10dp"
@@ -114,7 +131,8 @@
         android:textColor="@color/color_blue2"
         android:textSize="12sp"
         app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background"
         app:layout_constraintEnd_toStartOf="@id/button_nav_chat"
         app:layout_constraintStart_toEndOf="@id/button_nav_home" />
 
@@ -123,12 +141,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_rectangle_24dp"
+        android:backgroundTint="@color/color_blue9"
         android:drawableTop="@drawable/ic_chat_black_filled_24dp"
         android:text="Chat"
         android:textColor="@color/color_blue2"
         android:textSize="12sp"
         app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background"
         app:layout_constraintEnd_toStartOf="@id/button_nav_weather"
         app:layout_constraintStart_toEndOf="@id/button_nav_connections" />
 
@@ -138,11 +158,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:background="@drawable/rounded_rectangle_24dp"
+        android:backgroundTint="@color/color_blue9"
         android:drawableTop="@drawable/ic_weather_black_24dp"
         android:text="Weather"
         android:textColor="@color/color_blue2"
         android:textSize="12sp"
         app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background"
+        app:layout_constraintEnd_toEndOf="@+id/bottom_nav_background" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/rounded_rectangle_24dp"
-        android:backgroundTint="@color/color_green8"
+        android:backgroundTint="@color/color_blue9"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

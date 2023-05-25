@@ -81,7 +81,7 @@ public class RecentNotificationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recent_chats_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_recent_notifications_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
