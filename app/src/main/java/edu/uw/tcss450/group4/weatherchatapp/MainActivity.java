@@ -1,6 +1,9 @@
 package edu.uw.tcss450.group4.weatherchatapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
@@ -9,11 +12,13 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -21,6 +26,9 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.ui.home.HomeFragment;
+import edu.uw.tcss450.group4.weatherchatapp.ui.home.HomeFragmentDirections;
+import edu.uw.tcss450.group4.weatherchatapp.ui.settings.SettingsFragment;
 
 /**
  * Class that is the main activity of the app, switching between the
@@ -47,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings_menu, menu);
         return super.onCreateOptionsMenu(menu);
+        //return true;
     }
 
     // handle button activities
@@ -55,11 +64,28 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.menu_button_settings) {
-            // do something here
-            settings = true;
-//            Navigation.findNavController(this, R.id.settings_fragment);
+            Log.d("App Bar Interact", "Settings");
+
+            //Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.container);
+
+            if (getForegroundFragment() instanceof HomeFragment) {
+                Navigation.findNavController(this,R.id.constraintLayout).navigate(
+                        HomeFragmentDirections.actionNavigationHomeToNavigationChat()
+                        );
+            }
+
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public Fragment getForegroundFragment(){
+        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        return navHostFragment == null ? null : navHostFragment.getChildFragmentManager().getFragments().get(0);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     public boolean getSettings() {
