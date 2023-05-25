@@ -9,17 +9,22 @@
         <!--        <item name="colorSecondary">@color/color_green2</item>-->
         <!--        <item name="colorSecondaryVariant">@color/color_green2</item>-->
         <!--        <item name="colorOnSecondary">@color/white</item>-->
-        <!-- Status bar color. -->
+
+
+        <!-- status bar color -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
+        <!-- text color -->
+        <item name="android:textColor">@color/black</item>
+
     </style>
 
-    <style name="Theme.WeatherChatApp.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
+<!--    <style name="Theme.WeatherChatApp.NoActionBar">-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
 
-    <style name="Theme.WeatherChatApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+<!--    <style name="Theme.WeatherChatApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
-    <style name="Theme.WeatherChatApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<!--    <style name="Theme.WeatherChatApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
 </resources>
