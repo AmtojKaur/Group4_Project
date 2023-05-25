@@ -96,10 +96,5 @@ public class ConnectionsFragment extends Fragment {
                     ConnectionsFragmentDirections.actionNavigationConnectionsToNavigationWeather()
             );
         });
-
-        // settings
-        if (((MainActivity)getActivity()).getSettings()) {
-            Log.d("App Bar Interaction" ,"Settings");
-        }
     }
 }

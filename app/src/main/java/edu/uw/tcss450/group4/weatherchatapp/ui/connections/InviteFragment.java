@@ -109,10 +109,5 @@ public class InviteFragment extends Fragment {
                     InviteFragmentDirections.actionNavigationInviteToNavigationWeather()
             );
         });
-
-        // settings
-        if (((MainActivity)getActivity()).getSettings()) {
-            Log.d("App Bar Interaction" ,"Settings");
-        }
     }
 }

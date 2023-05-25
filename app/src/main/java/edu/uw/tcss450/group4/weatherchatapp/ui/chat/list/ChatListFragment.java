@@ -82,10 +82,5 @@ public class ChatListFragment extends Fragment {
                     ChatListFragmentDirections.actionNavigationChatToNavigationWeather()
             );
         });
-
-        // settings
-        if (((MainActivity)getActivity()).getSettings()) {
-            Log.d("App Bar Interaction" ,"Settings");
-        }
     }
 }

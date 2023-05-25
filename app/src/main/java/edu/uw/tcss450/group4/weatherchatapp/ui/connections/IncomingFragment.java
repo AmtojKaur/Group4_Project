@@ -96,10 +96,5 @@ public class IncomingFragment extends Fragment {
                     IncomingFragmentDirections.actionNavigationIncomingFriendRequestsToNavigationWeather()
             );
         });
-
-        // settings
-        if (((MainActivity)getActivity()).getSettings()) {
-            Log.d("App Bar Interaction" ,"Settings");
-        }
     }
 }
