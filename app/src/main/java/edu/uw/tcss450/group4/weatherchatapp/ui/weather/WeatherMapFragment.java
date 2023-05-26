@@ -402,14 +402,7 @@ public class WeatherMapFragment extends Fragment {
                 String dayDescription = dailyWeatherArrayIndex.getString("description");
                 String dayIcon = dailyWeatherArrayIndex.getString("icon");
 
-                View view3 = inflater2.inflate(R.layout.daily_forecast_item, linearLayout2, false);
-                TextView textView = view3.findViewById(R.id.tvDaily);
-                textView.setTextColor(ContextCompat.getColor(getContext(), R.color.color_blue1));
-                textView.setText(formattedDay + ", " + dayDescription + ", " + df.format(dayTempF) + "°F");
-                String dailyIconUrl = "" + dayIcon + ".png";
-                ImageView imageView = view3.findViewById(R.id.ivDaily);
-                Picasso.with(getContext()).load(dailyIconUrl).into(imageView);
-                linearLayout2.addView(view3);
+
             }
 
         } catch (JSONException e) {
