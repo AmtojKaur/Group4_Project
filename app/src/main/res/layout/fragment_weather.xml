@@ -163,12 +163,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/twentyFourHourForecastRecyclerView"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="50dp"
         android:text="24 Hour Forecast"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/twentyFourHourForecastRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/feelsLikeText" />
 
@@ -178,12 +179,14 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/sevenDayForecastRecyclerView"
         android:layout_alignParentBottom="false"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TwentyFourForecast" />
+        app:layout_constraintTop_toBottomOf="@+id/TwentyFourForecast"
+        tools:listitem="@layout/hourly_forecast_item" />
 
     <TextView
         android:id="@+id/WeeklyForecast"
@@ -191,26 +194,29 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/sevenDayForecastRecyclerView"
         android:layout_alignParentBottom="false"
-        android:layout_marginTop="461dp"
+        android:layout_marginTop="440dp"
         android:layout_marginBottom="123dp"
         android:text="7 Day Forecast"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sevenDayForecastRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="45dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WeeklyForecast" />
+        app:layout_constraintTop_toBottomOf="@+id/WeeklyForecast"
+        tools:listitem="@layout/daily_forecast_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
