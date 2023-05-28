@@ -3,7 +3,6 @@ package edu.uw.tcss450.group4.weatherchatapp.ui.weather;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,10 +16,10 @@ public class WeatherRVAdapter extends RecyclerView.Adapter<WeatherRVAdapter.View
 
     private ArrayList<WeatherRVModel> weatherRVModelList;
 
-
     public WeatherRVAdapter(ArrayList<WeatherRVModel> weatherRVModelList) {
         this.weatherRVModelList = weatherRVModelList;
     }
+
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hourly_forecast_item,parent,false);
@@ -30,9 +29,10 @@ public class WeatherRVAdapter extends RecyclerView.Adapter<WeatherRVAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         WeatherRVModel model = weatherRVModelList.get(position);
-        holder.tempTV.setText(model.getTemp() + "°");
+        holder.tempTV.setText(model.getTemperature() + "°");
         holder.timeTV.setText(model.getTime());
-        holder.condIV.setImageDrawable(model.getIcon());
+        holder.shortForecastTV.setText(model.getShortForecast());
+
     }
 
     @Override
@@ -41,14 +41,15 @@ public class WeatherRVAdapter extends RecyclerView.Adapter<WeatherRVAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView windTV, tempTV, timeTV;
-        private ImageView condIV;
+        private TextView windTV, tempTV, timeTV, shortForecastTV;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             windTV = itemView.findViewById(R.id.idTVWindSpeed);
             tempTV = itemView.findViewById(R.id.idTVTemperature);
             timeTV = itemView.findViewById(R.id.idTVTime);
-            condIV = itemView.findViewById(R.id.idIVCondition);
+            shortForecastTV = itemView.findViewById(R.id.idTVShortForecast);
+
         }
     }
 }

@@ -1,35 +1,25 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.weather;
 
-import androidx.annotation.NonNull;
-
 public class WeatherObject {
-    private String temp;
-    private String description;
-    private String windSpeed;
-    public WeatherObject(String temp, String description, String windSpeed) {
-        this.temp = temp;
-        this.description = description;
+    private double temperature;
+    private double windSpeed;
+    private String shortForecast;
+
+    public WeatherObject(double temperature, double windSpeed, String shortForecast) {
+        this.temperature = temperature;
         this.windSpeed = windSpeed;
+        this.shortForecast = shortForecast;
     }
 
-    @NonNull
-    @Override
-    public String toString() {
-        return "temp: '" + this.temp + "' desc: '" + this.description + "' wind: '" + this.windSpeed + "'";
+    public double getTemperature() {
+        return temperature;
     }
 
-    public String getTemp() {
-
-        return this.temp;
+    public double getWindSpeed() {
+        return windSpeed;
     }
 
-    public String getWindSpeed() {
-
-        return this.windSpeed;
-    }
-
-    public String getDescription() {
-
-        return this.description;
+    public String getShortForecast() {
+        return shortForecast;
     }
 }

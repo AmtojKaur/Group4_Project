@@ -64,7 +64,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/descriptionText"
+        android:id="@+id/idTVShortForecast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -106,9 +106,11 @@
         android:layout_height="88dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="52dp"
+        android:gravity="left"
         android:text="0"
         android:textColor="@color/color_blue1"
         android:textSize="60sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,6 +167,7 @@
         android:layout_above="@+id/twentyFourHourForecastRecyclerView"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="50dp"
+        android:gravity="center_horizontal"
         android:text="24 Hour Forecast"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/twentyFourHourForecastRecyclerView"
@@ -196,6 +199,7 @@
         android:layout_alignParentBottom="false"
         android:layout_marginTop="440dp"
         android:layout_marginBottom="123dp"
+        android:gravity="center_horizontal"
         android:text="7 Day Forecast"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

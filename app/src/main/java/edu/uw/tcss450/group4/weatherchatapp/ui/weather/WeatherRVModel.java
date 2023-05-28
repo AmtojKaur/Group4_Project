@@ -4,48 +4,36 @@ import android.graphics.drawable.Drawable;
 
 public class WeatherRVModel {
     private String time;
-    private String temp;
-    private Drawable icon;
+    private String temperature;
+    private Drawable conditionIcon;
     private String windSpeed;
+    private String shortForecast; // Changed the attribute name here
 
-    public WeatherRVModel(String time, String temp, Drawable icon, String windSpeed) {
+    public WeatherRVModel(String time, String temperature, String windSpeed) {
         this.time = time;
-        this.temp = temp;
-        this.icon = icon;
+        this.temperature = temperature;
+        this.conditionIcon = conditionIcon;
         this.windSpeed = windSpeed;
+        this.shortForecast = shortForecast; // And here
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getTemperature() {
+        return temperature;
+    }
+
+    public Drawable getConditionIcon() {
+        return conditionIcon;
     }
 
     public String getWindSpeed() {
         return windSpeed;
     }
 
-    public void setWindSpeed(String windSpeed) {
-        this.windSpeed = windSpeed;
+    public String getShortForecast() { // And here
+        return shortForecast;
     }
-
-    public String getTemp() {
-        return temp;
-    }
-
-    public void setTemp(String temp) {
-        this.temp = temp;
-    }
-
-    public String getTime() {
-        return this.time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public Drawable getIcon() {
-        return this.icon;
-    }
-
-    public void setIcon(Drawable icon) {
-        this.icon = icon;
-    }
-
-
 }

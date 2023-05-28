@@ -9,10 +9,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class WeatherRequest {
-    public static StringBuilder request(String latitude, String longitude) {
+    public static StringBuilder request(String zipCode) {
         StringBuilder result = new StringBuilder();
 
-        String urlString = "http://10.0.2.2:5000/weather?lat=" + latitude + "&lon=" + longitude;
+        String urlString = "https://amtojk-tcss450-labs.herokuapp.com/weather/zip?zip=" + zipCode;
 
 
         HttpURLConnection urlConnection = null;
