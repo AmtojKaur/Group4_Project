@@ -46,7 +46,7 @@
         <item name="tint">@color/color_blue8</item>
     </style>
 
-    <style name="Tint_B6_B" parent="TextAppearance.AppCompat">
+    <style name="Tint_B6_B5" parent="TextAppearance.AppCompat">
         <item name="tint">@color/color_blue6</item>
     </style>
 
@@ -56,6 +56,14 @@
 
     <style name="Tint_B2_W" parent="TextAppearance.AppCompat">
         <item name="tint">@color/color_blue2</item>
+    </style>
+
+    <style name="Tint_B2_G8" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_blue2</item>
+    </style>
+
+    <style name="Tint_B9_B" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_blue9</item>
     </style>
 
     <!-- Bottom Nav Style -->
@@ -70,11 +78,6 @@
         <item name="backgroundTint">@color/color_blue6</item>
         <item name="android:textColor">@color/color_blue2</item>
         <item name="drawableTint">@color/color_blue2</item>
-    </style>
-
-    <!-- Settings Icon Tint -->
-    <style name="Settings_Icon_Tint" parent="TextAppearance.AppCompat">
-        <item name="iconTint">@color/black</item>
     </style>
 
 </resources>

@@ -88,7 +88,7 @@
     <!-- Bottom Nav Container -->
     <ImageView
         android:id="@+id/bottom_nav_background"
-        style="@style/Tint_B6_B"
+        style="@style/Tint_B6_B5"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="3dp"

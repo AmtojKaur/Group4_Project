@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/color_blue9" />
+        style="@style/Tint_B9_B"/>
 
     <!-- Top Nav Buttons -->
     <androidx.appcompat.widget.AppCompatButton

@@ -48,8 +48,8 @@
         <item name="tint">@color/black</item>
     </style>
 
-    <style name="Tint_B6_B" parent="TextAppearance.AppCompat">
-        <item name="tint">@color/ic_launcher_logo_grey_background</item>
+    <style name="Tint_B6_B5" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_blue5</item>
     </style>
 
     <style name="Tint_Y8_G8" parent="TextAppearance.AppCompat">
@@ -58,6 +58,14 @@
 
     <style name="Tint_B2_W" parent="TextAppearance.AppCompat">
         <item name="tint">@color/white</item>
+    </style>
+
+    <style name="Tint_B2_G8" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_green8</item>
+    </style>
+
+    <style name="Tint_B9_B" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/black</item>
     </style>
 
     <!-- Bottom Nav Style -->
@@ -72,11 +80,6 @@
         <item name="backgroundTint">@color/color_blue2</item>
         <item name="android:textColor">@color/white</item>
         <item name="drawableTint">@color/white</item>
-    </style>
-
-    <!-- Settings Icon Tint -->
-    <style name="Settings_Icon_Tint" parent="TextAppearance.AppCompat">
-        <item name="iconTint">@color/color_green8</item>
     </style>
 
 </resources>

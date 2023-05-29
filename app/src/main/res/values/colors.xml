@@ -22,8 +22,8 @@
     <color name="color_green4">#5c8069</color>
     <color name="color_green5">#7c9885</color>
     <color name="color_green6">#a2b4a8</color>
-<!--    <color name="color_green7">#d0d8d3</color>-->
-    <color name="color_green8">#e6eae8</color>
+    <color name="color_green7">#d0d8d3</color>
+<!--    <color name="color_green8">#e6eae8</color>-->
     <!--blue-->
     <color name="color_blue1">#001c2d</color>
 <!--    <color name="color_blue2">#012f4b</color>-->
@@ -51,11 +51,10 @@
 
     <!-- Light/Dark Theme-->
     <color name="color_yellow8">#ffe9bd</color>
-    <color name="color_green7">#d0d8d3</color>
     <color name="color_blue2">#012f4b</color>
     <color name="color_blue5">#095f91</color>
     <color name="color_blue8">#b6d1ef</color>
     <color name="color_blue9">#CFE1F5</color>
-
+    <color name="color_green8">#e6eae8</color>
 
 </resources>
