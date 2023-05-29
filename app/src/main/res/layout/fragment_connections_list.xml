@@ -5,7 +5,7 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_yellow8">
+    style="@style/Background_Y8_B2">
 
     <!-- Top Nav Container -->
     <androidx.appcompat.widget.AppCompatImageView
@@ -19,8 +19,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/color_blue6" />
+        app:tint="@color/color_blue9" />
 
+    <!-- Top Nav Buttons -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_connections"
         style="@style/Button_Nav_Top"
@@ -66,6 +67,7 @@
         app:layout_constraintStart_toEndOf="@+id/button_incoming"
         app:layout_constraintTop_toTopOf="@id/toolbar_contact_add" />
 
+    <!-- Search Contacts -->
     <android.widget.SearchView
         android:id="@+id/searchview_bar"
         android:layout_width="match_parent"
@@ -103,7 +105,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        style="@style/Tint_Blue6_Black" />
+        style="@style/Tint_B6_B" />
 
     <!-- Bottom Nav Buttons -->
     <androidx.appcompat.widget.AppCompatButton

@@ -4,7 +4,7 @@
     android:id="@+id/settings_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/Background1">
+    style="@style/Background_B6_B2">
 
     <!-- Settings Title -->
     <androidx.appcompat.widget.AppCompatTextView
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_settings"
-        style="@style/Tint_Blue8_Black"/>
+        style="@style/Tint_B8_B"/>
 
     <!-- User Nickname -->
     <androidx.appcompat.widget.AppCompatTextView

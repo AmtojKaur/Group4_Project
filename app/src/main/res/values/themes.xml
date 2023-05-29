@@ -5,14 +5,11 @@
         <item name="colorPrimary">@color/color_blue5</item>
         <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <!--        <item name="colorSecondary">@color/color_green2</item>-->
-        <!--        <item name="colorSecondaryVariant">@color/color_green2</item>-->
-        <!--        <item name="colorOnSecondary">@color/white</item>-->
-
 
         <!-- status bar color -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="iconTint">@color/white</item>
 
         <!-- main text color -->
         <item name="android:textColor">@color/black</item>
@@ -32,7 +29,7 @@
     </style>
 
     <!-- Backgrounds -->
-    <style name="Background1" parent="TextAppearance.AppCompat">
+    <style name="Background_B6_B2" parent="TextAppearance.AppCompat">
         <item name="android:background">@color/color_blue6</item>
     </style>
 
@@ -45,16 +42,20 @@
     </style>
 
     <!-- Tints -->
-    <style name="Tint_Blue8_Black" parent="TextAppearance.AppCompat">
+    <style name="Tint_B8_B" parent="TextAppearance.AppCompat">
         <item name="tint">@color/color_blue8</item>
     </style>
 
-    <style name="Tint_Blue6_Black" parent="TextAppearance.AppCompat">
+    <style name="Tint_B6_B" parent="TextAppearance.AppCompat">
         <item name="tint">@color/color_blue6</item>
     </style>
 
     <style name="Tint_Y8_G8" parent="TextAppearance.AppCompat">
         <item name="tint">@color/color_yellow8</item>
+    </style>
+
+    <style name="Tint_B2_W" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_blue2</item>
     </style>
 
     <!-- Bottom Nav Style -->
@@ -66,13 +67,14 @@
 
     <!-- Top Nav Style -->
     <style name="Button_Nav_Top" parent="TextAppearance.AppCompat">
-        <item name="backgroundTint">@color/color_blue5</item>
+        <item name="backgroundTint">@color/color_blue6</item>
         <item name="android:textColor">@color/color_blue2</item>
-        <item name="drawableTint">@color/white</item>
+        <item name="drawableTint">@color/color_blue2</item>
     </style>
 
-    <style name="Button_Tint_B2_W" parent="TextAppearance.AppCompat">
-        <item name="tint">@color/color_blue2</item>
+    <!-- Settings Icon Tint -->
+    <style name="Settings_Icon_Tint" parent="TextAppearance.AppCompat">
+        <item name="iconTint">@color/black</item>
     </style>
 
 </resources>

@@ -5,84 +5,67 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_yellow8">
+    style="@style/Background_Y8_B2">
 
-    <androidx.appcompat.widget.Toolbar
+    <!-- Top Nav Container -->
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/toolbar_contact_add"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="57dp"
-        android:background="@drawable/rectangle_outlined"
-        android:backgroundTint="@color/color_blue8"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="3dp"
+        android:src="@drawable/rounded_rectangle_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/color_blue9" />
 
-    <Button
+    <!-- Top Nav Buttons -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_connections"
+        style="@style/Button_Nav_Top"
         android:layout_width="wrap_content"
-        android:layout_height="57dp"
-        android:background="#00FFFFFF"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
         android:drawableTop="@drawable/ic_connections_friend"
         android:text="Contacts"
         android:textSize="12sp"
         app:iconPadding="0dp"
-        android:textColor="@color/color_blue2"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"
-        app:layout_constraintEnd_toStartOf="@id/button_incoming"/>
-
-    <View
-        android:layout_width="1dp"
-        android:layout_height="50dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintStart_toEndOf="@id/button_connections"
         app:layout_constraintEnd_toStartOf="@id/button_incoming"
-        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add"
-        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"/>
+        app:layout_constraintStart_toStartOf="@id/toolbar_contact_add"
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_incoming"
+        style="@style/Button_Nav_Top"
         android:layout_width="wrap_content"
-        android:layout_height="57dp"
-        android:background="#00FFFFFF"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
         android:drawableTop="@drawable/ic_connections_accept_decline_requests_black_24dp"
         android:text="Incoming"
-        android:textColor="@color/color_blue2"
         android:textSize="12sp"
         app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"
         app:layout_constraintEnd_toStartOf="@id/button_invite"
         app:layout_constraintStart_toEndOf="@+id/button_connections"
-        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add" />
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add" />
 
-    <View
-        android:layout_width="1dp"
-        android:layout_height="50dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintStart_toEndOf="@id/button_incoming"
-        app:layout_constraintEnd_toStartOf="@id/button_invite"
-        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add"
-        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"/>
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_invite"
+        style="@style/Button_Nav_Top"
         android:layout_width="wrap_content"
-        android:layout_height="57dp"
-        android:background="#00FFFFFF"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
         android:drawableTop="@drawable/ic_newchat_black_24dp"
         android:text="Invite"
-        android:textColor="@color/color_blue2"
         android:textSize="12sp"
         app:iconPadding="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"
+        app:layout_constraintEnd_toEndOf="@id/toolbar_contact_add"
         app:layout_constraintStart_toEndOf="@+id/button_incoming"
-        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add" />
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintStart_toStartOf="@id/searchview_bar"
-        app:layout_constraintEnd_toEndOf="@id/searchview_bar"
-        app:layout_constraintBottom_toTopOf="@id/searchview_bar"/>
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add" />
 
     <android.widget.SearchView
         android:id="@+id/searchview_bar"
