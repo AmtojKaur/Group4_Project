@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@id/text_settings"
         app:tint="@color/color_blue8" />
 
-    <!-- Settings items -->
+    <!-- User Nickname -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_nickname"
         android:layout_width="wrap_content"
@@ -58,6 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_nickname" />
 
+    <!-- Password Reset -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_password"
         android:layout_width="wrap_content"
@@ -71,6 +72,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_data_username" />
 
+    <!-- App Theme -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_theme"
         android:layout_width="wrap_content"
@@ -111,4 +113,86 @@
             android:textSize="15sp" />
     </RadioGroup>
 
+    <!-- About -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="About"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radio_group" />
+
+    <!-- Devs -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_devs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Developers"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_about" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Abdirizak Abuubakar Ali"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_devs" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Chloe Duncan"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_dev1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="AJ Garcia"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_dev2" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Amtoj Kaur"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_dev3" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Andrew Nguyen"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_dev4" />
 </androidx.constraintlayout.widget.ConstraintLayout>
