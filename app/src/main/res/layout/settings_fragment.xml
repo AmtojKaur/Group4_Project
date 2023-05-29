@@ -4,7 +4,7 @@
     android:id="@+id/settings_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_blue6">
+    style="@style/Background1">
 
     <!-- Settings Title -->
     <androidx.appcompat.widget.AppCompatTextView
@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:fontFamily="sans-serif"
+        style="@style/TextColor1"
         android:text="Settings"
-        android:textColor="@color/color_yellow8"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/settings_background"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_settings"
-        app:tint="@color/color_blue8" />
+        style="@style/Tint1"/>
 
     <!-- User Nickname -->
     <androidx.appcompat.widget.AppCompatTextView
@@ -42,7 +42,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif"
         android:text="Your Nickname"
-        android:textColor="@color/color_blue6"
+        style="@style/TextColor2"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/text_nickname"
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Not set"
-        android:textColor="@color/color_blue2"
+        style="@style/TextColor3"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
         android:text="Change Password"
-        android:textColor="@color/color_blue6"
+        style="@style/TextColor2"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +85,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
         android:text="Change Theme"
-        android:textColor="@color/color_blue6"
+        style="@style/TextColor2"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,7 +107,7 @@
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif"
             android:text="Light"
-            android:textColor="@color/color_blue2"
+            style="@style/TextColor3"
             android:textSize="15sp" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -117,7 +117,7 @@
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif"
             android:text="Dark"
-            android:textColor="@color/color_blue2"
+            style="@style/TextColor3"
             android:textSize="15sp" />
     </RadioGroup>
 
@@ -129,7 +129,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
         android:text="About"
-        android:textColor="@color/color_blue6"
+        style="@style/TextColor2"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +142,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="UW TCSS 450 Android App"
-        android:textColor="@color/color_blue2"
+        style="@style/TextColor3"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,7 +156,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
         android:text="Developers"
-        android:textColor="@color/color_blue6"
+        style="@style/TextColor2"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -169,7 +169,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Abdirizak Abuubakar Ali"
-        android:textColor="@color/color_blue2"
+        style="@style/TextColor3"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -181,7 +181,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Chloe Duncan"
-        android:textColor="@color/color_blue2"
+        style="@style/TextColor3"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -193,7 +193,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="AJ Garcia"
-        android:textColor="@color/color_blue2"
+        style="@style/TextColor3"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -205,7 +205,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Amtoj Kaur"
-        android:textColor="@color/color_blue2"
+        style="@style/TextColor3"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -217,7 +217,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Andrew Nguyen"
-        android:textColor="@color/color_blue2"
+        style="@style/TextColor3"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -20,12 +20,30 @@
 
     </style>
 
-<!--    <style name="Theme.WeatherChatApp.NoActionBar">-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
-<!--    </style>-->
+    <!-- Text Colors -->
+    <style name="TextColor1" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
-<!--    <style name="Theme.WeatherChatApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+    <style name="TextColor2" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
-<!--    <style name="Theme.WeatherChatApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+    <style name="TextColor3" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Fragment Backgrounds -->
+    <style name="Background1" parent="TextAppearance.AppCompat">
+        <item name="android:background">@color/color_blue2</item>
+    </style>
+
+    <style name="Tint1" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/black</item>
+    </style>
+
+    <style name="Background3" parent="TextAppearance.AppCompat">
+        <item name="android:background">@color/color_blue2</item>
+    </style>
+
 </resources>
