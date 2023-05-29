@@ -1,57 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/settings_fragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
+    <!-- Settings Title -->
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_username"
+        android:id="@+id/text_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your username"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Settings"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/settings_background"
+        app:layout_constraintEnd_toEndOf="@id/settings_background"
+        app:layout_constraintStart_toStartOf="@id/settings_background"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Settings Background -->
+    <ImageView
+        android:id="@+id/settings_background"
+        android:layout_width="370dp"
+        android:layout_height="0dp"
+        android:src="@drawable/bottomlayout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_settings"
+        app:tint="@color/color_blue8" />
+
+    <!-- Settings items -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Your Nickname"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/text_data_username"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/settings_background" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_data_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
         android:text="Not set"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_username"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_nickname" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
         android:text="Change Password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_data_username"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_data_username" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change theme"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_password"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Change Theme"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_password" />
 
     <RadioGroup
         android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_theme">
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -59,16 +97,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:checked="true"
+            android:fontFamily="sans-serif"
             android:text="Light"
-            />
+            android:textSize="15sp" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/theme_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif"
             android:text="Dark"
-            />
+            android:textSize="15sp" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
