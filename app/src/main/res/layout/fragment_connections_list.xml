@@ -97,6 +97,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_root"
         android:name="edu.uw.tcss450.group4.weatherchatapp.connections.ConnectionsFragment"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
