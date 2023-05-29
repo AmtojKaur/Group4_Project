@@ -125,9 +125,9 @@ public class WeatherMapFragment extends Fragment {
         globalView = view;
 
         //set up search for zipcodes
-        inputBox = view.findViewById(R.id.inputBox);
+        inputBox = view.findViewById(R.id.input_zip);
         inputBox.setVisibility(View.GONE);
-        searchbtn = view.findViewById(R.id.searchbtn);
+        searchbtn = view.findViewById(R.id.button_search_zip);
         searchbtn.setOnClickListener(this::getWeatherDetails);
         searchbtn.setVisibility(View.GONE);
 
@@ -148,7 +148,7 @@ public class WeatherMapFragment extends Fragment {
         windText = view.findViewById(R.id.windText);
 
         //set up drop down menu so the user can change locations and choose a search type
-        dropDown = view.findViewById(R.id.changeLocationButton);
+        dropDown = view.findViewById(R.id.button_change_location);
         dropDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

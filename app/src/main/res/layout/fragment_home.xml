@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_yellow8">
+    style="@style/Background_Y8_B2">
 
     <!--  Weather widget  -->
     <ImageView
@@ -16,12 +16,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/color_blue8" />
+        style="@style/Tint_Blue8_Black" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/weatherFragmentContainer"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.home.HomeWeatherFragment"
-        android:layout_width="0dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@id/weather_background"
         app:layout_constraintStart_toStartOf="@id/weather_background"
@@ -37,24 +37,20 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_nav_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/color_blue8" />
+        style="@style/Tint_Blue8_Black" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_notifications"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:text="Notifications"
-        android:textColor="@color/color_blue2"
+        android:text="No current notifications"
+        style="@style/Text_B2_W"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav_background"
         app:layout_constraintEnd_toEndOf="@id/notifications_background"
         app:layout_constraintStart_toStartOf="@id/notifications_background"
-        app:layout_constraintTop_toTopOf="@id/notifications_background"
-        tools:text="notifications" />
+        app:layout_constraintTop_toTopOf="@id/notifications_background" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/recentChatsFragmentContainer"
@@ -77,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/weather_background"
-        app:tint="@color/color_yellow8" />
+        style="@style/Tint_Y8_G8" />
 
     <ImageView
         android:id="@+id/app_logo"
@@ -112,7 +108,7 @@
         android:background="@drawable/rounded_rectangle_24dp"
         android:drawableTop="@drawable/ic_home_black_24dp"
         android:text="Home"
-        style="@style/BottomNavButton"
+        style="@style/Button_Nav_Bottom"
         android:textSize="12sp"
         app:iconPadding="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
@@ -128,7 +124,7 @@
         android:text="Connections"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        style="@style/BottomNavButton"
+        style="@style/Button_Nav_Bottom"
         android:textSize="12sp"
         app:iconPadding="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
@@ -143,7 +139,7 @@
         android:background="@drawable/rounded_rectangle_24dp"
         android:drawableTop="@drawable/icon_chat_filled_black_24dp"
         android:text="Chat"
-        style="@style/BottomNavButton"
+        style="@style/Button_Nav_Bottom"
         android:textSize="12sp"
         app:iconPadding="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
@@ -159,7 +155,7 @@
         android:background="@drawable/rounded_rectangle_24dp"
         android:drawableTop="@drawable/ic_weather_black_24dp"
         android:text="Weather"
-        style="@style/BottomNavButton"
+        style="@style/Button_Nav_Bottom"
         android:textSize="12sp"
         app:iconPadding="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"

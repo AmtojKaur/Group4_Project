@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:fontFamily="sans-serif"
-        style="@style/TextColor1"
+        style="@style/Text_Y8_W"
         android:text="Settings"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_settings"
-        style="@style/Tint1"/>
+        style="@style/Tint_Blue8_Black"/>
 
     <!-- User Nickname -->
     <androidx.appcompat.widget.AppCompatTextView
@@ -42,7 +42,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif"
         android:text="Your Nickname"
-        style="@style/TextColor2"
+        style="@style/Text_B6_W"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/text_nickname"
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Not set"
-        style="@style/TextColor3"
+        style="@style/Text_B2_W"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
         android:text="Change Password"
-        style="@style/TextColor2"
+        style="@style/Text_B6_W"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +85,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
         android:text="Change Theme"
-        style="@style/TextColor2"
+        style="@style/Text_B6_W"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,7 +107,7 @@
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif"
             android:text="Light"
-            style="@style/TextColor3"
+            style="@style/Text_B2_W"
             android:textSize="15sp" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -117,7 +117,7 @@
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif"
             android:text="Dark"
-            style="@style/TextColor3"
+            style="@style/Text_B2_W"
             android:textSize="15sp" />
     </RadioGroup>
 
@@ -129,7 +129,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
         android:text="About"
-        style="@style/TextColor2"
+        style="@style/Text_B6_W"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +142,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="UW TCSS 450 Android App"
-        style="@style/TextColor3"
+        style="@style/Text_B2_W"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,7 +156,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
         android:text="Developers"
-        style="@style/TextColor2"
+        style="@style/Text_B6_W"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -169,7 +169,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Abdirizak Abuubakar Ali"
-        style="@style/TextColor3"
+        style="@style/Text_B2_W"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -181,7 +181,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Chloe Duncan"
-        style="@style/TextColor3"
+        style="@style/Text_B2_W"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -193,7 +193,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="AJ Garcia"
-        style="@style/TextColor3"
+        style="@style/Text_B2_W"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -205,7 +205,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Amtoj Kaur"
-        style="@style/TextColor3"
+        style="@style/Text_B2_W"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -217,7 +217,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Andrew Nguyen"
-        style="@style/TextColor3"
+        style="@style/Text_B2_W"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -233,7 +233,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_dev5"
-        app:tint="@color/color_yellow8" />
+        style="@style/Tint_Y8_G8" />
 
     <ImageView
         android:id="@+id/app_logo"
