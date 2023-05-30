@@ -2,20 +2,20 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BTint_B8_B"
     android:layout_width="match_parent"
     android:layout_height="70dp"
     android:background="@drawable/rounded_rectangle_24dp"
-    android:backgroundTint="@color/color_blue8"
     android:padding="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_inner"
+        style="@style/BTint_G8_B8"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/rounded_rectangle_24dp"
-        android:backgroundTint="@color/color_green8">
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_profile"
@@ -26,9 +26,9 @@
             android:backgroundTint="@color/color_blue5"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_profile_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/view_supporter"
@@ -53,8 +53,8 @@
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_profile"
             app:layout_constraintEnd_toStartOf="@id/button_decline"
+            app:layout_constraintStart_toEndOf="@id/img_profile"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Name" />
 
@@ -117,11 +117,11 @@
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:background="@color/color_yellow8"
             android:layout_marginTop="5dp"
-            app:layout_constraintStart_toStartOf="@id/img_profile"
+            android:background="@color/color_yellow8"
             app:layout_constraintEnd_toEndOf="@id/button_accept"
-            app:layout_constraintTop_toBottomOf="@id/img_profile"/>
+            app:layout_constraintStart_toStartOf="@id/img_profile"
+            app:layout_constraintTop_toBottomOf="@id/img_profile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

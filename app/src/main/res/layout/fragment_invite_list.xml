@@ -172,14 +172,11 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_sent"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
+        android:layout_margin="5dp"
         android:fontFamily="sans-serif"
-        android:text="Sent"
+        android:text="Requests Sent"
         android:textColor="@color/color_blue2"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -188,23 +185,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_invite_new" />
 
-    <View
+    <!-- Sent Background -->
+    <ImageView
         android:id="@+id/view_recycler_background"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="0dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded_rectangle_outlined_blue8_10dp"
+        android:src="@drawable/bottomlayout"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_sent" />
+        app:layout_constraintTop_toBottomOf="@id/txt_sent"
+        style="@style/Tint_B8_B"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_sent"
         android:name="edu.uw.tcss450.group4.weatherchatapp.connections.InviteFragment"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="300dp"
         android:layout_margin="8dp"
         android:backgroundTint="@color/color_green5"
         android:orientation="vertical"
@@ -212,7 +209,6 @@
         app:layout_constraintBottom_toBottomOf="@id/view_recycler_background"
         app:layout_constraintEnd_toEndOf="@id/view_recycler_background"
         app:layout_constraintStart_toStartOf="@id/view_recycler_background"
-        app:layout_constraintTop_toTopOf="@id/view_recycler_background"
         tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.InviteFragment"
         tools:listitem="@layout/fragment_invite_card" />
 
