@@ -81,12 +81,12 @@
     <!-- Text Area -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_received"
+        style="@style/Text_B2_W"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:fontFamily="sans-serif"
         android:text="Requests Received"
-        android:textColor="@color/color_blue2"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/view_recycler_background"
