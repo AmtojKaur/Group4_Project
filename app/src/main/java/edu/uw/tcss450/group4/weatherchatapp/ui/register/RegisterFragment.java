@@ -242,6 +242,7 @@ public class RegisterFragment extends Fragment {
      */
     private void observeResponse(final JSONObject response) {
         if (response.length() > 0) {
+            System.out.println("response: " + response);
             if (response.has("code")) {
                 try {
                     binding.editEmail.setError(
@@ -250,6 +251,10 @@ public class RegisterFragment extends Fragment {
                 } catch (JSONException e) {
                     Log.e("JSON Parse Error", e.getMessage());
                 }
+            } else if (response.has("Invalid")){
+                binding.editEmail.setError(
+                        "Error Authenticating: " +
+                                "Email is invalid.");
             } else {
                 // Show a popup here
                 new AlertDialog.Builder(getContext())
