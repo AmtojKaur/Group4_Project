@@ -94,7 +94,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchview_bar" />
 
-    <!-- Incoming Friend Requests Background -->
+    <!-- Contacts Background -->
     <ImageView
         android:id="@+id/view_recycler_background"
         style="@style/Tint_B8_B"
