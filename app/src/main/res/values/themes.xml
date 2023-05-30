@@ -50,6 +50,10 @@
         <item name="android:backgroundTint">@color/color_green8</item>
     </style>
 
+    <style name="BTint_Y8_B2" parent="TextAppearance.AppCompat">
+        <item name="android:backgroundTint">@color/color_yellow8</item>
+    </style>
+
     <!-- Tints -->
     <style name="Tint_B8_B" parent="TextAppearance.AppCompat">
         <item name="tint">@color/color_blue8</item>

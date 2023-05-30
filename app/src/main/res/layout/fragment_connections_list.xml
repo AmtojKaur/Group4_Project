@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
+    style="@style/Background_Y8_B2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@style/Background_Y8_B2">
+    android:layout_height="match_parent">
 
     <!-- Top Nav Container -->
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/toolbar_contact_add"
+        style="@style/Tint_B9_B"
         android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginStart="3dp"
@@ -18,8 +19,7 @@
         android:src="@drawable/rounded_rectangle_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/Tint_B9_B"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Top Nav Buttons -->
     <androidx.appcompat.widget.AppCompatButton
@@ -78,24 +78,56 @@
         app:layout_constraintStart_toStartOf="@id/toolbar_contact_add"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_contact_add" />
 
+    <!-- Text Area -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_received"
+        style="@style/Text_B2_W"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Contacts"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/view_recycler_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchview_bar" />
+
+    <!-- Incoming Friend Requests Background -->
+    <ImageView
+        android:id="@+id/view_recycler_background"
+        style="@style/Tint_B8_B"
+        android:layout_width="370dp"
+        android:layout_height="580dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/bottomlayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_received" />
+
+    <!-- Recycler View -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_root"
         android:name="edu.uw.tcss450.group4.weatherchatapp.connections.ConnectionsFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:background="@android:color/transparent"
+        android:layout_width="0dp"
+        android:layout_height="520dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/color_blue8"
         android:orientation="vertical"
         app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchview_bar"
+        app:layout_constraintBottom_toBottomOf="@id/view_recycler_background"
+        app:layout_constraintEnd_toEndOf="@id/view_recycler_background"
+        app:layout_constraintStart_toStartOf="@id/view_recycler_background"
         tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragment"
         tools:listitem="@layout/fragment_connections_card" />
 
     <!-- Bottom Nav Container -->
     <ImageView
         android:id="@+id/bottom_nav_background"
+        style="@style/Tint_B6_B5"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="3dp"
@@ -104,8 +136,7 @@
         android:src="@drawable/rounded_rectangle_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/Tint_B6_B5" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Bottom Nav Buttons -->
     <androidx.appcompat.widget.AppCompatButton
