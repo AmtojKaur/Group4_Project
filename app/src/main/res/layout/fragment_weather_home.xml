@@ -5,12 +5,11 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rounded_rectangle_24dp"
-    android:backgroundTint="@color/color_blue8"
     tools:context=".ui.home.HomeWeatherFragment">
 
     <TextView
         android:id="@+id/weather_current_temperature"
+        style="@style/Text_B2_W"
         android:layout_width="87dp"
         android:layout_height="56dp"
         android:text="86° F"
@@ -21,19 +20,21 @@
         app:layout_constraintStart_toStartOf="@id/weather_current_condition_img"
         app:layout_constraintTop_toBottomOf="@id/weather_current_condition_img" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/weather_current_condition_img"
+        style="@style/Tint_B2_G8"
         android:layout_width="120dp"
-        android:layout_marginEnd="60dp"
         android:layout_height="120dp"
+        android:layout_marginEnd="60dp"
         android:src="@drawable/ic_weather_black_24dp"
         app:layout_constraintBottom_toTopOf="@+id/weather_current_temperature"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/weather_low_temperature"
+        style="@style/Text_B2_W"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -46,6 +47,7 @@
 
     <TextView
         android:id="@+id/weather_high_temperature"
+        style="@style/Text_B2_W"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

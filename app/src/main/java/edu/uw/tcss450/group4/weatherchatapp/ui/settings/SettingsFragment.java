@@ -35,18 +35,29 @@ public class SettingsFragment extends Fragment {
         SettingsFragmentBinding binding = SettingsFragmentBinding.bind(getView());
 
         RadioGroup radioGroup = binding.radioGroup;
+
+        // check if different radio button clicked
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.theme_light:
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        //radioGroup.check(R.id.theme_light);
                         break;
                     case R.id.theme_dark:
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        //radioGroup.check(R.id.theme_dark);
                         break;
                 }
             }
         });
+
+        // set which radio button is checked
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            radioGroup.check(R.id.theme_dark);
+        } else {
+            radioGroup.check(R.id.theme_light);
+        }
     }
 }

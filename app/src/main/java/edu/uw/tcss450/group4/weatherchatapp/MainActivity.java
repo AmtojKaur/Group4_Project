@@ -12,9 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioGroup;
 
-import edu.uw.tcss450.group4.weatherchatapp.databinding.SettingsFragmentBinding;
-import edu.uw.tcss450.group4.weatherchatapp.ui.settings.SettingsFragment;
-
 /**
  * Class that is the main activity of the app, switching between the
  * various fragments and views.
