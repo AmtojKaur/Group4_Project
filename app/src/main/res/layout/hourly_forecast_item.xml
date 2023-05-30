@@ -36,7 +36,7 @@
             android:textColor="@color/white"/>
 
         <TextView
-            android:id="@+id/idTVForecast"
+            android:id="@+id/idTVShortForecast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/idTVTemperature"
@@ -51,7 +51,7 @@
             android:textAlignment="center"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:layout_below="@+id/idTVForecast"
+            android:layout_below="@+id/idTVShortForecast"
             android:id="@+id/idTVWindSpeed"
             android:textColor="@color/white"
             android:text="0"

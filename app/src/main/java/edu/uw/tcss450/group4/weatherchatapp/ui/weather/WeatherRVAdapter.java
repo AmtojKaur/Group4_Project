@@ -32,7 +32,7 @@ public class WeatherRVAdapter extends RecyclerView.Adapter<WeatherRVAdapter.View
         holder.tempTV.setText(model.getTemperature() + "°");
         holder.timeTV.setText(model.getTime());
         holder.shortForecastTV.setText(model.getShortForecast());
-
+        holder.windTV.setText(model.getWindSpeed() + ""); // Set the wind speed text
     }
 
     @Override

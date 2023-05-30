@@ -1,18 +1,21 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.weather;
 
 public class WeatherObject {
-    private double temperature;
+    private String temperature;
     private double windSpeed;
     private String shortForecast;
 
-    public WeatherObject(double temperature, double windSpeed, String shortForecast) {
-        this.temperature = temperature;
+    public WeatherObject(String temperature, double windSpeed, String shortForecast) {
+        this.temperature = String.valueOf(temperature);
         this.windSpeed = windSpeed;
         this.shortForecast = shortForecast;
     }
 
-    public double getTemperature() {
+    public String getTemperature() {
         return temperature;
+    }
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
     }
 
     public double getWindSpeed() {
@@ -21,5 +24,8 @@ public class WeatherObject {
 
     public String getShortForecast() {
         return shortForecast;
+    }
+    public void setShortForecast(String shortForecast) {
+        this.shortForecast = shortForecast;
     }
 }

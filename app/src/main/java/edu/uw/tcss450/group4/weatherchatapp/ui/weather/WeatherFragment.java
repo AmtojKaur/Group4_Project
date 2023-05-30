@@ -28,6 +28,8 @@ public class WeatherFragment extends Fragment {
     private ArrayList<WeatherRVModel> weeklyForecastList;
     private WeatherRVAdapter weeklyForecastAdapter;
 
+    private EditText inputBox; // Declare the input box as a class variable
+
     public static WeatherFragment newInstance(String param1, String param2) {
         WeatherFragment fragment = new WeatherFragment();
 
@@ -38,12 +40,12 @@ public class WeatherFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String zipCode = "98105"; // example zip code
-        new WeatherRequestTask().execute(zipCode);
+        String currentZipCode = "98105"; // example zip code for current location
+        new WeatherRequestTask().execute(currentZipCode);
 
         FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
 
-        weatherBinding.dayAndCityText.setText("Tacoma, WA");
+        weatherBinding.dayAndCityText.setText("Tacoma, WA"); // Default location for search
         weatherBinding.tempText.setText("-");
         weatherBinding.idTVShortForecast.setText("-");
         Drawable condIcon = ContextCompat.getDrawable(getActivity(), R.drawable.cloud);
@@ -55,9 +57,11 @@ public class WeatherFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
         View view = inflater.inflate(R.layout.fragment_weather, container, false);
 
-        EditText inputBox = view.findViewById(R.id.inputBox);
+        inputBox = view.findViewById(R.id.inputBox); // Assign the input box
+
         Button searchButton = view.findViewById(R.id.searchbtn);
 
         searchButton.setOnClickListener(v -> {
@@ -66,7 +70,6 @@ public class WeatherFragment extends Fragment {
                 Toast.makeText(getContext(), "Please enter a valid 5-digit zip code", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             new WeatherRequestTask().execute(zipCode);
         });
 
@@ -86,9 +89,14 @@ public class WeatherFragment extends Fragment {
         protected void onPostExecute(WeatherLogic weather) {
             FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
 
-            weatherBinding.tempText.setText(weather.getCurrent().getTemperature() + "°");
-            weatherBinding.idTVShortForecast.setText(weather.getCurrent().getShortForecast());
-
+            WeatherObject currentWeather = weather.getCurrent();
+            if (currentWeather != null) {
+                currentWeather.setTemperature(weather.getCurrent().getTemperature());
+                currentWeather.setShortForecast(weather.getCurrent().getShortForecast());
+            }else {
+                weatherBinding.tempText.setText("-");
+                weatherBinding.idTVShortForecast.setText("-");
+            }
             dailyWeatherList = new ArrayList<>();
             dailyWeatherAdapter = new WeatherRVAdapter(dailyWeatherList);
             weatherBinding.twentyFourHourForecastRecyclerView.setAdapter(dailyWeatherAdapter);
@@ -97,16 +105,31 @@ public class WeatherFragment extends Fragment {
             weeklyForecastAdapter = new WeatherRVAdapter(weeklyForecastList);
             weatherBinding.sevenDayForecastRecyclerView.setAdapter(weeklyForecastAdapter);
 
-            for (WeatherObject weatherHourly : weather.getHourly()) {
-                dailyWeatherList.add(new WeatherRVModel(String.valueOf(weatherHourly.getTemperature()),
-                        String.valueOf(weatherHourly.getWindSpeed()),
-                        weatherHourly.getShortForecast()));
+            if (weather.getHourly() != null) {
+                for (WeatherObject weatherHourly : weather.getHourly()) {
+                    dailyWeatherList.add(new WeatherRVModel(String.valueOf(weatherHourly.getTemperature()),
+                            String.valueOf(weatherHourly.getWindSpeed()),
+                            weatherHourly.getShortForecast()));
+                }
+                dailyWeatherAdapter.notifyDataSetChanged(); // Add this line
             }
 
-            for (WeatherObject weatherDaily : weather.getDaily()) {
-                weeklyForecastList.add(new WeatherRVModel(String.valueOf(weatherDaily.getTemperature()),
-                        String.valueOf(weatherDaily.getWindSpeed()),
-                        weatherDaily.getShortForecast()));
+            if (weather.getDaily() != null) {
+                for (WeatherObject weatherDaily : weather.getDaily()) {
+                    weeklyForecastList.add(new WeatherRVModel(String.valueOf(weatherDaily.getTemperature()),
+                            String.valueOf(weatherDaily.getWindSpeed()),
+                            weatherDaily.getShortForecast()));
+                }
+                weeklyForecastAdapter.notifyDataSetChanged(); // Add this line
+            }
+
+            // Set the location based on the search zip code
+            if (inputBox != null) {
+                String searchZipCode = inputBox.getText().toString().trim();
+                weatherBinding.dayAndCityText.setText("Tacoma, WA"); // Default location
+                if (searchZipCode.matches("\\d{5}")) {
+                    weatherBinding.dayAndCityText.setText(searchZipCode); // Custom location
+                }
             }
         }
     }
