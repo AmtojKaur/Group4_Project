@@ -90,10 +90,7 @@ public class WeatherMapFragment extends Fragment {
         dayAndCityText = view.findViewById(R.id.dayAndCityText);
         descriptionText = view.findViewById(R.id.idTVShortForecast);
         tempText = view.findViewById(R.id.tempText);
-        feelsLikeText = view.findViewById(R.id.feelsLikeText);
-        pressureText = view.findViewById(R.id.pressureText);
-        humidityText = view.findViewById(R.id.humidityText);
-        windText = view.findViewById(R.id.windText);
+
 
         dropDown = view.findViewById(R.id.changeLocationButton);
         dropDown.setOnClickListener(v -> {

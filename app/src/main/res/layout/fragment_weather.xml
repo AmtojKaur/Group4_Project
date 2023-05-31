@@ -116,49 +116,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/feelsLikeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="224dp"
-        android:text="Feels Like:"
-        android:textColor="@color/color_blue1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/humidityText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="224dp"
-        android:text="Humidity:"
-        android:textColor="@color/color_blue1"
-        app:layout_constraintStart_toEndOf="@+id/pressureText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/pressureText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="224dp"
-        android:text="Pressure:"
-        android:textColor="@color/color_blue1"
-        app:layout_constraintStart_toEndOf="@+id/feelsLikeText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/windText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="224dp"
-        android:text="Wind Speed:"
-        android:textColor="@color/color_blue1"
-        app:layout_constraintStart_toEndOf="@+id/humidityText"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/TwentyFourForecast"
@@ -166,7 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/twentyFourHourForecastRecyclerView"
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="28dp"
         android:gravity="center_horizontal"
         android:text="24 Hour Forecast"
         android:textStyle="bold"
@@ -174,7 +131,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/feelsLikeText" />
+        app:layout_constraintTop_toBottomOf="@+id/idTVShortForecast" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/twentyFourHourForecastRecyclerView"
@@ -182,7 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/sevenDayForecastRecyclerView"
         android:layout_alignParentBottom="false"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
@@ -197,7 +154,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/sevenDayForecastRecyclerView"
         android:layout_alignParentBottom="false"
-        android:layout_marginTop="440dp"
         android:layout_marginBottom="123dp"
         android:gravity="center_horizontal"
         android:text="7 Day Forecast"
@@ -206,8 +162,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/twentyFourHourForecastRecyclerView"
+        app:layout_constraintVertical_bias="0.268" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sevenDayForecastRecyclerView"

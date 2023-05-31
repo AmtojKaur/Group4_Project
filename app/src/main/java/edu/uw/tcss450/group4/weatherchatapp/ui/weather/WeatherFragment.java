@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -91,12 +92,22 @@ public class WeatherFragment extends Fragment {
 
             WeatherObject currentWeather = weather.getCurrent();
             if (currentWeather != null) {
-                currentWeather.setTemperature(weather.getCurrent().getTemperature());
-                currentWeather.setShortForecast(weather.getCurrent().getShortForecast());
-            }else {
-                weatherBinding.tempText.setText("-");
-                weatherBinding.idTVShortForecast.setText("-");
+                String temperature = currentWeather.getTemperature();
+                String shortForecast = currentWeather.getShortForecast();
+
+                // Set the temperature and short forecast in the appropriate views
+                weatherBinding.tempText.setText(temperature);
+                weatherBinding.idTVShortForecast.setText(shortForecast);
+                ImageView weatherIconImageView = weatherBinding.curIcon;
+                if (shortForecast.equals("Sunny")) {
+                    weatherIconImageView.setImageResource(R.drawable.cloud);
+                } else if (shortForecast.equals("Cloudy")) {
+                    weatherIconImageView.setImageResource(R.drawable.ic_sun_black_24dp);
+                } else if (shortForecast.equals("Rainy")) {
+                    weatherIconImageView.setImageResource(R.drawable.ic_weather_black_24dp);
+                }
             }
+
             dailyWeatherList = new ArrayList<>();
             dailyWeatherAdapter = new WeatherRVAdapter(dailyWeatherList);
             weatherBinding.twentyFourHourForecastRecyclerView.setAdapter(dailyWeatherAdapter);
