@@ -1,159 +1,91 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.connections;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuConnectionsCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
-public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ConnectionsViewAdapter extends RecyclerView.Adapter<ConnectionsViewAdapter.ConnectionsViewHolder> {
 
-    private final List<ChatPreview> mConnections;
-    private final int SHOW_MENU = 1;
-    private final int HIDE_MENU = 2;
+    private List<ChatPreview> mConnections;
 
-    public ConnectionsViewAdapter(List<ChatPreview> chatViews) {
-        this.mConnections = chatViews;
+    public void setChatList(List<ChatPreview> chatList) {
+        mConnections = chatList;
     }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v;
-        if (viewType == SHOW_MENU) {
-            v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recycler_menu_connections_card, parent, false);
-            return new ConnectionsMenuViewHolder(v);
-        } else {
-            return new ConnectionsViewHolder(LayoutInflater
-                    .from(parent.getContext())
-                    .inflate(R.layout.fragment_connections_card, parent, false));
-        }
+    public ConnectionsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        FragmentConnectionsCardBinding binding = FragmentConnectionsCardBinding.inflate(inflater, parent, false);
+        return new ConnectionsViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof ConnectionsViewHolder) {
-            ((ConnectionsViewHolder)holder).setChatPreview(mConnections.get(position));
-            ((ConnectionsViewHolder)holder).pressedInfo();
-            ((ConnectionsViewHolder)holder).binding.buttonMenu.setOnLongClickListener(
-                    v -> {
-                        showMenu(position);
-                        return true;
-                    }
-            );
-        }
-
-        if (holder instanceof ConnectionsMenuViewHolder) {
-            ((ConnectionsMenuViewHolder)holder).checkEnterChat(mConnections.get(position));
-            ((ConnectionsMenuViewHolder)holder).checkDeleteChat(position);
-        }
+    public void onBindViewHolder(@NonNull ConnectionsViewHolder holder, int position) {
+        ChatPreview chat = mConnections.get(position);
+        holder.bind(chat);
     }
 
     @Override
     public int getItemCount() {
-        return mConnections.size();
+        return mConnections != null ? mConnections.size() : 0;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (mConnections.get(position).isShowMenu()) {
-            return SHOW_MENU;
-        } else {
-            return HIDE_MENU;
-        }
-    }
+    class ConnectionsViewHolder extends RecyclerView.ViewHolder {
+        private final FragmentConnectionsCardBinding mBinding;
 
-    void showMenu(int position) {
-        for (int i = 0; i < mConnections.size(); i++){
-            mConnections.get(i).setShowMenu(false);
-        }
-        mConnections.get(position).setShowMenu(true);
-        notifyDataSetChanged();
-    }
-
-
-    boolean isMenuShown() {
-        for (int i = 0; i < mConnections.size(); i++){
-            if(mConnections.get(i).isShowMenu()){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    void closeMenu() {
-        for (int i = 0; i < mConnections.size(); i++){
-            mConnections.get(i).setShowMenu(false);
-        }
-        notifyDataSetChanged();
-    }
-
-    private static class ConnectionsViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public FragmentConnectionsCardBinding binding;
-        private ChatPreview mChat;
-
-        public ConnectionsViewHolder(View view) {
-            super(view);
-            mView = view;
-            binding = FragmentConnectionsCardBinding.bind(view);
+        ConnectionsViewHolder(FragmentConnectionsCardBinding binding) {
+            super(binding.getRoot());
+            mBinding = binding;
         }
 
-        public void setChatPreview(final ChatPreview chatPreview) {
-            mChat = chatPreview;
+        void bind(ChatPreview chat) {
+            mBinding.textviewName.setText(chat.getContact());
 
-            // shows dummy data
-            binding.textviewName.setText(chatPreview.getContact());
-        }
+            // Set up click listener for the info button
+            mBinding.buttonInfo.setOnClickListener(v -> {
+                int userID = chat.getUserID();
 
-        void pressedInfo() {
-            binding.buttonInfo.setOnClickListener(view -> {
-                Log.d("Button Pressed", "Info");
-//                Navigation.findNavController(mView).navigate(
-//                        edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
-            });
-        }
-    }
+                // Call the backend API to retrieve user information based on userID
+                // Replace `YOUR_API_ENDPOINT` with the actual endpoint for retrieving user information
+                String url = "YOUR_API_ENDPOINT" + userID;
 
-    public class ConnectionsMenuViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public RecyclerMenuConnectionsCardBinding binding;
-        public ConnectionsMenuViewHolder(View view) {
-            super(view);
-            mView = view;
-            binding = RecyclerMenuConnectionsCardBinding.bind(view);
-        }
+                // Send a GET request to retrieve user information
+                // Replace `YOUR_ACCESS_TOKEN` with the actual access token for authentication
+                JsonObjectRequest request = new JsonObjectRequest(
+                        Request.Method.GET,
+                        url,
+                        null,
+                        response -> {
+                            try {
+                                // Parse the response JSON and extract the user information
+                                JSONObject userJson = response.getJSONObject("user");
+                                String name = userJson.getString("name");
+                                String email = userJson.getString("email");
+                                // ...
 
-        void checkDeleteChat(final int position) {
-            binding.buttonDelete.setOnClickListener(view -> {
-                Log.d("Pressed profile button", "Deleted chat");
-                mConnections.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position, mConnections.size());
-            });
-        }
+                                // Handle the retrieved user information as needed
+                                // For example, you can display it in a dialog or navigate to a user profile screen
 
-        void checkEnterChat(ChatPreview chat) {
-            binding.buttonIndividualChat.setOnClickListener(view -> {
-                Navigation.findNavController(mView).navigate(
-                        ConnectionsFragmentDirections
-                                .actionNavigationConnectionsToIndividualChatFragment(chat)
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        },
+                        error -> {
+                            // Handle error case
+                            Log.e("ConnectionsViewHolder", "Error retrieving user information: " + error.getMessage());
+                        }
                 );
-                closeMenu();
+
+                // Add the request to the Volley request queue
+                Volley.newRequestQueue(itemView.getContext()).add(request);
             });
         }
     }
-}
