@@ -177,6 +177,16 @@
         android:id="@+id/settingsFragment"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.settings.SettingsFragment"
         android:label="SettingsFragment"
-        tools:layout="@layout/settings_fragment"/>
+        tools:layout="@layout/settings_fragment">
+        <action
+            android:id="@+id/action_settingsFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.settings.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+
 
 </navigation>
