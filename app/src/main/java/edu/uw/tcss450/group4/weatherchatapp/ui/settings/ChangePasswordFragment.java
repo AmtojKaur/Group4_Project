@@ -64,6 +64,7 @@ public class ChangePasswordFragment extends Fragment {
 //                    String memberID = "1"; // TODO: Replace with actual memberID.
 //                    String email = "user@example.com"; // TODO: Replace with actual email.
                     //changePassword(email, oldPassword, newPassword); // TODO: Uncomment when ready.
+                    Toast.makeText(getContext(), "Change password works but password was not changed.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), "New passwords do not match.", Toast.LENGTH_SHORT).show();
                 }
