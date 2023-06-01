@@ -1,9 +1,5 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.weather;
 
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link WeatherAddFragment#newInstance} factory method to
@@ -11,48 +7,74 @@ import androidx.fragment.app.Fragment;
  * @author Abdirizak Ali
  * @version 16 May 2023
  */
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
+
+import com.google.android.material.textfield.TextInputEditText;
+
+import edu.uw.tcss450.group4.weatherchatapp.R;
+
 public class WeatherAddFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public WeatherAddFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment WeatherAddFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static WeatherAddFragment newInstance(String param1, String param2) {
-        WeatherAddFragment fragment = new WeatherAddFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_weather_add, container, false);
     }
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button buttonWeather = view.findViewById(R.id.button_weather);
+        buttonWeather.setOnClickListener(v -> {
+            String zipCode = getZipCodeFromInput();
+
+            // Validate zip code
+            if (isValidZipCode(zipCode)) {
+                Bundle bundle = new Bundle();
+                bundle.putString("zipCode", zipCode);
+
+                // Navigate to WeatherFragment using the generated NavDirections
+                NavDirections action = WeatherAddFragmentDirections.actionWeatherAddFragmentToNavigationWeather();
+                Navigation.findNavController(view).navigate(action.getActionId(), bundle);
+            }
+        });
     }
 
 
+    private String getZipCodeFromInput() {
+        String zipCode = "";
+
+        // Retrieve the entered zip code from the TextInputEditText
+        View view = getView();
+        if (view != null) {
+            TextInputEditText editLocation = view.findViewById(R.id.edit_location);
+            if (editLocation != null) {
+                zipCode = editLocation.getText().toString().trim();
+            }
+        }
+
+        return zipCode;
+    }
+
+    private boolean isValidZipCode(String zipCode) {
+        // Validate the zip code (e.g., check length, format, etc.)
+        return zipCode.matches("\\d{5}");
+    }
 }
+
