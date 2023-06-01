@@ -9,55 +9,53 @@
 
     <TextView
         android:id="@+id/weather_current_temperature"
+        style="@style/Text_B2_W"
         android:layout_width="87dp"
         android:layout_height="56dp"
         android:text="86° F"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/weather_current_condition_img"
+        app:layout_constraintStart_toStartOf="@id/weather_current_condition_img"
+        app:layout_constraintTop_toBottomOf="@id/weather_current_condition_img" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/weather_current_condition_img"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        style="@style/Tint_B2_G8"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="60dp"
         android:src="@drawable/ic_weather_black_24dp"
         app:layout_constraintBottom_toTopOf="@+id/weather_current_temperature"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/weather_low_temperature"
+        style="@style/Text_B2_W"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:text="50° F"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toStartOf="@+id/weather_current_temperature"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/weather_current_condition_img"
+        app:layout_constraintStart_toEndOf="@id/weather_current_condition_img"
+        app:layout_constraintTop_toBottomOf="@+id/weather_high_temperature" />
 
     <TextView
         android:id="@+id/weather_high_temperature"
+        style="@style/Text_B2_W"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:text="90° F"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/weather_current_temperature" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="210dp" />
+        app:layout_constraintBottom_toTopOf="@id/weather_low_temperature"
+        app:layout_constraintStart_toEndOf="@+id/weather_current_condition_img"
+        app:layout_constraintTop_toTopOf="@id/weather_current_condition_img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

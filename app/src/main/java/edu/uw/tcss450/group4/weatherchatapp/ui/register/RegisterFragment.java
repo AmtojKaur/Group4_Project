@@ -1,20 +1,22 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.register;
 
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkClientPredicate;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkExcludeWhiteSpace;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdDigit;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdLength;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdLowerCase;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdSpecialChar;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdUpperCase;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkClientPredicate;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkExcludeWhiteSpace;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdDigit;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLength;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLowerCase;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdSpecialChar;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdUpperCase;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,7 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentRegisterBinding;
-import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,6 +51,20 @@ public class RegisterFragment extends Fragment {
                     .and(checkExcludeWhiteSpace())
                     .and(checkPwdDigit())
                     .and(checkPwdLowerCase().or(checkPwdUpperCase()));
+    private PasswordValidator mPassWordValidatorMatch =
+            checkClientPredicate(pwd -> pwd.equals(binding.editPassword2.getText().toString()));
+
+    private PasswordValidator mPassWordValidatorLen = checkPwdLength(7);
+
+    private PasswordValidator mPasswordValidatorSpecial = checkPwdSpecialChar();
+
+    private PasswordValidator mPassWordValidatorSpace = checkExcludeWhiteSpace();
+
+    private PasswordValidator mPassWordValidatorDigit = checkPwdDigit();
+
+    private PasswordValidator mPassWordValidatorCaps = checkPwdLowerCase().or(checkPwdUpperCase());
+
+
 
     /**
      * Empty public constructor
@@ -114,8 +130,57 @@ public class RegisterFragment extends Fragment {
     private void validateEmail() {
         mEmailValidator.processResult(
                 mEmailValidator.apply(binding.editEmail.getText().toString().trim()),
-                this::validatePasswordsMatch,
+                this::validatePasswordLen,
                 result -> binding.editEmail.setError("Please enter a valid Email address."));
+    }
+
+    /**
+     * Method that validates user's password length.
+     */
+    private void validatePasswordLen() {
+        mPassWordValidatorLen.processResult(
+                mPassWordValidatorLen.apply(binding.editPassword1.getText().toString()),
+                this::validatePasswordSpecial,
+                result -> binding.editPassword1.setError("Please enter more than 6 characters."));
+    }
+
+    /**
+     * Method that validates user's password contains special character.
+     */
+    private void validatePasswordSpecial() {
+        mPasswordValidatorSpecial.processResult(
+                mPasswordValidatorSpecial.apply(binding.editPassword1.getText().toString()),
+                this::validatePasswordSpace,
+                result -> binding.editPassword1.setError("Please enter a special character."));
+    }
+
+    /**
+     * Method that validates user's password does not contain space.
+     */
+    private void validatePasswordSpace() {
+        mPassWordValidatorSpace.processResult(
+                mPassWordValidatorSpace.apply(binding.editPassword1.getText().toString()),
+                this::validatePasswordDigit,
+                result -> binding.editPassword1.setError("Please make sure there is no space."));
+    }
+
+    /**
+     * Method that validates user's password does not contain space.
+     */
+    private void validatePasswordDigit() {
+        mPassWordValidatorDigit.processResult(
+                mPassWordValidatorDigit.apply(binding.editPassword1.getText().toString()),
+                this::validatePasswordCaps,
+                result -> binding.editPassword1.setError("Password must contain at least one number."));
+    }
+    /**
+     * Method that validates user's password does not contain space.
+     */
+    private void validatePasswordCaps() {
+        mPassWordValidatorCaps.processResult(
+                mPassWordValidatorCaps.apply(binding.editPassword1.getText().toString()),
+                this::validatePasswordsMatch,
+                result -> binding.editPassword1.setError("Password must contain capital letter."));
     }
 
     /**
@@ -128,19 +193,19 @@ public class RegisterFragment extends Fragment {
 
         mEmailValidator.processResult(
                 matchValidator.apply(binding.editPassword1.getText().toString().trim()),
-                this::validatePassword,
+                this::verifyAuthWithServer,
                 result -> binding.editPassword1.setError("Passwords must match."));
     }
 
     /**
      * Method that validates user's password.
-     */
+     *//*
     private void validatePassword() {
         mPassWordValidator.processResult(
                 mPassWordValidator.apply(binding.editPassword1.getText().toString()),
                 this::verifyAuthWithServer,
                 result -> binding.editPassword1.setError("Please enter a valid Password."));
-    }
+    }*/
 
     /**
      * Method that sends email and password to register view model.
@@ -177,6 +242,7 @@ public class RegisterFragment extends Fragment {
      */
     private void observeResponse(final JSONObject response) {
         if (response.length() > 0) {
+            System.out.println("response: " + response);
             if (response.has("code")) {
                 try {
                     binding.editEmail.setError(
@@ -185,12 +251,20 @@ public class RegisterFragment extends Fragment {
                 } catch (JSONException e) {
                     Log.e("JSON Parse Error", e.getMessage());
                 }
+            } else if (response.has("Invalid")){
+                binding.editEmail.setError(
+                        "Error Authenticating: " +
+                                "Email is invalid.");
             } else {
-                navigateToLogin();
+                // Show a popup here
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Registration Successful")
+                        .setMessage("Registration was successful! Please check your email for a verification link.")
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> navigateToLogin())
+                        .show();
             }
         } else {
             Log.d("JSON Response", "No Response");
         }
-
     }
 }

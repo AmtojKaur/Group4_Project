@@ -1,8 +1,8 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.signin;
 
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkExcludeWhiteSpace;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdLength;
-import static edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator.checkPwdSpecialChar;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkExcludeWhiteSpace;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLength;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdSpecialChar;
 
 import android.os.Bundle;
 
@@ -16,12 +16,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentSignInBinding;
-import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,6 +83,14 @@ public class SignInFragment extends Fragment {
         SignInFragmentArgs args = SignInFragmentArgs.fromBundle(getArguments());
         binding.editEmail.setText(args.getEmail().equals("default") ? "" : args.getEmail());
         binding.editPassword.setText(args.getPassword().equals("default") ? "" : args.getPassword());
+
+        Button forgotPasswordButton = view.findViewById(R.id.button_forgot);
+        forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_signInFragment_to_forgotPasswordFragment);
+            }
+        });
     }
 
     /**
@@ -141,9 +152,16 @@ public class SignInFragment extends Fragment {
     private void observeResponse(final JSONObject response) {
         if (response.length() > 0) {
             if (response.has("code")) {
-                try { binding.editEmail.setError(
-                        "Error Authenticating: " +
-                                response.getJSONObject("data").getString("message"));
+                try {
+                    String serverMessage = response.getJSONObject("data").getString("message");
+                   // if (true) {
+                    if (serverMessage.equals("Please verify your email before signing in.")) {
+
+                        // Handle the case where the user needs to verify their email.
+                        Toast.makeText(getContext(), serverMessage, Toast.LENGTH_LONG).show();
+                    } else {
+                        binding.editEmail.setError("Error Authenticating: " + serverMessage);
+                    }
                 } catch (JSONException e) {
                     Log.e("JSON Parse Error", e.getMessage());
                 }

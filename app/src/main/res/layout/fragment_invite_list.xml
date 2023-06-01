@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    style="@style/Background_Y8_B2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Top Nav Container -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/toolbar_contact_add"
+        style="@style/Tint_B9_B"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="3dp"
+        android:src="@drawable/rounded_rectangle_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Top Nav Buttons -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_connections"
+        style="@style/Button_Nav_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/ic_connections_friend"
+        android:text="Contacts"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"
+        app:layout_constraintEnd_toStartOf="@id/button_incoming"
+        app:layout_constraintStart_toStartOf="@id/toolbar_contact_add"
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_incoming"
+        style="@style/Button_Nav_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/ic_connections_accept_decline_requests_black_24dp"
+        android:text="Incoming"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"
+        app:layout_constraintEnd_toStartOf="@id/button_invite"
+        app:layout_constraintStart_toEndOf="@+id/button_connections"
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_invite"
+        style="@style/Button_Nav_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/ic_newchat_black_24dp"
+        android:text="Invite"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_contact_add"
+        app:layout_constraintEnd_toEndOf="@id/toolbar_contact_add"
+        app:layout_constraintStart_toEndOf="@+id/button_incoming"
+        app:layout_constraintTop_toTopOf="@id/toolbar_contact_add" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_new_contact"
+        style="@style/Text_B2_W"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif"
+        android:text="Add Contact"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/toolbar_contact_add"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_contact_add" />
+
+    <View
+        android:id="@+id/view_invite_new"
+        style="@style/BTint_B8_B"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_rectangle_outlined_lightgreen_10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_new_contact" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_add_new"
+        style="@style/Text_B2_W"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start|center"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="Add via email:"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/input_contact"
+        app:layout_constraintEnd_toStartOf="@id/input_contact"
+        app:layout_constraintStart_toStartOf="@id/view_invite_new"
+        app:layout_constraintTop_toTopOf="@id/input_contact" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/input_contact"
+        style="@style/Text_B2_W"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/white"
+        android:hint="Enter an email"
+        android:iconifiedByDefault="false"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/view_invite_new"
+        app:layout_constraintStart_toEndOf="@id/txt_add_new"
+        app:layout_constraintTop_toTopOf="@+id/view_invite_new" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_new"
+        style="@style/Button_Nav_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableStart="@drawable/ic_newchat_black_24dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text=" Send Friend Request"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/view_invite_new"
+        app:layout_constraintEnd_toEndOf="@id/view_invite_new"
+        app:layout_constraintStart_toStartOf="@id/view_invite_new"
+        app:layout_constraintTop_toBottomOf="@id/input_contact" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_sent"
+        style="@style/Text_B2_W"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Requests Sent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/view_recycler_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_invite_new" />
+
+    <!-- Sent Background -->
+    <ImageView
+        android:id="@+id/view_recycler_background"
+        style="@style/Tint_B8_B"
+        android:layout_width="370dp"
+        android:layout_height="480dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/bottomlayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_sent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_sent"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.connections.InviteFragment"
+        android:layout_width="0dp"
+        android:layout_height="420dp"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/color_green5"
+        android:orientation="vertical"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="@id/view_recycler_background"
+        app:layout_constraintEnd_toEndOf="@id/view_recycler_background"
+        app:layout_constraintStart_toStartOf="@id/view_recycler_background"
+        tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.InviteFragment"
+        tools:listitem="@layout/fragment_invite_card" />
+
+    <!-- Bottom Nav Container -->
+    <ImageView
+        android:id="@+id/bottom_nav_background"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="2dp"
+        android:src="@drawable/rounded_rectangle_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/color_blue6" />
+
+    <!-- Bottom Nav Buttons -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_nav_home"
+        style="@style/Button_Nav_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/ic_home_black_24dp"
+        android:text="Home"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintStart_toStartOf="@+id/bottom_nav_background"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_nav_connections"
+        style="@style/Button_Nav_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/ic_group_black_filled_24dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Connections"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintEnd_toStartOf="@id/button_nav_chat"
+        app:layout_constraintStart_toEndOf="@id/button_nav_home"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_nav_chat"
+        style="@style/Button_Nav_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/icon_chat_filled_black_24dp"
+        android:text="Chat"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintEnd_toStartOf="@id/button_nav_weather"
+        app:layout_constraintStart_toEndOf="@id/button_nav_connections"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_nav_weather"
+        style="@style/Button_Nav_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/ic_weather_black_24dp"
+        android:text="Weather"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintEnd_toEndOf="@+id/bottom_nav_background"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
+</androidx.constraintlayout.widget.ConstraintLayout>

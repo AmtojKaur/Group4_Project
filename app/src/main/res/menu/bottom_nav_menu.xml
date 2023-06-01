@@ -5,12 +5,12 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
     <item
-        android:id="@+id/navigation_contacts"
-        android:icon="@drawable/ic_contacts_black_24dp"
-        android:title="@string/title_contacts" />
+        android:id="@+id/navigation_connections"
+        android:icon="@drawable/ic_group_black_filled_24dp"
+        android:title="Connections" />
     <item
         android:id="@+id/navigation_chat"
-        android:icon="@drawable/ic_chat_black_24dp"
+        android:icon="@drawable/ic_chat_black_outline_24dp"
         android:title="@string/title_chat" />
     <item
         android:id="@+id/navigation_weather"
