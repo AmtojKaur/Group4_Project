@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatObject;
 
 /**
  * Class that prepares and manages data associated with a ChatPreview object.
@@ -20,7 +20,7 @@ import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
  * @version 3 May 2023
  */
 public class ChatListViewModel extends AndroidViewModel {
-    private final MutableLiveData<List<ChatPreview>> mChatList;
+    private final MutableLiveData<List<ChatObject>> mChatList;
 
     /**
      * Public constructor to declare a new MutableLiveData object and
@@ -40,7 +40,7 @@ public class ChatListViewModel extends AndroidViewModel {
      * @param observer the live data associated with the list of ChatPreview objects
      */
     public void addChatListObserver(@NonNull LifecycleOwner owner,
-                                    @NonNull Observer<? super List<ChatPreview>> observer) {
+                                    @NonNull Observer<? super List<ChatObject>> observer) {
         mChatList.observe(owner, observer);
     }
 }

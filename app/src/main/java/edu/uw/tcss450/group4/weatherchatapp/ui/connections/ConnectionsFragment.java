@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsContactsListFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 
@@ -26,7 +26,7 @@ public class ConnectionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.connections_list_fragment, container, false);
+        return inflater.inflate(R.layout.connections_contacts_list_fragment, container, false);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class ConnectionsFragment extends Fragment {
 
 
         // view binding variable
-        FragmentConnectionsListBinding binding = FragmentConnectionsListBinding.bind(getView());
+        ConnectionsContactsListFragmentBinding binding = ConnectionsContactsListFragmentBinding.bind(getView());
 
         // chat recycler view
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {

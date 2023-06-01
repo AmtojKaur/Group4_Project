@@ -14,7 +14,7 @@ import java.util.List;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuChatCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatObject;
 
 /**
  * Class that handles the Recyclerview of ChatPreview objects.
@@ -23,7 +23,7 @@ import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
  * @version 3 May 2023
  */
 public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private final List<ChatPreview> mChats;
+    private final List<ChatObject> mChats;
     private final int SHOW_MENU = 1;
     private final int HIDE_MENU = 2;
 
@@ -32,7 +32,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
      * to the actual, passed in value of real-time ChatPreview objects.
      * @param chatViews the ArrayList of ChatPreview objects
      */
-    public ChatListRecyclerViewAdapter(List<ChatPreview> chatViews) {
+    public ChatListRecyclerViewAdapter(List<ChatObject> chatViews) {
         this.mChats = chatViews;
     }
 
@@ -132,16 +132,16 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         /**
          * Setter method that gets the chat name, last sent message, and message time,
          * and displays it on the ChatPreview object.
-         * @param chatPreview the ChatPreview the data is associated with
+         * @param chatObject the ChatPreview the data is associated with
          */
-        void setChatPreview(final ChatPreview chatPreview) {
+        void setChatPreview(final ChatObject chatObject) {
 
             // shows dummy data
-            binding.textviewName.setText(chatPreview.getContact());
-            binding.time.setText(chatPreview.getTimeOfMsg());
-            binding.message.setText(chatPreview.getPreviewMsg());
+            binding.textviewName.setText(chatObject.getMessageID());
+            binding.time.setText(chatObject.getTimeOfMsg());
+            binding.message.setText(chatObject.getMessage());
 
-            checkEnterChatRoom(chatPreview);
+            checkEnterChatRoom(chatObject);
         }
 
         /**
@@ -149,7 +149,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
          * and then navigates to the associated IndividualChat if pressed is true.
          * @param chat the ChatPreview being checked if pressed
          */
-        void checkEnterChatRoom(final ChatPreview chat) {
+        void checkEnterChatRoom(final ChatObject chat) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
                 Navigation.findNavController(mView).navigate(
                         ChatListFragmentDirections
@@ -191,7 +191,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
             });
         }
 
-        void checkEnterChat(ChatPreview chat) {
+        void checkEnterChat(ChatObject chat) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
                 Navigation.findNavController(mView).navigate(
                         ChatListFragmentDirections

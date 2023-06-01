@@ -12,17 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuConnectionsCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsContactsListCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsContactsMenuCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatObject;
 
 public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<ChatPreview> mConnections;
+    private final List<ChatObject> mConnections;
     private final int SHOW_MENU = 1;
     private final int HIDE_MENU = 2;
 
-    public ConnectionsViewAdapter(List<ChatPreview> chatViews) {
+    public ConnectionsViewAdapter(List<ChatObject> chatViews) {
         this.mConnections = chatViews;
     }
 
@@ -101,20 +101,20 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     private static class ConnectionsViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public FragmentConnectionsCardBinding binding;
-        private ChatPreview mChat;
+        public ConnectionsContactsListCardBinding binding;
+        private ChatObject mChat;
 
         public ConnectionsViewHolder(View view) {
             super(view);
             mView = view;
-            binding = FragmentConnectionsCardBinding.bind(view);
+            binding = ConnectionsContactsListCardBinding.bind(view);
         }
 
-        public void setChatPreview(final ChatPreview chatPreview) {
-            mChat = chatPreview;
+        public void setChatPreview(final ChatObject chatObject) {
+            mChat = chatObject;
 
             // shows dummy data
-            binding.textviewName.setText(chatPreview.getContact());
+            binding.textviewName.setText(chatObject.getMessageID());
         }
 
         void pressedInfo() {
@@ -130,11 +130,11 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     public class ConnectionsMenuViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public RecyclerMenuConnectionsCardBinding binding;
+        public ConnectionsContactsMenuCardBinding binding;
         public ConnectionsMenuViewHolder(View view) {
             super(view);
             mView = view;
-            binding = RecyclerMenuConnectionsCardBinding.bind(view);
+            binding = ConnectionsContactsMenuCardBinding.bind(view);
         }
 
         void checkDeleteChat(final int position) {
@@ -146,7 +146,7 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             });
         }
 
-        void checkEnterChat(ChatPreview chat) {
+        void checkEnterChat(ChatObject chat) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
                 Navigation.findNavController(mView).navigate(
                         ConnectionsFragmentDirections

@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsIncomingStatusListFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 public class IncomingFragment extends Fragment {
@@ -41,7 +41,7 @@ public class IncomingFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // view binding variable
-        FragmentIncomingStatusListBinding binding = FragmentIncomingStatusListBinding.bind(getView());
+        ConnectionsIncomingStatusListFragmentBinding binding = ConnectionsIncomingStatusListFragmentBinding.bind(getView());
 
         // connections recycler view
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {

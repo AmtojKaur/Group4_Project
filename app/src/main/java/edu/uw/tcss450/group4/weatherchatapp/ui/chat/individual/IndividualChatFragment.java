@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatIndividualListFragmentBinding;
 
 /**
  * A {@link Fragment} subclass
@@ -45,7 +45,8 @@ public class IndividualChatFragment extends Fragment {
 
         IndividualChatFragmentArgs args = IndividualChatFragmentArgs.fromBundle(getArguments());
 
-        FragmentIndividualChatListBinding binding = FragmentIndividualChatListBinding.bind(getView());
+
+        ChatIndividualListFragmentBinding binding = ChatIndividualListFragmentBinding.bind(getView());
 
         binding.swipeContainer.setRefreshing(true);
 
@@ -61,6 +62,8 @@ public class IndividualChatFragment extends Fragment {
         });
 
         // set text of chat depending on which chat is entered
-        binding.textName.setText(args.getChat().getContact());
+//        binding.textName.setText(args.getChat().getContact());
+        binding.textName.setText("temp");
+
     }
 }

@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentInviteListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteListFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 public class InviteFragment extends Fragment {
@@ -41,7 +41,8 @@ public class InviteFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // view binding variable
-        FragmentInviteListBinding binding = FragmentInviteListBinding.bind(getView());
+
+        ConnectionsInviteListFragmentBinding binding = ConnectionsInviteListFragmentBinding.bind(getView());
 
         // connections recycler view
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {

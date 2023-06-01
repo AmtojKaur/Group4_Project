@@ -80,7 +80,7 @@
         android:id="@+id/navigation_connections"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragment"
         android:label="ConnectionsFragment"
-        tools:layout="@layout/connections_list_fragment">
+        tools:layout="@layout/connections_contacts_list_fragment">
         <action
             android:id="@+id/action_connectionsFragment_to_incomingRequestsFragment"
             app:destination="@id/navigation_incoming_friend_requests" />

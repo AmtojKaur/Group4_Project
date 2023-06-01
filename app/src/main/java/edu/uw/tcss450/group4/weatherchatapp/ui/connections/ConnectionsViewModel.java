@@ -11,11 +11,11 @@ import androidx.lifecycle.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatObject;
 
 public class ConnectionsViewModel extends AndroidViewModel {
 
-    private final MutableLiveData<List<ChatPreview>> mChatList;
+    private final MutableLiveData<List<ChatObject>> mChatList;
 
     public ConnectionsViewModel(@NonNull Application application) {
         super(application);
@@ -24,7 +24,7 @@ public class ConnectionsViewModel extends AndroidViewModel {
     }
 
     public void addChatListObserver(@NonNull LifecycleOwner owner,
-                                    @NonNull Observer<? super List<ChatPreview>> observer) {
+                                    @NonNull Observer<? super List<ChatObject>> observer) {
         mChatList.observe(owner, observer);
     }
 }

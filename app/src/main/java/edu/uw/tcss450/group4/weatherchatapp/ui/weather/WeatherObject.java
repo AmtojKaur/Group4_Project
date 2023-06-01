@@ -14,6 +14,7 @@ public class WeatherObject {
     public String getTemperature() {
         return temperature;
     }
+
     public void setTemperature(String temperature) {
         this.temperature = temperature;
     }
@@ -25,6 +26,7 @@ public class WeatherObject {
     public String getShortForecast() {
         return shortForecast;
     }
+
     public void setShortForecast(String shortForecast) {
         this.shortForecast = shortForecast;
     }

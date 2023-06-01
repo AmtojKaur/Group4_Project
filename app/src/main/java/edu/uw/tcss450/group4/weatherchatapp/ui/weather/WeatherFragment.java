@@ -19,21 +19,17 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentWeatherBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.WeatherFragmentBinding;
 
 public class WeatherFragment extends Fragment {
-
     private ArrayList<WeatherRVModel> dailyWeatherList;
     private WeatherRVAdapter dailyWeatherAdapter;
-
     private ArrayList<WeatherRVModel> weeklyForecastList;
     private WeatherRVAdapter weeklyForecastAdapter;
-
     private EditText inputBox; // Declare the input box as a class variable
 
     public static WeatherFragment newInstance(String param1, String param2) {
         WeatherFragment fragment = new WeatherFragment();
-
         return fragment;
     }
 
@@ -44,7 +40,7 @@ public class WeatherFragment extends Fragment {
         String currentZipCode = "98105"; // example zip code for current location
         new WeatherRequestTask().execute(currentZipCode);
 
-        FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
+        WeatherFragmentBinding weatherBinding = WeatherFragmentBinding.bind(requireView());
 
         weatherBinding.dayAndCityText.setText("Tacoma, WA"); // Default location for search
         weatherBinding.tempText.setText("-");
@@ -77,18 +73,18 @@ public class WeatherFragment extends Fragment {
         return view;
     }
 
-    private class WeatherRequestTask extends AsyncTask<String, Void, WeatherLogic> {
+    private class WeatherRequestTask extends AsyncTask<String, Void, WeatherViewModel> {
 
         @Override
-        protected WeatherLogic doInBackground(String... params) {
+        protected WeatherViewModel doInBackground(String... params) {
             String zipCode = params[0];
             // API REQUEST
             String jsonString = String.valueOf(WeatherRequest.request(zipCode));
-            return new WeatherLogic(jsonString);
+            return new WeatherViewModel(jsonString);
         }
 
-        protected void onPostExecute(WeatherLogic weather) {
-            FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
+        protected void onPostExecute(WeatherViewModel weather) {
+            WeatherFragmentBinding weatherBinding = WeatherFragmentBinding.bind(requireView());
 
             WeatherObject currentWeather = weather.getCurrent();
             if (currentWeather != null) {

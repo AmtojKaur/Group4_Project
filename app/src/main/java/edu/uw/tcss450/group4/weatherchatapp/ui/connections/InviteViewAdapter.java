@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentInviteCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteListCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteMenuCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatObject;
 
 public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<ChatPreview> mInvites;
+    private final List<ChatObject> mInvites;
     private final int SHOW_MENU = 1;
     private final int HIDE_MENU = 2;
 
@@ -25,7 +26,7 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
      * to the actual, passed in value of real-time ChatPreview objects.
      * @param inviteViews the ArrayList of ChatPreview objects
      */
-    public InviteViewAdapter(List<ChatPreview> inviteViews) {
+    public InviteViewAdapter(List<ChatObject> inviteViews) {
         this.mInvites = inviteViews;
     }
 
@@ -102,19 +103,20 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public static class InviteViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public FragmentInviteCardBinding binding;
-        private ChatPreview mChat;
+
+        public ConnectionsInviteListCardBinding binding;
+        private ChatObject mChat;
 
         public InviteViewHolder(View view) {
             super(view);
             mView = view;
-            binding = FragmentInviteCardBinding.bind(view);
+            binding = ConnectionsInviteListCardBinding.bind(view);
         }
 
-        void setChatPreview(final ChatPreview chatPreview) {
-            mChat = chatPreview;
+        void setChatPreview(final ChatObject chatObject) {
+            mChat = chatObject;
             // shows dummy data
-            binding.textviewName.setText(chatPreview.getContact());
+            binding.textviewName.setText(chatObject.getMessageID());
         }
 
         void pressedInfo() {
@@ -130,11 +132,12 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public class InviteMenuViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public RecyclerMenuInviteCardBinding binding;
+
+        public ConnectionsInviteMenuCardBinding binding;
         public InviteMenuViewHolder(View view) {
             super(view);
             mView = view;
-            binding = RecyclerMenuInviteCardBinding.bind(view);
+            binding = ConnectionsInviteMenuCardBinding.bind(view);
         }
 
         void checkDeleteChat(final int position) {
