@@ -8,7 +8,7 @@
         android:id="@+id/signInFragment"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.signin.SignInFragment"
         android:label="fragment_sign_in"
-        tools:layout="@layout/sign_in_fragment" >
+        tools:layout="@layout/auth_sign_in_fragment" >
         <action
             android:id="@+id/action_signInFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
@@ -31,7 +31,7 @@
         android:id="@+id/registerFragment"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/register_fragment" >
+        tools:layout="@layout/auth_register_fragment" >
         <action
             android:id="@+id/action_registerFragment_to_emailVerification"
             app:destination="@id/emailVerification" />
