@@ -40,25 +40,25 @@ public class ConnectionsViewModel extends AndroidViewModel {
         mChatList.observe(owner, observer);
     }*/
     int currentUserId;
-    private MutableLiveData<List<ClipData.Item>> items;
+    private MutableLiveData<List<ChatPreview>> mChatList;
 
-    private List<ClipData.Item> listItems = new ArrayList<>();
+    private List<ChatPreview> listItems = new ArrayList<>();
     public List<Integer> contactsList = new ArrayList<>();
-    public ContactsListViewModel(@NonNull Application application) {
+    public ConnectionsViewModel(@NonNull Application application) {
         super(application);
-        items = new MutableLiveData<>();
-        items.setValue(new ArrayList<>());
+        mChatList = new MutableLiveData<>();
+        mChatList.setValue(new ArrayList<>());
     }
     public void setCurrentUserId(int memberId) {
         currentUserId = (memberId);
     }
 
-    public void addBlogListObserver(@NonNull LifecycleOwner owner,
-                                    @NonNull Observer<? super List<ClipData.Item>> observer) {
-        items.observe(owner, observer);
+    public void addChatListObserver(@NonNull LifecycleOwner owner,
+                                    @NonNull Observer<? super List<ChatPreview>> observer) {
+        mChatList.observe(owner, observer);
     }
 
-    public List<ClipData.Item> getItems() {
+    public List<ChatPreview> getItems() {
         return listItems;
     }
     private void handleError(final VolleyError error) {
@@ -88,10 +88,10 @@ public class ConnectionsViewModel extends AndroidViewModel {
                     int accepted = jsonBlog.getInt("verified") == 1 ? 1 : 0;
                     if (accepted == 1) {
                         contactsList.add(memberid);
-                        ClipData.Item post = new ClipData.Item(memberid, "Name: " + first + " " + last, "Email: " + email,
+                        ChatPreview post = new mChatList(memberid, "Name: " + first + " " + last, "Email: " + email,
                                 "Username: " + username);
-                        if (items.getValue().stream().noneMatch(element -> element.key == (memberid))) {
-                            items.getValue().add(post);
+                        if (mChatList.getValue().stream().noneMatch(element -> element.key == (memberid))) {
+                            mChatList.getValue().add(post);
                             listItems.add(post);
                             System.out.println(listItems.size());
                         }
@@ -105,7 +105,7 @@ public class ConnectionsViewModel extends AndroidViewModel {
             e.printStackTrace();
             Log.e("ERROR!", e.getMessage());
         }
-        items.setValue(items.getValue());
+        mChatList.setValue(mChatList.getValue());
 
     }
 
