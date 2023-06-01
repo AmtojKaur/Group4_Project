@@ -48,7 +48,7 @@ public class WeatherMapViewModel extends ViewModel {
     }
 
     /**
-     * Used to observe the specified latitude & longitude.
+     * Will be Used to observe the specified latitude & longitude.
      * @param owner The lifecycle owner
      * @param observer The observer
      */
@@ -58,7 +58,7 @@ public class WeatherMapViewModel extends ViewModel {
     }
 
     /**
-     * Used to observe the specified ZIP Code.
+     * Will be Used to observe the specified ZIP Code.
      * @param owner The lifecycle owner
      * @param observer The observer
      */

@@ -6,51 +6,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.weather.WeatherFragment"
-    style="@style/Background_B8">
+    android:background="@color/color_yellow8">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/input_zip"
+
+    <EditText
+        android:id="@+id/inputBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif"
-        android:hint="Enter a zipcode"
+        android:ems="10"
+        android:hint="Enter a Zipcode"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_search_zip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:background="@drawable/rounded_rectangle_24dp"
-        android:backgroundTint="@color/color_blue9"
-        android:fontFamily="sans-serif"
-        android:text="search"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/input_zip"
-        app:layout_constraintTop_toTopOf="@id/input_zip" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/button_change_location"
+    <ImageButton
+        android:id="@+id/changeLocationButton"
         android:layout_width="39dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/locationicon"
+        app:layout_constraintBottom_toTopOf="@+id/curIcon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/input_zip" />
+        app:layout_constraintStart_toEndOf="@+id/searchbtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/searchbtn"
+        android:layout_width="99dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="24dp"
+        android:text="search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintStart_toEndOf="@+id/inputBox"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/dayAndCityText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="80dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginTop="120dp"
         android:text="Day, City"
         android:textColor="@color/color_blue1"
         android:textSize="30sp"
@@ -61,12 +64,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/descriptionText"
+        android:id="@+id/idTVShortForecast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="132dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginTop="160dp"
         android:text="Description"
         android:textColor="@color/color_blue1"
         android:textSize="20sp"
@@ -79,8 +81,8 @@
         android:id="@+id/save_non_transition_alpha"
         android:layout_width="58dp"
         android:layout_height="66dp"
-        android:layout_marginTop="68dp"
-        android:backgroundTint="@color/white"
+        android:layout_marginTop="108dp"
+        android:backgroundTint="@color/color_yellow8"
         android:src="@drawable/ic_baseline_save_alt_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -92,7 +94,7 @@
         android:layout_width="125dp"
         android:layout_height="104dp"
         android:layout_marginTop="92dp"
-        android:src="@drawable/bg"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.779"
         app:layout_constraintStart_toEndOf="@+id/dayAndCityText"
@@ -100,178 +102,82 @@
 
     <TextView
         android:id="@+id/tempText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="66dp"
+        android:layout_height="88dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="172dp"
-        android:fontFamily="sans-serif"
-        android:text="Temp F"
+        android:layout_marginTop="52dp"
+        android:gravity="left"
+        android:text="0"
         android:textColor="@color/color_blue1"
-        android:textSize="20sp"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/TwentyFourForecast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/twentyFourHourForecastRecyclerView"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="28dp"
+        android:gravity="center_horizontal"
+        android:text="24 Hour Forecast"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/twentyFourHourForecastRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/idTVShortForecast" />
 
-    <TextView
-        android:id="@+id/feelsLikeText"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/twentyFourHourForecastRecyclerView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="224dp"
-        android:fontFamily="sans-serif"
-        android:text="Feels Like:"
-        android:textColor="@color/color_blue1"
+        android:layout_above="@id/sevenDayForecastRecyclerView"
+        android:layout_alignParentBottom="false"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/TwentyFourForecast"
+        tools:listitem="@layout/hourly_forecast_item" />
 
     <TextView
-        android:id="@+id/pressureText"
-        android:layout_width="wrap_content"
+        android:id="@+id/WeeklyForecast"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="224dp"
-        android:fontFamily="sans-serif"
-        android:text="Pressure:"
-        android:textColor="@color/color_blue1"
-        app:layout_constraintStart_toEndOf="@+id/feelsLikeText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/humidityText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="224dp"
-        android:fontFamily="sans-serif"
-        android:text="Humidity:"
-        android:textColor="@color/color_blue1"
-        app:layout_constraintStart_toEndOf="@+id/pressureText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/windText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="224dp"
-        android:fontFamily="sans-serif"
-        android:text="Wind Speed:"
-        android:textColor="@color/color_blue1"
-        app:layout_constraintStart_toEndOf="@+id/humidityText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="375dp"
-        android:layout_height="130dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="276dp"
-        android:layout_marginEnd="10dp"
-        android:background="@color/color_blue3"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:id="@+id/hourlyForecast"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal" />
-    </HorizontalScrollView>
-
-    <ScrollView
-        android:layout_width="375dp"
-        android:layout_height="421dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="28dp"
-        android:background="@color/color_blue3"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
-
-        <LinearLayout
-            android:id="@+id/dailyForecast"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
-    <!-- Bottom Nav Container -->
-    <ImageView
-        android:id="@+id/bottom_nav_background"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="2dp"
-        android:src="@drawable/rounded_rectangle_24dp"
+        android:layout_above="@id/sevenDayForecastRecyclerView"
+        android:layout_alignParentBottom="false"
+        android:layout_marginBottom="123dp"
+        android:gravity="center_horizontal"
+        android:text="7 Day Forecast"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/color_blue6" />
+        app:layout_constraintTop_toBottomOf="@+id/twentyFourHourForecastRecyclerView"
+        app:layout_constraintVertical_bias="0.288" />
 
-    <!-- Bottom Nav Buttons -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_nav_home"
-        style="@style/Button_Nav_Bottom"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sevenDayForecastRecyclerView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/rounded_rectangle_24dp"
-        android:drawableTop="@drawable/ic_home_black_24dp"
-        android:text="Home"
-        android:textSize="12sp"
-        app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
-        app:layout_constraintStart_toStartOf="@+id/bottom_nav_background"
-        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="45dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WeeklyForecast"
+        app:layout_constraintVertical_bias="0.56"
+        tools:listitem="@layout/daily_forecast_item" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_nav_connections"
-        style="@style/Button_Nav_Bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_rectangle_24dp"
-        android:drawableTop="@drawable/ic_group_black_filled_24dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:text="Connections"
-        android:textSize="12sp"
-        app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
-        app:layout_constraintEnd_toStartOf="@id/button_nav_chat"
-        app:layout_constraintStart_toEndOf="@id/button_nav_home"
-        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_nav_chat"
-        style="@style/Button_Nav_Bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_rectangle_24dp"
-        android:drawableTop="@drawable/icon_chat_filled_black_24dp"
-        android:text="Chat"
-        android:textSize="12sp"
-        app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
-        app:layout_constraintEnd_toStartOf="@id/button_nav_weather"
-        app:layout_constraintStart_toEndOf="@id/button_nav_connections"
-        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_nav_weather"
-        style="@style/Button_Nav_Bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/rounded_rectangle_24dp"
-        android:drawableTop="@drawable/ic_weather_black_24dp"
-        android:text="Weather"
-        android:textSize="12sp"
-        app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
-        app:layout_constraintEnd_toEndOf="@+id/bottom_nav_background"
-        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
 </androidx.constraintlayout.widget.ConstraintLayout>
