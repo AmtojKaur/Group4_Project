@@ -67,67 +67,124 @@
         app:layout_constraintStart_toEndOf="@+id/button_incoming"
         app:layout_constraintTop_toTopOf="@id/toolbar_contact_add" />
 
-    <!-- Search Contacts -->
-    <android.widget.SearchView
-        android:id="@+id/searchview_bar"
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_new_contact"
+        style="@style/Text_B2_W"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:backgroundTint="@color/white"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search contacts"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif"
+        android:text="Add Contact"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/toolbar_contact_add"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_contact_add" />
 
-    <!-- Text Area -->
+    <View
+        android:id="@+id/view_invite_new"
+        style="@style/BTint_B8_B"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_rectangle_outlined_lightgreen_10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_new_contact" />
+
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_received"
+        android:id="@+id/txt_add_new"
+        style="@style/Text_B2_W"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start|center"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="Add via email:"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/input_contact"
+        app:layout_constraintEnd_toStartOf="@id/input_contact"
+        app:layout_constraintStart_toStartOf="@id/view_invite_new"
+        app:layout_constraintTop_toTopOf="@id/input_contact" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/input_contact"
+        style="@style/Text_B2_W"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/white"
+        android:hint="Enter an email"
+        android:iconifiedByDefault="false"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/view_invite_new"
+        app:layout_constraintStart_toEndOf="@id/txt_add_new"
+        app:layout_constraintTop_toTopOf="@+id/view_invite_new" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_new"
+        style="@style/Button_Nav_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableStart="@drawable/ic_newchat_black_24dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text=" Send Friend Request"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/view_invite_new"
+        app:layout_constraintEnd_toEndOf="@id/view_invite_new"
+        app:layout_constraintStart_toStartOf="@id/view_invite_new"
+        app:layout_constraintTop_toBottomOf="@id/input_contact" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_sent"
         style="@style/Text_B2_W"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:fontFamily="sans-serif"
-        android:text="Contacts"
+        android:text="Requests Sent"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/view_recycler_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchview_bar" />
+        app:layout_constraintTop_toBottomOf="@id/view_invite_new" />
 
-    <!-- Contacts Background -->
+    <!-- Sent Background -->
     <ImageView
         android:id="@+id/view_recycler_background"
         style="@style/Tint_B8_B"
         android:layout_width="370dp"
-        android:layout_height="580dp"
+        android:layout_height="480dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/bottomlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_received" />
+        app:layout_constraintTop_toBottomOf="@id/txt_sent" />
 
-    <!-- Recycler View -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_root"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.connections.ConnectionsFragment"
+        android:id="@+id/list_sent"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.connections.InviteFragment"
         android:layout_width="0dp"
-        android:layout_height="520dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/color_blue8"
+        android:layout_height="420dp"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/color_green5"
         android:orientation="vertical"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="@id/view_recycler_background"
         app:layout_constraintEnd_toEndOf="@id/view_recycler_background"
         app:layout_constraintStart_toStartOf="@id/view_recycler_background"
-        tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragment"
-        tools:listitem="@layout/fragment_connections_card" />
+        tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.InviteFragment"
+        tools:listitem="@layout/connections_invite_list_card" />
 
     <!-- Bottom Nav Container -->
     <ImageView
         android:id="@+id/bottom_nav_background"
-        style="@style/Tint_B6_B5"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="3dp"
@@ -136,7 +193,8 @@
         android:src="@drawable/rounded_rectangle_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/color_blue6" />
 
     <!-- Bottom Nav Buttons -->
     <androidx.appcompat.widget.AppCompatButton

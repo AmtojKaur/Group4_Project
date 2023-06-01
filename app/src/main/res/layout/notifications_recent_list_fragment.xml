@@ -18,5 +18,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragment"
-        tools:listitem="@layout/fragment_recent_notifications_card" />
+        tools:listitem="@layout/notifications_recent_card" />
 </androidx.constraintlayout.widget.ConstraintLayout>

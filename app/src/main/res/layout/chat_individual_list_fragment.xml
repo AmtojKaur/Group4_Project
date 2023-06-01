@@ -118,7 +118,7 @@
             android:orientation="vertical"
             app:layoutManager="LinearLayoutManager"
             tools:context=".ui.chat.individual.IndividualChatFragment"
-            tools:listitem="@layout/fragment_individual_chat_card"/>
+            tools:listitem="@layout/chat_individual_card"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <FrameLayout

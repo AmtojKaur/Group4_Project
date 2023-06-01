@@ -37,12 +37,12 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         View v;
         if (viewType == SHOW_ACCEPTED) {
             v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.fragment_incoming_status_card_accepted, parent, false);
+                    .inflate(R.layout.connections_incoming_status_list_accepted_card, parent, false);
             return new AcceptedIncomingViewHolder(v);
         } else {
             return new IncomingViewHolder(LayoutInflater
                     .from(parent.getContext())
-                    .inflate(R.layout.fragment_incoming_status_card, parent, false));
+                    .inflate(R.layout.connections_incoming_status_list_general_card, parent, false));
         }
     }
 

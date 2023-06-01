@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentInviteListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
@@ -28,7 +27,7 @@ public class InviteFragment extends Fragment {
                              Bundle savedInstanceState) {
         Log.d("Bottom nav", "Status");
 
-        return inflater.inflate(R.layout.fragment_invite_list, container, false);
+        return inflater.inflate(R.layout.connections_invite_list_fragment, container, false);
     }
 
     @Override

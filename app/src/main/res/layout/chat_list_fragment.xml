@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="@+id/view_recycler_background"
         app:layout_constraintStart_toStartOf="@+id/view_recycler_background"
         tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragment"
-        tools:listitem="@layout/fragment_chat_card" />
+        tools:listitem="@layout/chat_list_card" />
 
     <!-- FAB -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton

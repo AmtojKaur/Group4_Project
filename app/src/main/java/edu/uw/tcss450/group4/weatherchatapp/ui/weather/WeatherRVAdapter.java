@@ -22,7 +22,7 @@ public class WeatherRVAdapter extends RecyclerView.Adapter<WeatherRVAdapter.View
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hourly_forecast_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.weather_hourly_forecast_item,parent,false);
         return new ViewHolder(view);
     }
 

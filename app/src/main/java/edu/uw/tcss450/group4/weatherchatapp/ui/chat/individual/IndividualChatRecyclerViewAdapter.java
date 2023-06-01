@@ -12,7 +12,6 @@ import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatListBinding;
 
 /**
  * Class that handles the Recyclerview of IndividualChat objects.
@@ -38,7 +37,7 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
     public IndividualChatRecyclerViewAdapter.IndividualChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new IndividualChatRecyclerViewAdapter.IndividualChatViewHolder(LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.fragment_individual_chat_card, parent, false));
+                .inflate(R.layout.chat_individual_card, parent, false));
     }
 
     @Override

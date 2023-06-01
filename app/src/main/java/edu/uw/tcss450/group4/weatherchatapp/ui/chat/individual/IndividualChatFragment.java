@@ -8,12 +8,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
-import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatListBinding;
 
@@ -32,7 +30,7 @@ public class IndividualChatFragment extends Fragment {
                              Bundle savedInstanceState) {
         Log.d("Chat nav", "INDIVIDUAL CHAT");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_individual_chat_list, container, false);
+        return inflater.inflate(R.layout.chat_individual_list_fragment, container, false);
     }
 
     @Override

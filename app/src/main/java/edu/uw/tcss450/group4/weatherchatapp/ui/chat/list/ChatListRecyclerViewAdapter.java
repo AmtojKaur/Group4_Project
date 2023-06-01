@@ -42,12 +42,12 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         View v;
         if (viewType == SHOW_MENU) {
             v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recycler_menu_chat_card, parent, false);
+                    .inflate(R.layout.chat_menu_card, parent, false);
             return new MenuViewHolder(v);
         } else {
             return new ChatListViewHolder(LayoutInflater
                     .from(parent.getContext())
-                    .inflate(R.layout.fragment_chat_card, parent, false));
+                    .inflate(R.layout.chat_list_card, parent, false));
         }
     }
 

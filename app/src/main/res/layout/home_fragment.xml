@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="@id/weather_background"
         app:layout_constraintStart_toStartOf="@id/weather_background"
         app:layout_constraintTop_toTopOf="@id/weather_background"
-        tools:layout="@layout/fragment_weather_home" />
+        tools:layout="@layout/weather_home_fragment_widget" />
 
     <!--  Notifications widget  -->
     <ImageView
@@ -61,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="@id/notifications_background"
         app:layout_constraintStart_toStartOf="@id/notifications_background"
         app:layout_constraintTop_toTopOf="@+id/notifications_background"
-        tools:layout="@layout/fragment_recent_notifications_list" />
+        tools:layout="@layout/notifications_recent_list_fragment" />
 
     <!--  Center Logo  -->
     <ImageView

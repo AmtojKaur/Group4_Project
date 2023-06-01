@@ -32,12 +32,12 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         View v;
         if (viewType == SHOW_MENU) {
             v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recycler_menu_connections_card, parent, false);
+                    .inflate(R.layout.connections_contacts_menu_card, parent, false);
             return new ConnectionsMenuViewHolder(v);
         } else {
             return new ConnectionsViewHolder(LayoutInflater
                     .from(parent.getContext())
-                    .inflate(R.layout.fragment_connections_card, parent, false));
+                    .inflate(R.layout.connections_contacts_list_card, parent, false));
         }
     }
 

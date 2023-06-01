@@ -39,7 +39,7 @@ public class EmailVerificationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_email_verification, container, false);
+        View view = inflater.inflate(R.layout.auth_email_verification_fragment, container, false);
 
         mEmailEditText = view.findViewById(R.id.edit_email_verification);
         mVerifyButton = view.findViewById(R.id.button_verify);

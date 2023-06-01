@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
@@ -28,7 +27,7 @@ public class IncomingFragment extends Fragment {
                              Bundle savedInstanceState) {
         Log.d("Connections nav", "Incoming Friend Requests");
 
-        return inflater.inflate(R.layout.fragment_incoming_status_list, container, false);
+        return inflater.inflate(R.layout.connections_incoming_status_list_fragment, container, false);
     }
 
     @Override

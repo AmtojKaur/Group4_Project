@@ -6,15 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentInviteCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuConnectionsCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuInviteCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
 public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -38,12 +35,12 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         View v;
         if (viewType == SHOW_MENU) {
             v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recycler_menu_invite_card, parent, false);
+                    .inflate(R.layout.connections_invite_menu_card, parent, false);
             return new InviteMenuViewHolder(v);
         } else {
             return new InviteViewHolder(LayoutInflater
                     .from(parent.getContext())
-                    .inflate(R.layout.fragment_invite_card, parent, false));
+                    .inflate(R.layout.connections_invite_list_card, parent, false));
         }
     }
 

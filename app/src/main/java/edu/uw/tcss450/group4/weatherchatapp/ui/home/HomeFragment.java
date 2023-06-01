@@ -1,6 +1,5 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.home;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -18,10 +17,6 @@ import android.view.ViewGroup;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentHomeBinding;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
-import edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragmentDirections;
-import edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsViewAdapter;
-import edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsViewModel;
 
 /**
  * HomeWeatherFragment holds the content fragments that will be seen on the home screen.
@@ -53,7 +48,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.home_fragment, container, false);
     }
 
     /**

@@ -58,8 +58,8 @@ public class WeatherFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
-        View view = inflater.inflate(R.layout.fragment_weather, container, false);
+        View rootView = inflater.inflate(R.layout.weather_fragment, container, false);
+        View view = inflater.inflate(R.layout.weather_fragment, container, false);
 
         inputBox = view.findViewById(R.id.inputBox); // Assign the input box
 

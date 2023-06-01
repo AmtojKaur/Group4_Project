@@ -146,7 +146,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TwentyFourForecast"
-        tools:listitem="@layout/hourly_forecast_item" />
+        tools:listitem="@layout/weather_hourly_forecast_item" />
 
     <TextView
         android:id="@+id/WeeklyForecast"
@@ -178,6 +178,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WeeklyForecast"
         app:layout_constraintVertical_bias="0.56"
-        tools:listitem="@layout/daily_forecast_item" />
+        tools:listitem="@layout/weather_daily_forecast_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

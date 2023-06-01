@@ -71,7 +71,7 @@ public class WeatherMapFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_weather, container, false);
+        return inflater.inflate(R.layout.weather_fragment, container, false);
     }
 
     @Override
@@ -252,7 +252,7 @@ public class WeatherMapFragment extends Fragment {
                 }
                 String curHourWeatherIcon = curHourWeatherArrayIndex.getString("icon");
 
-                View view2 = inflater.inflate(R.layout.hourly_forecast_item, linearLayout, false);
+                View view2 = inflater.inflate(R.layout.weather_hourly_forecast_item, linearLayout, false);
                 TextView textView = view2.findViewById(R.id.idTVTime);
                 textView.setTextColor(ContextCompat.getColor(getContext(), R.color.color_blue1));
                 textView.setText(formattedDate + " " + df.format(curTempF) + "°F" + "\n" + curHourWeatherDescription);

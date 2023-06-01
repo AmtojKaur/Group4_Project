@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
-    style="@style/Background_B6_B2"
+    style="@style/Background_Y8_B2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -67,14 +67,14 @@
         app:layout_constraintStart_toEndOf="@+id/button_incoming"
         app:layout_constraintTop_toTopOf="@id/toolbar_contact_add" />
 
-    <!-- Search Bar -->
+    <!-- Search Contacts -->
     <android.widget.SearchView
         android:id="@+id/searchview_bar"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:backgroundTint="@color/white"
         android:iconifiedByDefault="false"
-        android:queryHint="Search requests"
+        android:queryHint="Search contacts"
         app:layout_constraintStart_toStartOf="@id/toolbar_contact_add"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_contact_add" />
 
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:fontFamily="sans-serif"
-        android:text="Requests Received"
+        android:text="Contacts"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/view_recycler_background"
@@ -94,7 +94,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchview_bar" />
 
-    <!-- Incoming Friend Requests Background -->
+    <!-- Contacts Background -->
     <ImageView
         android:id="@+id/view_recycler_background"
         style="@style/Tint_B8_B"
@@ -108,8 +108,8 @@
 
     <!-- Recycler View -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_received"
-        android:name="edu.uw.tcss450.group4.weatherchatapp.connections.StatusFragment"
+        android:id="@+id/list_root"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.connections.ConnectionsFragment"
         android:layout_width="0dp"
         android:layout_height="520dp"
         android:layout_marginStart="5dp"
@@ -121,12 +121,13 @@
         app:layout_constraintBottom_toBottomOf="@id/view_recycler_background"
         app:layout_constraintEnd_toEndOf="@id/view_recycler_background"
         app:layout_constraintStart_toStartOf="@id/view_recycler_background"
-        tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.IncomingFragment"
-        tools:listitem="@layout/fragment_incoming_status_card" />
+        tools:context="edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsFragment"
+        tools:listitem="@layout/connections_contacts_list_card" />
 
     <!-- Bottom Nav Container -->
     <ImageView
         android:id="@+id/bottom_nav_background"
+        style="@style/Tint_B6_B5"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="3dp"
@@ -135,8 +136,7 @@
         android:src="@drawable/rounded_rectangle_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/color_blue6" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Bottom Nav Buttons -->
     <androidx.appcompat.widget.AppCompatButton
