@@ -111,7 +111,7 @@ public class ConnectionsViewModel extends AndroidViewModel {
 
     public void connectGET() {
         String url =
-                "https://tcss-450-team-7.herokuapp.com/contacts/" + currentUserId;
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts/" + currentUserId;
 
 
         Request request = new JsonObjectRequest(
@@ -134,7 +134,7 @@ public class ConnectionsViewModel extends AndroidViewModel {
 
     public void connectDELETE(int b) {
         String url =
-                "https://tcss-450-team-7.herokuapp.com/contacts/" + currentUserId + "/" + b ;
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts/" + currentUserId + "/" + b ;
 
         JSONObject body = new JSONObject();
         try {
