@@ -26,7 +26,7 @@
         android:id="@+id/weather_current_condition_img"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:src="@drawable/ic_weather_black_24dp"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toTopOf="@+id/weather_current_temperature"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

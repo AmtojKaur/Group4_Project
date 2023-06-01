@@ -96,15 +96,25 @@ public class WeatherFragment extends Fragment {
                 String shortForecast = currentWeather.getShortForecast();
 
                 // Set the temperature and short forecast in the appropriate views
-                weatherBinding.tempText.setText(temperature);
+                weatherBinding.tempText.setText(String.valueOf(temperature));
                 weatherBinding.idTVShortForecast.setText(shortForecast);
                 ImageView weatherIconImageView = weatherBinding.curIcon;
                 if (shortForecast.equals("Sunny")) {
-                    weatherIconImageView.setImageResource(R.drawable.cloud);
+                    weatherIconImageView.setImageResource(R.drawable.sunny_temperature_icon);
                 } else if (shortForecast.equals("Cloudy")) {
-                    weatherIconImageView.setImageResource(R.drawable.ic_sun_black_24dp);
+                    weatherIconImageView.setImageResource(R.drawable.clouds_cloudy_icon);
                 } else if (shortForecast.equals("Rainy")) {
-                    weatherIconImageView.setImageResource(R.drawable.ic_weather_black_24dp);
+                    weatherIconImageView.setImageResource(R.drawable.cloudy_forecast_rain_icon);
+                }else if (shortForecast.equals("Clear")) {
+                    weatherIconImageView.setImageResource(R.drawable.sunny_temperature_icon);
+                } else if (shortForecast.equals("Mostly Clear")) {
+                    weatherIconImageView.setImageResource(R.drawable.sun_sunny_icon);
+                }else if (shortForecast.equals("Mostly Rainy")) {
+                    weatherIconImageView.setImageResource(R.drawable.cloudy_rain_sunny_icon);
+                } else if (shortForecast.equals("Mostly Sunny")) {
+                    weatherIconImageView.setImageResource(R.drawable.sun_sunny_icon);
+                }else if (shortForecast.equals("Haze")) {
+                    weatherIconImageView.setImageResource(R.drawable.mist_weather_icon);
                 }
             }
 
