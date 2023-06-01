@@ -18,7 +18,6 @@ import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsContactsListFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
-
 public class ConnectionsFragment extends Fragment {
 
     private ConnectionsViewModel mModel;
