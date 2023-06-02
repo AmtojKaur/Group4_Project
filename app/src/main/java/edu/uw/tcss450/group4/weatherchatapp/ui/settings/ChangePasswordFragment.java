@@ -1,6 +1,13 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.settings;
 
-import android.app.Application;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkClientPredicate;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkExcludeWhiteSpace;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdDigit;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLength;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLowerCase;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdSpecialChar;
+import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdUpperCase;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -19,23 +26,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import androidx.navigation.Navigation;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.model.UserInfoViewModel;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator;
 
 /**
  * @Author: AJ Garcia
@@ -78,13 +76,30 @@ public class ChangePasswordFragment extends Fragment {
                 String newPassword = mNewPasswordEditText.getText().toString();
                 String confirmPassword = mConfirmPasswordEditText.getText().toString();
 
-                if (newPassword.equals(confirmPassword)) {
-                    String email = mUserInfoViewModel.getEmail();
-                    changePassword(email, oldPassword, newPassword);
+                // check new passwords match and are strong
+                PasswordValidator mPassWordValidator =
+                        checkClientPredicate(pwd -> pwd.equals(confirmPassword))
+                                .and(checkPwdLength(7))
+                                .and(checkPwdSpecialChar())
+                                .and(checkExcludeWhiteSpace())
+                                .and(checkPwdDigit())
+                                .and(checkPwdLowerCase().or(checkPwdUpperCase()));
+
+                // Checks if old password and new password are not the same
+                if(oldPassword.equals(newPassword)) {
+                    Toast.makeText(getContext(), "New password should not be the same as old password.", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(getContext(), "New passwords do not match.", Toast.LENGTH_SHORT).show();
+                    mPassWordValidator.processResult(
+                            mPassWordValidator.apply(newPassword),
+                            () -> {
+                                String email = mUserInfoViewModel.getEmail();
+                                changePassword(email, oldPassword, newPassword);
+                            },
+                            result -> Toast.makeText(getContext(), "New password is not strong enough.", Toast.LENGTH_LONG).show()
+                    );
                 }
             }
+
         });
     }
 
@@ -121,8 +136,7 @@ public class ChangePasswordFragment extends Fragment {
                 new AlertDialog.Builder(getContext())
                         .setTitle("Success")
                         .setMessage("Password changed successfully")
-                        .setPositiveButton(android.R.string.ok, null)
-                        //.setPositiveButton(android.R.string.ok, (dialog, which) -> navigateToHome())
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> navigateToHome())
                         .show();
             }
         } else {
@@ -136,5 +150,9 @@ public class ChangePasswordFragment extends Fragment {
                 .setMessage(message)
                 .setPositiveButton(android.R.string.ok, null)
                 .show();
+    }
+
+    private void navigateToHome() {
+        Navigation.findNavController(getView()).navigate(ChangePasswordFragmentDirections.actionChangePasswordFragmentToNavigationHome());
     }
 }
