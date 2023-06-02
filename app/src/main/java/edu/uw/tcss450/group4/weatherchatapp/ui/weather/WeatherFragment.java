@@ -3,6 +3,7 @@ package edu.uw.tcss450.group4.weatherchatapp.ui.weather;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +71,34 @@ public class WeatherFragment extends Fragment {
         condIcon.setBounds(0, 0, 1, 1);
 
         weatherBinding.curIcon.setImageDrawable(condIcon);
+
+        // Bottom Nav
+        FragmentWeatherBinding binding = FragmentWeatherBinding.bind(getView());
+        binding.buttonNavHome.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Home");
+            Navigation.findNavController(getView()).navigate(
+                    WeatherFragmentDirections.actionNavigationWeatherToNavigationHome()
+            );
+        });
+
+        binding.buttonNavConnections.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Connections");
+            Navigation.findNavController(getView()).navigate(
+                    WeatherFragmentDirections.actionNavigationWeatherToNavigationConnections()
+            );
+        });
+
+        binding.buttonNavChat.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Chat");
+            Navigation.findNavController(getView()).navigate(
+                    WeatherFragmentDirections.actionNavigationWeatherToNavigationChat()
+            );
+        });
+
+        binding.buttonNavWeather.setOnClickListener(button -> {
+            // do nothing
+            Log.d("Button Clicked", "Nav Weather");
+        });
     }
 
     @Override
