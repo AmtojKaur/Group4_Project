@@ -25,7 +25,7 @@ import android.view.ViewGroup;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentRegisterBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.AuthRegisterFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
 
 /**
@@ -35,7 +35,8 @@ import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
  * @version 3 May 2023
  */
 public class RegisterFragment extends Fragment {
-    private FragmentRegisterBinding binding;
+
+    private AuthRegisterFragmentBinding binding;
     private RegisterViewModel mRegisterModel;
     private PasswordValidator mNameValidator = checkPwdLength(1);
 
@@ -82,7 +83,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentRegisterBinding.inflate(inflater);
+        binding = AuthRegisterFragmentBinding.inflate(inflater);
         return binding.getRoot();
     }
 
