@@ -43,7 +43,7 @@ public class IncomingFragment extends Fragment {
         ConnectionsIncomingStatusListFragmentBinding binding = ConnectionsIncomingStatusListFragmentBinding.bind(getView());
 
         // connections recycler view
-        mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
+        mModel.addIncomingFriendsListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
 //                binding.listReceived.setAdapter(
 //                        new IncomingViewAdapter(ChatGenerator.getChatList())

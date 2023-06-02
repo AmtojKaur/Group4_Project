@@ -27,7 +27,7 @@ public class InviteViewModel extends AndroidViewModel {
     private int mUserID;
     private final MutableLiveData<List<UserObject>> mUserList;
 
-    private List<UserObject> mUsers = new ArrayList<>();
+    private List<UserObject> mUsersInvited = new ArrayList<>();
     public List<Integer> inviteList = new ArrayList<>();
 
     public InviteViewModel(@NonNull Application application) {
@@ -45,8 +45,8 @@ public class InviteViewModel extends AndroidViewModel {
         mUserID = id;
     }
 
-    public List<UserObject> getUsers() {
-        return mUsers;
+    public List<UserObject> getInvitedUsers() {
+        return mUsersInvited;
     }
 
     private void handleError(final VolleyError error) {
@@ -81,8 +81,8 @@ public class InviteViewModel extends AndroidViewModel {
                                 "Email: " + email);
                         if (mUserList.getValue().stream().noneMatch(element -> element.key == (memberid))) {
                             mUserList.getValue().add(post);
-                            mUsers.add(post);
-                            System.out.println(mUsers.size());
+                            mUsersInvited.add(post);
+                            System.out.println(mUsersInvited.size());
                         }
                     }
 
@@ -97,25 +97,15 @@ public class InviteViewModel extends AndroidViewModel {
         mUserList.setValue(mUserList.getValue());
     }
 
-    public void connectPOST() {
-        String url =
-                "https://amtojk-tcss450-labs.herokuapp.com/contacts" + mUserID;
+    // SEND FRIEND REQUEST
+    // GET /users endpoint
+    // verify user associated with email exists in list of all current users
+    // GET all users and compare email
+    // if email matches, get userID
+    // POST /contacts/request friend request associated with userID
 
-        Request request = new JsonObjectRequest(
-                Request.Method.POST,
-                url,
-                null, //no body for this get request
-                this::handleResult,
-                this::handleError);
-
-
-        request.setRetryPolicy(new DefaultRetryPolicy(
-                10_000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        //Instantiate the RequestQueue and add the request to the queue
-        Volley.newRequestQueue(getApplication().getApplicationContext())
-                .add(request);
-    }
+    // DELETE FRIEND REQUEST
+    // DELETE /contacts endpoint
+    // status is 0, for unconfirmed contacts
 
 }
