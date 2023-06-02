@@ -16,11 +16,11 @@ import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsContactsListFragmentBinding;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 public class ConnectionsFragment extends Fragment {
 
     private ConnectionsViewModel mModel;
+    private ConnectionsViewAdapter mAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,22 +32,21 @@ public class ConnectionsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(ConnectionsViewModel.class);
+        mModel.connectGET();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         // view binding variable
         ConnectionsContactsListFragmentBinding binding = ConnectionsContactsListFragmentBinding.bind(getView());
 
         // chat recycler view
-        mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
+        mModel.addConnectionsListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
-                binding.listRoot.setAdapter(
-                        new ConnectionsViewAdapter(ChatGenerator.getSortedContactList())
-                );
+                mAdapter = new ConnectionsViewAdapter(mModel.getUsers(), mModel);
+                binding.listRoot.setAdapter(mAdapter);
             }
         });
 

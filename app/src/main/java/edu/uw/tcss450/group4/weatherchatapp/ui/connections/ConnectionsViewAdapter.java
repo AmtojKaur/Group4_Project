@@ -18,12 +18,14 @@ import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatObject;
 
 public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<ChatObject> mConnections;
+    private final List<UserObject> mConnections;
+    private ConnectionsViewModel mModel;
     private final int SHOW_MENU = 1;
     private final int HIDE_MENU = 2;
 
-    public ConnectionsViewAdapter(List<ChatObject> chatViews) {
-        this.mConnections = chatViews;
+    public ConnectionsViewAdapter(List<UserObject> connections, ConnectionsViewModel model) {
+        this.mConnections = connections;
+        this.mModel = model;
     }
 
     @NonNull
@@ -82,7 +84,6 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         notifyDataSetChanged();
     }
 
-
     boolean isMenuShown() {
         for (int i = 0; i < mConnections.size(); i++){
             if(mConnections.get(i).isShowMenu()){
@@ -102,7 +103,7 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     private static class ConnectionsViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public ConnectionsContactsListCardBinding binding;
-        private ChatObject mChat;
+        private UserObject mUser;
 
         public ConnectionsViewHolder(View view) {
             super(view);
@@ -110,20 +111,15 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             binding = ConnectionsContactsListCardBinding.bind(view);
         }
 
-        public void setChatPreview(final ChatObject chatObject) {
-            mChat = chatObject;
-
+        public void setChatPreview(final UserObject user) {
+            mUser = user;
             // shows dummy data
-            binding.textviewName.setText(chatObject.getMessageID());
+            binding.textviewName.setText(user.getName());
         }
 
         void pressedInfo() {
             binding.buttonInfo.setOnClickListener(view -> {
                 Log.d("Button Pressed", "Info");
-//                Navigation.findNavController(mView).navigate(
-//                        edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
             });
         }
     }
@@ -146,12 +142,12 @@ public class ConnectionsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             });
         }
 
-        void checkEnterChat(ChatObject chat) {
+        void checkEnterChat(UserObject user) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
-                Navigation.findNavController(mView).navigate(
-                        ConnectionsFragmentDirections
-                                .actionNavigationConnectionsToIndividualChatFragment(chat)
-                );
+//                Navigation.findNavController(mView).navigate(
+//                        ConnectionsFragmentDirections
+//                                .actionNavigationConnectionsToIndividualChatFragment(user)
+//                );
                 closeMenu();
             });
         }

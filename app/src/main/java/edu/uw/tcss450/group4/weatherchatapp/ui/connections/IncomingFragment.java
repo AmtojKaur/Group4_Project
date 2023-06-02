@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsIncomingStatusListFragmentBinding;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 public class IncomingFragment extends Fragment {
 
