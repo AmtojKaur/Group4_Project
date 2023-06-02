@@ -74,7 +74,7 @@ public class WeatherLogic {
         return daily;
     }
 
-    public WeatherObject getCurrent() {
+    public WeatherObject getCurrentConditions() {
         return current;
     }
 }

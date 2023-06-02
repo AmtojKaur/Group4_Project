@@ -63,7 +63,7 @@ public class WeatherFragment extends Fragment {
         FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
 
         weatherBinding.dayAndCityText.setText("Tacoma, WA"); // Default location for search
-        weatherBinding.tempText.setText("-");
+        weatherBinding.tempText.setText("-----");
         weatherBinding.idTVShortForecast.setText("-");
         Drawable condIcon = ContextCompat.getDrawable(getActivity(), R.drawable.cloud);
 
@@ -96,6 +96,7 @@ public class WeatherFragment extends Fragment {
     private class WeatherRequestTask extends AsyncTask<String, Void, WeatherLogic> {
 
         private String zipCode;
+        private FragmentWeatherBinding weatherBinding;
 
         @Override
         protected WeatherLogic doInBackground(String... params) {
@@ -108,13 +109,13 @@ public class WeatherFragment extends Fragment {
         protected void onPostExecute(WeatherLogic weather) {
             FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
 
-            WeatherObject currentWeather = weather.getCurrent();
+            WeatherObject currentWeather = weather.getCurrentConditions();
             if (currentWeather != null) {
                 String temperature = currentWeather.getTemperature();
                 String shortForecast = currentWeather.getShortForecast();
 
                 // Set the temperature and short forecast in the appropriate views
-                weatherBinding.tempText.setText(String.valueOf(temperature));
+                weatherBinding.tempText.setText(temperature);
                 weatherBinding.idTVShortForecast.setText(shortForecast);
                 ImageView weatherIconImageView = weatherBinding.curIcon;
                 if (shortForecast.equals("Sunny")) {
@@ -165,7 +166,7 @@ public class WeatherFragment extends Fragment {
             // Retrieve the city name based on the entered zip code
             if (inputBox != null) {
                 String searchZipCode = inputBox.getText().toString().trim();
-                String cityName = "Tacoma"; // Default location
+                String cityName = "Unknown"; // Default location
                 if (searchZipCode.matches("\\d{5}")) {
                     cityName = getCityNameFromZipCode(searchZipCode); // Custom location
                 }
@@ -204,4 +205,5 @@ public class WeatherFragment extends Fragment {
             return cityName;
         }
     }
+
 }
