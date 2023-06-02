@@ -8,7 +8,7 @@
     android:layout_height="match_parent">
 
     <!--  Weather widget  -->
-    <ImageView
+    <!--<ImageView
         android:id="@+id/weather_background"
         style="@style/Tint_B8_B"
         android:layout_width="330dp"
@@ -16,19 +16,19 @@
         android:src="@drawable/background_content_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
 
+    <!--  Notifications widget  -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/weatherFragmentContainer"
         android:name="edu.uw.tcss450.group4.weatherchatapp.ui.home.HomeWeatherFragment"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/weather_background"
-        app:layout_constraintStart_toStartOf="@id/weather_background"
-        app:layout_constraintTop_toTopOf="@id/weather_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/home_weather_widget_fragment" />
 
-    <!--  Notifications widget  -->
     <ImageView
         android:id="@+id/notifications_background"
         style="@style/Tint_B8_B"
@@ -73,7 +73,7 @@
         app:layout_constraintBottom_toTopOf="@id/notifications_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weather_background" />
+        app:layout_constraintTop_toBottomOf="@+id/weatherFragmentContainer" />
 
     <ImageView
         android:id="@+id/app_logo"
