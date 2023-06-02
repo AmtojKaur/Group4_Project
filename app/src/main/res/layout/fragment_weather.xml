@@ -139,11 +139,11 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/sevenDayForecastRecyclerView"
         android:layout_alignParentBottom="false"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TwentyFourForecast"
         tools:listitem="@layout/hourly_forecast_item" />
@@ -163,7 +163,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/twentyFourHourForecastRecyclerView"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- Bottom Nav Container -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sevenDayForecastRecyclerView"
@@ -177,7 +179,83 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WeeklyForecast"
-        app:layout_constraintVertical_bias="0.56"
+        app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/daily_forecast_item" />
+
+    <ImageView
+        android:id="@+id/bottom_nav_background"
+        style="@style/Tint_B6_B5"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="2dp"
+        android:src="@drawable/rounded_rectangle_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Bottom Nav Buttons -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_nav_home"
+        style="@style/Button_Nav_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/ic_home_black_24dp"
+        android:text="Home"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintStart_toStartOf="@+id/bottom_nav_background"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_nav_connections"
+        style="@style/Button_Nav_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/ic_group_black_filled_24dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Connections"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintEnd_toStartOf="@id/button_nav_chat"
+        app:layout_constraintStart_toEndOf="@id/button_nav_home"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_nav_chat"
+        style="@style/Button_Nav_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/icon_chat_filled_black_24dp"
+        android:text="Chat"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintEnd_toStartOf="@id/button_nav_weather"
+        app:layout_constraintStart_toEndOf="@id/button_nav_connections"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_nav_weather"
+        style="@style/Button_Nav_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:drawableTop="@drawable/ic_weather_black_24dp"
+        android:text="Weather"
+        android:textSize="12sp"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav_background"
+        app:layout_constraintEnd_toEndOf="@+id/bottom_nav_background"
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
