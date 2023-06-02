@@ -107,5 +107,4 @@ public class InviteViewModel extends AndroidViewModel {
     // DELETE FRIEND REQUEST
     // DELETE /contacts endpoint
     // status is 0, for unconfirmed contacts
-
 }
