@@ -1,61 +1,80 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.weather;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
 
-import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+public class WeatherLogic {
+    private ArrayList<WeatherObject> hourly;
+    private ArrayList<WeatherObject> daily;
+    private WeatherObject current;
 
+    public WeatherLogic(String jsonString) {
+        hourly = new ArrayList<>();
+        daily = new ArrayList<>();
 
-public class WeatherLogic implements Serializable {
+        try {
+            JSONObject json = new JSONObject(jsonString);
+            JSONObject properties = json.getJSONObject("properties");
 
+            JSONArray twentyFourHourForecast = properties.getJSONArray("twentyFourHourForecast");
+            JSONArray sevenDayForecast = properties.getJSONArray("sevenDayForecast");
 
-    public String[] getForecastSpan() {
-        //value that corresponds to the current day of the week
-        int dayOfTheWeekVal;
+            // Process 24-hour forecast
+            for (int i = 0; i < twentyFourHourForecast.length(); i++) {
+                JSONObject period = twentyFourHourForecast.getJSONObject(i);
+                String time = period.getString("time");
+                double temperature = parseTemperature(period.getString("temperature"));
+                String forecast = period.getString("forecast");
 
-        //gets current date
-        Date now = new Date();
-
-        //convert date to a string of the day of the week
-        SimpleDateFormat dayOfTheWeekAsDate = new SimpleDateFormat("EEEE");
-        String dayOfTheWeek = dayOfTheWeekAsDate.format(now);
-
-        //take current date and assign an integer value
-        switch (dayOfTheWeek){
-            case "Monday":
-                dayOfTheWeekVal = 0;
-            case "Tuesday":
-                dayOfTheWeekVal = 1;
-            case "Wednesday":
-                dayOfTheWeekVal = 2;
-            case "Thursday":
-                dayOfTheWeekVal = 3;
-            case "Friday":
-                dayOfTheWeekVal = 4;
-            case "Saturday":
-                dayOfTheWeekVal = 5;
-            case "Sunday":
-                dayOfTheWeekVal = 6;
-            default:
-                dayOfTheWeekVal = 0;
-        }
-
-        String[] daysOfTheWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-
-        //strings array to hold the upcoming days of the week
-        String[] upcomingDays = new String[4];
-
-        for(int i = 1; i < 4; i++){
-            if (dayOfTheWeekVal + i > 6){
-                int temp = 6 % dayOfTheWeekVal;
-                upcomingDays[i-1] = daysOfTheWeek[0+temp];
-            } else {
-                upcomingDays[i-1] = daysOfTheWeek[dayOfTheWeekVal + i];
+                hourly.add(new WeatherObject(time, temperature, forecast));
             }
+
+            // Process 7-day forecast
+            for (int i = 0; i < sevenDayForecast.length(); i++) {
+                JSONObject period = sevenDayForecast.getJSONObject(i);
+                String day = period.getString("day");
+                double highTemperature = parseTemperature(period.getString("temperature"));
+                String forecast = period.getString("forecast");
+
+                daily.add(new WeatherObject(day, highTemperature, forecast));
+            }
+
+            // Set the current weather object
+            JSONObject currentConditions = properties.getJSONObject("currentConditions");
+            String temperature = currentConditions.getString("temperature");
+            String forecast = currentConditions.getString("forecast");
+
+            current = new WeatherObject("Current", parseTemperature(temperature), forecast);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        //return current date+1, current date+2, current date+3
-        return upcomingDays;
     }
 
+    private double parseTemperature(String temperatureString) {
+        // Assuming the temperature string is in the format "48°F"
+        String[] parts = temperatureString.split("°");
+        if (parts.length == 2) {
+            String temperatureValue = parts[0];
+            try {
+                return Double.parseDouble(temperatureValue);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
+        return 0.0;
+    }
 
+    public ArrayList<WeatherObject> getHourly() {
+        return hourly;
+    }
+
+    public ArrayList<WeatherObject> getDaily() {
+        return daily;
+    }
+
+    public WeatherObject getCurrentConditions() {
+        return current;
+    }
 }

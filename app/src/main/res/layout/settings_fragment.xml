@@ -84,6 +84,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
+        android:clickable="true"
+        android:focusable="true"
         android:text="Change Theme"
         style="@style/Text_B6_W"
         android:textSize="15sp"
