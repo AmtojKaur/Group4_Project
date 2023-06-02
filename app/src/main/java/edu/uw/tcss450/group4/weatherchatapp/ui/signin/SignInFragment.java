@@ -4,6 +4,8 @@ import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.Password
 import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdLength;
 import static edu.uw.tcss450.group4.weatherchatapp.ui.connections.utils.PasswordValidator.checkPwdSpecialChar;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -138,10 +140,16 @@ public class SignInFragment extends Fragment {
      * @param jwt the JSON Web Token supplied by the server
      */
     private void navigateToSuccess(final String email, final String jwt) {
+        SharedPreferences prefs = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("email", email);
+        editor.putString("jwt", jwt);
+        editor.apply();
+
         Navigation.findNavController(getView())
-                .navigate(SignInFragmentDirections
-                        .actionSignInFragmentToMainActivity());
+                .navigate(SignInFragmentDirections.actionSignInFragmentToMainActivity());
     }
+
 
     /**
      * An observer on the HTTP Response from the web server. This observer should be
