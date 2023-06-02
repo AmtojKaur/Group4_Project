@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListRecyclerViewAdapter;
 
 /**
@@ -92,7 +91,7 @@ public class RecentNotificationsFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new ChatListRecyclerViewAdapter(ChatGenerator.getChatList()));
+            //recyclerView.setAdapter(new ChatListRecyclerViewAdapter(ChatGenerator.getChatList()));
         }
         return view;
     }

@@ -23,7 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentSignInBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.AuthSignInFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
 
 /**
@@ -33,7 +33,7 @@ import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
  * @version 3 May 2023
  */
 public class SignInFragment extends Fragment {
-    private FragmentSignInBinding binding;
+    private AuthSignInFragmentBinding binding;
     private SignInViewModel mSignInModel;
 
     private PasswordValidator mEmailValidator = checkPwdLength(2)
@@ -60,7 +60,7 @@ public class SignInFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentSignInBinding.inflate(inflater);
+        binding = AuthSignInFragmentBinding.inflate(inflater);
         // Inflate the layout for this fragment
         return binding.getRoot();
     }

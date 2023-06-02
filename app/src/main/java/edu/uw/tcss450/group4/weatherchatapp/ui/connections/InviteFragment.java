@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteListFragmentBinding;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 public class InviteFragment extends Fragment {
 
@@ -47,20 +46,20 @@ public class InviteFragment extends Fragment {
         // connections recycler view
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
-                binding.listSent.setAdapter(
-                        new InviteViewAdapter(ChatGenerator.getInvitesList())
-                );
+//                binding.listSent.setAdapter(
+//                        new InviteViewAdapter(ChatGenerator.getInvitesList())
+//                );
             }
         });
 
         binding.buttonNew.setOnClickListener(button -> {
-            ChatGenerator.addInvite("Dummy");
+            //ChatGenerator.addInvite("Dummy");
 
             mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
-                    binding.listSent.setAdapter(
-                            new InviteViewAdapter(ChatGenerator.getInvitesList())
-                    );
+//                    binding.listSent.setAdapter(
+//                            new InviteViewAdapter(ChatGenerator.getInvitesList())
+//                    );
                 }
             });
         });

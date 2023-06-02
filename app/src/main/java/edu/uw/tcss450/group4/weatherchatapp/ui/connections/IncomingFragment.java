@@ -45,9 +45,9 @@ public class IncomingFragment extends Fragment {
         // connections recycler view
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
-                binding.listReceived.setAdapter(
-                        new IncomingViewAdapter(ChatGenerator.getChatList())
-                );
+//                binding.listReceived.setAdapter(
+//                        new IncomingViewAdapter(ChatGenerator.getChatList())
+//                );
             }
         });
 

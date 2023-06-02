@@ -14,7 +14,6 @@ import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsIncomingStatusListAcceptedCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsIncomingStatusListGeneralCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatObject;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -54,7 +53,7 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ((IncomingViewHolder)holder).binding.buttonAccept.setOnClickListener(
                     v -> {
                         //ChatGenerator.addContact(mFriendRequests.get(position).getMessageID());
-                        ChatGenerator.addContact("temp name");
+                        //ChatGenerator.addContact("temp name");
                         showAcceptedText(position);
                     }
             );

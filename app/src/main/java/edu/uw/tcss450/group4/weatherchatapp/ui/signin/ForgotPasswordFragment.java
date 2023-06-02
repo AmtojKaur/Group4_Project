@@ -22,7 +22,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentForgotPasswordBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.AuthForgotPasswordFragmentBinding;
+
 
 /**
  * @author AJ Garcia
@@ -30,7 +31,7 @@ import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentForgotPasswordBi
  * A simple {@link Fragment} subclass.
  */
 public class ForgotPasswordFragment extends Fragment {
-    private FragmentForgotPasswordBinding binding;
+    private AuthForgotPasswordFragmentBinding binding;
 
     public ForgotPasswordFragment() {
         // Required empty public constructor
@@ -39,7 +40,7 @@ public class ForgotPasswordFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentForgotPasswordBinding.inflate(inflater);
+        binding = AuthForgotPasswordFragmentBinding.inflate(inflater);
         return binding.getRoot();
     }
 

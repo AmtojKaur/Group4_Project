@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuChatCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatListCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatMenuCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatObject;
 
 /**
@@ -116,7 +116,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
      */
     private static class ChatListViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public FragmentChatCardBinding binding;
+        public ChatListCardBinding binding;
 
         /**
          * Public constructor used to set the View and binding of a
@@ -126,7 +126,7 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         public ChatListViewHolder(View view) {
             super(view);
             mView = view;
-            binding = FragmentChatCardBinding.bind(view);
+            binding = ChatListCardBinding.bind(view);
         }
 
         /**
@@ -151,10 +151,10 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
          */
         void checkEnterChatRoom(final ChatObject chat) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
-                Navigation.findNavController(mView).navigate(
-                        ChatListFragmentDirections
-                                .actionNavigationChatToNavigationIndividualChat(chat)
-                );
+//                Navigation.findNavController(mView).navigate(
+//                        ChatListFragmentDirections
+//                                .actionNavigationChatToNavigationIndividualChat(chat)
+//                );
             });
         }
 
@@ -174,12 +174,12 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     public class MenuViewHolder extends RecyclerView.ViewHolder {
 
         public final View mView;
-        public RecyclerMenuChatCardBinding binding;
+        public ChatMenuCardBinding binding;
 
         public MenuViewHolder(View view) {
             super(view);
             mView = view;
-            binding = RecyclerMenuChatCardBinding.bind(view);
+            binding = ChatMenuCardBinding.bind(view);
         }
 
         void checkDeleteChat(final int position) {
@@ -193,10 +193,10 @@ public class ChatListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
 
         void checkEnterChat(ChatObject chat) {
             binding.buttonIndividualChat.setOnClickListener(view -> {
-                Navigation.findNavController(mView).navigate(
-                        ChatListFragmentDirections
-                                .actionNavigationChatToNavigationIndividualChat(chat)
-                );
+//                Navigation.findNavController(mView).navigate(
+//                        ChatListFragmentDirections
+//                                .actionNavigationChatToNavigationIndividualChat(chat)
+//                );
                 closeMenu();
             });
         }

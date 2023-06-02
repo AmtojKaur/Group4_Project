@@ -15,8 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentConnectionsListBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentHomeBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.HomeFragmentBinding;
 
 /**
  * HomeWeatherFragment holds the content fragments that will be seen on the home screen.
@@ -76,7 +75,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // view binding variable
-        FragmentHomeBinding binding = FragmentHomeBinding.bind(getView());
+        HomeFragmentBinding binding = HomeFragmentBinding.bind(getView());
 
         // Bottom Nav
         binding.buttonNavHome.setOnClickListener(button -> {

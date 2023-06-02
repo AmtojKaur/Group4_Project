@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatListFragmentBinding;
 
 /**
  * A {@link Fragment} subclass
@@ -44,14 +44,14 @@ public class ChatListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // view binding variable
-        FragmentChatListBinding binding = FragmentChatListBinding.bind(getView());
+        ChatListFragmentBinding binding = ChatListFragmentBinding.bind(getView());
 
         // chat recycler view
         mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
-                binding.listRoot.setAdapter(
-                        new ChatListRecyclerViewAdapter(ChatGenerator.getChatList())
-                );
+//                binding.listRoot.setAdapter(
+//                        new ChatListRecyclerViewAdapter(ChatGenerator.getChatList())
+//                );
             }
         });
 

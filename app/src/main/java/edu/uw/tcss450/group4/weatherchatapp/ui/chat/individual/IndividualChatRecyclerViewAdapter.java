@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatIndividualCardBinding;
 
 /**
  * Class that handles the Recyclerview of IndividualChat objects.
@@ -57,7 +58,7 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
      */
     public class IndividualChatViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public FragmentIndividualChatCardBinding binding;
+        public ChatIndividualCardBinding binding;
         private IndividualChat mChat;
 
         /**
@@ -68,7 +69,7 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
         public IndividualChatViewHolder(View view) {
             super(view);
             mView = view;
-            binding = FragmentIndividualChatCardBinding.bind(view);
+            binding = ChatIndividualCardBinding.bind(view);
         }
 
         /**
