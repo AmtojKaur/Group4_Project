@@ -122,14 +122,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/twentyFourHourForecastRecyclerView"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="28dp"
         android:gravity="center_horizontal"
         android:text="24 Hour Forecast"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/twentyFourHourForecastRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idTVShortForecast" />
 
@@ -172,14 +172,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="45dp"
         android:layout_marginBottom="45dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WeeklyForecast"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/daily_forecast_item" />
 
     <ImageView
