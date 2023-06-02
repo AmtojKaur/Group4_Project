@@ -6,7 +6,6 @@ public class UserObject {
     String email;
     private boolean showMenu = false;
 
-
     public UserObject(int primaryKey, String name, String email) {
         this.key = primaryKey;
         this.name= name;

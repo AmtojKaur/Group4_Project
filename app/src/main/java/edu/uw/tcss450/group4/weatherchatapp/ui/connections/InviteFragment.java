@@ -21,11 +21,12 @@ public class InviteFragment extends Fragment {
 
     private InviteViewModel mModel;
 
+    private InviteViewAdapter mAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Bottom nav", "Status");
-
+        Log.d("Connections nav", "Invite Friends");
         return inflater.inflate(R.layout.connections_invite_list_fragment, container, false);
     }
 
@@ -33,6 +34,7 @@ public class InviteFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
+        mModel.connectPOST();
     }
 
     @Override
@@ -44,7 +46,7 @@ public class InviteFragment extends Fragment {
         ConnectionsInviteListFragmentBinding binding = ConnectionsInviteListFragmentBinding.bind(getView());
 
         // connections recycler view
-        mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
+        mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
 //                binding.listSent.setAdapter(
 //                        new InviteViewAdapter(ChatGenerator.getInvitesList())
@@ -55,7 +57,7 @@ public class InviteFragment extends Fragment {
         binding.buttonNew.setOnClickListener(button -> {
             //ChatGenerator.addInvite("Dummy");
 
-            mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
+            mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
 //                    binding.listSent.setAdapter(
 //                            new InviteViewAdapter(ChatGenerator.getInvitesList())
