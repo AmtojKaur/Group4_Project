@@ -7,14 +7,14 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentChatListBinding;
 
@@ -31,8 +31,6 @@ public class ChatListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Bottom nav", "CHAT");
-
         return inflater.inflate(R.layout.fragment_chat_list, container, false);
     }
 
@@ -56,6 +54,33 @@ public class ChatListFragment extends Fragment {
                         new ChatListRecyclerViewAdapter(ChatGenerator.getChatList())
                 );
             }
+        });
+
+        // Bottom Nav
+        binding.buttonNavHome.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Home");
+            Navigation.findNavController(getView()).navigate(
+                    ChatListFragmentDirections.actionNavigationChatToNavigationHome()
+            );
+        });
+
+        binding.buttonNavConnections.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Connections");
+            Navigation.findNavController(getView()).navigate(
+                    ChatListFragmentDirections.actionNavigationChatToNavigationConnections()
+            );
+        });
+
+        binding.buttonNavChat.setOnClickListener(button -> {
+            // do nothing
+            Log.d("Button Clicked", "Nav Chat");
+        });
+
+        binding.buttonNavWeather.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Weather");
+            Navigation.findNavController(getView()).navigate(
+                    ChatListFragmentDirections.actionNavigationChatToNavigationWeather()
+            );
         });
     }
 }

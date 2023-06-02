@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIncomingStatusListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
@@ -52,6 +53,7 @@ public class IncomingFragment extends Fragment {
             }
         });
 
+        // Connections nav
         binding.buttonConnections.setOnClickListener(button -> {
             Navigation.findNavController(getView()).navigate(
                     IncomingFragmentDirections.actionNavigationIncomingToNavigationConnectionsFragment()
@@ -68,5 +70,31 @@ public class IncomingFragment extends Fragment {
             );
         });
 
+        // Bottom Nav
+        binding.buttonNavHome.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Home");
+            Navigation.findNavController(getView()).navigate(
+                    IncomingFragmentDirections.actionNavigationIncomingFriendRequestsToNavigationHome()
+            );
+        });
+
+        binding.buttonNavConnections.setOnClickListener(button -> {
+            // do nothing
+            Log.d("Button Clicked", "Nav Connections");
+        });
+
+        binding.buttonNavChat.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Chat");
+            Navigation.findNavController(getView()).navigate(
+                    IncomingFragmentDirections.actionNavigationIncomingFriendRequestsToNavigationChat()
+            );
+        });
+
+        binding.buttonNavWeather.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Weather");
+            Navigation.findNavController(getView()).navigate(
+                    IncomingFragmentDirections.actionNavigationIncomingFriendRequestsToNavigationWeather()
+            );
+        });
     }
 }

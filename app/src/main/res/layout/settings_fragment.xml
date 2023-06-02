@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/settings_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/Background_B6_B2">
+
+    <!-- Settings Title -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif"
+        style="@style/Text_Y8_W"
+        android:text="Settings"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/settings_background"
+        app:layout_constraintEnd_toEndOf="@id/settings_background"
+        app:layout_constraintStart_toStartOf="@id/settings_background"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Settings Background -->
+    <ImageView
+        android:id="@+id/settings_background"
+        android:layout_width="370dp"
+        android:layout_height="0dp"
+        android:src="@drawable/bottomlayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_settings"
+        style="@style/Tint_B8_B"/>
+
+    <!-- User Nickname -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/settings_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Your Nickname"
+        style="@style/Text_B6_W"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/text_nickname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/settings_background" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Not set"
+        style="@style/Text_B2_W"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_nickname" />
+
+    <!-- Password Reset -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/settings_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Change Password"
+        style="@style/Text_B6_W"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_nickname" />
+
+    <!-- App Theme -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/settings_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Change Theme"
+        style="@style/Text_B6_W"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_password" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_theme">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/theme_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif"
+            android:text="Light"
+            style="@style/Text_B2_W"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/theme_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif"
+            android:text="Dark"
+            style="@style/Text_B2_W"
+            android:textSize="15sp" />
+    </RadioGroup>
+
+    <!-- About -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/settings_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="About"
+        style="@style/Text_B6_W"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radio_group" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="UW TCSS 450 Android App"
+        style="@style/Text_B2_W"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_about" />
+
+    <!-- Devs -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/settings_devs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Developers"
+        style="@style/Text_B6_W"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_about" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Abdirizak Abuubakar Ali"
+        style="@style/Text_B2_W"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_devs" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Chloe Duncan"
+        style="@style/Text_B2_W"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_dev1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="AJ Garcia"
+        style="@style/Text_B2_W"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_dev2" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Amtoj Kaur"
+        style="@style/Text_B2_W"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_dev3" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_dev5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Andrew Nguyen"
+        style="@style/Text_B2_W"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_dev4" />
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logo_background"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_dev5"
+        style="@style/Tint_Y8_G8" />
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/circle_logo_no_background"
+        app:layout_constraintBottom_toBottomOf="@id/logo_background"
+        app:layout_constraintEnd_toEndOf="@id/logo_background"
+        app:layout_constraintStart_toStartOf="@id/logo_background"
+        app:layout_constraintTop_toTopOf="@id/logo_background" />
+</androidx.constraintlayout.widget.ConstraintLayout>

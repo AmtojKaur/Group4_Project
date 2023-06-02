@@ -2,24 +2,95 @@
     <!-- Base application theme. -->
     <style name="Theme.WeatherChatApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/color_blue5</item>
+        <item name="colorPrimary">@color/color_blue4</item>
         <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <!--        <item name="colorSecondary">@color/color_green2</item>-->
-        <!--        <item name="colorSecondaryVariant">@color/color_green2</item>-->
-        <!--        <item name="colorOnSecondary">@color/white</item>-->
-        <!-- Status bar color. -->
+
+        <!-- status bar color -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
+        <item name="iconTint">@color/white</item>
+
+        <!-- main text color -->
+        <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Theme.WeatherChatApp.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <!-- Text Colors -->
+    <style name="Text_Y8_W" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/color_yellow8</item>
     </style>
 
-    <style name="Theme.WeatherChatApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Text_B6_W" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/color_blue6</item>
+    </style>
 
-    <style name="Theme.WeatherChatApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Text_B2_W" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/color_blue2</item>
+    </style>
+
+    <!-- Backgrounds -->
+    <style name="Background_B6_B2" parent="TextAppearance.AppCompat">
+        <item name="android:background">@color/color_blue6</item>
+    </style>
+
+    <style name="Background_B8" parent="TextAppearance.AppCompat">
+        <item name="android:background">@color/color_blue8</item>
+    </style>
+
+    <style name="Background_Y8_B2" parent="TextAppearance.AppCompat">
+        <item name="android:background">@color/color_yellow8</item>
+    </style>
+
+    <!-- Background Tints -->
+    <style name="BTint_B8_B" parent="TextAppearance.AppCompat">
+        <item name="android:backgroundTint">@color/color_blue8</item>
+    </style>
+
+    <style name="BTint_G8_B8" parent="TextAppearance.AppCompat">
+        <item name="android:backgroundTint">@color/color_green8</item>
+    </style>
+
+    <style name="BTint_Y8_B2" parent="TextAppearance.AppCompat">
+        <item name="android:backgroundTint">@color/color_yellow8</item>
+    </style>
+
+    <!-- Tints -->
+    <style name="Tint_B8_B" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_blue8</item>
+    </style>
+
+    <style name="Tint_B6_B5" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_blue6</item>
+    </style>
+
+    <style name="Tint_Y8_G8" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_yellow8</item>
+    </style>
+
+    <style name="Tint_B2_W" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_blue2</item>
+    </style>
+
+    <style name="Tint_B2_G8" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_blue2</item>
+    </style>
+
+    <style name="Tint_B9_B" parent="TextAppearance.AppCompat">
+        <item name="tint">@color/color_blue9</item>
+    </style>
+
+    <!-- Bottom Nav Style -->
+    <style name="Button_Nav_Bottom" parent="TextAppearance.AppCompat">
+        <item name="backgroundTint">@color/color_blue9</item>
+        <item name="android:textColor">@color/color_blue2</item>
+        <item name="drawableTint">@color/color_blue2</item>
+    </style>
+
+    <!-- Top Nav Style -->
+    <style name="Button_Nav_Top" parent="TextAppearance.AppCompat">
+        <item name="backgroundTint">@color/color_blue6</item>
+        <item name="android:textColor">@color/color_blue2</item>
+        <item name="drawableTint">@color/color_blue2</item>
+    </style>
+
 </resources>
