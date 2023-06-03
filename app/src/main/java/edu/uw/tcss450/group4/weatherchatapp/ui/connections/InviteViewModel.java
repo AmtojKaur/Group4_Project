@@ -97,6 +97,8 @@ public class InviteViewModel extends AndroidViewModel {
         mUserList.setValue(mUserList.getValue());
     }
 
+
+
     // SEND FRIEND REQUEST
     // GET /users endpoint
     // verify user associated with email exists in list of all current users

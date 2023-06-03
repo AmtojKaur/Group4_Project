@@ -9,7 +9,11 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -92,6 +96,7 @@ public class IncomingViewModel extends AndroidViewModel {
         }
         mUserList.setValue(mUserList.getValue());
     }
+
 
     // GET INCOMING FRIEND REQUESTS
     // GET /contacts endpoint
