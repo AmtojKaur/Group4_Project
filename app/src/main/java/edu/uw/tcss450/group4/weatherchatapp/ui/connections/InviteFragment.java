@@ -40,6 +40,7 @@ public class InviteFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
+        mModel.connectGET();
     }
 
     @Override
@@ -53,10 +54,8 @@ public class InviteFragment extends Fragment {
         // connections recycler view
         mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
-//                binding.listSent.setAdapter(
-//                        new InviteViewAdapter(ChatGenerator.getInvitesList())
-//                );
-            }
+                mAdapter = new InviteViewAdapter(mModel.getInvitedUsers(), mModel);
+                binding.listSent.setAdapter(mAdapter);            }
         });
 
         binding.buttonNew.setOnClickListener(button -> {

@@ -13,11 +13,11 @@ import java.util.List;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteListCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteMenuCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatObject;
 
 public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<ChatObject> mInvites;
+    private final List<UserObject> mInvites;
+    private InviteViewModel mModel;
     private final int SHOW_MENU = 1;
     private final int HIDE_MENU = 2;
 
@@ -26,8 +26,9 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
      * to the actual, passed in value of real-time ChatPreview objects.
      * @param inviteViews the ArrayList of ChatPreview objects
      */
-    public InviteViewAdapter(List<ChatObject> inviteViews) {
+    public InviteViewAdapter(List<UserObject> inviteViews, InviteViewModel model) {
         this.mInvites = inviteViews;
+        this.mModel = model;
     }
 
     @NonNull
@@ -48,7 +49,7 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof InviteViewHolder) {
-            ((InviteViewHolder)holder).setChatPreview(mInvites.get(position));
+            ((InviteViewHolder)holder).setInviteCardText(mInvites.get(position));
             ((InviteViewHolder)holder).pressedInfo();
             ((InviteViewHolder)holder).binding.buttonMenu.setOnLongClickListener(
                     v -> {
@@ -56,6 +57,13 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         return true;
                     }
             );
+
+            if (mModel.notifyUpdatedUserList) {
+                if (mInvites.size() == 0) {
+                    System.out.println("null");
+                }
+                //notifyItemInserted(mInvites.size() - 1);
+            }
         }
 
         if (holder instanceof InviteMenuViewHolder) {
@@ -105,7 +113,7 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         public final View mView;
 
         public ConnectionsInviteListCardBinding binding;
-        private ChatObject mChat;
+        private UserObject mUser;
 
         public InviteViewHolder(View view) {
             super(view);
@@ -113,15 +121,15 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             binding = ConnectionsInviteListCardBinding.bind(view);
         }
 
-        void setChatPreview(final ChatObject chatObject) {
-            mChat = chatObject;
+        void setInviteCardText(final UserObject userObject) {
+            mUser = userObject;
             // shows dummy data
-            binding.textviewName.setText(chatObject.getMessageID());
+            binding.textviewName.setText(mUser.getEmail());
         }
 
         void pressedInfo() {
-            Log.d("Button Pressed", "Info");
             binding.buttonInfo.setOnClickListener(view -> {
+                Log.d("Button Pressed", "Info");
 //                Navigation.findNavController(mView).navigate(
 //                        edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections
 //                                .actionNavigationChatToNavigationIndividualChat(chat)
