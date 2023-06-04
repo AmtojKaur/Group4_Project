@@ -62,18 +62,18 @@ public class ConnectionsViewModel extends AndroidViewModel {
                         root.getJSONArray("rows");
                 contactsList.clear();
                 for(int i = 0; i < data.length(); i++) {
-                    JSONObject jsonBlog = data.getJSONObject(i);
+                    JSONObject jsonContact = data.getJSONObject(i);
 
-                    System.out.println(jsonBlog);
+                    System.out.println(jsonContact);
 
-                    String first = jsonBlog.getString("firstname");
-                    String last = jsonBlog.getString("lastname");
-                    String email = jsonBlog.getString("email");
-                    String username = jsonBlog.getString("username");
+                    String first = jsonContact.getString("firstname");
+                    String last = jsonContact.getString("lastname");
+                    String email = jsonContact.getString("email");
+                    String username = jsonContact.getString("username");
 
-                    int memberid = jsonBlog.getInt("memberid_b");
+                    int memberid = jsonContact.getInt("memberid_b");
 
-                    int accepted = jsonBlog.getInt("verified") == 1 ? 1 : 0;
+                    int accepted = jsonContact.getInt("verified") == 1 ? 1 : 0;
                     if (accepted == 1) {
                         contactsList.add(memberid);
                         UserObject post = new UserObject(

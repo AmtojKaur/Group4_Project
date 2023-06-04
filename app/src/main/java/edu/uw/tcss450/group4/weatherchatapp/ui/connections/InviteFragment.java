@@ -59,6 +59,7 @@ public class InviteFragment extends Fragment {
 
             mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
+                    mModel.connectPOST();
 //                    binding.listSent.setAdapter(
 //                            new InviteViewAdapter(ChatGenerator.getInvitesList())
 //                    );

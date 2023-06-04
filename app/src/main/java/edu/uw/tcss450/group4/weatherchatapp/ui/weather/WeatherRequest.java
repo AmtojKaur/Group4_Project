@@ -14,7 +14,6 @@ public class WeatherRequest {
 
         String urlString = "https://amtojk-tcss450-labs.herokuapp.com/weather/zip?zip=" + zipCode;
 
-
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
 

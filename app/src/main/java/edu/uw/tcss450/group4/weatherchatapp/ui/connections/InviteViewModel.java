@@ -25,6 +25,8 @@ import java.util.List;
 public class InviteViewModel extends AndroidViewModel {
 
     private int mUserID;
+    private String mEmail;
+
     private final MutableLiveData<List<UserObject>> mUserList;
 
     private List<UserObject> mUsersInvited = new ArrayList<>();
@@ -61,31 +63,35 @@ public class InviteViewModel extends AndroidViewModel {
                         root.getJSONArray("rows");
                 inviteList.clear();
                 for(int i = 0; i < data.length(); i++) {
-                    JSONObject jsonBlog = data.getJSONObject(i);
+                    JSONObject jsonInvite = data.getJSONObject(i);
 
-                    System.out.println(jsonBlog);
+                    System.out.println(jsonInvite);
 
-                    String first = jsonBlog.getString("firstname");
-                    String last = jsonBlog.getString("lastname");
-                    String email = jsonBlog.getString("email");
-                    String username = jsonBlog.getString("username");
+                    int primaryKey = jsonInvite.getInt("primaryKey");
+                    int memberID_A = jsonInvite.getInt("memberid_a");
+                    int memberID_B = jsonInvite.getInt("memberid_b");
 
-                    int memberid = jsonBlog.getInt("memberid_b");
+                    String email = jsonInvite.getString("email");
+                    String first = jsonInvite.getString("firstname");
+                    String last = jsonInvite.getString("lastname");
 
-                    int accepted = jsonBlog.getInt("verified") == 1 ? 1 : 0;
-                    if (accepted == 1) {
-                        inviteList.add(memberid);
+                    // 0:unverified; 1:verified
+                    int status = jsonInvite.getInt("verified");
+
+                    if (status == 0) {
+                        inviteList.add(memberID_B);
                         UserObject post = new UserObject(
-                                memberid,
-                                "Name: " + first + " " + last,
-                                "Email: " + email);
-                        if (mUserList.getValue().stream().noneMatch(element -> element.key == (memberid))) {
+                                memberID_B,
+                                first + last,
+                                email);
+                        if (mUserList.getValue().stream().noneMatch(element -> element.key == (memberID_B))) {
                             mUserList.getValue().add(post);
                             mUsersInvited.add(post);
+                            // debug feature
+                            // see if invite list increased in size
                             System.out.println(mUsersInvited.size());
                         }
                     }
-
                 }
             } else {
                 Log.e("ERROR!", "No response");
@@ -97,11 +103,32 @@ public class InviteViewModel extends AndroidViewModel {
         mUserList.setValue(mUserList.getValue());
     }
 
+    public void connectPOST() {
+        String url =
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts" + mEmail;
+
+        Request request = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                null, //no body for this get request
+                this::handleResult,
+                this::handleError);
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getApplication().getApplicationContext())
+                .add(request);
+    }
     // SEND FRIEND REQUEST
+
     // GET /users endpoint
     // verify user associated with email exists in list of all current users
     // GET all users and compare email
     // if email matches, get userID
+
     // POST /contacts/request friend request associated with userID
 
     // DELETE FRIEND REQUEST
