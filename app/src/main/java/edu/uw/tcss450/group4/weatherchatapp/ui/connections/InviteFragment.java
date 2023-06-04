@@ -1,5 +1,9 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.connections;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,16 +13,20 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.android.volley.AuthFailureError;
 
 import org.json.JSONException;
 
+import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteListFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.model.UserInfoViewModel;
@@ -71,8 +79,16 @@ public class InviteFragment extends Fragment {
             //
             mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
+
+                    // Client/Web Functionality: send friend request
                     mModel.connectPOST(userEmail, inviteEmail);
+
+                    // clear text
                     emailEditText.getText().clear();
+
+                    // hide keyboard
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(binding.inputContact.getWindowToken(), 0);
                 }
             });
         });
