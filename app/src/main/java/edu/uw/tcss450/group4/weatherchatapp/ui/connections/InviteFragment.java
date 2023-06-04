@@ -48,7 +48,7 @@ public class InviteFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
-        System.out.println(UserInfoViewModel.getEmail());
+        mModel.onCreate = true;
         mModel.connectPOST(UserInfoViewModel.getEmail(), UserInfoViewModel.getEmail());
         mModel.connectGET();
     }
@@ -64,7 +64,8 @@ public class InviteFragment extends Fragment {
         mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
                 mAdapter = new InviteViewAdapter(mModel.getInvitedUsers(), mModel);
-                binding.listSent.setAdapter(mAdapter);            }
+                binding.listSent.setAdapter(mAdapter);
+            }
         });
 
         // send friend request button
@@ -77,7 +78,7 @@ public class InviteFragment extends Fragment {
             // get saved user email
             String userEmail = UserInfoViewModel.getEmail();
 
-            //
+
             mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
 

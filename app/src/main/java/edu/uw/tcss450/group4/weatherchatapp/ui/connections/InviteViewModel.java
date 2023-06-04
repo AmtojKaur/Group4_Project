@@ -31,7 +31,11 @@ public class InviteViewModel extends AndroidViewModel {
     private int mUserID;
     private String mEmail;
 
+    private String emailA;
+    private String emailB;
+
     public boolean notifyUpdatedUserList = false;
+    public boolean onCreate = false;
 
     private final MutableLiveData<List<UserObject>> mUserList;
 
@@ -49,8 +53,13 @@ public class InviteViewModel extends AndroidViewModel {
         mUserList.observe(owner, observer);
     }
 
+    public int getUserID() {
+        return mUserID;
+    }
+
     public void setUserID(int id) {
         mUserID = id;
+        System.out.println("set: " + mUserID);
     }
 
     public List<UserObject> getInvitedUsers() {
@@ -62,15 +71,31 @@ public class InviteViewModel extends AndroidViewModel {
     }
 
     private void handleResult(final JSONObject result) {
+        System.out.println("handle");
         if (result.length() > 0) {
+            System.out.println(">0");
+            //setUserID(63);
+
+            System.out.println(result.names().toString());
+
+            // POST
             if (result.has("request")) {
+                System.out.println("request");
                 try {
                     int primaryKey = result.getJSONObject("request").getInt("primarykey");
                     int memberid_a = result.getJSONObject("request").getInt("memberid_a");
                     int memberid_b = result.getJSONObject("request").getInt("memberid_b");
                     int friendshipStatus = result.getJSONObject("request").getInt("verified");
 
-                    setUserID(memberid_a);
+                    if (onCreate) {
+                        setUserID(memberid_a);
+                        onCreate = false;
+                    }
+                    System.out.println("key: " + primaryKey);
+                    System.out.println("A: " + memberid_a);
+                    System.out.println("B: " + memberid_b);
+                    System.out.println("status: " + friendshipStatus);
+
 
                     if (friendshipStatus == 1) {
                         Toast.makeText(getApplication().getBaseContext(),
@@ -90,7 +115,6 @@ public class InviteViewModel extends AndroidViewModel {
                                 null);
                         if (mUserList.getValue().stream().noneMatch(element -> element.key == (primaryKey))) {
                             mUserList.getValue().add(post);
-                            System.out.println(mUserList.getValue().size());
 
                             mUsersInvited.add(post);
                             notifyUpdatedUserList = true;
@@ -102,11 +126,27 @@ public class InviteViewModel extends AndroidViewModel {
                     Log.e("JSON Parse Error", e.getMessage());
                 }
             }
+
+            // GET
+            else if (result.has("data")) {
+                try {
+                    int a = result.getJSONObject("data").getInt("memberid_a");
+                    System.out.println(a);
+                    //System.out.println(result.getJSONObject("data").names().toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            else {
+                System.out.println(result.names().toString());
+            }
         }
     }
 
     public void connectGET() {
         //mUserID = 63;
+        //System.out.println(mUserID);
         System.out.println(mUserID);
         String url =
                 "https://amtojk-tcss450-labs.herokuapp.com/contacts/" + mUserID;
@@ -129,6 +169,7 @@ public class InviteViewModel extends AndroidViewModel {
     }
 
     public void connectPOST(String userEmail, String inviteEmail) {
+        System.out.println("Post: " + userEmail + " " + inviteEmail);
         String url =
                 "https://amtojk-tcss450-labs.herokuapp.com/contacts/request";
 
@@ -156,6 +197,7 @@ public class InviteViewModel extends AndroidViewModel {
         Volley.newRequestQueue(getApplication().getApplicationContext())
                 .add(request);
     }
+
     // SEND FRIEND REQUEST
 
     // GET /users endpoint

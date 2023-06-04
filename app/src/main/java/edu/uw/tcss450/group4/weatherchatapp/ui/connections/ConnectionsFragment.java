@@ -33,7 +33,7 @@ public class ConnectionsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(ConnectionsViewModel.class);
-        mModel.connectGET();
+        //mModel.connectGET();
     }
 
     @Override
