@@ -93,6 +93,7 @@ public class IncomingViewModel extends AndroidViewModel {
         mUserList.setValue(mUserList.getValue());
     }
 
+
     // GET INCOMING FRIEND REQUESTS
     // GET /contacts endpoint
     // if status 0, display ACCEPT/DECLINE card view
