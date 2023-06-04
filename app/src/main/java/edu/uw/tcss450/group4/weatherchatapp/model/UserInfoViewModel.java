@@ -24,6 +24,10 @@ public class UserInfoViewModel extends ViewModel {
         mJwt = jwt;
     }
 
+    public static void setEmail(String email) {
+        mEmail = email;
+    }
+
     /**
      * Get the email address that is stored in the payload of the JWT this ViewModel holds.
      */
@@ -38,32 +42,35 @@ public class UserInfoViewModel extends ViewModel {
         return mJwt;
     }
 
+
+
+
     /**
      * Helper factory class for verifying user's email.
      */
-    public static class UserInfoViewModelFactory implements ViewModelProvider.Factory {
-
-        private final String email;
-        private final String jwt;
-
-        /**
-         * Constructor that initializes user email and JWT.
-         * @param email the user's email
-         * @param jwt the String where the email is being stored
-         */
-        public UserInfoViewModelFactory(String email, String jwt) {
-            this.email = email;
-            this.jwt = jwt;
-        }
-
-        @NonNull
-        @Override
-        public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-            if (modelClass == UserInfoViewModel.class) {
-                return (T) new UserInfoViewModel(email, jwt);
-            }
-            throw new IllegalArgumentException(
-                    "Argument must be: " + UserInfoViewModel.class);
-        }
-    }
+//    public static class UserInfoViewModelFactory implements ViewModelProvider.Factory {
+//
+//        private final String email;
+//        private final String jwt;
+//
+//        /**
+//         * Constructor that initializes user email and JWT.
+//         * @param email the user's email
+//         * @param jwt the String where the email is being stored
+//         */
+//        public UserInfoViewModelFactory(String email, String jwt) {
+//            this.email = email;
+//            this.jwt = jwt;
+//        }
+//
+//        @NonNull
+//        @Override
+//        public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+//            if (modelClass == UserInfoViewModel.class) {
+//                return (T) new UserInfoViewModel(email, jwt);
+//            }
+//            throw new IllegalArgumentException(
+//                    "Argument must be: " + UserInfoViewModel.class);
+//        }
+//    }
 }

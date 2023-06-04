@@ -24,6 +24,7 @@ import org.json.JSONObject;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.AuthSignInFragmentBinding;
+import edu.uw.tcss450.group4.weatherchatapp.model.UserInfoViewModel;
 import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
 
 /**
@@ -125,8 +126,9 @@ public class SignInFragment extends Fragment {
      * Method that sends email and password to sign in view model.
      */
     private void verifyAuthWithServer() {
-        mSignInModel.connect( binding.editEmail.getText().toString(),
+        mSignInModel.connect(binding.editEmail.getText().toString(),
                 binding.editPassword.getText().toString());
+        UserInfoViewModel.setEmail(binding.editEmail.getText().toString());
         //This is an Asynchronous call. No statements after should rely on the
         //result of connect().
 

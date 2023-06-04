@@ -67,13 +67,7 @@ public class InviteFragment extends Fragment {
 
             mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
-                    try {
-                        mModel.connectPOST(userEmail, inviteEmail);
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    } catch (AuthFailureError e) {
-                        throw new RuntimeException(e);
-                    }
+                    mModel.connectPOST(userEmail, inviteEmail);
                     emailEditText.clearComposingText();
                 }
             });

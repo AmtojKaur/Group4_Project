@@ -2,6 +2,8 @@ package edu.uw.tcss450.group4.weatherchatapp.ui.connections;
 
 import android.app.Application;
 import android.util.Log;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -58,54 +60,77 @@ public class InviteViewModel extends AndroidViewModel {
     }
 
     private void handleResult(final JSONObject result) {
-        try {
-            JSONObject root = result;
-            if (root.has("rows")) {
-                JSONArray data =
-                        root.getJSONArray("rows");
-                inviteList.clear();
-                for(int i = 0; i < data.length(); i++) {
-                    JSONObject jsonInvite = data.getJSONObject(i);
+        if (result.length() > 0) {
+            if (result.has("request")) {
 
-                    System.out.println(jsonInvite);
+                try {
+//                    System.out.println(result.length());
+//                    System.out.println(result.names().toString());
+//                    System.out.println(result.getJSONObject("request").length());
+//                    System.out.println(result.getJSONObject("request").names().toString());
 
-                    int primaryKey = jsonInvite.getInt("primaryKey");
-                    int memberID_A = jsonInvite.getInt("memberid_a");
-                    int memberID_B = jsonInvite.getInt("memberid_b");
+                    int memberid_a = result.getJSONObject("request").getInt("memberid_a");
+                    int memberid_b = result.getJSONObject("request").getInt("memberid_b");
+                    int friendshipStatus = result.getJSONObject("request").getInt("verified");
 
-                    String email = jsonInvite.getString("email");
-                    String first = jsonInvite.getString("firstname");
-                    String last = jsonInvite.getString("lastname");
+                    System.out.println(friendshipStatus);
 
-                    // 0:unverified; 1:verified
-                    int status = jsonInvite.getInt("verified");
-
-                    if (status == 0) {
-                        inviteList.add(memberID_B);
-                        UserObject post = new UserObject(
-                                memberID_B,
-                                first + last,
-                                email);
-                        if (mUserList.getValue().stream().noneMatch(element -> element.key == (memberID_B))) {
-                            mUserList.getValue().add(post);
-                            mUsersInvited.add(post);
-                            // debug feature
-                            // see if invite list increased in size
-                            System.out.println(mUsersInvited.size());
-                        }
-                    }
+                } catch (JSONException e) {
+                    Log.e("JSON Parse Error", e.getMessage());
                 }
-            } else {
-                Log.e("ERROR!", "No response");
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.e("ERROR!", e.getMessage());
+//
         }
-        mUserList.setValue(mUserList.getValue());
+
+
+//        try {
+//            JSONObject root = result;
+//            if (root.has("rows")) {
+//                JSONArray data =
+//                        root.getJSONArray("rows");
+//                inviteList.clear();
+//                for(int i = 0; i < data.length(); i++) {
+//                    JSONObject jsonInvite = data.getJSONObject(i);
+//
+//                    System.out.println(jsonInvite);
+//
+//                    int primaryKey = jsonInvite.getInt("primaryKey");
+//                    int memberID_A = jsonInvite.getInt("memberid_a");
+//                    int memberID_B = jsonInvite.getInt("memberid_b");
+//
+//                    String email = jsonInvite.getString("email");
+//                    String first = jsonInvite.getString("firstname");
+//                    String last = jsonInvite.getString("lastname");
+//
+//                    // 0:unverified; 1:verified
+//                    int status = jsonInvite.getInt("verified");
+//
+//                    if (status == 0) {
+//                        inviteList.add(memberID_B);
+//                        UserObject post = new UserObject(
+//                                memberID_B,
+//                                first + last,
+//                                email);
+//                        if (mUserList.getValue().stream().noneMatch(element -> element.key == (memberID_B))) {
+//                            mUserList.getValue().add(post);
+//                            mUsersInvited.add(post);
+//                            // debug feature
+//                            // see if invite list increased in size
+//                            System.out.println(mUsersInvited.size());
+//                        }
+//                    }
+//                }
+//            } else {
+//                Log.e("ERROR!", "No response");
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//            Log.e("ERROR!", e.getMessage());
+//        }
+//        mUserList.setValue(mUserList.getValue());
     }
 
-    public void connectPOST(String userEmail, String inviteEmail) throws JSONException, AuthFailureError {
+    public void connectPOST(String userEmail, String inviteEmail) {
         String url =
                 "https://amtojk-tcss450-labs.herokuapp.com/contacts/request";
 
@@ -115,7 +140,7 @@ public class InviteViewModel extends AndroidViewModel {
 
         JSONObject parameters = new JSONObject();
         try {
-            parameters.put("fromEmail", "amgarcia@uw.edu");
+            parameters.put("fromEmail", userEmail);
             parameters.put("toEmail", inviteEmail);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -124,7 +149,7 @@ public class InviteViewModel extends AndroidViewModel {
         Request request = new JsonObjectRequest(
                 Request.Method.POST,
                 url,
-                parameters,
+                parameters,  // body for POST
                 this::handleResult,
                 this::handleError);
 
