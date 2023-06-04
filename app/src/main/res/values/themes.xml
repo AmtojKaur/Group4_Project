@@ -79,6 +79,11 @@
         <item name="tint">@color/color_blue9</item>
     </style>
 
+    <style name="Button_Nav_Bottom_Dark" parent="TextAppearance.AppCompat">
+        <item name="backgroundTint">@color/color_blue6</item>
+        <item name="android:textColor">@color/color_blue2</item>
+        <item name="drawableTint">@color/color_blue2</item>
+    </style>
     <!-- Bottom Nav Style -->
     <style name="Button_Nav_Bottom" parent="TextAppearance.AppCompat">
         <item name="backgroundTint">@color/color_blue9</item>

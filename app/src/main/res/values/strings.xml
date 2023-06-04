@@ -5,10 +5,12 @@
     <string name="hint_nickname">Nickname</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+    <string name="hint_chat_name">Enter Chat Name</string>
     <string name="hint_password_again">Retype Password</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_register_short">Sign Up</string>
     <string name="action_forgot">FORGOT PASSWORD</string>
+    <string name="action_create_chat">Create</string>
     <string name="display_header_title">Phish Shows Welcomes:</string>
     <string name="image_description_logo">The Phish Logo</string>
     <!--android:inputType="textPersonNickname" -->

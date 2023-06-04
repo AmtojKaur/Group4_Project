@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_root"
-    style="@style/Background_Y8_B2"
+    style="@style/Background_B6_B2"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -20,7 +20,7 @@
     <!-- Text Background -->
     <ImageView
         android:id="@+id/text_background"
-        style="@style/Tint_B8_B"
+        style="@style/Tint_B9_B"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -48,7 +48,7 @@
     <!-- Contacts Background -->
     <ImageView
         android:id="@+id/new_chat_top_background"
-        style="@style/Tint_B8_B"
+        style="@style/Tint_Y8_G8"
         android:layout_width="340dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
@@ -59,18 +59,42 @@
 
     <ImageView
         android:id="@+id/new_chat_bottom_background"
-        style="@style/Tint_B8_B"
+        style="@style/Tint_Y8_G8"
         android:layout_width="340dp"
         android:layout_height="80dp"
+        android:layout_marginTop="-1dp"
         android:src="@drawable/background_content_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/new_chat_top_background" />
 
+    <EditText
+        android:id="@+id/edit_chat_name"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/hint_chat_name"
+        app:layout_constraintEnd_toEndOf="@id/new_chat_top_background"
+        app:layout_constraintStart_toStartOf="@id/new_chat_top_background"
+        app:layout_constraintTop_toTopOf="@id/new_chat_top_background"
+        app:layout_constraintBottom_toBottomOf="@id/new_chat_top_background"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_create"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:backgroundTint="@color/color_blue6"
+        android:text="@string/action_create_chat"
+        app:layout_constraintBottom_toBottomOf="@id/new_chat_bottom_background"
+        app:layout_constraintEnd_toEndOf="@id/new_chat_bottom_background"
+        app:layout_constraintStart_toStartOf="@id/new_chat_bottom_background" />
+
     <!-- Contacts Background -->
     <ImageView
         android:id="@+id/view_recycler_background"
-        style="@style/Tint_B8_B"
+        style="@style/Tint_Y8_G8"
         android:layout_width="340dp"
         android:layout_height="350dp"
         android:layout_marginTop="10dp"
@@ -79,24 +103,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav_background" />
 
-    <!-- FAB -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginTop="590dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/color_blue5"
-        android:contentDescription="@string/action_new_chat"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_newchat_black_24dp" />
 
     <!-- Bottom Nav Container -->
     <ImageView
         android:id="@+id/bottom_nav_background"
-        style="@style/Tint_B6_B5"
+        style="@style/Tint_B9_B"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="3dp"
@@ -110,7 +121,7 @@
     <!-- Bottom Nav Buttons -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_nav_home"
-        style="@style/Button_Nav_Bottom"
+        style="@style/Button_Nav_Bottom_Dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -125,7 +136,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_nav_connections"
-        style="@style/Button_Nav_Bottom"
+        style="@style/Button_Nav_Bottom_Dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_rectangle_24dp"
@@ -142,7 +153,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_nav_chat"
-        style="@style/Button_Nav_Bottom"
+        style="@style/Button_Nav_Bottom_Dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_rectangle_24dp"
@@ -157,7 +168,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_nav_weather"
-        style="@style/Button_Nav_Bottom"
+        style="@style/Button_Nav_Bottom_Dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
