@@ -48,7 +48,8 @@ public class InviteFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
-        //mModel.connectPOST(UserInfoViewModel.getEmail(), UserInfoViewModel.getEmail());
+        System.out.println(UserInfoViewModel.getEmail());
+        mModel.connectPOST(UserInfoViewModel.getEmail(), UserInfoViewModel.getEmail());
         mModel.connectGET();
     }
 

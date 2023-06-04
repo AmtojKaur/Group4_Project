@@ -106,12 +106,13 @@ public class InviteViewModel extends AndroidViewModel {
     }
 
     public void connectGET() {
-        mUserID = 63;
+        //mUserID = 63;
+        System.out.println(mUserID);
         String url =
                 "https://amtojk-tcss450-labs.herokuapp.com/contacts/" + mUserID;
 
         Request request = new JsonObjectRequest(
-                Request.Method.POST,
+                Request.Method.GET,
                 url,
                 null,  // no body for GET
                 this::handleResult,
