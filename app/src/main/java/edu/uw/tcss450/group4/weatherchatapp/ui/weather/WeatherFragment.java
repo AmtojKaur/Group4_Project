@@ -1,6 +1,13 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.weather;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +22,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -26,11 +34,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentWeatherBinding;
 
 public class WeatherFragment extends Fragment {
+
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
 
     private ArrayList<WeatherRVModel> dailyWeatherList;
     private WeatherRVAdapter dailyWeatherAdapter;
@@ -40,15 +52,15 @@ public class WeatherFragment extends Fragment {
 
     private EditText inputBox; // Declare the input box as a class variable
 
+    private String currentZipCode = "98105"; // Default zip code for current location
+
     public static WeatherFragment newInstance(String param1, String param2) {
         WeatherFragment fragment = new WeatherFragment();
-
         return fragment;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
 
         ImageButton saveButton = view.findViewById(R.id.save_non_transition_alpha);
@@ -57,19 +69,14 @@ public class WeatherFragment extends Fragment {
             Navigation.findNavController(view).navigate(R.id.action_navigation_weather_to_weatherAddFragment);
         });
 
-
-        String currentZipCode = "98105"; // example zip code for current location
         new WeatherRequestTask().execute(currentZipCode);
 
         FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
-
         weatherBinding.dayAndCityText.setText("Tacoma, WA"); // Default location for search
         weatherBinding.tempText.setText("-----");
         weatherBinding.idTVShortForecast.setText("-");
         Drawable condIcon = ContextCompat.getDrawable(getActivity(), R.drawable.cloud);
-
         condIcon.setBounds(0, 0, 1, 1);
-
         weatherBinding.curIcon.setImageDrawable(condIcon);
 
         // Bottom Nav
@@ -99,11 +106,64 @@ public class WeatherFragment extends Fragment {
             // do nothing
             Log.d("Button Clicked", "Nav Weather");
         });
+
+        requestLocationPermission();
+    }
+
+    private void requestLocationPermission() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(),
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+        } else {
+            getCurrentLocation();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE && grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            getCurrentLocation();
+        } else {
+            Toast.makeText(requireContext(), "Location permission denied", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void getCurrentLocation() {
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            // Get the device's current location
+            LocationManager locationManager = (LocationManager) requireContext().getSystemService(Context.LOCATION_SERVICE);
+            if (locationManager != null) {
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (location != null) {
+                    double latitude = location.getLatitude();
+                    double longitude = location.getLongitude();
+                    currentZipCode = getZipCodeFromCoordinates(latitude, longitude);
+                    new WeatherRequestTask().execute(currentZipCode);
+                }
+            }
+        }
+    }
+
+    private String getZipCodeFromCoordinates(double latitude, double longitude) {
+        String zipCode = "Unknown";
+        try {
+            Geocoder geocoder = new Geocoder(requireContext(), Locale.getDefault());
+            List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+            if (addresses.size() > 0) {
+                zipCode = addresses.get(0).getPostalCode();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return zipCode;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
         View view = inflater.inflate(R.layout.fragment_weather, container, false);
 
         inputBox = view.findViewById(R.id.inputBox); // Assign the input box
@@ -116,7 +176,8 @@ public class WeatherFragment extends Fragment {
                 Toast.makeText(getContext(), "Please enter a valid 5-digit zip code", Toast.LENGTH_SHORT).show();
                 return;
             }
-            new WeatherRequestTask().execute(zipCode);
+            currentZipCode = zipCode;
+            new WeatherRequestTask().execute(currentZipCode);
         });
 
         return view;
@@ -130,13 +191,27 @@ public class WeatherFragment extends Fragment {
         @Override
         protected WeatherLogic doInBackground(String... params) {
             zipCode = params[0];
-            // API REQUEST
+            // Geocode API REQUEST
+            String cityName = getCityNameFromZipCode(zipCode);
+            if (cityName == null) {
+                cityName = "Unknown";
+            }
+            publishProgress();
+
+            // Weather API REQUEST
             String jsonString = String.valueOf(WeatherRequest.request(zipCode));
-            return new WeatherLogic(jsonString);
+            return new WeatherLogic(jsonString, cityName);
+        }
+
+        protected void onProgressUpdate(Void... values) {
+            FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
+            weatherBinding.dayAndCityText.setText("Loading...");
         }
 
         protected void onPostExecute(WeatherLogic weather) {
             FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
+
+            weatherBinding.dayAndCityText.setText(weather.getCityName());
 
             WeatherObject currentWeather = weather.getCurrentConditions();
             if (currentWeather != null) {
@@ -191,20 +266,10 @@ public class WeatherFragment extends Fragment {
                 }
                 weeklyForecastAdapter.notifyDataSetChanged(); // Add this line
             }
-
-            // Retrieve the city name based on the entered zip code
-            if (inputBox != null) {
-                String searchZipCode = inputBox.getText().toString().trim();
-                String cityName = "Unknown"; // Default location
-                if (searchZipCode.matches("\\d{5}")) {
-                    cityName = getCityNameFromZipCode(searchZipCode); // Custom location
-                }
-                weatherBinding.dayAndCityText.setText(cityName);
-            }
         }
 
         private String getCityNameFromZipCode(String zipCode) {
-            String cityName = "Unknown";
+            String cityName = null;
             try {
                 String url = "https://amtojk-tcss450-labs.herokuapp.com/geocode/zip?zip=" + zipCode;
                 HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();

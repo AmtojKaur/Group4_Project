@@ -6,11 +6,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class WeatherLogic {
+    private String cityName;
     private ArrayList<WeatherObject> hourly;
     private ArrayList<WeatherObject> daily;
     private WeatherObject current;
 
-    public WeatherLogic(String jsonString) {
+    public WeatherLogic(String jsonString, String cityName) {
+        this.cityName = cityName;
         hourly = new ArrayList<>();
         daily = new ArrayList<>();
 
@@ -64,6 +66,10 @@ public class WeatherLogic {
             }
         }
         return 0.0;
+    }
+
+    public String getCityName() {
+        return cityName;
     }
 
     public ArrayList<WeatherObject> getHourly() {
