@@ -97,9 +97,10 @@
         style="@style/Tint_Y8_G8"
         android:layout_width="340dp"
         android:layout_height="350dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/bottomlayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_chat_bottom_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav_background" />
 

@@ -81,5 +81,11 @@ public class ChatListFragment extends Fragment {
                     ChatListFragmentDirections.actionNavigationChatToNavigationWeather()
             );
         });
+
+        binding.floatingActionButton.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Create New Chat");
+            Navigation.findNavController(getView()).navigate(
+                    ChatListFragmentDirections.actionNavigationChatToChatNewChatFragment());
+        });
     }
 }
