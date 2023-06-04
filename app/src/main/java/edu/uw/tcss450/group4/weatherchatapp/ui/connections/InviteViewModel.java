@@ -103,9 +103,9 @@ public class InviteViewModel extends AndroidViewModel {
         mUserList.setValue(mUserList.getValue());
     }
 
-    public void connectPOST() {
+    public void connectPOST(String email) {
         String url =
-                "https://amtojk-tcss450-labs.herokuapp.com/contacts" + mEmail;
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts" + email;
 
         Request request = new JsonObjectRequest(
                 Request.Method.POST,

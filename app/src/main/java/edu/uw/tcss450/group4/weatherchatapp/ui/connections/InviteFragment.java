@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteListFragmentBinding;
@@ -34,7 +35,6 @@ public class InviteFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
-        mModel.connectPOST();
     }
 
     @Override
@@ -56,10 +56,12 @@ public class InviteFragment extends Fragment {
 
         binding.buttonNew.setOnClickListener(button -> {
             //ChatGenerator.addInvite("Dummy");
-
+            EditText email = view.findViewById(R.id.input_contact);
             mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
-                    mModel.connectPOST();
+
+                    mModel.connectPOST(email.getText().toString());
+                    email.clearComposingText();
 //                    binding.listSent.setAdapter(
 //                            new InviteViewAdapter(ChatGenerator.getInvitesList())
 //                    );
