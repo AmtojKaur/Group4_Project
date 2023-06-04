@@ -15,6 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.android.volley.AuthFailureError;
+
+import org.json.JSONException;
+
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteListFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.model.UserInfoViewModel;
@@ -63,7 +67,13 @@ public class InviteFragment extends Fragment {
 
             mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
-                    mModel.connectPOST(userEmail, inviteEmail);
+                    try {
+                        mModel.connectPOST(userEmail, inviteEmail);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    } catch (AuthFailureError e) {
+                        throw new RuntimeException(e);
+                    }
                     emailEditText.clearComposingText();
                 }
             });
