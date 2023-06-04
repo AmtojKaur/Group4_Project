@@ -59,10 +59,12 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             );
 
             if (mModel.notifyUpdatedUserList) {
-                if (mInvites.size() == 0) {
-                    System.out.println("null");
-                }
-                //notifyItemInserted(mInvites.size() - 1);
+                System.out.println("mInvites size: " + mInvites.size());
+
+                //notifyItemInserted(0);
+                //notifyItemRangeChanged(mInvites.size() - 1, mInvites.size());
+
+                mModel.notifyUpdatedUserList = false;
             }
         }
 

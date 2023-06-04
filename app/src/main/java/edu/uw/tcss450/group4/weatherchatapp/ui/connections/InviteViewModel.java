@@ -54,7 +54,7 @@ public class InviteViewModel extends AndroidViewModel {
     }
 
     public List<UserObject> getInvitedUsers() {
-        System.out.println("mUsersInvited: " + mUsersInvited);
+        //System.out.println("mUsersInvited: " + mUsersInvited);
         return mUsersInvited;
     }
 
@@ -91,12 +91,10 @@ public class InviteViewModel extends AndroidViewModel {
                                 null);
                         if (mUserList.getValue().stream().noneMatch(element -> element.key == (primaryKey))) {
                             mUserList.getValue().add(post);
+                            System.out.println(mUserList.getValue().size());
+
                             mUsersInvited.add(post);
                             notifyUpdatedUserList = true;
-                            //notifyItemInserted(mChats.size() - 1);
-                            // debug feature
-                            // see if invite list increased in size
-                            System.out.println(mUsersInvited.size());
                             //mUserList.setValue(mUserList.getValue());
                         }
                     }
