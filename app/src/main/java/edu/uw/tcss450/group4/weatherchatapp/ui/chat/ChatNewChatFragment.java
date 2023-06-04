@@ -44,36 +44,8 @@ public class ChatNewChatFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         // view binding variable
         ChatNewChatFragmentBinding binding = ChatNewChatFragmentBinding.bind(getView());
-
-        // Bottom Nav
-        binding.buttonNavHome.setOnClickListener(button -> {
-            Log.d("Button Clicked", "Nav Home");
-            Navigation.findNavController(getView()).navigate(
-                    edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections.actionNavigationChatToNavigationHome()
-            );
-        });
-
-        binding.buttonNavConnections.setOnClickListener(button -> {
-            Log.d("Button Clicked", "Nav Connections");
-            Navigation.findNavController(getView()).navigate(
-                    ChatListFragmentDirections.actionNavigationChatToNavigationConnections()
-            );
-        });
-
-        binding.buttonNavChat.setOnClickListener(button -> {
-            // do nothing
-            Log.d("Button Clicked", "Nav Chat");
-        });
-
-        binding.buttonNavWeather.setOnClickListener(button -> {
-            Log.d("Button Clicked", "Nav Weather");
-            Navigation.findNavController(getView()).navigate(
-                    ChatListFragmentDirections.actionNavigationChatToNavigationWeather()
-            );
-        });
 
     }
 
