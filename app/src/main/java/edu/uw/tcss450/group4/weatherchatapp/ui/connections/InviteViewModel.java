@@ -54,12 +54,11 @@ public class InviteViewModel extends AndroidViewModel {
     }
 
     public List<UserObject> getInvitedUsers() {
-        //System.out.println("mUsersInvited: " + mUsersInvited);
         return mUsersInvited;
     }
 
     private void handleError(final VolleyError error) {
-        Log.e("CONNECTION ERROR", error.toString());
+        Log.e("CONNECTION ERROR: Invite VM", error.toString());
     }
 
     private void handleResult(final JSONObject result) {
@@ -107,6 +106,7 @@ public class InviteViewModel extends AndroidViewModel {
     }
 
     public void connectGET() {
+        mUserID = 63;
         String url =
                 "https://amtojk-tcss450-labs.herokuapp.com/contacts/" + mUserID;
 

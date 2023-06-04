@@ -40,6 +40,7 @@ public class InviteFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
+        //mModel.connectPOST(UserInfoViewModel.getEmail(), UserInfoViewModel.getEmail());
         mModel.connectGET();
     }
 
@@ -48,7 +49,6 @@ public class InviteFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // view binding variable
-
         ConnectionsInviteListFragmentBinding binding = ConnectionsInviteListFragmentBinding.bind(getView());
 
         // connections recycler view
@@ -58,16 +58,21 @@ public class InviteFragment extends Fragment {
                 binding.listSent.setAdapter(mAdapter);            }
         });
 
+        // send friend request button
         binding.buttonNew.setOnClickListener(button -> {
+
+            // get EditText and its data
             EditText emailEditText = binding.inputContact;
             String inviteEmail = emailEditText.getText().toString();
 
+            // get saved user email
             String userEmail = UserInfoViewModel.getEmail();
 
+            //
             mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
                     mModel.connectPOST(userEmail, inviteEmail);
-                    emailEditText.clearComposingText();
+                    emailEditText.getText().clear();
                 }
             });
         });
