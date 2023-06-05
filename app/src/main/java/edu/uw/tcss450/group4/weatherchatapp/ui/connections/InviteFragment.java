@@ -48,8 +48,10 @@ public class InviteFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
-        mModel.onCreate = true;
-        mModel.connectPOST(UserInfoViewModel.getEmail(), UserInfoViewModel.getEmail());
+
+        mModel.setUserEmail(UserInfoViewModel.getEmail());
+
+        mModel.connectGETuserID();
         mModel.connectGET();
     }
 
@@ -84,6 +86,7 @@ public class InviteFragment extends Fragment {
 
                     // Client/Web Functionality: send friend request
                     mModel.connectPOST(userEmail, inviteEmail);
+                    mModel.connectGET();
 
                     // clear text
                     emailEditText.getText().clear();
