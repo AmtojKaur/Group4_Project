@@ -54,9 +54,10 @@ public class InviteFragment extends Fragment {
 
         // get user's member ID
         mModel.connectGETuserID(UserInfoViewModel.getEmail());
+        System.out.println(UserInfoViewModel.getEmail() + " " + mModel.getUserID());
 
         // get user's list of sent friend requests
-        mModel.connectGET();
+        mModel.connectGETsent();
     }
 
     @Override
@@ -81,15 +82,18 @@ public class InviteFragment extends Fragment {
             EditText emailEditText = binding.inputContact;
             String inviteEmail = emailEditText.getText().toString();
 
-            // get saved user email
-            String userEmail = UserInfoViewModel.getEmail();
+//            mModel.isOtherUser = true;
+//            System.out.println("email " + inviteEmail);
+//            mModel.connectGETuserID(inviteEmail);
+//            System.out.println(mModel.getOtherUserID());
 
             mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
 
                     // Client/Web Functionality: send friend request
-                    mModel.connectPOST(userEmail, inviteEmail);
-                    mModel.connectGET();
+
+//                    mModel.connectPOST(mModel.getUserID(), mModel.getOtherUserID());
+//                    mModel.connectGETsent();
 
                     // clear text
                     emailEditText.getText().clear();
