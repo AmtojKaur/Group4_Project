@@ -55,6 +55,7 @@ public class ChatNewChatViewModel extends AndroidViewModel {
         mResponse.observe(owner, observer);
     }
 
+
     private void handleError(final VolleyError error) {
         if (Objects.isNull(error.networkResponse)) {
             try {
@@ -78,6 +79,8 @@ public class ChatNewChatViewModel extends AndroidViewModel {
             }
         }
     }
+
+
 
     /**
      * A method to connect to a webservice endpoint to create a new chatroom.
