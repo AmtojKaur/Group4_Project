@@ -111,7 +111,7 @@ public class ChatNewChatViewModel extends AndroidViewModel {
     }
 
     public void putMembers(final String jwt, int[] memberIds, int chatID) throws JSONException {
-        String url = "https://amtojk-tcss450-labs.herokuapp.com/chats" + chatID;
+        String url = "https://amtojk-tcss450-labs.herokuapp.com/chats/" + chatID;
         JSONObject body = new JSONObject();
         JSONArray members = new JSONArray(memberIds);
 
