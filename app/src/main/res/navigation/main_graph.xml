@@ -40,6 +40,20 @@
         <action
             android:id="@+id/action_navigation_chat_to_navigation_weather"
             app:destination="@id/navigation_weather" />
+        <action
+            android:id="@+id/action_navigation_chat_to_chatNewChatFragment"
+            app:destination="@id/chatNewChatFragment" />
+    </fragment>
+
+    <!-- New Chat -->
+    <fragment
+        android:id="@+id/chatNewChatFragment"
+        android:name="edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatNewChatFragment"
+        android:label="ChatNewChatFragment" >
+        <action
+            android:id="@+id/action_chatNewChatFragment_to_individualChatFragment"
+            app:destination="@id/individualChatFragment"
+            tools:layout="@layout/chat_new_chat_fragment"/>
     </fragment>
 
     <!-- Nav Weather -->

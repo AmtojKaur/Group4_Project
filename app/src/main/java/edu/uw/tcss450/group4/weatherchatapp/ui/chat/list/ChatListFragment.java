@@ -56,6 +56,15 @@ public class ChatListFragment extends Fragment {
             }
         });
 
+        // FAB
+        binding.floatingActionButton.setOnClickListener(button -> {
+            Log.d("Button Clicked", "Nav Create New Chat");
+            Navigation.findNavController(getView()).navigate(
+                    R.id.action_navigation_chat_to_chatNewChatFragment
+                    //ChatListFragmentDirections.actionNavigationChatToChatNewChatFragment()
+            );
+        });
+
         // Bottom Nav
         binding.buttonNavHome.setOnClickListener(button -> {
             Log.d("Button Clicked", "Nav Home");
