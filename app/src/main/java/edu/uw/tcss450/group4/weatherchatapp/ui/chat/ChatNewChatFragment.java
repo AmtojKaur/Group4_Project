@@ -17,8 +17,10 @@ import android.view.ViewGroup;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatListFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatNewChatFragmentBinding;
+import edu.uw.tcss450.group4.weatherchatapp.model.UserInfoViewModel;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListViewModel;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,19 +28,33 @@ import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListViewModel;
  */
 public class ChatNewChatFragment extends Fragment {
 
+    private ConnectionsViewModel mContactsList;
     private ChatNewChatViewModel mModel;
+
+    private int mChatID;
+
+    private UserInfoViewModel mUserInfo;
+
+    public ChatNewChatFragment() {
+        // Required empty public constructor
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ViewModelProvider provider = new ViewModelProvider(getActivity());
+        mModel = provider.get(ChatNewChatViewModel.class);
+        mUserInfo = provider.get(UserInfoViewModel.class);
+        mContactsList = provider.get(ConnectionsViewModel.class);
+        //mContactsList.connectGET(getJwt(),getMemberID());
+
+        Log.i("MAKE CHAT", "Prompted to try to make a new chatroom");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.chat_new_chat_fragment, container, false);
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mModel = new ViewModelProvider(getActivity()).get(ChatNewChatViewModel.class);
     }
 
     @Override
