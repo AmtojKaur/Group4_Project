@@ -115,9 +115,7 @@ public class InviteViewModel extends AndroidViewModel {
                                 mUserList.setValue(mUserList.getValue());
                             }
                         }
-
                     }
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
