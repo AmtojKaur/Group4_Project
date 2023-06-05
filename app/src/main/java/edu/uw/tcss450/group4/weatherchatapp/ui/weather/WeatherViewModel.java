@@ -5,13 +5,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class WeatherViewModel {
+public class WeatherLogic {
+    private String cityName;
     private ArrayList<WeatherObject> hourly;
     private ArrayList<WeatherObject> daily;
     private WeatherObject current;
 
-
-    public WeatherViewModel(String jsonString) {
+    public WeatherLogic(String jsonString, String cityName) {
+        this.cityName = cityName;
         hourly = new ArrayList<>();
         daily = new ArrayList<>();
 
@@ -54,7 +55,7 @@ public class WeatherViewModel {
     }
 
     private double parseTemperature(String temperatureString) {
-        // Assuming the temperature string is in the format "48°F"
+        // Assuming the temperature string is in the format "68°F"
         String[] parts = temperatureString.split("°");
         if (parts.length == 2) {
             String temperatureValue = parts[0];
@@ -67,6 +68,11 @@ public class WeatherViewModel {
         return 0.0;
     }
 
+
+    public String getCityName() {
+        return cityName;
+    }
+
     public ArrayList<WeatherObject> getHourly() {
         return hourly;
     }
@@ -75,7 +81,7 @@ public class WeatherViewModel {
         return daily;
     }
 
-    public WeatherObject getCurrent() {
+    public WeatherObject getCurrentConditions() {
         return current;
     }
 }

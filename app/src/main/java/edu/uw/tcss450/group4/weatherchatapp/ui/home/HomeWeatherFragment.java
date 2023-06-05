@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ public class HomeWeatherFragment extends Fragment {
     private TextView mHighTemperatureTextView;
     private TextView mLowTemperatureTextView;
 
+    private ImageView mWeatherIconImageView;
     private LocationManager mLocationManager;
     private LocationListener mLocationListener;
 
@@ -58,7 +60,7 @@ public class HomeWeatherFragment extends Fragment {
         mTemperatureTextView = view.findViewById(R.id.weather_current_temperature);
         mHighTemperatureTextView = view.findViewById(R.id.weather_high_temperature);
         mLowTemperatureTextView = view.findViewById(R.id.weather_low_temperature);
-
+        mWeatherIconImageView = view.findViewById(R.id.weather_current_condition_img);
         mLocationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
         mLocationListener = new LocationListener() {
             @Override
@@ -146,9 +148,25 @@ public class HomeWeatherFragment extends Fragment {
                     String highTemperature = currentConditions.getString("highTemperature");
                     String lowTemperature = currentConditions.getString("lowTemperature");
 
-                    mTemperatureTextView.setText(temperature);
-                    mHighTemperatureTextView.setText(highTemperature);
-                    mLowTemperatureTextView.setText(lowTemperature);
+                    // Remove non-numeric character from temperature
+                    temperature = temperature.replaceAll("[^0-9]", "");
+
+                    mTemperatureTextView.setText(temperature + "° F");
+                    mHighTemperatureTextView.setText(highTemperature + "° F");
+                    mLowTemperatureTextView.setText(lowTemperature + "° F");
+
+                    int tempValue = Integer.parseInt(temperature);
+
+                    if (tempValue >= 80) {
+                        // Set hot weather icon
+                        mWeatherIconImageView.setImageResource(R.drawable.sunny_temperature_icon);
+                    } else if (tempValue >= 60) {
+                        // Set moderate weather icon
+                        mWeatherIconImageView.setImageResource(R.drawable.sun_sunny_icon);
+                    } else {
+                        // Set cold weather icon
+                        mWeatherIconImageView.setImageResource(R.drawable.clouds_cloudy_icon);
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
