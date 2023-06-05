@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatListCardBinding;
-import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatMenuCardBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.CardChatNewAddedBinding;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.CardChatNewBinding;
 
 /**
  * Class that handles the Recyclerview of ChatPreview objects.
@@ -25,11 +25,6 @@ public class ChatNewViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private final int SHOW_MENU = 1;
     private final int HIDE_MENU = 2;
 
-    /**
-     * Public constructor that sets the private list of ChatPreview objects equal
-     * to the actual, passed in value of real-time ChatPreview objects.
-     * @param contacts the ArrayList of ChatObject objects
-     */
     public ChatNewViewAdapter(List<ChatObject> contacts) {
         this.mContacts = contacts;
     }
@@ -40,33 +35,23 @@ public class ChatNewViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         View v;
         if (viewType == SHOW_MENU) {
             v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.chat, parent, false);
+                    .inflate(R.layout.card_chat_new_added, parent, false);
             return new MenuViewHolder(v);
         } else {
-            return new ChatListViewHolder(LayoutInflater
+            return new ChatNewViewHolder(LayoutInflater
                     .from(parent.getContext())
-                    .inflate(R.layout.chat_list_card, parent, false));
+                    .inflate(R.layout.card_chat_new, parent, false));
         }
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof ChatListViewHolder) {
-            ((ChatListViewHolder)holder).setChatPreview(mContacts.get(position));
-//            ((ChatListViewHolder)holder).checkAddChat();
-            //code can be switched to view delete functionality instead of add functionality
-            //holder.checkDeleteChat(position);
-            ((ChatListViewHolder)holder).binding.buttonIndividualChat.setOnLongClickListener(
-                    v -> {
-                        showMenu(position);
-                        return true;
-                    }
-            );
+        if (holder instanceof ChatNewViewHolder) {
+            ((ChatNewViewHolder)holder).setNewContactName(mContacts.get(position));
         }
 
         if (holder instanceof MenuViewHolder) {
-            ((MenuViewHolder)holder).checkDeleteChat(position);
-            ((MenuViewHolder)holder).checkEnterChat(mContacts.get(position));
+            ((MenuViewHolder)holder).checkDeselectUser(position);
         }
     }
 
@@ -101,10 +86,8 @@ public class ChatNewViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         return false;
     }
 
-    void closeMenu() {
-        for (int i = 0; i < mContacts.size(); i++){
-            mContacts.get(i).setShowMenu(false);
-        }
+    void closeMenu(int position) {
+        mContacts.get(position).setShowMenu(false);
         notifyDataSetChanged();
     }
 
@@ -112,48 +95,18 @@ public class ChatNewViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
      * Objects from this class represent an individual row View from the List
      * of rows in the Chat Recycler View.
      */
-    private static class ChatListViewHolder extends RecyclerView.ViewHolder {
+    private static class ChatNewViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public ChatListCardBinding binding;
+        public CardChatNewBinding binding;
 
-        /**
-         * Public constructor used to set the View and binding of a
-         * ChatPreview object.
-         * @param view the View associated with the ChatPreview object
-         */
-        public ChatListViewHolder(View view) {
+        public ChatNewViewHolder(View view) {
             super(view);
             mView = view;
-            binding = ChatListCardBinding.bind(view);
+            binding = CardChatNewBinding.bind(view);
         }
 
-        /**
-         * Setter method that gets the chat name, last sent message, and message time,
-         * and displays it on the ChatPreview object.
-         * @param chatObject the ChatPreview the data is associated with
-         */
-        void setChatPreview(final ChatObject chatObject) {
-
-            // shows dummy data
+        void setNewContactName(final ChatObject chatObject) {
             binding.textviewName.setText(chatObject.getMessageID());
-            binding.time.setText(chatObject.getTimeOfMsg());
-            binding.message.setText(chatObject.getMessage());
-
-            checkEnterChatRoom(chatObject);
-        }
-
-        /**
-         * Method that checks if the button used to enter an IndividualChat has been pressed,
-         * and then navigates to the associated IndividualChat if pressed is true.
-         * @param chat the ChatPreview being checked if pressed
-         */
-        void checkEnterChatRoom(final ChatObject chat) {
-            binding.buttonIndividualChat.setOnClickListener(view -> {
-//                Navigation.findNavController(mView).navigate(
-//                        ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
-            });
         }
 
         /**
@@ -172,30 +125,18 @@ public class ChatNewViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public class MenuViewHolder extends RecyclerView.ViewHolder {
 
         public final View mView;
-        public ChatMenuCardBinding binding;
+        public CardChatNewAddedBinding binding;
 
         public MenuViewHolder(View view) {
             super(view);
             mView = view;
-            binding = ChatMenuCardBinding.bind(view);
+            binding = CardChatNewAddedBinding.bind(view);
         }
 
-        void checkDeleteChat(final int position) {
-            binding.buttonDelete.setOnClickListener(view -> {
-                Log.d("Pressed profile button", "Deleted chat");
-                mContacts.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position, mContacts.size());
-            });
-        }
-
-        void checkEnterChat(ChatObject chat) {
-            binding.buttonIndividualChat.setOnClickListener(view -> {
-//                Navigation.findNavController(mView).navigate(
-//                        ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
-                closeMenu();
+        void checkDeselectUser(final int position) {
+            binding.buttonAccepted.setOnClickListener(view -> {
+                Log.d("Pressed accepted button", "Deselect user");
+                closeMenu(position);
             });
         }
     }

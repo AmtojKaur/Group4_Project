@@ -50,7 +50,7 @@ public class IncomingViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (holder instanceof IncomingViewHolder) {
             ((IncomingViewHolder)holder).setChatPreview(mFriendRequests.get(position));
             ((IncomingViewHolder) holder).pressedDecline(position);
-            ((IncomingViewHolder)holder).binding.buttonAccept.setOnClickListener(
+            ((IncomingViewHolder)holder).binding.buttonAccepted.setOnClickListener(
                     v -> {
                         //ChatGenerator.addContact(mFriendRequests.get(position).getMessageID());
                         //ChatGenerator.addContact("temp name");
