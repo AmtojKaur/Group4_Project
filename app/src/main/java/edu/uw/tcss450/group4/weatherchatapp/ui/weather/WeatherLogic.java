@@ -55,7 +55,7 @@ public class WeatherLogic {
     }
 
     private double parseTemperature(String temperatureString) {
-        // Assuming the temperature string is in the format "48°F"
+        // Assuming the temperature string is in the format "68°F"
         String[] parts = temperatureString.split("°");
         if (parts.length == 2) {
             String temperatureValue = parts[0];
@@ -67,6 +67,7 @@ public class WeatherLogic {
         }
         return 0.0;
     }
+
 
     public String getCityName() {
         return cityName;

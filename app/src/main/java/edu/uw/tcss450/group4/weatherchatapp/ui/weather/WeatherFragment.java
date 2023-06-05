@@ -1,6 +1,7 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.weather;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -22,11 +24,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -68,11 +72,16 @@ public class WeatherFragment extends Fragment {
             // Navigate to WeatherAddFragment
             Navigation.findNavController(view).navigate(R.id.action_navigation_weather_to_weatherAddFragment);
         });
+        AppCompatImageButton changeLocationButton = view.findViewById(R.id.changeLocationButton);
+        changeLocationButton.setOnClickListener(v -> {
+            // Open the location popup here
+            showLocationPopup();
+        });
 
         new WeatherRequestTask().execute(currentZipCode);
 
         FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
-        weatherBinding.dayAndCityText.setText("Tacoma, WA"); // Default location for search
+        weatherBinding.dayAndCityText.setText("Tacoma"); // Default location for search
         weatherBinding.tempText.setText("-----");
         weatherBinding.idTVShortForecast.setText("-");
         Drawable condIcon = ContextCompat.getDrawable(getActivity(), R.drawable.cloud);
@@ -118,6 +127,8 @@ public class WeatherFragment extends Fragment {
         } else {
             getCurrentLocation();
         }
+
+
     }
 
     @Override
@@ -162,6 +173,25 @@ public class WeatherFragment extends Fragment {
         return zipCode;
     }
 
+    private void showLocationPopup() {
+        // Create and show the location popup here
+        // You can use AlertDialog or any other custom dialog implementation
+        // Customize the popup to your needs
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Change Location")
+                .setMessage("Click Ok for Current Location")
+                .setPositiveButton("OK", (dialog, which) -> {
+                    // Retrieve the current location
+                    getCurrentLocation();
+                })
+                .setNegativeButton("Cancel", (dialog, which) -> {
+                    // Handle the Cancel button click if needed
+                });
+
+        AlertDialog locationPopup = builder.create();
+        locationPopup.show();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_weather, container, false);
@@ -178,9 +208,17 @@ public class WeatherFragment extends Fragment {
             }
             currentZipCode = zipCode;
             new WeatherRequestTask().execute(currentZipCode);
+
+            // Clear the input box
+            inputBox.setText("");
+
+            // Hide the keyboard
+            InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(inputBox.getWindowToken(), 0);
         });
 
         return view;
+
     }
 
     private class WeatherRequestTask extends AsyncTask<String, Void, WeatherLogic> {
@@ -215,8 +253,19 @@ public class WeatherFragment extends Fragment {
 
             WeatherObject currentWeather = weather.getCurrentConditions();
             if (currentWeather != null) {
-                String temperature = currentWeather.getTemperature();
+                String temperatureString = currentWeather.getTemperature();
                 String shortForecast = currentWeather.getShortForecast();
+                String temperature = extractNumericTemperature(temperatureString);
+
+
+                if (temperature != null) {
+                    // Set the extracted temperature value in the appropriate view
+                    weatherBinding.tempText.setText(temperature);
+                } else {
+                    // Display a default value or handle the case when the temperature cannot be extracted
+                    weatherBinding.tempText.setText("--");
+                }
+
 
                 // Set the temperature and short forecast in the appropriate views
                 weatherBinding.tempText.setText(temperature);
@@ -236,6 +285,8 @@ public class WeatherFragment extends Fragment {
                     weatherIconImageView.setImageResource(R.drawable.cloudy_rain_sunny_icon);
                 } else if (shortForecast.equals("Mostly Sunny")) {
                     weatherIconImageView.setImageResource(R.drawable.sun_sunny_icon);
+                } else if (shortForecast.equals("Partly Cloudy")) {
+                    weatherIconImageView.setImageResource(R.drawable.sun_sunny_icon);
                 } else if (shortForecast.equals("Haze")) {
                     weatherIconImageView.setImageResource(R.drawable.mist_weather_icon);
                 }
@@ -251,22 +302,25 @@ public class WeatherFragment extends Fragment {
 
             if (weather.getHourly() != null) {
                 for (WeatherObject weatherHourly : weather.getHourly()) {
-                    dailyWeatherList.add(new WeatherRVModel(String.valueOf(weatherHourly.getTemperature()),
+                    dailyWeatherList.add(new WeatherRVModel(
+                            weatherHourly.getTemperature(),
                             String.valueOf(weatherHourly.getWindSpeed()),
                             weatherHourly.getShortForecast()));
                 }
-                dailyWeatherAdapter.notifyDataSetChanged(); // Add this line
+                dailyWeatherAdapter.notifyDataSetChanged();
             }
 
             if (weather.getDaily() != null) {
                 for (WeatherObject weatherDaily : weather.getDaily()) {
-                    weeklyForecastList.add(new WeatherRVModel(String.valueOf(weatherDaily.getTemperature()),
+                    weeklyForecastList.add(new WeatherRVModel(
+                            weatherDaily.getTemperature(),
                             String.valueOf(weatherDaily.getWindSpeed()),
                             weatherDaily.getShortForecast()));
                 }
-                weeklyForecastAdapter.notifyDataSetChanged(); // Add this line
+                weeklyForecastAdapter.notifyDataSetChanged();
             }
         }
+
 
         private String getCityNameFromZipCode(String zipCode) {
             String cityName = null;
@@ -298,6 +352,44 @@ public class WeatherFragment extends Fragment {
             }
             return cityName;
         }
+
+        private void setUpCurrent(JSONObject response) {
+            try {
+                JSONObject properties = response.getJSONObject("properties");
+                JSONObject currentConditions = properties.getJSONObject("currentConditions");
+                String temperature = currentConditions.getString("temperature");
+
+                // Extract the numeric part of the temperature string
+                String numericTemperature = extractNumericTemperature(temperature);
+
+                if (numericTemperature != null) {
+                    // Set the extracted temperature value in the appropriate view
+                    weatherBinding.tempText.setText(numericTemperature + "°");
+                } else {
+                    // Display a default value or handle the case when the temperature cannot be extracted
+                    weatherBinding.tempText.setText("--");
+                }
+
+                // Rest of your code...
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        private String extractNumericTemperature(String temperatureString) {
+            if (temperatureString != null && !temperatureString.isEmpty()) {
+                StringBuilder numericTemperature = new StringBuilder();
+                for (char c : temperatureString.toCharArray()) {
+                    if (Character.isDigit(c) || c == '-') {
+                        numericTemperature.append(c);
+                    }
+                }
+                return numericTemperature.toString();
+            }
+            return null;
+        }
+
     }
+
 
 }

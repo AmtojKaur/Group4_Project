@@ -29,10 +29,11 @@ public class WeatherRVAdapter extends RecyclerView.Adapter<WeatherRVAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         WeatherRVModel model = weatherRVModelList.get(position);
-        holder.tempTV.setText(model.getTemperature() + "°");
+        holder.tempTV.setText(model.getTemperature() + "° F");
         holder.timeTV.setText(model.getTime());
         holder.shortForecastTV.setText(model.getShortForecast());
         holder.windTV.setText(model.getWindSpeed() + ""); // Set the wind speed text
+
     }
 
     @Override

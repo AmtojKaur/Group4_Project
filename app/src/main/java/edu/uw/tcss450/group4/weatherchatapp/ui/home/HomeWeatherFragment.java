@@ -137,9 +137,6 @@ public class HomeWeatherFragment extends Fragment {
 
         @Override
         protected void onPostExecute(StringBuilder response) {
-           
-            
-
             // Parse the response and update the UI
             if (response != null) {
                 try {
@@ -151,9 +148,12 @@ public class HomeWeatherFragment extends Fragment {
                     String highTemperature = currentConditions.getString("highTemperature");
                     String lowTemperature = currentConditions.getString("lowTemperature");
 
-                    mTemperatureTextView.setText(temperature);
-                    mHighTemperatureTextView.setText(highTemperature);
-                    mLowTemperatureTextView.setText(lowTemperature);
+                    // Remove non-numeric character from temperature
+                    temperature = temperature.replaceAll("[^0-9]", "");
+
+                    mTemperatureTextView.setText(temperature + "° F");
+                    mHighTemperatureTextView.setText(highTemperature + "° F");
+                    mLowTemperatureTextView.setText(lowTemperature + "° F");
 
                     int tempValue = Integer.parseInt(temperature);
 

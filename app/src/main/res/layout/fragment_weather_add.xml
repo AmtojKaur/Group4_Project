@@ -8,9 +8,9 @@
     app:layout_goneMarginBottom="@dimen/_80sdp"
     tools:context=".ui.weather.WeatherFragment">
 
-    <ImageButton
+
+    <Button
         android:id="@+id/button_weather"
-        style="@android:style/Widget.Material.ImageButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginTop="8dp"

@@ -18,9 +18,7 @@
         android:theme="@style/Theme.WeatherChatApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity android:name=".MainActivity"></activity>
-        <activity
-            android:name=".AuthActivity"
+        <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -117,6 +117,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <!-- Bottom Nav Container -->
+
     <TextView
         android:id="@+id/TwentyFourForecast"
         android:layout_width="match_parent"
@@ -129,7 +131,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/twentyFourHourForecastRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idTVShortForecast" />
 
@@ -139,11 +141,11 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/sevenDayForecastRecyclerView"
         android:layout_alignParentBottom="false"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TwentyFourForecast"
         tools:listitem="@layout/hourly_forecast_item" />
@@ -165,13 +167,12 @@
         app:layout_constraintTop_toBottomOf="@+id/twentyFourHourForecastRecyclerView"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Bottom Nav Container -->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sevenDayForecastRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="1dp"
         android:layout_marginBottom="45dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -180,7 +181,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WeeklyForecast"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.076"
         tools:listitem="@layout/daily_forecast_item" />
 
     <ImageView
