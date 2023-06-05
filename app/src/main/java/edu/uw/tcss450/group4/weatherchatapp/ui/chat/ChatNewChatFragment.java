@@ -53,6 +53,7 @@ public class ChatNewChatFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d("New Chat Button Press", "New Chat Fragment");
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.chat_new_chat_fragment, container, false);
     }
@@ -60,8 +61,16 @@ public class ChatNewChatFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         // view binding variable
         ChatNewChatFragmentBinding binding = ChatNewChatFragmentBinding.bind(getView());
+
+        // new chat recycler view
+        mModel.addChatNewChatObserver(getViewLifecycleOwner(), newChatList -> {
+            if (view instanceof ConstraintLayout) {
+
+            }
+        });
 
     }
 
