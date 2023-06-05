@@ -16,7 +16,7 @@ import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteMenuCar
 
 public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<UserObject> mInvites;
+    private static List<UserObject> mInvites;
     private InviteViewModel mModel;
     private final int SHOW_MENU = 1;
     private final int HIDE_MENU = 2;
@@ -57,15 +57,6 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         return true;
                     }
             );
-
-            if (mModel.notifyUpdatedUserList) {
-                //System.out.println("mInvites size: " + mInvites.size());
-
-                //notifyItemInserted(0);
-                //notifyItemRangeChanged(mInvites.size() - 1, mInvites.size());
-
-                mModel.notifyUpdatedUserList = false;
-            }
         }
 
         if (holder instanceof InviteMenuViewHolder) {
@@ -111,7 +102,7 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         notifyDataSetChanged();
     }
 
-    public static class InviteViewHolder extends RecyclerView.ViewHolder {
+    public class InviteViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
 
         public ConnectionsInviteListCardBinding binding;

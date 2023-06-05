@@ -49,9 +49,13 @@ public class InviteFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
 
+        // get email from sign-in process
         mModel.setUserEmail(UserInfoViewModel.getEmail());
 
-        mModel.connectGETuserID();
+        // get user's member ID
+        mModel.connectGETuserID(UserInfoViewModel.getEmail());
+
+        // get user's list of sent friend requests
         mModel.connectGET();
     }
 
@@ -79,7 +83,6 @@ public class InviteFragment extends Fragment {
 
             // get saved user email
             String userEmail = UserInfoViewModel.getEmail();
-
 
             mModel.addInviteFriendListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {

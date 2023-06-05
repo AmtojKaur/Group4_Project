@@ -89,10 +89,36 @@ public class InviteViewModel extends AndroidViewModel {
             // GET contacts
             else if (result.has("data")) {
                 try {
-                    System.out.println(result.names().toString());
-                    System.out.println(result.length());
-                    System.out.println(result.getJSONArray("data"));
-                    System.out.println(result.getJSONArray("data").length());
+                    System.out.println("names " + result.names().toString());
+                    System.out.println("length " + result.length());
+                    System.out.println("array " + result.getJSONArray("data"));
+                    System.out.println("array len " + result.getJSONArray("data").length());
+
+                    for (int i = 0; i < 7; i++) {
+                        JSONObject object = result.getJSONArray("data").getJSONObject(i);
+
+                        int key = object.getInt("primarykey");
+                        int memA = object.getInt("memberid_a");
+                        int memB = object.getInt("memberid_b");
+                        int verified = object.getInt("verified");
+
+                        if (verified == 0) {
+                            System.out.println("unverified");
+                            inviteList.add(memB);
+                            UserObject post = new UserObject(
+                                    key,
+                                    String.valueOf(memB),
+                                    String.valueOf(memB));
+                            if (mUserList.getValue().stream().noneMatch(element -> element.key == (key))) {
+                                mUserList.getValue().add(post);
+                                mUsersInvited.add(post);
+                                mUserList.setValue(mUserList.getValue());
+                            }
+                        }
+
+                    }
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -132,7 +158,7 @@ public class InviteViewModel extends AndroidViewModel {
                         UserObject post = new UserObject(
                                 primaryKey,
                                 String.valueOf(memberid_b),
-                                UserInfoViewModel.getEmail());
+                                String.valueOf(memberid_b));
                         if (mUserList.getValue().stream().noneMatch(element -> element.key == (primaryKey))) {
                             mUserList.getValue().add(post);
 
@@ -153,9 +179,9 @@ public class InviteViewModel extends AndroidViewModel {
         }
     }
 
-    public void connectGETuserID() {
+    public void connectGETuserID(String email) {
         String url =
-                "https://amtojk-tcss450-labs.herokuapp.com/users/id/" + mEmail;
+                "https://amtojk-tcss450-labs.herokuapp.com/users/id/" + email;
 
         Request request = new JsonObjectRequest(
                 Request.Method.GET,
@@ -175,6 +201,7 @@ public class InviteViewModel extends AndroidViewModel {
     }
 
     public void connectGET() {
+        mUserID = 63;
         String url =
                 "https://amtojk-tcss450-labs.herokuapp.com/contacts/" + mUserID;
 
