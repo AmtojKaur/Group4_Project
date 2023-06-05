@@ -37,21 +37,20 @@
     <ImageView
         android:id="@+id/view_recycler_background"
         style="@style/Tint_B8_B"
-        android:layout_width="370dp"
-        android:layout_height="630dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="350dp"
+        android:layout_height="550dp"
+        android:layout_marginBottom="-1dp"
         android:src="@drawable/bottomlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_received" />
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_background"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_root"
         android:layout_width="0dp"
-        android:layout_height="570dp"
+        android:layout_height="510dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/color_blue8"
         android:orientation="vertical"
         app:layoutManager="LinearLayoutManager"
@@ -67,12 +66,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_marginTop="590dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="25dp"
         android:backgroundTint="@color/color_blue5"
         android:contentDescription="@string/action_new_chat"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_background"
+        app:layout_constraintEnd_toEndOf="@id/bottom_nav_background"
         app:srcCompat="@drawable/ic_newchat_black_24dp" />
 
     <!-- Bottom Nav Container -->
