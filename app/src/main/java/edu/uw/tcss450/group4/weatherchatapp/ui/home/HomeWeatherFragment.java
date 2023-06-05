@@ -159,13 +159,13 @@ public class HomeWeatherFragment extends Fragment {
 
                     if (tempValue >= 80) {
                         // Set hot weather icon
-                        mWeatherIconImageView.setImageResource(R.drawable.sun_sunny_icon);
+                        mWeatherIconImageView.setImageResource(R.drawable.sunny_temperature_icon);
                     } else if (tempValue >= 60) {
                         // Set moderate weather icon
-                        mWeatherIconImageView.setImageResource(R.drawable.clouds_cloudy_icon);
+                        mWeatherIconImageView.setImageResource(R.drawable.sun_sunny_icon);
                     } else {
                         // Set cold weather icon
-                        mWeatherIconImageView.setImageResource(R.drawable.cloudy_forecast_rain_icon);
+                        mWeatherIconImageView.setImageResource(R.drawable.clouds_cloudy_icon);
                     }
 
                 } catch (JSONException e) {
