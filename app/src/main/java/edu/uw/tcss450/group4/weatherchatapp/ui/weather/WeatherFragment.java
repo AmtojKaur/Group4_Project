@@ -221,13 +221,13 @@ public class WeatherFragment extends Fragment {
 
     }
 
-    private class WeatherRequestTask extends AsyncTask<String, Void, WeatherLogic> {
+    private class WeatherRequestTask extends AsyncTask<String, Void, WeatherViewModel> {
 
         private String zipCode;
         private FragmentWeatherBinding weatherBinding;
 
         @Override
-        protected WeatherLogic doInBackground(String... params) {
+        protected WeatherViewModel doInBackground(String... params) {
             zipCode = params[0];
             // Geocode API REQUEST
             String cityName = getCityNameFromZipCode(zipCode);
@@ -238,7 +238,7 @@ public class WeatherFragment extends Fragment {
 
             // Weather API REQUEST
             String jsonString = String.valueOf(WeatherRequest.request(zipCode));
-            return new WeatherLogic(jsonString, cityName);
+            return new WeatherViewModel(jsonString, cityName);
         }
 
         protected void onProgressUpdate(Void... values) {
@@ -246,7 +246,7 @@ public class WeatherFragment extends Fragment {
             weatherBinding.dayAndCityText.setText("Loading...");
         }
 
-        protected void onPostExecute(WeatherLogic weather) {
+        protected void onPostExecute(WeatherViewModel weather) {
             FragmentWeatherBinding weatherBinding = FragmentWeatherBinding.bind(requireView());
 
             weatherBinding.dayAndCityText.setText(weather.getCityName());

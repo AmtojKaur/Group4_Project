@@ -5,13 +5,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class WeatherLogic {
+public class WeatherViewModel {
     private String cityName;
     private ArrayList<WeatherObject> hourly;
     private ArrayList<WeatherObject> daily;
     private WeatherObject current;
 
-    public WeatherLogic(String jsonString, String cityName) {
+    public WeatherViewModel(String jsonString, String cityName) {
         this.cityName = cityName;
         hourly = new ArrayList<>();
         daily = new ArrayList<>();
