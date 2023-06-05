@@ -5,11 +5,10 @@ Repository for Group 4's TCSS 450 Project
 
 ## Implemented
 
-- Sign in
-- Sign in validation
-- Registration
-- Email validation
-- Email verification
+- Sign in (correct email, correct password, user validated)
+- Registration (real email, strong password, valid fields)
+- Email validation (checks if email exists)
+- Email verification (sends email, hyperlink)
 - Forgot password
 - Change password
 - Get weather info from ZIP code and coordinates
