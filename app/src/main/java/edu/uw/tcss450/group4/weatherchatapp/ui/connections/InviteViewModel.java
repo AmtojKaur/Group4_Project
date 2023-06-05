@@ -26,19 +26,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.uw.tcss450.group4.weatherchatapp.model.UserInfoViewModel;
+
 public class InviteViewModel extends AndroidViewModel {
 
     private int mUserID;
     private String mEmail;
 
-    private String emailA;
-    private String emailB;
-
     public boolean notifyUpdatedUserList = false;
     public boolean onCreate = false;
 
     private final MutableLiveData<List<UserObject>> mUserList;
-
     private List<UserObject> mUsersInvited = new ArrayList<>();
     public List<Integer> inviteList = new ArrayList<>();
 
@@ -62,6 +60,10 @@ public class InviteViewModel extends AndroidViewModel {
         System.out.println("set: " + mUserID);
     }
 
+    public void setUserEmail(String email) {
+        mEmail = email;
+    }
+
     public List<UserObject> getInvitedUsers() {
         return mUsersInvited;
     }
@@ -73,13 +75,31 @@ public class InviteViewModel extends AndroidViewModel {
     private void handleResult(final JSONObject result) {
         System.out.println("handle");
         if (result.length() > 0) {
-            System.out.println(">0");
-            //setUserID(63);
-
             System.out.println(result.names().toString());
 
+            // GET user ID
+            if (result.has("id")) {
+                try {
+                    setUserID(result.getInt("id"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            // GET contacts
+            else if (result.has("data")) {
+                try {
+                    System.out.println(result.names().toString());
+                    System.out.println(result.length());
+                    System.out.println(result.getJSONArray("data"));
+                    System.out.println(result.getJSONArray("data").length());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
             // POST
-            if (result.has("request")) {
+            else if (result.has("request")) {
                 System.out.println("request");
                 try {
                     int primaryKey = result.getJSONObject("request").getInt("primarykey");
@@ -112,7 +132,7 @@ public class InviteViewModel extends AndroidViewModel {
                         UserObject post = new UserObject(
                                 primaryKey,
                                 String.valueOf(memberid_b),
-                                null);
+                                UserInfoViewModel.getEmail());
                         if (mUserList.getValue().stream().noneMatch(element -> element.key == (primaryKey))) {
                             mUserList.getValue().add(post);
 
@@ -127,27 +147,34 @@ public class InviteViewModel extends AndroidViewModel {
                 }
             }
 
-            // GET
-            else if (result.has("data")) {
-                try {
-                    int a = result.getJSONObject("data").getInt("memberid_a");
-                    System.out.println(a);
-                    //System.out.println(result.getJSONObject("data").names().toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
             else {
                 System.out.println(result.names().toString());
             }
         }
     }
 
+    public void connectGETuserID() {
+        String url =
+                "https://amtojk-tcss450-labs.herokuapp.com/users/id/" + mEmail;
+
+        Request request = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,  // no body for GET
+                this::handleResult,
+                this::handleError);
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getApplication().getApplicationContext())
+                .add(request);
+    }
+
     public void connectGET() {
-        //mUserID = 63;
-        //System.out.println(mUserID);
-        System.out.println(mUserID);
         String url =
                 "https://amtojk-tcss450-labs.herokuapp.com/contacts/" + mUserID;
 
@@ -198,16 +225,160 @@ public class InviteViewModel extends AndroidViewModel {
                 .add(request);
     }
 
-    // SEND FRIEND REQUEST
+    public void connectGETcontacts() {
+        String url =
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts/" + mUserID;
 
-    // GET /users endpoint
-    // verify user associated with email exists in list of all current users
-    // GET all users and compare email
-    // if email matches, get userID
+        // request
+        Request request = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,  // no body for GET
+                this::handleResult,
+                this::handleError);
 
-    // POST /contacts/request friend request associated with userID
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
-    // DELETE FRIEND REQUEST
-    // DELETE /contacts endpoint
-    // status is 0, for unconfirmed contacts
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getApplication().getApplicationContext())
+                .add(request);
+    }
+
+    public void connectGETsent() {
+        String url =
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts/sent/" + mUserID;
+
+        // request
+        Request request = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,  // no body for GET
+                this::handleResult,
+                this::handleError);
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getApplication().getApplicationContext())
+                .add(request);
+    }
+
+    public void connectGETreceived() {
+        String url =
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts/received/" + mUserID;
+
+        Request request = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,  // no body for GET
+                this::handleResult,
+                this::handleError);
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getApplication().getApplicationContext())
+                .add(request);
+    }
+
+    public void connectPUT(int memberid_A, int memberid_B) {
+        String url =
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts/";
+
+        // body parameters
+        JSONObject parameters = new JSONObject();
+        try {
+            parameters.put("from", memberid_A);
+            parameters.put("to", memberid_B);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // request
+        Request request = new JsonObjectRequest(
+                Request.Method.PUT,
+                url,
+                parameters,  // body for PUT
+                this::handleResult,
+                this::handleError);
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getApplication().getApplicationContext())
+                .add(request);
+    }
+
+    public void connectPost(int memberid_A, int memberid_B) {
+        String url =
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts/";
+
+        // body parameters
+        JSONObject parameters = new JSONObject();
+        try {
+            parameters.put("from", memberid_A);
+            parameters.put("to", memberid_B);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // request
+        Request request = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                parameters,  // body for POST
+                this::handleResult,
+                this::handleError);
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getApplication().getApplicationContext())
+                .add(request);
+    }
+
+    public void connectDelete(int memberid_A, int memberid_B) {
+        String url =
+                "https://amtojk-tcss450-labs.herokuapp.com/contacts/";
+
+        JSONObject parameters = new JSONObject();
+        try {
+            parameters.put("from", memberid_A);
+            parameters.put("to", memberid_B);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // request
+        Request request = new JsonObjectRequest(
+                Request.Method.DELETE,
+                url,
+                parameters,  // body for DELETE
+                this::handleResult,
+                this::handleError);
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getApplication().getApplicationContext())
+                .add(request);
+    }
 }

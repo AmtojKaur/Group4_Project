@@ -25,6 +25,8 @@ import org.json.JSONObject;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.AuthSignInFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.model.UserInfoViewModel;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.InviteViewModel;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.UserObject;
 import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
 
 /**
