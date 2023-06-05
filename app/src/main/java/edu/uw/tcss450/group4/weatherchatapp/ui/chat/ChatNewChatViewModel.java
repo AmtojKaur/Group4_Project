@@ -33,6 +33,7 @@ public class ChatNewChatViewModel extends AndroidViewModel {
 
    private final MutableLiveData<JSONObject> mResponse;
 
+
     /**
      * Public constructor to declare a new MutableLiveData object and
      * sets its value to a List.

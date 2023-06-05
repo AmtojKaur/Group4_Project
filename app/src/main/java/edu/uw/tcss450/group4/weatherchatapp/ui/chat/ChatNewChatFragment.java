@@ -34,6 +34,7 @@ public class ChatNewChatFragment extends Fragment {
     private int mChatID;
 
     private UserInfoViewModel mUserInfo;
+    private ChatNewChatFragmentBinding binding;
 
     public ChatNewChatFragment() {
         // Required empty public constructor
@@ -63,15 +64,17 @@ public class ChatNewChatFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // view binding variable
-        ChatNewChatFragmentBinding binding = ChatNewChatFragmentBinding.bind(getView());
+        binding = ChatNewChatFragmentBinding.bind(getView());
 
         // new chat recycler view
         mModel.addChatNewChatObserver(getViewLifecycleOwner(), newChatList -> {
             if (view instanceof ConstraintLayout) {
-
-            }
+                binding.buttonCreate.setOnClickListener(button -> {
+                    Log.d("Button Clicked", "Nav Create New Chat");
+                    Navigation.findNavController(getView()).navigate(
+                            ChatListFragmentDirections.actionNavigationChatNewChatFragmentToIndividualChatFragment());
+                });            }
         });
-
     }
 
 }
