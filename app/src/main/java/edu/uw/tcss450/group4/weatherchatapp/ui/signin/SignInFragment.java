@@ -21,11 +21,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentSignInBinding;
+import edu.uw.tcss450.group4.weatherchatapp.model.UserInfoViewModel;
 import edu.uw.tcss450.group4.weatherchatapp.utils.PasswordValidator;
 
 /**
@@ -127,10 +134,14 @@ public class SignInFragment extends Fragment {
      * Method that sends email and password to sign in view model.
      */
     private void verifyAuthWithServer() {
-        mSignInModel.connect( binding.editEmail.getText().toString(),
+        mSignInModel.connect(binding.editEmail.getText().toString(),
                 binding.editPassword.getText().toString());
-        //This is an Asynchronous call. No statements after should rely on the
-        //result of connect().
+
+        // get and set user email from login credentials
+        UserInfoViewModel.setUserEmail(binding.editEmail.getText().toString());
+
+        // get user ID from their email
+        connectGETuserID(UserInfoViewModel.getEmail());
 
     }
 
@@ -187,4 +198,47 @@ public class SignInFragment extends Fragment {
             Log.d("JSON Response", "No Response");
         }
     }
+
+    public void connectGETuserID(String email) {
+        String url =
+                "https://amtojk-tcss450-labs.herokuapp.com/users/id/" + email;
+
+        Request request = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,  // no body for GET
+                this::handleResult,
+                this::handleError);
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getActivity().getApplication().getApplicationContext())
+                .add(request);
+    }
+
+    private void handleError(final VolleyError error) {
+        Log.e("CONNECTION ERROR: Invite VM", error.toString());
+    }
+
+    private void handleResult(final JSONObject result) {
+        if (result.length() > 0) {
+            Log.e("not an error", result.names().toString());
+
+            // GET user ID
+            if (result.has("id")) {
+                try {
+                    UserInfoViewModel.setUserID(result.getInt("id"));
+                    Log.e("not error", String.valueOf(UserInfoViewModel.getUserID()));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 }

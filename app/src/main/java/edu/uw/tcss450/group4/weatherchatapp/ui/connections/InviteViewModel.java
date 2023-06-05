@@ -14,6 +14,13 @@ import java.util.List;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
 public class InviteViewModel extends AndroidViewModel {
+
+    private int mUserID;
+    private int mOtherUserID;
+    private String mUserEmail;
+    private String mOtherUserEmail;
+
+
     private final MutableLiveData<List<ChatPreview>> mChatList;
 
     public InviteViewModel(@NonNull Application application) {

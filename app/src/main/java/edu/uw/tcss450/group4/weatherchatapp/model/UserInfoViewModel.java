@@ -11,8 +11,10 @@ import androidx.lifecycle.ViewModelProvider;
  * @version 3 May 2023
  */
 public class UserInfoViewModel extends ViewModel {
-    private final String mEmail;
+    private static String mUserEmail;
     private final String mJwt;
+
+    private static int mUserID;
 
     /**
      * Private constructor that initializes user email and jwt.
@@ -20,15 +22,27 @@ public class UserInfoViewModel extends ViewModel {
      * @param jwt the String where the email is stored
      */
     private UserInfoViewModel(String email, String jwt) {
-        mEmail = email;
+        mUserEmail = email;
         mJwt = jwt;
+    }
+
+    public static void setUserEmail(String email) {
+        mUserEmail = email;
+    }
+
+    public static void setUserID(int id) {
+        mUserID = id;
     }
 
     /**
      * Get the email address that is stored in the payload of the JWT this ViewModel holds.
      */
-    public String getEmail() {
-        return mEmail;
+    public static String getEmail() {
+        return mUserEmail;
+    }
+
+    public static int getUserID() {
+        return mUserID;
     }
 
     /**
