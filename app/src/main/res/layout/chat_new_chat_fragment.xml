@@ -96,20 +96,21 @@
         android:id="@+id/view_recycler_background"
         style="@style/Tint_Y8_G8"
         android:layout_width="340dp"
-        android:layout_marginTop="190dp"
+
         android:layout_height="420dp"
         android:src="@drawable/bottomlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <!-- Recycler View -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_received"
         android:layout_width="0dp"
-        android:layout_height="320dp"
+        android:layout_height="350dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/color_blue8"
         android:orientation="vertical"
         app:layoutManager="LinearLayoutManager"

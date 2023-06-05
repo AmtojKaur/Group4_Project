@@ -43,8 +43,8 @@ public class ChatNewChatFragment extends Fragment {
         super.onCreate(savedInstanceState);
         ViewModelProvider provider = new ViewModelProvider(getActivity());
         mModel = provider.get(ChatNewChatViewModel.class);
-        mUserInfo = provider.get(UserInfoViewModel.class);
-        mContactsList = provider.get(ConnectionsViewModel.class);
+        //mUserInfo = provider.get(UserInfoViewModel.class);
+        //mContactsList = provider.get(ConnectionsViewModel.class);
         //mContactsList.connectGET(getJwt(),getMemberID());
 
         Log.i("MAKE CHAT", "Prompted to try to make a new chatroom");
