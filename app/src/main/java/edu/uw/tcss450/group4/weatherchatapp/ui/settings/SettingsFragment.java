@@ -9,7 +9,9 @@ import android.widget.RadioGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.SettingsFragmentBinding;
@@ -59,5 +61,15 @@ public class SettingsFragment extends Fragment {
         } else {
             radioGroup.check(R.id.theme_light);
         }
+
+        AppCompatTextView changePassword = binding.settingsPassword;
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the Change Password Page
+                Navigation.findNavController(view).navigate(R.id.action_settingsFragment_to_changePasswordFragment);
+            }
+        });
+
     }
 }

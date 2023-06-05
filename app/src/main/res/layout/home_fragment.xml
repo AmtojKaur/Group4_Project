@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/home_weather_widget_fragment" />
+        tools:layout="@layout/fragment_weather_home" />
 
     <ImageView
         android:id="@+id/notifications_background"
@@ -61,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="@id/notifications_background"
         app:layout_constraintStart_toStartOf="@id/notifications_background"
         app:layout_constraintTop_toTopOf="@+id/notifications_background"
-        tools:layout="@layout/notifications_recent_list_fragment" />
+        tools:layout="@layout/fragment_recent_notifications_list" />
 
     <!--  Center Logo  -->
     <ImageView
