@@ -13,17 +13,16 @@ import androidx.lifecycle.ViewModelProvider;
 public class UserInfoViewModel extends ViewModel {
     private static String mEmail;
     private final String mJwt;
-    private final int mMemberID;
+    //private final int mMemberID;
 
     /**
      * Private constructor that initializes user email and jwt.
      * @param email the user's email address
      * @param jwt the String where the email is stored
      */
-    private UserInfoViewModel(String email, String jwt, int ID) {
+    private UserInfoViewModel(String email, String jwt) {
         mEmail = email;
         mJwt = jwt;
-        mMemberID = ID;
     }
 
     public static void setEmail(String email) {
@@ -48,7 +47,7 @@ public class UserInfoViewModel extends ViewModel {
      * Get the memberID that this ViewModel holds
      * @return
      */
-    public int getMemberID() { return mMemberID; }
+    //public int getMemberID() { return mMemberID; }
 
     /**
      * Helper factory class for verifying user's email.
@@ -57,19 +56,18 @@ public class UserInfoViewModel extends ViewModel {
 
         private final String email;
         private final String jwt;
-        private final int memberID;
+        //private final int memberID;
 
-        public UserInfoViewModelFactory(String email, String jwt, int ID) {
+        public UserInfoViewModelFactory(String email, String jwt) {
             this.email = email;
             this.jwt = jwt;
-            this.memberID = ID;
         }
 
         @NonNull
         @Override
         public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
             if (modelClass == UserInfoViewModel.class) {
-                return (T) new UserInfoViewModel(email, jwt, memberID);
+                return (T) new UserInfoViewModel(email, jwt);
             }
             throw new IllegalArgumentException(
                     "Argument must be: " + UserInfoViewModel.class);
