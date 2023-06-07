@@ -77,17 +77,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/save_non_transition_alpha"
-        android:layout_width="58dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="108dp"
-        android:backgroundTint="@color/color_yellow8"
-        android:src="@drawable/ic_baseline_save_alt_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/dayAndCityText"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/save_non_transition_alpha"-->
+<!--        android:layout_width="58dp"-->
+<!--        android:layout_height="66dp"-->
+<!--        android:layout_marginTop="108dp"-->
+<!--        android:backgroundTint="@color/color_yellow8"-->
+<!--        android:src="@drawable/ic_baseline_save_alt_24"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/dayAndCityText"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <ImageView
         android:id="@+id/curIcon"

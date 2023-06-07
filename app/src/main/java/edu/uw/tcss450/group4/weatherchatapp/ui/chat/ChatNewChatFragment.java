@@ -17,6 +17,9 @@ import android.view.ViewGroup;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.ChatNewChatFragmentBinding;
 import edu.uw.tcss450.group4.weatherchatapp.model.UserInfoViewModel;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.individual.IndividualChatRecyclerViewAdapter;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListRecyclerViewAdapter;
 import edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsViewModel;
 
 /**
@@ -65,7 +68,9 @@ public class ChatNewChatFragment extends Fragment {
         // new chat recycler view
         mModel.addChatNewChatObserver(getViewLifecycleOwner(), newChatList -> {
             if (view instanceof ConstraintLayout) {
-
+                binding.listReceived.setAdapter(
+                        new ChatNewViewAdapter(ChatGenerator.getChatList())
+                );
             }
         });
 

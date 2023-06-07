@@ -67,11 +67,11 @@ public class WeatherFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ImageButton saveButton = view.findViewById(R.id.save_non_transition_alpha);
-        saveButton.setOnClickListener(v -> {
-            // Navigate to WeatherAddFragment
-            Navigation.findNavController(view).navigate(R.id.action_navigation_weather_to_weatherAddFragment);
-        });
+//        ImageButton saveButton = view.findViewById(R.id.save_non_transition_alpha);
+//        saveButton.setOnClickListener(v -> {
+//            // Navigate to WeatherAddFragment
+//            Navigation.findNavController(view).navigate(R.id.action_navigation_weather_to_weatherAddFragment);
+//        });
         AppCompatImageButton changeLocationButton = view.findViewById(R.id.changeLocationButton);
         changeLocationButton.setOnClickListener(v -> {
             // Open the location popup here

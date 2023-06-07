@@ -13,6 +13,8 @@ import java.util.List;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 /**
  * Class that handles the Recyclerview of IndividualChat objects.
@@ -22,14 +24,14 @@ import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatLi
  */
 public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<IndividualChatRecyclerViewAdapter.IndividualChatViewHolder> {
 
-    private final List<IndividualChat> mChats;
+    private final List<ChatPreview> mChats;
 
     /**
      * Public constructor that sets the private list of IndividualChat objects equal
      * to the actual, passed in value of real-time IndividualChat objects.
      * @param chatViews the ArrayList of IndividualChat objects
      */
-    public IndividualChatRecyclerViewAdapter(List<IndividualChat> chatViews) {
+    public IndividualChatRecyclerViewAdapter(List<ChatPreview> chatViews) {
         this.mChats = chatViews;
     }
 
@@ -60,7 +62,7 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
     public class IndividualChatViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public FragmentIndividualChatCardBinding binding;
-        private IndividualChat mChat;
+        private ChatPreview mChat;
 
         /**
          * Public constructor used to set the View and binding of an
@@ -78,7 +80,7 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
          * on the IndividualChat object.
          * @param chat the IndividualChat the message is associated with
          */
-        void setChatPreview(final IndividualChat chat) {
+        void setChatPreview(final ChatPreview chat) {
             mChat = chat;
         }
 
@@ -91,7 +93,7 @@ public class IndividualChatRecyclerViewAdapter extends RecyclerView.Adapter<Indi
             binding.buttonAdd.setOnClickListener(view -> {
                 Log.d("Clicked", "click add chat");
 
-                mChats.add(mChats.size() - 1, IndividualChatGenerator.addChat());
+                ChatGenerator.addContact(mChats.get(mChats.size() - 1).getContact());
                 notifyItemInserted(mChats.size() - 1);
             });
         }

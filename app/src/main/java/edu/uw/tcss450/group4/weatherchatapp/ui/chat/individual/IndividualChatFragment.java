@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentIndividualChatListBinding;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
+import edu.uw.tcss450.group4.weatherchatapp.ui.connections.ConnectionsViewAdapter;
 
 /**
  * A {@link Fragment} subclass
@@ -49,13 +51,22 @@ public class IndividualChatFragment extends Fragment {
 
         FragmentIndividualChatListBinding binding = FragmentIndividualChatListBinding.bind(getView());
 
-        binding.swipeContainer.setRefreshing(true);
+//        binding.swipeContainer.setRefreshing(true);
+//
+//        final RecyclerView rv = binding.chatRecyclerView;
+//        rv.setAdapter(new IndividualChatRecyclerViewAdapter(IndividualChatGenerator.getChatList()));
+//
+//        binding.swipeContainer.setOnRefreshListener(() -> {
+//
+//        });
 
-        final RecyclerView rv = binding.chatRecyclerView;
-        rv.setAdapter(new IndividualChatRecyclerViewAdapter(IndividualChatGenerator.getChatList()));
-
-        binding.swipeContainer.setOnRefreshListener(() -> {
-
+        // chat recycler view
+        mModel.addIndividualChatListObserver(getViewLifecycleOwner(), chatList -> {
+            if (view instanceof ConstraintLayout) {
+                binding.chatRecyclerView.setAdapter(
+                        new IndividualChatRecyclerViewAdapter(ChatGenerator.getChatList())
+                );
+            }
         });
 
         binding.buttonSend.setOnClickListener(button -> {

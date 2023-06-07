@@ -13,6 +13,7 @@ import java.util.List;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.CardChatNewAddedBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.CardChatNewBinding;
+import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 
 /**
  * Class that handles the Recyclerview of ChatPreview objects.
@@ -21,11 +22,11 @@ import edu.uw.tcss450.group4.weatherchatapp.databinding.CardChatNewBinding;
  * @version 3 May 2023
  */
 public class ChatNewViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private final List<ChatObject> mContacts;
+    private final List<ChatPreview> mContacts;
     private final int SHOW_MENU = 1;
     private final int HIDE_MENU = 2;
 
-    public ChatNewViewAdapter(List<ChatObject> contacts) {
+    public ChatNewViewAdapter(List<ChatPreview> contacts) {
         this.mContacts = contacts;
     }
 
@@ -48,9 +49,16 @@ public class ChatNewViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ChatNewViewHolder) {
             ((ChatNewViewHolder)holder).setNewContactName(mContacts.get(position));
+            ((ChatNewViewHolder)holder).binding.buttonAccepted.setOnClickListener(
+                    v -> {
+                        showMenu(position);
+                    }
+            );
+
         }
 
         if (holder instanceof MenuViewHolder) {
+            ((MenuViewHolder)holder).setNewContactName(mContacts.get(position));
             ((MenuViewHolder)holder).checkDeselectUser(position);
         }
     }
@@ -105,21 +113,9 @@ public class ChatNewViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             binding = CardChatNewBinding.bind(view);
         }
 
-        void setNewContactName(final ChatObject chatObject) {
-            binding.textviewName.setText(chatObject.getMessageID());
+        void setNewContactName(final ChatPreview chatObject) {
+            binding.textviewName.setText(chatObject.getContact());
         }
-
-        /**
-         * Method that checks if the button used to add a chat has been pressed,
-         * and then adds a new chat to the Recylerview if pressed is true.
-         */
-//        void checkAddChat() {
-//            binding.buttonDelete.setOnClickListener(view -> {
-//                Log.d("Entered check add chat", "adding chat");
-//                mChats.add(ChatGenerator.addChat());
-//                notifyItemInserted(mChats.size() - 1);
-//            });
-//        }
     }
 
     public class MenuViewHolder extends RecyclerView.ViewHolder {
@@ -138,6 +134,10 @@ public class ChatNewViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 Log.d("Pressed accepted button", "Deselect user");
                 closeMenu(position);
             });
+        }
+
+        void setNewContactName(final ChatPreview chatObject) {
+            binding.textviewName.setText(chatObject.getContact());
         }
     }
 }

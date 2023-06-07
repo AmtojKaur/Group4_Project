@@ -152,8 +152,8 @@ public class HomeWeatherFragment extends Fragment {
                     temperature = temperature.replaceAll("[^0-9]", "");
 
                     mTemperatureTextView.setText(temperature + "° F");
-                    mHighTemperatureTextView.setText(highTemperature + "° F");
-                    mLowTemperatureTextView.setText(lowTemperature + "° F");
+                    mHighTemperatureTextView.setText(highTemperature);
+                    mLowTemperatureTextView.setText(lowTemperature);
 
                     int tempValue = Integer.parseInt(temperature);
 
