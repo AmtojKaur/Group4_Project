@@ -1,5 +1,6 @@
 package edu.uw.tcss450.group4.weatherchatapp.ui.connections;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,8 +14,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import edu.uw.tcss450.group4.weatherchatapp.MainActivity;
 import edu.uw.tcss450.group4.weatherchatapp.R;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentInviteListBinding;
 import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
@@ -22,12 +25,12 @@ import edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatGenerator;
 public class InviteFragment extends Fragment {
 
     private InviteViewModel mModel;
+    private InviteViewAdapter mAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Bottom nav", "Status");
-
+        Log.d("Connections nav", "Invite");
         return inflater.inflate(R.layout.fragment_invite_list, container, false);
     }
 
@@ -35,6 +38,9 @@ public class InviteFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mModel = new ViewModelProvider(getActivity()).get(InviteViewModel.class);
+
+        // get user's list of sent friend requests
+        mModel.connectGETsent();
     }
 
     @Override
@@ -45,22 +51,43 @@ public class InviteFragment extends Fragment {
         FragmentInviteListBinding binding = FragmentInviteListBinding.bind(getView());
 
         // connections recycler view
-        mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
+        mModel.addInviteListObserver(getViewLifecycleOwner(), chatList -> {
             if (view instanceof ConstraintLayout) {
-                binding.listSent.setAdapter(
-                        new InviteViewAdapter(ChatGenerator.getInvitesList())
-                );
+                mAdapter = new InviteViewAdapter(mModel.getUsersInvitedList(), mModel);
+                binding.listSent.setAdapter(mAdapter);
             }
         });
 
+        // send friend request button
         binding.buttonNew.setOnClickListener(button -> {
-            ChatGenerator.addInvite("Dummy");
 
-            mModel.addChatListObserver(getViewLifecycleOwner(), chatList -> {
+            // get EditText and its data
+            EditText emailEditText = binding.inputContact;
+            String inviteEmail = emailEditText.getText().toString();
+
+            mModel.addInviteListObserver(getViewLifecycleOwner(), chatList -> {
                 if (view instanceof ConstraintLayout) {
-                    binding.listSent.setAdapter(
-                            new InviteViewAdapter(ChatGenerator.getInvitesList())
-                    );
+
+                    // get other user id
+                    mModel.connectGETuserID(inviteEmail);
+
+                    // post contact
+                    mModel.connectPOST(mModel.getUserID(), mModel.getOtherUserID());
+
+                    Toast.makeText(getActivity().getApplication().getBaseContext(),
+                            "Friend Request Sent!",
+                            Toast.LENGTH_LONG).show();
+
+                    // get new contact list
+                    mModel.connectGETsent();
+
+                    // clear text
+                    emailEditText.getText().clear();
+
+                    // hide keyboard
+                    InputMethodManager imm = (InputMethodManager) getActivity().
+                            getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(binding.inputContact.getWindowToken(), 0);
                 }
             });
         });

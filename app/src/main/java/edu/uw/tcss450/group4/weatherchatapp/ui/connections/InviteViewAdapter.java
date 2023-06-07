@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.uw.tcss450.group4.weatherchatapp.R;
+import edu.uw.tcss450.group4.weatherchatapp.databinding.ConnectionsInviteMenuCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.FragmentInviteCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuConnectionsCardBinding;
 import edu.uw.tcss450.group4.weatherchatapp.databinding.RecyclerMenuInviteCardBinding;
@@ -19,7 +20,8 @@ import edu.uw.tcss450.group4.weatherchatapp.ui.chat.ChatPreview;
 
 public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<ChatPreview> mInvites;
+    private static List<UserObject> mInvites;
+    private InviteViewModel mModel;
     private final int SHOW_MENU = 1;
     private final int HIDE_MENU = 2;
 
@@ -28,8 +30,9 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
      * to the actual, passed in value of real-time ChatPreview objects.
      * @param inviteViews the ArrayList of ChatPreview objects
      */
-    public InviteViewAdapter(List<ChatPreview> inviteViews) {
+    public InviteViewAdapter(List<UserObject> inviteViews, InviteViewModel model) {
         this.mInvites = inviteViews;
+        this.mModel = model;
     }
 
     @NonNull
@@ -38,7 +41,7 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         View v;
         if (viewType == SHOW_MENU) {
             v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recycler_menu_invite_card, parent, false);
+                    .inflate(R.layout.fragment_invite_card, parent, false);
             return new InviteMenuViewHolder(v);
         } else {
             return new InviteViewHolder(LayoutInflater
@@ -50,7 +53,7 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof InviteViewHolder) {
-            ((InviteViewHolder)holder).setChatPreview(mInvites.get(position));
+            ((InviteViewHolder)holder).setInviteCardText(mInvites.get(position));
             ((InviteViewHolder)holder).pressedInfo();
             ((InviteViewHolder)holder).binding.buttonMenu.setOnLongClickListener(
                     v -> {
@@ -103,10 +106,11 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         notifyDataSetChanged();
     }
 
-    public static class InviteViewHolder extends RecyclerView.ViewHolder {
+    public class InviteViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
+
         public FragmentInviteCardBinding binding;
-        private ChatPreview mChat;
+        private UserObject mUser;
 
         public InviteViewHolder(View view) {
             super(view);
@@ -114,30 +118,27 @@ public class InviteViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             binding = FragmentInviteCardBinding.bind(view);
         }
 
-        void setChatPreview(final ChatPreview chatPreview) {
-            mChat = chatPreview;
+        void setInviteCardText(final UserObject userObject) {
+            mUser = userObject;
             // shows dummy data
-            binding.textviewName.setText(chatPreview.getContact());
+            binding.textviewName.setText(mUser.getEmail());
         }
 
         void pressedInfo() {
-            Log.d("Button Pressed", "Info");
             binding.buttonInfo.setOnClickListener(view -> {
-//                Navigation.findNavController(mView).navigate(
-//                        edu.uw.tcss450.group4.weatherchatapp.ui.chat.list.ChatListFragmentDirections
-//                                .actionNavigationChatToNavigationIndividualChat(chat)
-//                );
+                Log.d("Button Pressed", "Info");
             });
         }
     }
 
     public class InviteMenuViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public RecyclerMenuInviteCardBinding binding;
+
+        public ConnectionsInviteMenuCardBinding binding;
         public InviteMenuViewHolder(View view) {
             super(view);
             mView = view;
-            binding = RecyclerMenuInviteCardBinding.bind(view);
+            binding = ConnectionsInviteMenuCardBinding.bind(view);
         }
 
         void checkDeleteChat(final int position) {
